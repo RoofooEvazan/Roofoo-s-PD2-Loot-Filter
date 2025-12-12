@@ -53,10 +53,10 @@ ItemDisplay[DRUID PELT NMAG FILTLVL>7]:
 ItemDisplay[SHIELD RARE !ID (FILTLVL>7)]:
 
 // FL8: hide unid rare daggers only
-ItemDisplay[DAGGER RARE !ID FILTLVL>7]:
+ItemDisplay[DAGGER (MAG OR RARE) ETH !ID FILTLVL>7]:
 
-// FL8: hide white Archon Staff with NO staffmods (normal+superior, eth/non-eth)
-ItemDisplay[6ws (NMAG OR SUP) FILTLVL>7 !(ANYSTAFFEQ1 OR ANYSTAFFEQ2 OR ANYSTAFFEQ3 OR ANYSTAFFEQ4 OR ANYSTAFFEQ5 OR ANYSTAFFEQ6 OR ANYSTAFFEQ7 OR ANYSTAFFEQ8 OR ANYSTAFFEQ9)]:
+// FL8: hide ALL white staves with NO staffmods (normal+superior, eth/non-eth)
+ItemDisplay[STAFF (NMAG OR SUP) FILTLVL>7 !(ANYSTAFFEQ1 OR ANYSTAFFEQ2 OR ANYSTAFFEQ3 OR ANYSTAFFEQ4 OR ANYSTAFFEQ5 OR ANYSTAFFEQ6 OR ANYSTAFFEQ7 OR ANYSTAFFEQ8 OR ANYSTAFFEQ9)]:
 
 // Eth magic weapons
 ItemDisplay[AXE 1H MAG ETH !ID (FILTLVL>7)]:
@@ -68,7 +68,7 @@ ItemDisplay[(7tr OR 7br OR 7st OR 7p7 OR 7o7 OR 7v7 OR 7s8 OR 7pa OR 7h7 OR 7wc)
 
 // Eth spears & polearms
 // 1) ALLOW magic-eth ONLY for pik / 9p9 / 7p7
-ItemDisplay[(pik OR 9p9 OR 7p7) (SPEAR OR POLEARM) MAG ETH FILTLVL>7]: %NAME%
+ItemDisplay[(pik OR 9p9 OR 7p7) (SPEAR OR POLEARM) MAG ETH FILTLVL>7]: %GRAY%[%WHITE%eth%GRAY%] %BLUE%%NAME%
 
 // 2) HIDE ALL OTHER magic-eth spears & polearms (NO EXCEPTIONS)
 ItemDisplay[(SPEAR OR POLEARM) MAG ETH FILTLVL>7 !(pik OR 9p9 OR 7p7)]:
