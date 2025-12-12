@@ -156,6 +156,8 @@ The sections below document notable changes compared to the base Kryszard filter
 - Hide magic daggers and javelins (including eth)
 - Hide non-magic, no-skill Archon staves
 - Hide rare and magic daggers (including eth)
+- Hide all rare and magic scepters (including eth)
+  
 
 **Class Bases**
 - Hide all non-magic & magic Barbarian helms (including eth)
@@ -164,6 +166,7 @@ The sections below document notable changes compared to the base Kryszard filter
 - Hide magic & rare Paladin shields (including eth)
 - Hide non-magic & superior Paladin shields,  
   excluding Vortex, Kurast, and Zakarum Shields
+- Hide all non-magic, socketed or skills druid pelts
 
 ## 📸 Screenshot Examples
 
