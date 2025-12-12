@@ -1,6 +1,7 @@
-//	Enpherno's PD2 Loot Filter for Season 12: ver 12.1.1
+//	Roofoo's PD2 Loot Filter for Season 12: ver 12.1.1
 //
-//	twitch.tv/enpherno & twitch.tv/roofooevazan
+//	Editor - twitch.tv/roofooevazan
+//	Co-Editor - twitch.tv/enpherno
 //
 //	For Casual and EndGame Players
 
@@ -15,16 +16,16 @@ ItemDisplayFilterName[]: Strict Filter - w/o Potions
 ItemDisplayFilterName[]: Max-Strictness Filter - Ultra Strict End Game
 
 //Show info about current Filter Level in description of Horadric Cube
-ItemDisplay[box]:%NAME%{%NAME%%NL%%GRAY%item.filter ver 12.1.1 %BLACK%| %GRAY% updated: 2025-12-12}%CONTINUE%
-ItemDisplay[box FILTLVL=0]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%0 - %TAN%Show All Items%NL%%TAN% Note%WHITE%: Enpherno's PD2 Loot-Filter level:%NL%}
-ItemDisplay[box FILTLVL=1]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%1 - %TAN%Hide Just Trash Items%NL%%TAN% Note%WHITE%: Enpherno's PD2 Loot-Filter level:%NL%}
-ItemDisplay[box FILTLVL=2]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%2 - %TAN%More Notify%NL%%TAN% Note%WHITE%: Enpherno's PD2 Loot-Filter level:%NL%}
-ItemDisplay[box FILTLVL=3]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%3 - %TAN%More Notify %WHITE%- %RED%w/o Potions%NL%%TAN% Note%WHITE%: Enpherno's PD2 Loot-Filter level:%NL%}
-ItemDisplay[box FILTLVL=4]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%4 - %TAN%Recommended%NL%%TAN% Note%WHITE%: Enpherno's PD2 Loot-Filter level:%NL%}
-ItemDisplay[box FILTLVL=5]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%5 - %TAN%Recommended %WHITE%- %RED%w/o Potions%NL%%TAN% Note%WHITE%: Enpherno's PD2 Loot-Filter level:%NL%}
-ItemDisplay[box FILTLVL=6]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%6 - %ORANGE%Strict Filter%NL%%TAN% Note%WHITE%: Enpherno's PD2 Loot-Filter level:%NL%}
-ItemDisplay[box FILTLVL=7]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%7 - %ORANGE%Strict Filter %WHITE%- %RED%w/o Potions%NL%%TAN% Note%WHITE%: Enpherno's PD2 Loot-Filter level:%NL%}
-ItemDisplay[box FILTLVL=8]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%8 - %RED%Max-Strictness Filter %WHITE%- %RED%Ultra Strict End Game%NL%%TAN% Note%WHITE%: Enpherno's PD2 Loot-Filter level:%NL%}
+ItemDisplay[box]:%NAME%{%NAME%%NL%%GRAY%item.filter ver 12.1.1 %BLACK%| %GRAY% updated: 2025-12-12%NL%%PURPLE%The GOAT OG Author %WHITE%-%SAGE% Kryszard%NL%%ORANGE%Editors %WHITE%-%SAGE% RoofooEvazan & Enpherno}%CONTINUE%
+ItemDisplay[box FILTLVL=0]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%0 - %TAN%Show All Items%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
+ItemDisplay[box FILTLVL=1]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%1 - %TAN%Hide Just Trash Items%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
+ItemDisplay[box FILTLVL=2]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%2 - %TAN%More Notify%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
+ItemDisplay[box FILTLVL=3]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%3 - %TAN%More Notify %WHITE%- %RED%w/o Potions%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
+ItemDisplay[box FILTLVL=4]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%4 - %TAN%Recommended%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
+ItemDisplay[box FILTLVL=5]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%5 - %TAN%Recommended %WHITE%- %RED%w/o Potions%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
+ItemDisplay[box FILTLVL=6]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%6 - %ORANGE%Strict Filter%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
+ItemDisplay[box FILTLVL=7]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%7 - %ORANGE%Strict Filter %WHITE%- %RED%w/o Potions%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
+ItemDisplay[box FILTLVL=8]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%8 - %RED%Max-Strictness Filter %WHITE%- %RED%Ultra Strict End Game%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
 
 
 // ===============================
@@ -2873,7 +2874,7 @@ ItemDisplay[cm1 MAG (HIGHVENGPFX OR (HIGHVENGSFX AND MIDVENGPFX) OR (MIDVENGPFX 
 //PD2 UBERS DCLONE/DUNGEON/RATHMA/LUCION BOSSES UNIQUES
 ItemDisplay[PD2UBERUNI1 OR PD2UBERUNI2]: %BORDER-68%%GREEN%HOLY %PURPLE%*%RED%*%ORANGE%*%YELLOW%*     %NAME%     %YELLOW%*%ORANGE%*%RED%*%PURPLE%* %GREEN%MOLY
 //GG PD2 UNIQUES
-ItemDisplay[PD2GGUNIETH1 OR PD2GGUNI1]: %BORDER-68%%ORANGE%pick %PURPLE%*%RED%*%YELLOW%*%GREEN%*     %NAME%     %GREEN%*%YELLOW%*%RED%*%PURPLE%* %ORANGE%up
+ItemDisplay[PD2GGUNIETH1 OR PD2GGUNI1]: %BORDER-68%%GREEN%pick %PURPLE%*%RED%*%YELLOW%*%GREEN%*     %NAME%     %GREEN%*%YELLOW%*%RED%*%PURPLE%* %GREEN%up
 //OK PD2 UNIQUES
 ItemDisplay[PD2OKUNIETH1 OR PD2OKUNI1 OR PD2OKUNI2]: %MAP-68%%SAGE%*%DARK_GREEN%*%GRAY%*     %NAME%%GRAY%     *%DARK_GREEN%*%SAGE%*
 //Lower Value PD2 UNIQUES
