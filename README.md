@@ -171,7 +171,7 @@ The sections below document notable changes compared to the base Kryszard filter
 [![Charm & Jewel examples](screenshots/MemeBastardSword.png)](screenshots/MemeBastardSword.png)
 
 ### Charm Notification Example
-[![Charm Notification examples](screenshots/MemeBastardSword.png)](screenshots/MemeBastardSword.png)
+[![Charm Notification examples](screenshots/DropNotifications.png)](screenshots/DropNotifications.png)
 
-### Meme Enpherno Bastard Sword Drop Example
-[![Charm & Jewel examples](screenshots/MemeBastardSword.png)](screenshots/MemeBastardSword.png)
+### Fire Golem Shop Highlight Example
+[![Fire Golem Shop Highlight example](screenshots/FGShop.png)](screenshots/FGShop.png)
