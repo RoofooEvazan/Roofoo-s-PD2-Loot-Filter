@@ -4,7 +4,7 @@
 - [Enpherno](https://twitch.tv/Enpherno)  
 - [RoofooEvazan](https://twitch.tv/RoofooEvazan)
 
-A selectively customized fork of **Kryszard’s Project Diablo 2 loot filter**.
+A selectively customized fork of **[Kryszard](https://twitch.tv/Kryszard)’s Project Diablo 2 loot filter**.
 
 This filter preserves Kryszard’s original structure and philosophy while adding **targeted late-game refinements**, stricter **FL7+/FL8+ filtering**, reduced ground clutter, and clearer base and quality visibility for end-game farming and mapping.
 
