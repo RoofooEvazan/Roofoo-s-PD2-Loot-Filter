@@ -64,7 +64,8 @@ The sections below document notable changes compared to the base Kryszard filter
 - **Goblin Toe** downgraded to ☆☆☆
 - **Silks of the Victor** upgraded to ★☆☆
 - **Plague Bearer** upgraded to ★☆☆
-
+- **Brimstone Rain** downgraded to ★★★
+  
 ---
 
 ### 🟩 ITEMS – SET
