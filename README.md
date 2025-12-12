@@ -155,7 +155,7 @@ The sections below document notable changes compared to the base Kryszard filter
 - Hide non-magic dagger bases
 - Hide magic daggers and javelins (including eth)
 - Hide non-magic, no-skill Archon staves
-- Hide rare daggers
+- Hide rare and magic daggers (including eth)
 
 **Class Bases**
 - Hide all non-magic & magic Barbarian helms (including eth)
