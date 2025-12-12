@@ -52,6 +52,12 @@ ItemDisplay[DRUID PELT NMAG FILTLVL>7]:
 // Other rare shields
 ItemDisplay[SHIELD RARE !ID (FILTLVL>7)]:
 
+// FL8: hide unid rare daggers only
+ItemDisplay[DAGGER RARE !ID FILTLVL>7]:
+
+// FL8: hide white Archon Staff with NO staffmods (normal+superior, eth/non-eth)
+ItemDisplay[6ws (NMAG OR SUP) FILTLVL>7 !(ANYSTAFFEQ1 OR ANYSTAFFEQ2 OR ANYSTAFFEQ3 OR ANYSTAFFEQ4 OR ANYSTAFFEQ5 OR ANYSTAFFEQ6 OR ANYSTAFFEQ7 OR ANYSTAFFEQ8 OR ANYSTAFFEQ9)]:
+
 // Eth magic weapons
 ItemDisplay[AXE 1H MAG ETH !ID (FILTLVL>7)]:
 ItemDisplay[JAV MAG ETH !ID (FILTLVL>7)]:
