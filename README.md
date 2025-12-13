@@ -15,12 +15,14 @@ All changes are incremental and intentional, designed to enhance high-level play
 ---
 
 ## 🔄 Changelog
+Current Version - 12.1.2 - Updated December 13, 2025
 
 The sections below document notable changes compared to the base Kryszard filter.
 
 ---
 
 ### 🟨 ITEMS – UNIQUE
+12.1.1
 - Added meme highlight to **unid Unique Bastard Swords**
 - **Uldyssian’s Awakening** downgraded to ★☆☆ (Eth remains ★★★)
 - **Whispering Mirage** downgraded to ★☆☆
@@ -65,24 +67,37 @@ The sections below document notable changes compared to the base Kryszard filter
 - **Silks of the Victor** upgraded to ★☆☆
 - **Plague Bearer** upgraded to ★☆☆
 - **Brimstone Rain** downgraded to ★★★
-  
+
+12.1.2
+- **Executioner's Justice** upgraded to ★☆☆
+- **Jade Talon** upgraded to ★☆☆
+- **Steel Pillar** downgraded to ★☆☆ (Eth remains ★★★)
+- **Widowmaker** upgraded to ★☆☆
+- **Purgatory** downgraded to ★☆☆ (Eth remains ★★★)
+
 ---
 
 ### 🟩 ITEMS – SET
+12.1.1
 - **Laying of Hands** upgraded to ★☆☆
 - **Trang-Oul’s Armor** upgraded to ★☆☆
 - **Trang-Oul’s Shield** upgraded to ★☆☆
 - **Trang-Oul’s Gloves** upgraded to ★☆☆
 - **Natalya’s Mark** downgraded to ★☆☆
 
+12.1.2
+- **Tal Rasha's Guardianship (Armor)** downgraded to ★☆☆
+
 ---
 
 ### 🟦 ITEMS – RARE
+12.1.1
 - **Rare Necromancer Heads** upgraded to ★☆☆
 
 ---
 
 ### 🛒 SHOP
+12.1.1
 - Added bold highlights to:
   - **+6 Fire Golem Wands**
   - **+5–6 Fire Golem & Fire Skill Damage (>1%) Wands**
@@ -90,6 +105,7 @@ The sections below document notable changes compared to the base Kryszard filter
 ---
 
 ### 🧿 CHARMS
+12.1.1
 - Charms now display as **teal text**
 - **Filter Level 8** hides all charms **below iLvl 90**
 - **iLvl 90 charms** gain additional blue dot indicators
@@ -98,6 +114,7 @@ The sections below document notable changes compared to the base Kryszard filter
 ---
 
 ### 💎 JEWELS
+12.1.1
 - Jewels now display as **teal text**
 - **≥ iLvl 85 jewels** gain additional dots:
   - Blue for magic
@@ -106,38 +123,48 @@ The sections below document notable changes compared to the base Kryszard filter
 ---
 
 ### 🔷 GEMS
+12.1.1
 - **Flawless Skulls** always shown on all filter levels
 
 ---
 
 ### 🔊 SOUNDS
+12.1.1
 - Replaced various drop sounds with **Path of Exile–style sounds**
 - Removed drop sounds from **1-star items**
 - ⚠️ Known issue: some sounds may skip due to priority conflicts
 
+12.1.2
+- High Rune drop sounds changed to POE sounds to ensure priority over other sounds (results of existing LOD sounds having too low priority)
+
 ---
 
 ### 🔑 UBER KEYS
+12.1.1
 - Notification color changed to **orange**
 
 ---
 
 ### 🎚 FILTER LEVEL 6 & 7
 **Armor**
+12.1.1
 - Hide all magic helms (including eth; excluding circlets)
 - Hide all magic armors (including eth)
 - Hide all magic shields (including eth)
 
 **Weapons**
+12.1.1
 - Hide all magic spears & polearms (including eth; excluding Pike / Lance / War Pike)
 - Hide all magic Amazon spears (including eth)
 
 **Class Bases**
+12.1.1
 - Hide all ethereal Druid pelts
 
 ---
 
 ### 🎚 FILTER LEVEL 7 & 8
+12.1.1
 - Hide all rare gloves
 - Hide all rare bolts
 
@@ -145,10 +172,16 @@ The sections below document notable changes compared to the base Kryszard filter
 
 ### 🎚 FILTER LEVEL 8 (STRICT)
 **Armor**
+12.1.1
 - Hide all magic & rare non-class shields (including eth)
 - Hide all magic boots, gloves, and belts (including eth)
 
+12.1.2
+- Hide all normal and exceptional armor bases excluding Gothic Plate and Linked Mail (including eth) **To be assessed further, may adjust in future versions**
+- Hide all non-magic and superior elite armor bases with less than 10% enhanced defense (including eth)
+
 **Weapons**
+12.1.1
 - Hide all non-magic, non-superior non-staff weapons
 - Hide all non-magic, non-superior non-class bases
 - Hide non-magic Phase Blades
@@ -157,9 +190,15 @@ The sections below document notable changes compared to the base Kryszard filter
 - Hide non-magic, no-skill Archon staves
 - Hide rare and magic daggers (including eth)
 - Hide all rare and magic scepters (including eth)
+
+12.1.2
+- Hide all rare and magic maces (including eth)
+- Hide all rare and magic Legend Sword/Espandon/Two-handed Sword (including eth)
+- Hide all non-magic and superior spear and polearms with less than 10% enhanced damage (including eth)
   
 
 **Class Bases**
+12.1.2
 - Hide all non-magic & magic Barbarian helms (including eth)
 - Hide magic & rare Sorceress orbs (including eth),  
   excluding Jared Stone, Swirling Crystal, Dimensional Shard
