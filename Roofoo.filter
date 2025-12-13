@@ -1,4 +1,4 @@
-//	Roofoo's PD2 Loot Filter for Season 12: ver 12.1.1
+//	Roofoo's PD2 Loot Filter for Season 12: ver 12.1.2
 //
 //	Editor - twitch.tv/roofooevazan
 //	Co-Editor - twitch.tv/enpherno
@@ -16,7 +16,7 @@ ItemDisplayFilterName[]: Strict Filter - w/o Potions
 ItemDisplayFilterName[]: Max-Strictness Filter - Ultra Strict End Game
 
 //Show info about current Filter Level in description of Horadric Cube
-ItemDisplay[box]:%NAME%{%NAME%%NL%%GRAY%item.filter ver 12.1.1 %BLACK%| %GRAY% updated: 2025-12-12%NL%%PURPLE%The GOAT OG Author %WHITE%-%SAGE% Kryszard%NL%%ORANGE%Editors %WHITE%-%SAGE% RoofooEvazan & Enpherno}%CONTINUE%
+ItemDisplay[box]:%NAME%{%NAME%%NL%%GRAY%item.filter ver 12.1.2 %BLACK%| %GRAY% updated: 2025-12-13%NL%%PURPLE%The GOAT OG Author %WHITE%-%SAGE% Kryszard%NL%%ORANGE%Editors %WHITE%-%SAGE% RoofooEvazan & Enpherno}%CONTINUE%
 ItemDisplay[box FILTLVL=0]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%0 - %TAN%Show All Items%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
 ItemDisplay[box FILTLVL=1]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%1 - %TAN%Hide Just Trash Items%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
 ItemDisplay[box FILTLVL=2]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%2 - %TAN%More Notify%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
@@ -32,80 +32,103 @@ ItemDisplay[box FILTLVL=8]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Setting
 // FILTER LEVEL 8 – STRICT HIDES
 // ===============================
 
-// Pally Shields – only allow pad / pae / paf as WHITE bases (FL8)
+// FL8: Pally Shields – only allow pad / pae / paf as WHITE bases (FL8)
 
-// Hide all OTHER white bases (normal + superior)
-ItemDisplay[(paa OR pab OR pac OR pag OR pah OR pai OR paj OR pak OR pal OR pam OR pan OR pao OR pap OR paq OR par OR pas OR pat OR pau OR pav OR paw OR pax OR pay OR paz) (NMAG OR SUP) FILTLVL>7]:
+// FL8: Hide all OTHER white bases (normal + superior)
+ItemDisplay[(paa OR pab OR pac OR pag OR pah OR pai OR paj OR pak OR pal OR pam OR pan OR pao OR pap OR paq OR par OR pas OR pat OR pau OR pav OR paw OR pax OR pay OR paz) (NMAG OR SUP) FILTLVL>7 !UNI]:
 
-// Hide magic/rare versions of pad/pae/paf too (covers UNID)
-ItemDisplay[(pad OR pae OR paf) DIN (MAG OR RARE) FILTLVL>7]:
+// FL8: Hide magic/rare versions of pad/pae/paf too (covers UNID)
+ItemDisplay[(pad OR pae OR paf) DIN (MAG OR RARE) FILTLVL>7 !UNI]:
 
-// Hide all remaining magic/rare Paladin shields (all other bases) (covers UNID)
-ItemDisplay[DIN (MAG OR RARE) FILTLVL>7 !(pad OR pae OR paf)]:
+// FL8: Hide all remaining magic/rare Paladin shields (all other bases) (covers UNID)
+ItemDisplay[DIN (MAG OR RARE) FILTLVL>7 !(pad OR pae OR paf) !UNI]:
 
-// Paladin scepters
-ItemDisplay[SCEPTER PALADIN (NMAG OR MAG OR RARE) !ID (FILTLVL>7)]:
+// FL8: Paladin scepters
+ItemDisplay[SCEPTER PALADIN (NMAG OR MAG OR RARE) !ID (FILTLVL>7) !UNI]:
+
+// FL8: Hide all axes
+ItemDisplay[(hax OR axe OR 2ax OR mpi OR wax OR lax OR bax OR btx OR gix OR 9ha OR 9ax OR 92a OR 9mp OR 9wa OR 9la OR 9ba OR 9bt OR 9gi OR 7ha OR 7ax OR 72a OR 7mp OR 7wa OR 7la OR 7ba OR 7bt OR 7gi) ETH (NMAG OR SUP OR SOCK OR MAG OR RARE) (FILTLVL>7) !UNI]:
 
 // FL8: hide all eth Paladin scepters that are white/gray (eth + non-magic/sup/socketed), incl skills/sockets
-ItemDisplay[(scp OR gsc OR wsp OR 9sc OR 9qs OR 9ws OR 7sc OR 7qs OR 7ws) ETH (NMAG OR SUP OR SOCK OR MAG OR RARE) FILTLVL>7]:
+ItemDisplay[(scp OR gsc OR wsp OR 9sc OR 9qs OR 9ws OR 7sc OR 7qs OR 7ws) ETH (NMAG OR SUP OR SOCK OR MAG OR RARE) FILTLVL>7 !UNI]:
 
-// Druid helms
+// FL8: Druid helms
 // FL8: hide all eth druid helms that are white/gray (eth + non-magic/sup/socketed), incl skills/sockets
-ItemDisplay[(dr1 OR dr2 OR dr3 OR dr4 OR dr5 OR dr6 OR dr7 OR dr8 OR dr9 OR dra OR drb OR drc OR drd OR dre OR drf) ETH (NMAG OR SUP OR SOCK) FILTLVL>7]:
+ItemDisplay[(dr1 OR dr2 OR dr3 OR dr4 OR dr5 OR dr6 OR dr7 OR dr8 OR dr9 OR dra OR drb OR drc OR drd OR dre OR drf) (ETH OR !ETH) (NMAG OR SUP OR SOCK) FILTLVL>7 !UNI]:
 
-ItemDisplay[DRUID PELT NMAG FILTLVL>7]:
+ItemDisplay[DRUID PELT NMAG FILTLVL>7 !UNI]:
 
 // FL8: hard-hide specific club bases (all qualities, eth/non-eth)
-ItemDisplay[(clb OR pcl OR 7cl OR spc OR 9sp OR 7sp) FILTLVL>7]:
+ItemDisplay[(clb OR pcl OR 7cl OR spc OR 9sp OR 7sp) FILTLVL>7 !UNI]:
 
 // FL8: hide all rare daggers (ID + UNID)
-ItemDisplay[DAGGER RARE FILTLVL>7]:
+ItemDisplay[DAGGER RARE FILTLVL>7 !UNI]:
 
 // FL8: hide all non-magic/superior/socketed dagger bases (white + gray), incl sockets
-ItemDisplay[DAGGER (NMAG OR SUP OR SOCK) FILTLVL>7]:
+ItemDisplay[DAGGER (NMAG OR SUP OR SOCK) FILTLVL>7 !UNI]:
 
-// Other rare shields
-ItemDisplay[SHIELD RARE !ID (FILTLVL>7)]:
+// FL8: Other rare shields excluding necro heads
+ItemDisplay[(buc OR sml OR lrg OR spk OR kit OR bsh OR tow OR gts OR xuc OR xml OR xrg OR xpk OR xit OR xsh OR xow OR xts OR uuc OR uml OR urg OR upk OR uit OR ush OR uow OR uts OR pa1 OR pa2 OR pa3 OR pa4 OR pa5 OR pa6 OR pa7 OR pa8 OR pa9 OR paa OR pab OR pac) RARE !ID (FILTLVL>7) !UNI]:
 
 // FL8: hide unid rare daggers only
-ItemDisplay[DAGGER (MAG OR RARE) ETH !ID FILTLVL>7]:
+ItemDisplay[DAGGER (MAG OR RARE) ETH !ID FILTLVL>7 !UNI]:
 
 // FL8: hide ALL white staves with NO staffmods (normal+superior, eth/non-eth)
-ItemDisplay[STAFF (NMAG OR SUP) FILTLVL>7 !(ANYSTAFFEQ1 OR ANYSTAFFEQ2 OR ANYSTAFFEQ3 OR ANYSTAFFEQ4 OR ANYSTAFFEQ5 OR ANYSTAFFEQ6 OR ANYSTAFFEQ7 OR ANYSTAFFEQ8 OR ANYSTAFFEQ9)]:
+ItemDisplay[STAFF (NMAG OR SUP) FILTLVL>7 !(ANYSTAFFEQ1 OR ANYSTAFFEQ2 OR ANYSTAFFEQ3 OR ANYSTAFFEQ4 OR ANYSTAFFEQ5 OR ANYSTAFFEQ6 OR ANYSTAFFEQ7 OR ANYSTAFFEQ8 OR ANYSTAFFEQ9) !UNI]:
 
-// Eth magic weapons
-ItemDisplay[AXE 1H MAG ETH !ID (FILTLVL>7)]:
-ItemDisplay[JAV MAG ETH !ID (FILTLVL>7)]:
-ItemDisplay[SWORD 1H MAG ETH !ID (FILTLVL>7)]:
+// FL8: hide these 2H sword bases if magic or rare (eth or non-eth), excluding uniques
+ItemDisplay[(72h OR 92h OR 2hs) (MAG OR RARE) FILTLVL>7 !UNI]:
+
+// FL8: hide these 2H sword bases if white/gray (eth or non-eth), excluding uniques
+ItemDisplay[(72h OR 92h OR 2hs) (NMAG OR SUP OR SOCK) FILTLVL>7 !UNI]:
+
+// FL8: Eth magic weapons
+ItemDisplay[AXE 1H MAG ETH !ID (FILTLVL>7) !UNI]:
+ItemDisplay[JAV MAG ETH !ID (FILTLVL>7) !UNI]:
+ItemDisplay[SWORD 1H MAG ETH !ID (FILTLVL>7) !UNI]:
+ItemDisplay[MACE MAG ETH !ID (FILTLVL>7) !UNI]:
+
+// FL8: SHOW LIST: only show if WHITE/GRAY (normal/superior/socketed), eth or non-eth, and 10%+ Enhanced Defense
+ItemDisplay[(gth OR aar OR xng OR uui OR uea OR ula OR utu OR ung OR ucl OR uhn OR urs OR upl OR ult OR uld OR uth OR utp OR uul OR uar) (NMAG OR SUP OR SOCK) FILTLVL>7 STAT16>=10]: %CONTINUE%
+
+// FL8: SHOW LIST: hide same bases if they do NOT meet 10%+ Enhanced Defense
+ItemDisplay[(gth OR aar OR xng OR uui OR uea OR ula OR utu OR ung OR ucl OR uhn OR urs OR upl OR ult OR uld OR uth OR utp OR uul OR uar) (NMAG OR SUP OR SOCK) FILTLVL>7 !(STAT16>=10)]:
+
+// FL8: HIDE LIST: always hide these bases (ALL qualities, eth/non-eth, no exceptions)
+ItemDisplay[(qui OR lea OR hla OR stu OR rng OR scl OR chn OR brs OR spl OR plt OR fld OR ltp OR ful OR xui OR xea OR xla OR xtu OR xcl OR xhn OR xrs OR xpl OR xlt OR xld OR xth OR xtp OR xul OR xar) FILTLVL>7]:
 
 // FL8: ALWAYS SHOW these spear/polearm bases if WHITE and 10%+ ED
 ItemDisplay[(7tr OR 7br OR 7st OR 7p7 OR 7o7 OR 7v7 OR 7s8 OR 7pa OR 7h7 OR 7wc) (SPEAR OR POLEARM) (NMAG OR SUP) FILTLVL>7 (STAT25>=10 OR STAT17>=10 OR STAT18>=10)]: %CONTINUE%
 
-// Eth spears & polearms
+// FL8: SHOW spear/polearm bases ONLY if white/gray and 4–5 sockets (eth or non-eth)
+ItemDisplay[(SPEAR OR POLEARM) (NMAG OR SUP OR SOCK) (SOCKETS=4 OR SOCKETS=5) FILTLVL>7 !UNI]: %CONTINUE%
+
+// FL8: HIDE spear/polearm bases if white/gray and 0–3 sockets (eth or non-eth)
+ItemDisplay[(SPEAR OR POLEARM) (NMAG OR SUP OR SOCK) (SOCKETS=0 OR SOCKETS=1 OR SOCKETS=2 OR SOCKETS=3) FILTLVL>7 !UNI]:
+
+// FL8: Eth spears & polearms
 // 1) ALLOW magic-eth ONLY for pik / 9p9 / 7p7
 ItemDisplay[(pik OR 9p9 OR 7p7) (SPEAR OR POLEARM) MAG ETH FILTLVL>7]: %GRAY%[%WHITE%eth%GRAY%] %BLUE%%NAME%
 
-// Eth spears & polearms
+// FL8: Eth spears & polearms
 // 1) ALLOW magic-eth ONLY for pik / 9p9 / 7p7
 ItemDisplay[(pik OR 9p9 OR 7p7) (SPEAR OR POLEARM) RARE ETH FILTLVL>7]: %GRAY%[%WHITE%eth%GRAY%] %YELLOW%%NAME%
 
 // 2) HIDE ALL OTHER magic-eth spears & polearms (NO EXCEPTIONS)
-ItemDisplay[(SPEAR OR POLEARM) MAG ETH FILTLVL>7 !(pik OR 9p9 OR 7p7)]:
+ItemDisplay[(SPEAR OR POLEARM) MAG ETH FILTLVL>7 !(pik OR 9p9 OR 7p7) !UNI]:
 
 // 3) HIDE ALL remaining eth spears & polearms EXCEPT our allowed ED bases
-ItemDisplay[(SPEAR OR POLEARM) ETH FILTLVL>7 !(7tr OR 7br OR 7st OR 7p7 OR 7o7 OR 7v7 OR 7s8 OR 7pa OR 7h7 OR 7wc)]:
+ItemDisplay[(SPEAR OR POLEARM) ETH FILTLVL>7 !(7tr OR 7br OR 7st OR 7p7 OR 7o7 OR 7v7 OR 7s8 OR 7pa OR 7h7 OR 7wc) !UNI]:
 
-// Eth mag/rare orbs
+// FL8: Eth mag/rare orbs
 ItemDisplay[(ob5 OR oba OR obf) (MAG OR RARE) ETH (FILTLVL>7)]: %NAME%
-ItemDisplay[(ob1 OR ob2 OR ob3 OR ob4 OR ob5 OR ob6 OR ob7 OR ob8 OR ob9 OR oba OR obb OR obc OR obd OR obe OR obf) (MAG OR RARE) ETH (FILTLVL>7)]:
+ItemDisplay[(ob1 OR ob2 OR ob3 OR ob4 OR ob5 OR ob6 OR ob7 OR ob8 OR ob9 OR oba OR obb OR obc OR obd OR obe OR obf) (MAG OR RARE) ETH (FILTLVL>7) !UNI]:
 
-// Wands
-ItemDisplay[WAND (NMAG OR MAG) !ID (FILTLVL>7)]:
+// FL8: Hide non-magic or magic Wands
+ItemDisplay[WAND (NMAG OR MAG) !ID (FILTLVL>7) !UNI]:
 
-// Barb helms
-ItemDisplay[(ba1 OR ba2 OR ba3 OR ba4 OR ba5 OR ba6 OR ba7 OR ba8 OR ba9 OR baa OR bab OR bac OR bad OR bae OR baf) (NMAG OR MAG OR RARE) (FILTLVL>7)]:
-
-
+// FL8: Hide all Barb helms
+ItemDisplay[(ba1 OR ba2 OR ba3 OR ba4 OR ba5 OR ba6 OR ba7 OR ba8 OR ba9 OR baa OR bab OR bac OR bad OR bae OR baf) (NMAG OR MAG OR RARE) (FILTLVL>7) !UNI]:
 
 
 //DEFINE ALIASES
