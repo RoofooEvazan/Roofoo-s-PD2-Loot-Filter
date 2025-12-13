@@ -74,6 +74,7 @@ The sections below document notable changes compared to the base Kryszard filter
 - **Steel Pillar** downgraded to ★☆☆ (Eth remains ★★★)
 - **Widowmaker** upgraded to ★☆☆
 - **Purgatory** downgraded to ★☆☆ (Eth remains ★★★)
+- Fixed an issue which was causing eth unique spears and polearms to hide but make the drop sound
 
 ---
 
