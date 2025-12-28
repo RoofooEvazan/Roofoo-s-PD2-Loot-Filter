@@ -1,4 +1,4 @@
-//	Roofoo's PD2 Loot Filter for Season 12: ver 12.1.4
+//	Roofoo's PD2 Loot Filter for Season 12: ver 12.1.5
 //
 //	Editor - twitch.tv/roofooevazan
 //	Co-Editor - twitch.tv/enpherno
@@ -16,7 +16,7 @@ ItemDisplayFilterName[]: Strict Filter - w/o Potions
 ItemDisplayFilterName[]: Max-Strictness Filter - Ultra Strict End Game
 
 //Show info about current Filter Level in description of Horadric Cube
-ItemDisplay[box]:%NAME%{%NAME%%NL%%GRAY%item.filter ver 12.1.4 %BLACK%| %GRAY% updated: 2025-12-21%NL%%PURPLE%The GOAT OG Author %WHITE%-%SAGE% Kryszard%NL%%ORANGE%Editors %WHITE%-%SAGE% RoofooEvazan & Enpherno}%CONTINUE%
+ItemDisplay[box]:%NAME%{%NAME%%NL%%GRAY%item.filter ver 12.1.5 %BLACK%| %GRAY% updated: 2025-12-28%NL%%PURPLE%The GOAT OG Author %WHITE%-%SAGE% Kryszard%NL%%ORANGE%Editors %WHITE%-%SAGE% RoofooEvazan & Enpherno}%CONTINUE%
 ItemDisplay[box FILTLVL=0]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%0 - %TAN%Show All Items%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
 ItemDisplay[box FILTLVL=1]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%1 - %TAN%Hide Just Trash Items%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
 ItemDisplay[box FILTLVL=2]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%2 - %TAN%More Notify%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
@@ -27,132 +27,212 @@ ItemDisplay[box FILTLVL=6]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Setting
 ItemDisplay[box FILTLVL=7]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%7 - %ORANGE%Strict Filter %WHITE%- %RED%w/o Potions%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
 ItemDisplay[box FILTLVL=8]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%8 - %RED%Max-Strictness Filter %WHITE%- %RED%Ultra Strict End Game%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
 
+// ===============================
+// FILTER LEVEL 8 – STRICT HIDES (ROOFOO RULESET)
+// ===============================
+// Goal (FILTLVL=8):
+//  - UNI/SET/RW always exempt (never filtered).
+//  - MAG/RARE identified always show everywhere (formatting handled later in filter).
+//  - In TOWN/SHOP: show everything (including all UNID bases) so you can browse/compare; formatting handled later.
+//  - Outside TOWN/SHOP: only UNID items are evaluated by the FL8 hide/show lists below.
+//    * If “Show”: item remains visible and continues to later formatting rules.
+//    * If “Hide”: item name is blanked (invisible label on ground/inventory).
+// NOTE: All entries are single-line.
+
+// ---- FL8 GLOBAL GUARDS ----
+Alias[FL8_ACTIVE]: (FILTLVL=8)
+Alias[FL8_EXEMPT]: (UNI OR SET OR RW)
+Alias[FL8_INTOWN]: (TOWN OR SHOP)
+Alias[FL8_OUTSIDE]: (!TOWN !SHOP)
+Alias[FL8_UNID]: (!ID)
+Alias[FL8_ID_MR]: (ID (MAG OR RARE))
+
+// ---- FL8 QUICK SHOW OVERRIDES (never filter these) ----
+ItemDisplay[FL8_ACTIVE FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_ID_MR !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_INTOWN !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
 
 // ===============================
-// FILTER LEVEL 8 – STRICT HIDES
+// FL8 OUTSIDE-ONLY UNID FILTERS (HIDE/SHOW LISTS)
 // ===============================
 
-// FL8 ALIASES
-// -------------------------------
-// IMPORTANT: FL8_GUARD & FL8_GUARD_IDOK now explicitly EXCLUDES town/shop so none of these hides can ever trigger there.
-Alias[FL8_GUARD]: (FILTLVL>7 !UNI !RW !SET !ID !TOWN !SHOP)
-Alias[FL8_GUARD_IDOK]: (FILTLVL>7 !UNI !RW !SET !TOWN !SHOP)
-Alias[FL8_SPEARPOLE_ED10]: (STAT25>=10 OR STAT17>=10 OR STAT18>=10)
-Alias[FL8_WEAPON_ED10]:    (STAT25>=10 OR STAT17>=10 OR STAT18>=10)
-Alias[FL8_PALLY_WHITE_OK]: (pad OR pae OR paf)
-Alias[FL8_PALLY_ALL_CODES]: (paa OR pab OR pac OR pag OR pah OR pai OR paj OR pak OR pal OR pam OR pan OR pao OR pap OR paq OR par OR pas OR pat OR pau OR pav OR paw OR pax OR pay OR paz)
-Alias[FL8_PALLY_WHITE_HIDE]: (FL8_PALLY_ALL_CODES !(FL8_PALLY_WHITE_OK))
-Alias[FL8_AXE_CODES]: (hax OR axe OR 2ax OR mpi OR wax OR lax OR bax OR btx OR gix OR 9ha OR 9ax OR 92a OR 9mp OR 9wa OR 9la OR 9ba OR 9bt OR 9gi OR 7ha OR 7ax OR 72a OR 7mp OR 7wa OR 7la OR 7ba OR 7bt OR 7gi)
-Alias[FL8_SCEPT_CODES]: (scp OR gsc OR wsp OR 9sc OR 9qs OR 9ws OR 7sc OR 7qs OR 7ws)
-Alias[FL8_DRUID_PELT_CODES]: (dr1 OR dr2 OR dr3 OR dr4 OR dr5 OR dr6 OR dr7 OR dr8 OR dr9 OR dra OR drb OR drc OR drd OR dre OR drf)
-Alias[FL8_CLUB_CODES]: (clb OR pcl OR 7cl OR spc OR 9sp OR 7sp)
-Alias[FL8_OTHER_SHIELD_RARE_EXCL_NECRO]: (buc OR sml OR lrg OR spk OR kit OR bsh OR tow OR gts OR xuc OR xml OR xrg OR xpk OR xit OR xsh OR xow OR xts OR uuc OR uml OR urg OR upk OR uit OR ush OR uow OR uts OR pa1 OR pa2 OR pa3 OR pa4 OR pa5 OR pa6 OR pa7 OR pa8 OR pa9 OR paa OR pab OR pac)
-Alias[FL8_STAFFMOD_OK]: (ANYSTAFFEQ1 OR ANYSTAFFEQ2 OR ANYSTAFFEQ3 OR ANYSTAFFEQ4 OR ANYSTAFFEQ5 OR ANYSTAFFEQ6 OR ANYSTAFFEQ7 OR ANYSTAFFEQ8 OR ANYSTAFFEQ9)
-Alias[FL8_2HS_CODES_MAG_RARE]: (72h OR 92h OR 2hs OR clm OR gis OR bsw OR 9cm OR 9gs OR 9b9 OR 7cm OR 7gs OR 7b7)
-Alias[FL8_2HS_CODES_SOCK]: (72h OR 92h OR 2hs OR clm OR gis OR bsw OR 9cm OR 9gs OR 9b9 OR 7cm OR 7gs OR 7b7 OR flb OR 9fb OR 7fb OR gsd OR 9gd)
-Alias[FL8_ED_SHOW_ARMOR]: (gth OR aar OR xng OR uui OR uea OR ula OR utu OR ung OR ucl OR uhn OR urs OR upl OR ult OR uld OR uth OR utp OR uul OR uar)
-Alias[FL8_ALWAYS_HIDE_ARMOR]: (qui OR lea OR hla OR stu OR rng OR scl OR chn OR brs OR spl OR plt OR fld OR ltp OR ful OR xui OR xea OR xla OR xtu OR xcl OR xhn OR xrs OR xpl OR xlt OR xld OR xth OR xtp OR xul OR xar)
-Alias[FL8_SPEARPOLE_ED_OK_CODES]: (7tr OR 7br OR 7st OR 7p7 OR 7o7 OR 7v7 OR 7s8 OR 7pa OR 7h7 OR 7wc)
-Alias[FL8_SPEARPOLE_MAGETH_OK]: (pik OR 9p9 OR 7p7)
-Alias[FL8_ORB_CODES_ALL]: (ob1 OR ob2 OR ob3 OR ob4 OR ob5 OR ob6 OR ob7 OR ob8 OR ob9 OR oba OR obb OR obc OR obd OR obe OR obf)
-Alias[FL8_BARB_HELM_CODES]: (ba1 OR ba2 OR ba3 OR ba4 OR ba5 OR ba6 OR ba7 OR ba8 OR ba9 OR baa OR bab OR bac OR bad OR bae OR baf)
-Alias[FL8_THROW_CODES]: (tkf OR tax OR bkf OR bal OR 9tk OR 9ta OR 9bk OR 9b8 OR 7tk OR 7ta OR 7bk OR 7b8 OR jav OR pil OR ssp OR glv OR tsp OR 9ja OR 9pi OR 9s9 OR 9gl OR 9ts OR 7ja OR 7pi OR 7s7 OR 7gl OR 7ts)
+// ---- ARMOR BASES (UNID, OUTSIDE) ----
 
+// Helms: SHOW only (urn OR uhm OR uh9 OR usk) with ED>10 and (SOCK=0 OR SOCK=3)
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (urn OR uhm OR uh9 OR usk) (NMAG OR SUP) ED>10 (SOCK=0 OR SOCK=3) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (urn OR uhm OR uh9 OR usk) (NMAG OR SUP) !(ED>10 (SOCK=0 OR SOCK=3)) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (cap OR skp OR hlm OR fhl OR msk OR bhm OR ghm OR crn OR xap OR xkp OR xlm OR xhl OR xsk OR xh9 OR xhm OR xrn OR uap OR ukp OR ulm OR uhl) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
 
-// FL8 PALADIN SHIELDS
-// -------------------------------
-ItemDisplay[FL8_PALLY_WHITE_HIDE (NMAG OR SUP) FL8_GUARD]:
-ItemDisplay[FL8_PALLY_WHITE_OK DIN (MAG OR RARE) FL8_GUARD]:
-ItemDisplay[DIN (MAG OR RARE) FL8_GUARD !(FL8_PALLY_WHITE_OK)]:
+// Circlets (white): SHOW only Diadem (ci3) NMAG !SUP SOCK=0 ; hide other circlets
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE ci3 NMAG !SUP SOCK=0 !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (ci0 OR ci1 OR ci2) NMAG !FL8_EXEMPT]:
 
-// FL8 PALADIN SCEPTERS
-// -------------------------------
-ItemDisplay[SCEPTER PALADIN (NMAG OR MAG OR RARE) !ID FL8_GUARD]:
-ItemDisplay[FL8_SCEPT_CODES ETH (NMAG OR SUP OR SOCK OR MAG OR RARE) FL8_GUARD]:
+// Chest: SHOW listed elites with ED>10 and (SOCK=0 OR SOCK=3 OR SOCK=4)
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (gth OR aar OR xng OR uui OR uea OR ula OR utu OR ung OR ucl OR uhn OR urs OR upl OR ult OR uld OR uth OR utp OR uul OR uar) (NMAG OR SUP) ED>10 (SOCK=0 OR SOCK=3 OR SOCK=4) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (gth OR aar OR xng OR uui OR uea OR ula OR utu OR ung OR ucl OR uhn OR urs OR upl OR ult OR uld OR uth OR utp OR uul OR uar) (NMAG OR SUP) !(ED>10 (SOCK=0 OR SOCK=3 OR SOCK=4)) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (qui OR lea OR hla OR stu OR rng OR scl OR chn OR brs OR spl OR plt OR fld OR ltp OR ful OR xui OR xea OR xla OR xtu OR xcl OR xhn OR xrs OR xpl OR xlt OR xld OR xth OR xtp OR xul OR xar) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
 
-//   FL8 AXES
-//---------------------------------
-ItemDisplay[AXE 2H ETH (NMAG OR SUP OR SOCK) SOCKETS=5 FL8_GUARD FL8_WEAPON_ED10]: %CONTINUE%
-ItemDisplay[FL8_AXE_CODES ETH (NMAG OR SUP OR SOCK OR MAG OR RARE) FL8_GUARD !(AXE 2H (NMAG OR SUP OR SOCK) SOCKETS=5 FL8_WEAPON_ED10)]:
+// Non-Pally Shields: SHOW (uit OR uow) with ED>10, NON-ETH, (SOCK=0 OR SOCK=4)
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (uit OR uow) (NMAG OR SUP) ED>10 !ETH (SOCK=0 OR SOCK=4) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (uit OR uow) (NMAG OR SUP) !(ED>10 !ETH (SOCK=0 OR SOCK=4)) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (bux OR sml OR lrg OR spk OR kit OR bah OR tow OR gts OR xuc OR xml OR xrg OR xpk OR xit OR xsh OR xow OR xts OR uuc OR uml OR urg OR upk OR ush OR uts) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
 
-//   FL8 PHASE BLADES & Crystal Swords
-//---------------------------------
-ItemDisplay[7cr (NMAG OR SUP OR SOCK) (SOCKETS=0 OR SOCKETS=4 OR SOCKETS=5) FL8_GUARD FL8_WEAPON_ED10]: %CONTINUE%
-ItemDisplay[crs (NMAG OR SUP OR SOCK) (SOCKETS=0 OR SOCKETS=4 OR SOCKETS=5) FL8_GUARD_IDOK]: %NAME%%CONTINUE%
-ItemDisplay[7cr NMAG !SUP SOCKETS=0 FL8_GUARD_IDOK]:
+// Pally Shields: SHOW (pad OR pae OR paf) with ED>10 and (SOCK=0 OR SOCK=3 OR SOCK=4) and (ED>60 OR RES>25)
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (pad OR pae OR paf) (NMAG OR SUP) ED>10 (SOCK=0 OR SOCK=3 OR SOCK=4) (ED>60 OR RES>25) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (pad OR pae OR paf) (NMAG OR SUP) !(ED>10 (SOCK=0 OR SOCK=3 OR SOCK=4) (ED>60 OR RES>25)) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (pa1 OR pa2 OR pa3 OR pa4 OR pa5 OR pa6 OR pa7 OR pa8 OR pa9 OR paa OR pab OR pac) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
 
-// FL8 DRUID PELTS
-//---------------------------------
-ItemDisplay[FL8_DRUID_PELT_CODES (NMAG OR SUP OR MAG OR RARE) FL8_GUARD_IDOK]:
+// Always hide these BASE categories (any sockets / eth / non-eth)
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (lgl OR vgl OR mgl OR tgl OR hgl OR xlg OR xvg OR xmg OR xtg OR xhg OR ulg OR uvg OR umg OR utg OR uhg) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (lbt OR vbt OR mbt OR tbt OR hbt OR xlb OR xvb OR xmb OR xtb OR xhb OR ulb OR uvb OR umb OR utb OR uhb) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (lbl OR vbl OR mbl OR tbl OR hbl OR zlb OR zvb OR zmb OR ztb OR zhb OR ulc OR uvc OR umc OR utc OR uhc) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (ba1 OR ba2 OR ba3 OR ba4 OR ba5 OR ba6 OR ba7 OR ba8 OR ba9 OR baa OR bab OR bac OR bad OR baf OR bae) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (dr1 OR dr2 OR dr3 OR dr4 OR dr5 OR dr6 OR dr7 OR dr8 OR dr9 OR dra OR drb OR drc OR drd OR dre OR drf) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (ne1 OR ne2 OR ne3 OR ne4 OR ne5 OR ne6 OR ne7 OR ne8 OR ne9 OR nea OR neb OR nec OR ned OR nee OR nef) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
 
-//   FL8 CLUB BASES
-//---------------------------------
-ItemDisplay[FL8_CLUB_CODES FL8_GUARD]:
+// ---- WEAPON BASES (UNID, OUTSIDE) ----
 
-//   FL8 DAGGERS
-//---------------------------------
-ItemDisplay[DAGGER RARE FL8_GUARD]:
-ItemDisplay[DAGGER (NMAG OR SUP OR SOCK) FL8_GUARD]:
-ItemDisplay[DAGGER (MAG OR RARE) ETH !ID FL8_GUARD]:
+// Axes (bases): SHOW only Ettin Axe (72a) with ED>10 ETH and (SOCK=0 OR SOCK=5)
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE 72a (NMAG OR SUP) ETH ED>10 (SOCK=0 OR SOCK=5) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (hax OR axe OR 2ax OR mpi OR wax OR lax OR bax OR btx OR gax OR gix OR 9ha OR 9ax OR 92a OR 9mp OR 9wa OR 9la OR 9ba OR 9bt OR 9ga OR 9gi OR 7ha OR 7ax OR 7mp OR 7wa OR 7la OR 7ba OR 7bt OR 7ga OR 7gi) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
 
-//   FL8 THROWING WEAPONS
-//---------------------------------
-ItemDisplay[FL8_THROW_CODES (NMAG OR SUP OR SOCK) FL8_GUARD]:
+// Maces (bases): SHOW Ogre Maul (7m7) and Thunder Maul (7gm) with ED>10 ETH and (SOCK=0 OR SOCK=6)
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (7m7 OR 7gm) (NMAG OR SUP) ETH ED>10 (SOCK=0 OR SOCK=6) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (clb OR spc OR mac OR mst OR fla OR whm OR mau OR gma OR 9cl OR 9sp OR 9ma OR 9mt OR 9fl OR pwh OR 9m9 OR 9gm OR 7cl OR 7sp OR 7ma OR 7mt OR 7fl OR 7wh) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
 
-//   FL8 OTHER RARE SHIELDS
-//---------------------------------
-ItemDisplay[FL8_OTHER_SHIELD_RARE_EXCL_NECRO RARE !ID FL8_GUARD]:
+// 1H Swords (bases): SHOW Phase Blade (7cr) with ED>10 NON-ETH and (SOCK=0 OR SOCK=4 OR SOCK=5)
+// FL8 – Phase Blade (7cr): hide all by default
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE 7cr (NMAG OR SUP OR INF) !FL8_EXEMPT]:
 
-//   FL8 STAVES (no staffmods)
-//---------------------------------
-ItemDisplay[STAFF (NMAG OR SUP) !(FL8_STAFFMOD_OK) FL8_GUARD]:
-ItemDisplay[STAFF (NMAG OR SUP) !(FL8_STAFFMOD_OK) FL8_GUARD_IDOK]:
+// FL8 – Phase Blade (7cr): show only ED>10 and (unsocketed OR 4os OR 5os) — no CONTINUE
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE 7cr (NMAG OR SUP) !ETH (STAT25>10 OR STAT17>10 OR STAT18>10) (!SOCK OR SOCK=4 OR SOCK=5) !FL8_EXEMPT]: %NAME%{%NAME%}
 
-//   FL8 2H SWORDS
-//---------------------------------
-ItemDisplay[FL8_2HS_CODES_MAG_RARE (MAG OR RARE) FL8_GUARD]:
-ItemDisplay[FL8_2HS_CODES_SOCK (NMAG OR SUP OR SOCK) FL8_GUARD !(STAT16>9)]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (ssd OR scm OR sbr OR flc OR crs OR bsd OR lsd OR wsd OR 9wd OR 9ls OR 9bs OR 9cr OR 9fc OR 9sb OR 9sm OR 9ss OR 7ss OR 7sm OR 7sb OR 7fc OR 7bs OR 7ls OR 7wd) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
 
-//   FL8 ETH MAGIC WEAPONS
-//---------------------------------
-ItemDisplay[AXE 1H MAG ETH !ID FL8_GUARD]:
-ItemDisplay[JAV MAG ETH !ID FL8_GUARD]:
-ItemDisplay[SWORD 1H MAG ETH !ID FL8_GUARD]:
-ItemDisplay[MACE MAG ETH !ID FL8_GUARD]:
+// 2H Swords (bases): SHOW Colossus Blade (7gd) with ED>10 ETH and (SOCK=0 OR SOCK=5 OR SOCK=6), and SHOW Colossus Sword (7fb) with ED>14 NON-ETH and (SOCK=0 OR SOCK=5)
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE 7gd (NMAG OR SUP) ETH ED>10 (SOCK=0 OR SOCK=5 OR SOCK=6) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE 7fb (NMAG OR SUP) !ETH ED>14 (SOCK=0 OR SOCK=5) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (2hs OR clm OR gis OR bsw OR flb OR gsd OR 92h OR 9cm OR 9gs OR 9b9 OR 9fb OR 9gd OR 72h OR 7cm OR 7gs OR 7b7) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
 
-//   FL8 ELITE ARMOR BASE FILTERING BY ED
-//---------------------------------
-ItemDisplay[FL8_ED_SHOW_ARMOR (NMAG OR SUP OR SOCK) (SOCKETS=0 OR SOCKETS=4) FL8_GUARD STAT16>=10]: %CONTINUE%
-ItemDisplay[FL8_ED_SHOW_ARMOR (NMAG OR SUP OR SOCK) FL8_GUARD !(STAT16>=10 (SOCKETS=0 OR SOCKETS=4))]:
-ItemDisplay[FL8_ALWAYS_HIDE_ARMOR FL8_GUARD]:
+// Spears (bases): SHOW (7tr OR 7br OR 7st OR 7p7) with ED>10 ETH and (SOCK=0 OR SOCK=4 OR SOCK=5)
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (7tr OR 7br OR 7st OR 7p7) (NMAG OR SUP) ETH ED>10 (SOCK=0 OR SOCK=4 OR SOCK=5) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (spr OR tri OR brn OR spt OR pik OR 9sr OR 9tr OR 9br OR 9st OR 9p9 OR 7sr) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
 
-//   SPEARS & POLEARMS
-//---------------------------------
-ItemDisplay[FL8_SPEARPOLE_ED_OK_CODES (SPEAR OR POLEARM) (NMAG OR SUP) FL8_GUARD FL8_SPEARPOLE_ED10]: %CONTINUE%
-ItemDisplay[FL8_SPEARPOLE_ED_OK_CODES (SPEAR OR POLEARM) ETH (NMAG OR SUP OR SOCK) (SOCKETS=0 OR SOCKETS=4) FL8_GUARD FL8_SPEARPOLE_ED10]: %CONTINUE%
-ItemDisplay[(SPEAR OR POLEARM) (NMAG OR SUP OR SOCK) (SOCKETS=4 OR SOCKETS=5) FL8_GUARD]: %CONTINUE%
-ItemDisplay[(SPEAR OR POLEARM) (NMAG OR SUP OR SOCK) (SOCKETS=0 OR SOCKETS=1 OR SOCKETS=2 OR SOCKETS=3) FL8_GUARD !(FL8_SPEARPOLE_ED_OK_CODES ETH (SOCKETS=0 OR SOCKETS=4) FL8_SPEARPOLE_ED10)]:
+// Polearms (bases): SHOW (7o7 OR 7vo OR 7s8 OR 7pa OR 7h7 OR 7wc) with ED>10 ETH and (SOCK=0 OR SOCK=4 OR SOCK=5)
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (7o7 OR 7vo OR 7s8 OR 7pa OR 7h7 OR 7wc) NMAG SUP ETH ED>9 (SOCK=0 OR SOCK=4 OR SOCK=5) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (7o7 OR 7vo OR 7s8 OR 7pa OR 7h7 OR 7wc) (NMAG OR SUP OR INF) !((SUP ED>9) ETH (SOCK=0 OR SOCK=4 OR SOCK=5)) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (bar OR vou OR scy OR pax OR hal OR wsc OR 9b7 OR 9vo OR 9s8 OR 9pa OR 9h9 OR 9wc) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
 
-// Keep your special “eth mag/rare OK” shows outside town as-is (these are already !SHOP, and FL8_GUARD now also excludes TOWN/SHOP)
-ItemDisplay[FL8_SPEARPOLE_MAGETH_OK (SPEAR OR POLEARM) MAG ETH FILTLVL>7 !SHOP]: %GRAY%[%WHITE%eth%GRAY%] %BLUE%%NAME%
-ItemDisplay[FL8_SPEARPOLE_MAGETH_OK (SPEAR OR POLEARM) RARE ETH FILTLVL>7 !SHOP]: %GRAY%[%WHITE%eth%GRAY%] %YELLOW%%NAME%
-ItemDisplay[(SPEAR OR POLEARM) (MAG OR RARE) ETH FL8_GUARD !(FL8_SPEARPOLE_MAGETH_OK)]:
-ItemDisplay[(SPEAR OR POLEARM) ETH FL8_GUARD !(FL8_SPEARPOLE_ED_OK_CODES)]:
+// Crossbows (bases): SHOW (6hx OR 6mx OR 6rx) with ED>10 NON-ETH and (SOCK=0 OR SOCK=4 OR SOCK=5)
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (6hx OR 6mx OR 6rx) (NMAG OR SUP) !ETH ED>10 (SOCK=0 OR SOCK=4 OR SOCK=5) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (lxb OR mxb OR hxb OR rxb OR 8lx OR 8mx OR 8hx OR 8rx OR 6lx) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
 
-//   SORC ORBS
-//---------------------------------
-ItemDisplay[(ob5 OR oba OR obf) (MAG OR RARE) ETH FILTLVL>7 !SHOP]: %NAME%
-ItemDisplay[FL8_ORB_CODES_ALL (MAG OR RARE) ETH FL8_GUARD]:
+// Always hide these BASE categories (any sockets / eth / non-eth) – daggers, throw, javs, bows, staves, wands, scepters, claws, orbs, amazon bases
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (dgr OR dir OR kri OR bld OR 9dg OR 9di OR 9kr OR 9bl OR 7dg OR 7di OR 7kr OR 7bl) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (tkf OR tax OR bkf OR bal OR 9tk OR 9ta OR 9bk OR 9b8 OR 7tk OR 7ta OR 7bk OR 7b8) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (jav OR pil OR ssp OR glv OR tsp OR 9ja OR 9pi OR 9s9 OR 9gl OR 9ts OR 7ja OR 7pi OR 7s7 OR 7gl OR 7ts) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (sbw OR hbw OR lbw OR cbw OR sbb OR lbb OR swb OR lwb OR 8sb OR 8hb OR 8lb OR 8cb OR 8s8 OR 8l8 OR 8sw OR 8lw OR 6sb OR 6hb OR 6lb OR 6cb OR 6s7 OR 6l7 OR 6sw OR 6lw) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (sst OR lst OR cst OR bst OR wst OR 8ss OR 8ls OR 8cs OR 8bs OR 8ws OR 6ss OR 6ls OR 6cs OR 6bs OR 6ws) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (wnd OR 9wn OR 7wn OR ywn OR 9yw OR 7yw OR bwn OR 9bw OR 7bw OR gwn OR 9gw OR 7gw) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (scp OR gsc OR wsp OR 9sc OR 9qs OR 9ws OR 7sc OR 7qs OR 7ws) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (ktr OR wrb OR axf OR ces OR clw OR btl OR skr OR 9ar OR 9wb OR 9xf OR 9cs OR 9lw OR 9tw OR 9qr OR 7ar OR 7wb OR 7xf OR 7cs OR 7lw OR 7tw OR 7qr) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (ob1 OR ob2 OR ob3 OR ob4 OR ob5 OR ob6 OR ob7 OR ob8 OR ob9 OR oba OR obb OR obc OR obd OR obe OR obf) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (amb OR amc OR am1 OR am2 OR am3 OR am4 OR am5 OR am6 OR am7 OR am8 OR am9 OR ama OR ame OR amf) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
 
-//   WANDS
-//---------------------------------
-ItemDisplay[WAND (NMAG OR MAG) !ID FL8_GUARD]:
+// ---- ARMOR RARES & MAG (UNID, OUTSIDE) ----
 
-//   BARB HELMS
-//---------------------------------
-ItemDisplay[FL8_BARB_HELM_CODES (NMAG OR SUP OR MAG OR RARE) FL8_GUARD_IDOK]:
+// Helms (MAG/RARE): hide all
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (cap OR skp OR hlm OR fhl OR msk OR bhm OR ghm OR crn OR xap OR xkp OR xlm OR xhl OR xsk OR xh9 OR xhm OR xrn OR uap OR ukp OR ulm OR uhl OR urn OR uhm OR uh9 OR usk) (MAG OR RARE) !FL8_EXEMPT]:
 
+// Circlets: RARE show all ci0-3; MAGIC show only ci2/ci3, hide ci0/ci1
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (ci0 OR ci1 OR ci2 OR ci3) RARE !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (ci2 OR ci3) MAG !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (ci0 OR ci1) MAG !FL8_EXEMPT]:
 
+// Chest (MAG/RARE): hide all
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (qui OR lea OR hla OR stu OR rng OR scl OR chn OR brs OR spl OR plt OR fld OR ltp OR ful OR xui OR xea OR xla OR xtu OR xcl OR xhn OR xrs OR xpl OR xlt OR xld OR xth OR xtp OR xul OR xar OR gth OR aar OR xng OR uui OR uea OR ula OR utu OR ung OR ucl OR uhn OR urs OR upl OR ult OR uld OR uth OR utp OR uul OR uar) (MAG OR RARE) !FL8_EXEMPT]:
+
+// Non-Pally Shields (MAG/RARE): hide all
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (bux OR sml OR lrg OR spk OR kit OR bah OR tow OR gts OR xuc OR xml OR xrg OR xpk OR xit OR xsh OR xow OR xts OR uuc OR uml OR urg OR upk OR ush OR uts OR uit OR uow) (MAG OR RARE) !FL8_EXEMPT]:
+
+// Pally Shields (MAG/RARE): hide all
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (pa1 OR pa2 OR pa3 OR pa4 OR pa5 OR pa6 OR pa7 OR pa8 OR pa9 OR paa OR pab OR pac OR pad OR pae OR paf) (MAG OR RARE) !FL8_EXEMPT]:
+
+// Gloves (MAG/RARE): hide all
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (lgl OR vgl OR mgl OR tgl OR hgl OR xlg OR xvg OR xmg OR xtg OR xhg OR ulg OR uvg OR umg OR utg OR uhg) (MAG OR RARE) !FL8_EXEMPT]:
+
+// Boots: RARE show all; MAGIC hide all
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (lbt OR vbt OR mbt OR tbt OR hbt OR xlb OR xvb OR xmb OR xtb OR xhb OR ulb OR uvb OR umb OR utb OR uhb) RARE !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (lbt OR vbt OR mbt OR tbt OR hbt OR xlb OR xvb OR xmb OR xtb OR xhb OR ulb OR uvb OR umb OR utb OR uhb) MAG !FL8_EXEMPT]:
+
+// Belts: RARE show all; MAGIC hide all
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (lbl OR vbl OR mbl OR tbl OR hbl OR zlb OR zvb OR zmb OR ztb OR zhb OR ulc OR uvc OR umc OR utc OR uhc) RARE !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (lbl OR vbl OR mbl OR tbl OR hbl OR zlb OR zvb OR zmb OR ztb OR zhb OR ulc OR uvc OR umc OR utc OR uhc) MAG !FL8_EXEMPT]:
+
+// Druid Pelts (MAG/RARE): hide all
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (dr1 OR dr2 OR dr3 OR dr4 OR dr5 OR dr6 OR dr7 OR dr8 OR dr9 OR dra OR drb OR drc OR drd OR dre OR drf) (MAG OR RARE) !FL8_EXEMPT]:
+
+// Necro Shields: RARE show all; MAGIC hide all
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (ne1 OR ne2 OR ne3 OR ne4 OR ne5 OR ne6 OR ne7 OR ne8 OR ne9 OR nea OR neb OR nec OR ned OR nee OR nef) RARE !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (ne1 OR ne2 OR ne3 OR ne4 OR ne5 OR ne6 OR ne7 OR ne8 OR ne9 OR nea OR neb OR nec OR ned OR nee OR nef) MAG !FL8_EXEMPT]:
+
+// ---- WEAPON RARES & MAG (UNID, OUTSIDE) ----
+
+// Axes (MAG/RARE): show only (gax OR 9ga OR 7ga), hide all others in list (incl 72a)
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (gax OR 9ga OR 7ga) (MAG OR RARE) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (hax OR axe OR 2ax OR mpi OR wax OR lax OR bax OR btx OR gix OR 9ha OR 9ax OR 92a OR 9mp OR 9wa OR 9la OR 9ba OR 9bt OR 9gi OR 7ha OR 7ax OR 7mp OR 7wa OR 7la OR 7ba OR 7bt OR 7gi OR 72a) (MAG OR RARE) !FL8_EXEMPT]:
+
+// Maces (MAG/RARE): show only (mau OR 9m9 OR 7m7 OR gma OR 9gm OR 7gm), hide all others
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (mau OR 9m9 OR 7m7 OR gma OR 9gm OR 7gm) (MAG OR RARE) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (clb OR spc OR mac OR mst OR fla OR whm OR mau OR gma OR 9cl OR 9sp OR 9ma OR 9mt OR 9fl OR pwh OR 9m9 OR 9gm OR 9wh OR 7cl OR 7sp OR 7ma OR 7mt OR 7fl OR 7wh) (MAG OR RARE) !FL8_EXEMPT]:
+
+// 2H Swords (MAG/RARE): show only (flb OR 9fb OR 7fb OR gsd OR 9gd OR 7gd), hide all others
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (flb OR 9fb OR 7fb OR gsd OR 9gd OR 7gd) (MAG OR RARE) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (2hs OR clm OR gis OR bsw OR 92h OR 9cm OR 9gs OR 9b9 OR 72h OR 7cm OR 7gs OR 7b7) (MAG OR RARE) !FL8_EXEMPT]:
+
+// 1H Swords (MAG/RARE): show only (crs OR 9cr) [intended for ETH], hide all others (incl 7cr)
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (crs OR 9cr) (MAG OR RARE) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (ssd OR scm OR sbr OR flc OR bsd OR lsd OR wsd OR 9wd OR 9ls OR 9bs OR 9fc OR 9sb OR 9sm OR 9ss OR 7ss OR 7sm OR 7sb OR 7fc OR 7bs OR 7ls OR 7wd OR 7cr) (MAG OR RARE) !FL8_EXEMPT]:
+
+// Daggers / Throwing / Bows / Staves / Scepters: hide all MAG/RARE
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (dgr OR dir OR kri OR bld OR 9dg OR 9di OR 9kr OR 9bl OR 7dg OR 7di OR 7kr OR 7bl) (MAG OR RARE) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (tkf OR tax OR bkf OR bal OR 9tk OR 9ta OR 9bk OR 9b8 OR 7tk OR 7ta OR 7bk OR 7b8) (MAG OR RARE) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (sbw OR hbw OR lbw OR cbw OR sbb OR lbb OR swb OR lwb OR 8sb OR 8hb OR 8lb OR 8cb OR 8s8 OR 8l8 OR 8sw OR 8lw OR 6sb OR 6hb OR 6lb OR 6cb OR 6s7 OR 6l7 OR 6sw OR 6lw) (MAG OR RARE) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (sst OR lst OR cst OR bst OR wst OR 8ss OR 8ls OR 8cs OR 8bs OR 8ws OR 6ss OR 6ls OR 6cs OR 6bs OR 6ws) (MAG OR RARE) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (scp OR gsc OR wsp OR 9sc OR 9qs OR 9ws OR 7sc OR 7qs OR 7ws) (MAG OR RARE) !FL8_EXEMPT]:
+
+// Javelins (MAG/RARE): show only (glv OR 9gl OR 7gl OR tsp OR 9ts OR 7ts), hide the rest
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (glv OR 9gl OR 7gl OR tsp OR 9ts OR 7ts) (MAG OR RARE) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (jav OR pil OR ssp OR 9ja OR 9pi OR 9s9 OR 7ja OR 7pi OR 7s7) (MAG OR RARE) !FL8_EXEMPT]:
+
+// Spears (MAG/RARE): show only (pik OR 9p9 OR 7p7), hide the rest
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (pik OR 9p9 OR 7p7) (MAG OR RARE) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (spr OR tri OR brn OR spt OR 9sr OR 9tr OR 9br OR 9st OR 7sr OR 7tr OR 7br OR 7st) (MAG OR RARE) !FL8_EXEMPT]:
+
+// Polearms (MAG/RARE): hide all
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (bar OR vou OR scy OR pax OR hal OR wsc OR 9b7 OR 9vo OR 9s8 OR 9pa OR 9h9 OR 9wc OR 7o7 OR 7vo OR 7s8 OR 7pa OR 7h7 OR 7wc) (MAG OR RARE) !FL8_EXEMPT]:
+
+// Crossbows (MAG/RARE): show only (hxb OR 8hx OR 6hx), hide the rest
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (hxb OR 8hx OR 6hx) (MAG OR RARE) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (lxb OR mxb OR rxb OR 8lx OR 8mx OR 8rx OR 6lx OR 6mx OR 6rx) (MAG OR RARE) !FL8_EXEMPT]:
+
+// Wands (MAG/RARE): show all
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (wnd OR 9wn OR 7wn OR ywn OR 9yw OR 7yw OR bwn OR 9bw OR 7bw OR gwn OR 9gw OR 7gw) (MAG OR RARE) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+
+// Assassin Claws (MAG/RARE): show only (ktr OR 9ar OR 7ar OR axf OR 9xf OR 7xf OR skr OR 9qr OR 7qr), hide the rest
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (ktr OR 9ar OR 7ar OR axf OR 9xf OR 7xf OR skr OR 9qr OR 7qr) (MAG OR RARE) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (wrb OR ces OR clw OR btl OR 9wb OR 9cs OR 9lw OR 9tw OR 7wb OR 7cs OR 7lw OR 7tw) (MAG OR RARE) !FL8_EXEMPT]:
+
+// Sorc Orbs (MAG/RARE): show only (ob5 OR oba OR obf), hide the rest
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (ob5 OR oba OR obf) (MAG OR RARE) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (ob1 OR ob2 OR ob3 OR ob4 OR ob6 OR ob7 OR ob8 OR ob9 OR obb OR obc OR obd OR obe) (MAG OR RARE) !FL8_EXEMPT]:
+
+// Amazon Bows (MAG/RARE): show (am1 OR am2 OR am6 OR am7 OR amb OR amc) and hide the rest
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (am1 OR am2 OR am6 OR am7 OR amb OR amc) (MAG OR RARE) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (am3 OR am4 OR am5 OR am8 OR am9 OR ama OR ame OR amf) (MAG OR RARE) !FL8_EXEMPT]:
+
+// Arrow/Bolt Quivers (MAG/RARE): hide all
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (cqv1 OR cqv2 OR cqv3 OR aqv1 OR aqv2 OR aqv3) (MAG OR RARE) !FL8_EXEMPT]:
 // ===============================
 // FL8 SAFETY CHECK – TOWN/SHOP ONLY
 // (Place immediately after strict hides so it’s guaranteed to run before later “global” formatting)
@@ -3013,7 +3093,7 @@ ItemDisplay[(wax OR 9wa OR 7wa OR gix OR 9gi OR 7gi OR btx OR 9bt OR 7bt OR jav 
 ItemDisplay[(wax OR 9wa OR 7wa OR gix OR 9gi OR 7gi OR btx OR 9bt OR 7bt OR jav OR 9ja OR 7ja OR pil OR 9pi OR 7pi OR ssp OR 9s9 OR 7s7 OR glv OR 9gl OR 7gl OR tsp OR 9ts OR 7ts OR gma OR 9gm OR 7gm OR whm OR 9wh OR 7wh OR mau OR 9m9 OR 7m7 OR pik OR 9p9 OR 7p7 OR gsd OR 9gd OR 7gd OR flb OR 9fb OR 7fb OR bsw OR 9b9 OR 7b7 OR gis OR 9gs OR 7gs OR tax OR 9ta OR 7ta OR 2ax OR 92a OR 72a) BARBARIAN MAG ETH !ID (ALVL>75 OR CRAFTALVL>75)]: %DOT-97%%PX-68%%NAME%
 ItemDisplay[BAR BARBARIAN RARE !ID (ALVL>70 OR CRAFTALVL>70)]: %DOT-A8%%TIER-7%%NAME%
 //Paladin
-ItemDisplay[DIN PALADIN RARE !ID (FILTLVL>7)]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[DIN PALADIN RARE !ID (FILTLVL>7)]:
 ItemDisplay[DIN PALADIN RARE !ETH !ID (ALVL>74 OR CRAFTALVL>74) FILTLVL<8]: %DOT-A8%%TIER-7%%NAME%
 ItemDisplay[DIN PALADIN MAG !ETH !ID (ALVL>74 OR CRAFTALVL>74) FILTLVL<8]: %DOT-97%%PX-68%%TIER-3%%NAME%
 //Necromancer
@@ -3053,11 +3133,11 @@ ItemDisplay[(am2 OR am7 OR amc) (MAG OR RARE) !ID (ALVL>74 OR CRAFTALVL>74)]: %N
 ItemDisplay[(ob5 OR oba OR obf) (MAG OR RARE) !ID (ALVL>59 OR CRAFTALVL>59)]: %NAME%
 
 // Hide rare Bolts (FL7+)
-ItemDisplay[(cqv1 OR cqv2 OR cqv3) RARE FILTLVL>6]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[(cqv1 OR cqv2 OR cqv3) RARE FILTLVL>6]:
 
 //Class items
 // Hide non-magic, 0-socket daggers
-ItemDisplay[DAGGER (NMAG OR MAG) SOCK=0 (FILTLVL>7)]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[DAGGER (NMAG OR MAG) SOCK=0 (FILTLVL>7)]:
 
 // Hide all magic & rare DIN scepters and shields on filter 8+
 ItemDisplay[(SCEPTER OR DIN) PALADIN (MAG OR RARE) !ID FILTLVL>7]: %NAME%
@@ -3103,7 +3183,7 @@ ItemDisplay[HELM RARE !ID FILTLVL<6]: %NAME%
 ItemDisplay[(pik OR 9p9 OR 7p7) SPEAR ETH !ID (FILTLVL>7)]: %NAME%
 
 // 2) Hide all other eth spears at FILTLVL 8+
-ItemDisplay[SPEAR ETH !ID (FILTLVL>7)]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[SPEAR ETH !ID (FILTLVL>7)]:
 
 //Rare ETH weapons
 ItemDisplay[WEAPON !(hax OR 9ha OR 7ha OR axe OR 9ax OR 7ax OR clb OR 9cl OR 7cl OR spc OR 9sp OR 7sp OR mst OR 9mt OR 7mt OR ssd OR 9ss OR 7ss OR scm OR 9sm OR 7sm OR sbr OR 9sb OR 7sb OR flc OR 9fc OR 7fc OR wsd OR 9wd OR 7wd OR dgr OR 9dg OR 7dg OR dir OR 9di OR 7di OR bld OR 9bl OR 7bl OR STAFF) RARE ETH !ID]: %NAME%
@@ -3112,7 +3192,7 @@ ItemDisplay[WEAPON !(hax OR 9ha OR 7ha OR axe OR 9ax OR 7ax OR clb OR 9cl OR 7cl
 ItemDisplay[(6hx OR 8hx OR hxb OR 6mx OR 8mx OR mxb OR 6lw OR 8lw OR lwb OR 6l7 OR 8l8 OR lbb OR 6lb OR 8lb OR lbw) RARE !ID]: %NAME%
 ItemDisplay[WEAPON !(hax OR 9ha OR 7ha OR axe OR 9ax OR 7ax OR clb OR 9cl OR 7cl OR spc OR 9sp OR 7sp OR mac OR 9ma OR 7ma OR mst OR 9mt OR 7mt OR ssd OR 9ss OR 7ss OR scm OR 9sm OR 7sm OR sbr OR 9sb OR 7sb OR flc OR 9fc OR 7fc OR wsd OR 9wd OR 7wd OR dgr OR 9dg OR 7dg OR dir OR 9di OR 7di OR bld OR 9bl OR 7bl OR STAFF OR BOW OR XBOW) RARE !ETH !ID FILTLVL<6]: %NAME%
 ItemDisplay[(BOW OR XBOW) RARE !ID (AMAZON OR FILTLVL<6)]: %NAME%
-ItemDisplay[(BOW OR XBOW) !(sbw OR 8sb OR 6sb OR hbw OR 8hb OR 6hb OR swb OR 8sw OR 6sw) RARE !ID]: %NAME%
+ItemDisplay[(BOW OR XBOW) !(sbw OR 8sb OR 6sb OR hbw OR 8hb OR 6hb OR swb OR 8sw OR 6sw) RARE !ID FILTLVL<8]: %NAME%
 ItemDisplay[STAFF RARE !ID FILTLVL<6]: %NAME%
 
 //ALL ITEM DESCRIPTIONS OPENER - DESCRIPTIONS BELOW THIS LINE
@@ -5244,8 +5324,8 @@ ItemDisplay[CRAFT]: %NAME%%ORANGE%{%NAME%}%CONTINUE%
 
 //Imbue Bases Descriptions (bases themselves moved to //Runeword Bases)
 ItemDisplay[ci3 NMAG !ETH SOCK=0]: %NAME%{%TAN%Note%WHITE%: You can %YELLOW%Imbue %WHITE%it using Charsi quest%CL%%NAME%}%CONTINUE%
-ItemDisplay[7cr NMAG SOCK=0 !PALADIN]: %NAME%{%TAN%grant a %GOLD%Legendary Weapon %TAN%of the Paladin%CL%%GRAY%Psst... %TAN%It is said that %YELLOW%Imbuing %TAN%this base may%CL%%TAN%Note%WHITE%: You can %YELLOW%Imbue %WHITE%it using Charsi quest%CL%%NAME%}%CONTINUE%
-ItemDisplay[7cr NMAG SOCK=0 PALADIN]: %NAME%{%TAN%grant a %GOLD%Legendary Weapon %TAN%of the Paladin%CL%%GRAY%Psst... %TAN%It is said that %YELLOW%Imbuing %TAN%this base may%CL%%TAN%Note%WHITE%: You can %YELLOW%Imbue %WHITE%it using Charsi quest%CL%%NAME%}%CONTINUE%
+ItemDisplay[7cr FILTLVL<8 NMAG SOCK=0 !PALADIN]: %NAME%{%TAN%grant a %GOLD%Legendary Weapon %TAN%of the Paladin%CL%%GRAY%Psst... %TAN%It is said that %YELLOW%Imbuing %TAN%this base may%CL%%TAN%Note%WHITE%: You can %YELLOW%Imbue %WHITE%it using Charsi quest%CL%%NAME%}%CONTINUE%
+ItemDisplay[7cr FILTLVL<8 NMAG SOCK=0 PALADIN]: %NAME%{%TAN%grant a %GOLD%Legendary Weapon %TAN%of the Paladin%CL%%GRAY%Psst... %TAN%It is said that %YELLOW%Imbuing %TAN%this base may%CL%%TAN%Note%WHITE%: You can %YELLOW%Imbue %WHITE%it using Charsi quest%CL%%NAME%}%CONTINUE%
 ItemDisplay[(am5 OR ama OR amf) (AMAZON OR FILTLVL<2) NMAG ETH (ALVL>59 OR CRAFTALVL>59) SOCK=0 FILTLVL<6]: %NAME%{%TAN%Note%WHITE%: You can %YELLOW%Imbue %WHITE%it using Charsi quest%CL%%NAME%}%CONTINUE%
 ItemDisplay[(7ja OR 7pi OR 7s7 OR 7gl OR 7ts OR 7ta) (BARBARIAN OR FILTLVL<2) NMAG ETH (ALVL>74 OR CRAFTALVL>74) SOCK=0 FILTLVL<6]: %NAME%{%TAN%Note%WHITE%: You can %YELLOW%Imbue %WHITE%it using Charsi quest%CL%%NAME%}%CONTINUE%
 
@@ -5307,10 +5387,10 @@ ItemDisplay[NEC (SK67>2 OR SK74>2 OR SK94>2 OR SK75>2 OR SK70>2 OR SK84>2 OR SK8
 //Weapons
 
 // Hide all non-magic daggers at filter level 8
-ItemDisplay[DAGGER (NMAG OR MAG) !ID (FILTLVL>7)]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[DAGGER (NMAG OR MAG) !ID (FILTLVL>7)]:
 
 // Hide all non-magic Phase Blades at filter level 8
-ItemDisplay[7cr (NMAG OR MAG) !ID (FILTLVL>7)]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[7cr (NMAG OR MAG) !ID (FILTLVL>7)]:
 //Bows/Crossbows
 ItemDisplay[(amc OR amb) NMAG !INF !RW TABSK0>2 ED>4 (SOCK=0 OR SOCK=4 OR SOCK=5)]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[(amc OR amb) NMAG !INF !RW TABSK0>2 (SOCK=0 OR SOCK=4 OR SOCK=5) FILTLVL<8]: %DOT-D6%%TIER-5%%NAME%{%NAME%}
@@ -5402,10 +5482,10 @@ ItemDisplay[(crs OR bsd OR lsd) NMAG !INF !RW SOCK=4 FILTLVL<6]: %NAME%{%NAME%}
 ItemDisplay[((crs (ILVL>25 AND ILVL<41)) OR ((bsd OR lsd) ILVL>25)) NMAG !INF !RW (SOCK=0 OR SOCK=4) (CLVL<80 OR FILTLVL<2)]: %NAME%{%NAME%}
 ItemDisplay[crs ILVL>25 NMAG !INF !RW SOCK~4-5 FILTLVL<8]: %NAME%{%NAME%}
 ItemDisplay[crs ILVL>25 NMAG !INF !RW (SOCK=0 OR SOCK>4) FILTLVL<6]: %NAME%{%NAME%}
-ItemDisplay[7cr NMAG !RW !INF !SOCK~1-2 ED=15]: %DOT-D6%%NAME%{%NAME%}
-ItemDisplay[7cr NMAG !RW !INF !SOCK~1-2 ED>9]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
-ItemDisplay[7cr NMAG SOCK=0 PALADIN]: %DOT-D6%%TIER-5%%NAME%{%NAME%} //imbue base
-ItemDisplay[7cr NMAG SOCK=0 !PALADIN]: %DOT-D6%%TIER-3%%NAME%{%NAME%} //imbue base
+ItemDisplay[7cr FILTLVL<8 NMAG !RW !INF !SOCK~1-2 ED=15]: %DOT-D6%%NAME%{%NAME%}
+ItemDisplay[7cr FILTLVL<8 NMAG !RW !INF !SOCK~1-2 ED>9]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
+ItemDisplay[7cr FILTLVL<8 NMAG SOCK=0 PALADIN]: %DOT-D6%%TIER-5%%NAME%{%NAME%} //imbue base
+ItemDisplay[7cr FILTLVL<8 NMAG SOCK=0 !PALADIN]: %DOT-D6%%TIER-3%%NAME%{%NAME%} //imbue base
 ItemDisplay[7cr NMAG !RW !INF !SOCK~1-2 ED>4 FILTLVL<6]: %DOT-D6%%TIER-3%%NAME%{%NAME%}
 ItemDisplay[7cr NMAG !RW !INF !SOCK~1-2 FILTLVL<6]: %NAME%{%NAME%}
 ItemDisplay[(72h OR 7fb OR 7gd OR 7gs OR 7ls) ETH NMAG !RW !INF !SOCK~1-2 ED>9]: %DOT-D6%%NAME%{%NAME%}
@@ -5448,9 +5528,9 @@ ItemDisplay[(cst OR bst OR 8cs OR 8bs OR 6cs OR 6bs OR wst OR 8ws OR 6ws OR 6ls)
 ItemDisplay[STAFF ELT NMAG !RW SOCK=3 FILTLVL<6]: %NAME%{%NAME%}
 ItemDisplay[(wst OR 8ws OR 6ws) (SK50>0 OR SK58>0 OR SK60>0) NMAG !RW (SOCK=0 OR SOCK=4 OR SOCK=5) FILTLVL<6]: %NAME%{%NAME%}
 //Polearms/Spears/Amazon Spears
-ItemDisplay[(7wc OR 7pa OR 7s8 OR 7vo OR 7h7 OR 7tr OR 7br OR 7st OR 7o7 OR 7sr) ETH NMAG !INF !RW !SOCK~1-3 ED>9]: %DOT-D6%%NAME%{%NAME%}
-ItemDisplay[(7wc OR 7pa OR 7s8 OR 7vo OR 7h7 OR 7tr OR 7br OR 7st OR 7o7 OR 7sr) ETH NMAG !INF !RW !SOCK~1-3 ED>4]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
-ItemDisplay[(7wc OR 7pa OR 7s8 OR 7vo OR 7h7 OR 7tr OR 7br OR 7st OR 7o7 OR 7sr) ETH NMAG !INF !RW !SOCK~1-3]: %DOT-D6%%TIER-3%%NAME%{%NAME%}
+ItemDisplay[(7wc OR 7pa OR 7s8 OR 7vo OR 7h7 OR 7tr OR 7br OR 7st OR 7o7 OR 7sr) ETH NMAG !INF !RW !SOCK~1-3 ED>9 (FILTLVL<8 OR TOWN OR SHOP)]: %DOT-D6%%NAME%{%NAME%}
+ItemDisplay[(7wc OR 7pa OR 7s8 OR 7vo OR 7h7 OR 7tr OR 7br OR 7st OR 7o7 OR 7sr) ETH NMAG !INF !RW !SOCK~1-3 ED>4 (FILTLVL<8 OR TOWN OR SHOP)]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
+ItemDisplay[(7wc OR 7pa OR 7s8 OR 7vo OR 7h7 OR 7tr OR 7br OR 7st OR 7o7 OR 7sr) ETH NMAG !INF !RW !SOCK~1-3 (FILTLVL<8 OR TOWN OR SHOP)]: %DOT-D6%%TIER-3%%NAME%{%NAME%}
 ItemDisplay[7p7 NMAG !ETH !INF !RW !SOCK=1 ED=15]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[7p7 NMAG ETH !INF !RW !SOCK=1 ED>9]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[7p7 NMAG !ETH !INF !RW !SOCK=1 ED>9]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
@@ -6086,24 +6166,24 @@ ItemDisplay[(cqv1 OR cqv2 OR cqv3) RARE]:{%NAME%}
 ItemDisplay[(lgl OR vgl OR mgl OR tgl OR hgl OR xlg OR xvg OR xmg OR xtg OR xhg OR ulg OR uvg OR umg OR utg OR uhg) RARE !ID (FILTLVL>6)]:{%NAME%}
 
 //HIDE EVERYTHING ELSE
-ItemDisplay[AXE 1H MAG ETH !ID FILTLVL>7]:
-ItemDisplay[SWORD 1H MAG ETH !ID FILTLVL>7]:
-ItemDisplay[DRU ETH FILTLVL~6-8]:
-ItemDisplay[HELM MAG ETH FILTLVL~6-8]:
-ItemDisplay[BAR NMAG FILTLVL>7]:
-ItemDisplay[((SWORD OR AXE OR MACE OR SPEAR OR POLEARM OR BOW OR XBOW OR DAGGER OR THROWING) NMAG !SUP FILTLVL>7) (!crs)]:
-ItemDisplay[ARMOR MAG FILTLVL~6-8]:
-ItemDisplay[SHIELD MAG ETH FILTLVL~6-8]:
-ItemDisplay[(DAGGER !THROWING NMAG) FILTLVL>7]:
-ItemDisplay[((SPEAR OR POLEARM) MAG ETH !THROWING !(pik OR 9p9 OR 7p7)) FILTLVL~6-8]:
-ItemDisplay[(ZON JAV MAG ETH) FILTLVL~6-8]:
-ItemDisplay[DIN (MAG OR RARE) FILTLVL>7]:
-ItemDisplay[BAR MAG ETH FILTLVL>7]:
-ItemDisplay[SHIELD RARE FILTLVL>7]:
-ItemDisplay[BOOTS MAG ETH FILTLVL>7]:
-ItemDisplay[GLOVES MAG ETH FILTLVL>7]:
-ItemDisplay[BELT MAG ETH FILTLVL>7]:
-ItemDisplay[(DAGGER MAG !THROWING) FILTLVL>7]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[AXE 1H MAG ETH !ID FILTLVL>7]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[SWORD 1H MAG ETH !ID FILTLVL>7]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[DRU ETH FILTLVL~6-8]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[HELM MAG ETH FILTLVL~6-8]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[BAR NMAG FILTLVL>7]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[((SWORD OR AXE OR MACE OR SPEAR OR POLEARM OR BOW OR XBOW OR DAGGER OR THROWING) NMAG !SUP FILTLVL>7) (!crs)]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[ARMOR MAG FILTLVL~6-8]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[SHIELD MAG ETH FILTLVL~6-8]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[(DAGGER !THROWING NMAG) FILTLVL>7]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[((SPEAR OR POLEARM) MAG ETH !THROWING !(pik OR 9p9 OR 7p7)) FILTLVL~6-8]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[(ZON JAV MAG ETH) FILTLVL~6-8]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[DIN (MAG OR RARE) FILTLVL>7]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[BAR MAG ETH FILTLVL>7]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[SHIELD RARE FILTLVL>7]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[BOOTS MAG ETH FILTLVL>7]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[GLOVES MAG ETH FILTLVL>7]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[BELT MAG ETH FILTLVL>7]:
+// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[(DAGGER MAG !THROWING) FILTLVL>7]:
 ItemDisplay[(cm3) MAG !ID (ILVL<90) (FILTLVL>6)]: %NAME%{%NAME%}
 ItemDisplay[(ARMOR OR WEAPON OR QUIVER) (MAG OR RARE) !ID (FILTLVL<2 OR (CLVL<41 AND FILTLVL<6))]: %NAME%
 ItemDisplay[(ARMOR OR WEAPON OR QUIVER) (EXC OR ELT) (MAG OR RARE) !ID (FILTLVL<2 OR (CLVL<80 AND FILTLVL~2-5))]: %NAME%
@@ -6137,3 +6217,4 @@ ItemDisplay[(ARMOR OR WEAPON OR QUIVER) !THROWPOTS ((CLVL>30 FILTLVL>0) OR FILTL
 //BELOW: Minimap Pin + Notify for TIER1, Just Pin for TIER2, Hide for Tier3+
 //ItemDisplay[(ARMOR OR WEAPON OR QUIVER) FILTLVL<4]: %MAP-0A%%PX-62%%TIER-1%%NAME%
 //ItemDisplay[(ARMOR OR WEAPON OR QUIVER) FILTLVL>2]: %NAME%
+
