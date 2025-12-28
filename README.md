@@ -15,7 +15,7 @@ All changes are incremental and intentional, designed to enhance high-level play
 ---
 
 ## 🔄 Changelog
-Current Version - 12.1.4 - Updated December 21, 2025
+Current Version - 12.1.5 - Updated December 28, 2025
 
 The sections below document notable changes compared to the base Kryszard filter.
 
@@ -201,6 +201,11 @@ The sections below document notable changes compared to the base Kryszard filter
 12.1.2
 - Hide all normal and exceptional armor bases excluding Gothic Plate and Linked Mail (including eth) **To be assessed further, may adjust in future versions**
 - Hide all non-magic and superior elite armor bases with less than 10% enhanced defense (including eth)
+  
+12.1.5
+- Enforced FL8 hide rules for elite armor bases consistently outside of town, ensuring sub-10% enhanced defense bases no longer bypass strict filtering
+- Prevented generic armor formatting passes from re-exposing armor bases intended to be hidden at FL8
+- Normalized FL8 armor behavior to apply only outside of town, matching intended strictness design
 
 **Weapons**
 12.1.1
@@ -222,6 +227,18 @@ The sections below document notable changes compared to the base Kryszard filter
 - Fixed an issue that was causing all phase blades to show
 - Hide all 5os Crystal swords in town but hide outside of town
 - Hide all non-magic non-skill Archon staves
+
+12.1.5
+- Enforced strict FL8 hide behavior for all one-handed sword bases outside of town unless explicitly whitelisted
+(includes Crystal Sword, Broad Sword, Long Sword, War Sword, Rune Sword, Battle Sword, and all exceptional/elite equivalents)
+- Phase Blade handling is under active refinement
+- Groundwork has been implemented to restrict Phase Blades to display only when meeting explicit enhanced damage and socket criteria
+- Current status: Phase Blade visibility on FL8 may still be inconsistent in certain cases and is not yet considered final
+- Prevented generic WEAPON / 1H rules from unintentionally allowing non-approved sword bases to appear on FL8
+- Corrected FL8 evaluation order to ensure non-magic and superior weapon bases are fully hidden unless explicitly allowed
+- Closed edge cases where valid hide rules were previously bypassed due to rule ordering or %CONTINUE% behavior
+Note: Several of these weapon bases were implicitly visible prior to 12.1.5 due to broader weapon rules matching earlier than FL8 hides.
+This version makes those hides deterministic. Phase Blade logic remains a known work in progress.
   
 **Class Bases**
 12.1.2
@@ -235,6 +252,11 @@ The sections below document notable changes compared to the base Kryszard filter
 
 12.1.3
 - Fixed an issue the was causing barb and druid helms to show
+
+12.1.5
+- Fully enforced FL8 hide rules for Barbarian helms and Druid pelts, ensuring no fallback visibility through generic armor or class-base rules
+- Corrected class-base evaluation order so non-magic and superior class items are no longer re-shown by later formatting rules
+- Ensured Paladin shield restrictions apply consistently outside of town with no leakage from non-class shield logic
 
 ## 📸 Screenshot Examples
 
