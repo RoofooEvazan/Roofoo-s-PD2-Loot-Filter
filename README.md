@@ -87,6 +87,9 @@ The sections below document notable changes compared to the base Kryszard filter
 - **Grims Burning Dead** upgraded to ★☆☆
 - **Elite Unique Arrows** downgraded to ★☆☆
 - **Demon Machine** upgraded to ★☆☆
+
+12.1.5
+- **Hellmouth** upgraded to ★☆☆
   
 ---
 
