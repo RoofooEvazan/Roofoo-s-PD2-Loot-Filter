@@ -367,11 +367,13 @@ Alias[LODNOTIFYUNI2]: (((8lb OR 92h OR ama OR 8s8 OR 92h OR 6rx OR 7m7 OR 9cl OR
 //OK SET parts when ETH
 Alias[OKSETETH1]: ((7fb OR 7gd OR 7ls OR 7m7 OR 7qr) SET ETH !ID)
 //OK SET parts
-Alias[OKSET1]: ((uar OR ci3 OR paf OR urn OR 7ws) SET !ID)
+Alias[OKSET1]: ((ci3 OR paf OR urn OR 7ws) SET !ID)
 //OK/Lower Value SET parts
 Alias[LOWSET1]: ((amu OR rin OR xmg OR 7qr OR xul OR ne9 OR ulg OR uth OR dr8 OR xar OR utc) SET !ID)
 //Sets worth notifying
 Alias[NOTIFYSET1]: (((ARMOR OR WEAPON OR QUIVER) (EXC OR ELT OR ci0 OR ba5 OR lbt) !(9vo OR xcl OR xrn)) SET !ID)
+//Stupid IK Armor
+Alias[TROLLIK]: ((uar) SET !ID)
 
 //RARES
 //OK/Lower Value RARE parts
@@ -667,6 +669,8 @@ ItemDisplay[(RUNE~20-25 OR lpp) !TOWN]: %SOUNDID-248%%NAME%{%NAME%}%CONTINUE% //
 ItemDisplay[(PD2UBERUNI1 OR PD2UBERUNI2) !TOWN]: %SOUNDID-27%%NAME%{%NAME%}%CONTINUE% //quest_anyasteam - for Uber Items
 //Enpherno Bastard
 ItemDisplay[(ENPHBASTARD) !TOWN]: %SOUNDID-4610%%NAME%{%NAME%}%CONTINUE% //D1 Warp Death Sound
+//Troll IK Armor
+ItemDisplay[(TROLLIK) !TOWN]: %SOUNDID-4708%%NAME%{%NAME%}%CONTINUE% //Zhar Question Sound
 //GG Items - 3 Star Pick-up
 ItemDisplay[(PD2GGUNIETH1 OR PD2GGUNI1 OR LODGGUNIETH1 OR LODGGUNI1) !TOWN]: %SOUNDID-34%%NAME%{%NAME%}%CONTINUE% //PoE Drop
 //OK Armors - 3 Star
@@ -3055,6 +3059,8 @@ ItemDisplay[LODNOTIFYUNI1 OR LODNOTIFYUNI2]: %PX-68%%TIER-7%%NAME%
 //SET PARTS
 //OK SET
 ItemDisplay[OKSETETH1 OR OKSET1]: %MAP-84%%DARK_GREEN%*%GREEN%*%WHITE%*     %NAME%     %WHITE%*%GREEN%*%DARK_GREEN%*
+// Troll IK Armor
+ItemDisplay[TROLLIK]: %DOT-84%%WHITE%*     %GREEN%Stupid IK Armor     %WHITE%*
 //Lower Value SET parts
 ItemDisplay[LOWSET1]: %DOT-84%%WHITE%*   %NAME%   %WHITE%*
 //Sets worth notifying
