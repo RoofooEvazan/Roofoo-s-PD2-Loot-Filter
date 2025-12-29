@@ -16,7 +16,7 @@ ItemDisplayFilterName[]: Strict Filter - w/o Potions
 ItemDisplayFilterName[]: Max-Strictness Filter - Ultra Strict End Game
 
 //Show info about current Filter Level in description of Horadric Cube
-ItemDisplay[box]:%NAME%{%NAME%%NL%%GRAY%item.filter ver 12.1.5 %BLACK%| %GRAY% updated: 2025-12-28%NL%%PURPLE%The GOAT OG Author %WHITE%-%SAGE% Kryszard%NL%%ORANGE%Editors %WHITE%-%SAGE% RoofooEvazan & Enpherno}%CONTINUE%
+ItemDisplay[box]:%NAME%{%NAME%%NL%%GRAY%item.filter ver 12.1.5 %BLACK%| %GRAY% updated: 2025-12-29%NL%%PURPLE%The GOAT OG Author %WHITE%-%SAGE% Kryszard%NL%%ORANGE%Editors %WHITE%-%SAGE% RoofooEvazan & Enpherno}%CONTINUE%
 ItemDisplay[box FILTLVL=0]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%0 - %TAN%Show All Items%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
 ItemDisplay[box FILTLVL=1]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%1 - %TAN%Hide Just Trash Items%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
 ItemDisplay[box FILTLVL=2]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%2 - %TAN%More Notify%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
@@ -101,12 +101,10 @@ ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (7m7 OR 7gm) (NMAG OR SUP) ETH ED>10 (SOCK=0 
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (clb OR spc OR mac OR mst OR fla OR whm OR mau OR gma OR 9cl OR 9sp OR 9ma OR 9mt OR 9fl OR pwh OR 9m9 OR 9gm OR 7cl OR 7sp OR 7ma OR 7mt OR 7fl OR 7wh) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
 
 // 1H Swords (bases): SHOW Phase Blade (7cr) with ED>10 NON-ETH and (SOCK=0 OR SOCK=4 OR SOCK=5)
-// FL8 – Phase Blade (7cr): hide all by default
-ItemDisplay[FL8_ACTIVE FL8_OUTSIDE 7cr (NMAG OR SUP OR INF) !FL8_EXEMPT]:
-
 // FL8 – Phase Blade (7cr): show only ED>10 and (unsocketed OR 4os OR 5os) — no CONTINUE
-ItemDisplay[FL8_ACTIVE FL8_OUTSIDE 7cr (NMAG OR SUP) !ETH (STAT25>10 OR STAT17>10 OR STAT18>10) (!SOCK OR SOCK=4 OR SOCK=5) !FL8_EXEMPT]: %NAME%{%NAME%}
-
+// FL8 – Phase Blade (7cr): hide all by default
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE 7cr (NMAG OR SUP) !ETH ED>10 (SOCK=0 OR SOCK=4 OR SOCK=5) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE 7cr (NMAG OR SUP OR INF) !FL8_EXEMPT]:
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (ssd OR scm OR sbr OR flc OR crs OR bsd OR lsd OR wsd OR 9wd OR 9ls OR 9bs OR 9cr OR 9fc OR 9sb OR 9sm OR 9ss OR 7ss OR 7sm OR 7sb OR 7fc OR 7bs OR 7ls OR 7wd) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
 
 // 2H Swords (bases): SHOW Colossus Blade (7gd) with ED>10 ETH and (SOCK=0 OR SOCK=5 OR SOCK=6), and SHOW Colossus Sword (7fb) with ED>14 NON-ETH and (SOCK=0 OR SOCK=5)
@@ -137,7 +135,7 @@ ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (wnd OR 9wn OR 7wn OR ywn OR 9yw OR 7yw OR bw
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (scp OR gsc OR wsp OR 9sc OR 9qs OR 9ws OR 7sc OR 7qs OR 7ws) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (ktr OR wrb OR axf OR ces OR clw OR btl OR skr OR 9ar OR 9wb OR 9xf OR 9cs OR 9lw OR 9tw OR 9qr OR 7ar OR 7wb OR 7xf OR 7cs OR 7lw OR 7tw OR 7qr) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (ob1 OR ob2 OR ob3 OR ob4 OR ob5 OR ob6 OR ob7 OR ob8 OR ob9 OR oba OR obb OR obc OR obd OR obe OR obf) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
-ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (amb OR amc OR am1 OR am2 OR am3 OR am4 OR am5 OR am6 OR am7 OR am8 OR am9 OR ama OR ame OR amf) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (amb OR amc OR am1 OR am2 OR am3 OR am4 OR am5 OR am6 OR am7 OR am8 OR am9 OR ama OR amd OR ame OR amf) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
 
 // ---- ARMOR RARES & MAG (UNID, OUTSIDE) ----
 
@@ -227,9 +225,9 @@ ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (wrb OR ces OR clw OR btl OR 9wb OR 
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (ob5 OR oba OR obf) (MAG OR RARE) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (ob1 OR ob2 OR ob3 OR ob4 OR ob6 OR ob7 OR ob8 OR ob9 OR obb OR obc OR obd OR obe) (MAG OR RARE) !FL8_EXEMPT]:
 
-// Amazon Bows (MAG/RARE): show (am1 OR am2 OR am6 OR am7 OR amb OR amc) and hide the rest
+// Amazon Bows & Spears (MAG/RARE): show (am1 OR am2 OR am6 OR am7 OR amb OR amc) and hide the rest
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (am1 OR am2 OR am6 OR am7 OR amb OR amc) (MAG OR RARE) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
-ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (am3 OR am4 OR am5 OR am8 OR am9 OR ama OR ame OR amf) (MAG OR RARE) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (am3 OR am4 OR am5 OR am8 OR am9 OR ama OR amd OR ame OR amf) (MAG OR RARE) !FL8_EXEMPT]:
 
 // Arrow/Bolt Quivers (MAG/RARE): hide all
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (cqv1 OR cqv2 OR cqv3 OR aqv1 OR aqv2 OR aqv3) (MAG OR RARE) !FL8_EXEMPT]:
@@ -319,7 +317,7 @@ Alias[LODOKUNI1]: ((zlb OR zvb OR zhb OR umc OR uvc) UNI !ID)
 // String / Razortail / T-gods / Verdungo's / Nosferatu's
 
 //armors
-Alias[LODOKUNI2]: ((uui OR xhn OR uld OR utu) UNI !ID)
+Alias[LODOKUNI2]: ((uui OR xhn OR utu) UNI !ID)
 // Ormus / Shaftstop / Leviathan / Glad Bane
 
 //gloves
@@ -351,8 +349,8 @@ Alias[ENPHBASTARD]: ((bsw) UNI !ID)
 // OH YA BASTARD
 
 //OK/Lower Value UNIQUES
-Alias[LODLOWUNI1]: ((8rx OR 9wc OR xea OR 7pa OR 7bt OR ltp OR xcl OR 9tw OR xtp OR xth OR xpl OR xld OR 7b7 OR 8hx OR 7cs OR xmb OR amb OR 7sc OR 7ls OR 7bl OR uml OR upk OR 9gm OR ush OR bad OR 7xf OR ulm OR lbt OR nea OR xow OR oba OR 7wa OR tgl OR umb OR 7gm OR xar OR 9gw OR xlt OR aar OR 9ls OR 7gi OR 7wb OR 7p7 OR 6sw OR 7ts OR 7ga OR baa OR amd OR xhg) UNI !ID)
-// Demon Machine / Grim's Burning / Vipermagi / Tomb Reaver / Hellslayer / Heavenly Garb / Crow Caw / Bartuc's / Que-hagen's / Atma's / Skullder's / Toothrow / Doombringer / Buriza / Shadow Killer / Silkweaves / Bloodraven's / Heaven's Light/Redeemer / Frostwind / Ghostflame / Blackoak / Spike Thorn / Wraith Flight / Gavel / Head Hunter's / Demonhorn's / Whispering / Steel Shade / Hotspur / Homunculus / Gerke's / Occy / Death's Cleaver / Magefists / Marrowwalks / Shifter/Cranium / Corpsemourn / Blackhand Key / Guardians Angel / Silks of Victor / Plague Bearer / Executioner's / Jade Talon / Steel Pillar / Widowmaker / Gargoyle's / Arreat's / Stoneraven / Hellmouth
+Alias[LODLOWUNI1]: ((uld OR 8rx OR 9wc OR xea OR 7pa OR 7bt OR ltp OR xcl OR 9tw OR xtp OR xth OR xpl OR xld OR 7b7 OR 8hx OR 7cs OR xmb OR amb OR 7sc OR 7ls OR 7bl OR uml OR upk OR 9gm OR ush OR bad OR 7xf OR ulm OR lbt OR nea OR xow OR oba OR 7wa OR tgl OR umb OR 7gm OR xar OR 9gw OR xlt OR aar OR 9ls OR 7gi OR 7wb OR 7p7 OR 6sw OR 7ts OR 7ga OR baa OR amd OR xhg) UNI !ID)
+// Leviathan / Demon Machine / Grim's Burning / Vipermagi / Tomb Reaver / Hellslayer / Heavenly Garb / Crow Caw / Bartuc's / Que-hagen's / Atma's / Skullder's / Toothrow / Doombringer / Buriza / Shadow Killer / Silkweaves / Bloodraven's / Heaven's Light/Redeemer / Frostwind / Ghostflame / Blackoak / Spike Thorn / Wraith Flight / Gavel / Head Hunter's / Demonhorn's / Whispering / Steel Shade / Hotspur / Homunculus / Gerke's / Occy / Death's Cleaver / Magefists / Marrowwalks / Shifter/Cranium / Corpsemourn / Blackhand Key / Guardians Angel / Silks of Victor / Plague Bearer / Executioner's / Jade Talon / Steel Pillar / Widowmaker / Gargoyle's / Arreat's / Stoneraven / Hellmouth
 
 //Uniques worth notifying
 //Armors
@@ -367,9 +365,9 @@ Alias[LODNOTIFYUNI2]: (((8lb OR 92h OR ama OR 8s8 OR 92h OR 6rx OR 7m7 OR 9cl OR
 //OK SET parts when ETH
 Alias[OKSETETH1]: ((7fb OR 7gd OR 7ls OR 7m7 OR 7qr) SET ETH !ID)
 //OK SET parts
-Alias[OKSET1]: ((ci3 OR paf OR urn OR 7ws) SET !ID)
+Alias[OKSET1]: ((paf OR urn OR 7ws) SET !ID)
 //OK/Lower Value SET parts
-Alias[LOWSET1]: ((amu OR rin OR xmg OR 7qr OR xul OR ne9 OR ulg OR uth OR dr8 OR xar OR utc) SET !ID)
+Alias[LOWSET1]: ((ci3 OR amu OR rin OR xmg OR 7qr OR xul OR ne9 OR ulg OR uth OR dr8 OR xar OR utc) SET !ID)
 //Sets worth notifying
 Alias[NOTIFYSET1]: (((ARMOR OR WEAPON OR QUIVER) (EXC OR ELT OR ci0 OR ba5 OR lbt) !(9vo OR xcl OR xrn)) SET !ID)
 //Stupid IK Armor
@@ -670,7 +668,7 @@ ItemDisplay[(PD2UBERUNI1 OR PD2UBERUNI2) !TOWN]: %SOUNDID-27%%NAME%{%NAME%}%CONT
 //Enpherno Bastard
 ItemDisplay[(ENPHBASTARD) !TOWN]: %SOUNDID-4610%%NAME%{%NAME%}%CONTINUE% //D1 Warp Death Sound
 //Troll IK Armor
-ItemDisplay[(TROLLIK) !TOWN]: %SOUNDID-4708%%NAME%{%NAME%}%CONTINUE% //Zhar Question Sound
+//ItemDisplay[(TROLLIK) !TOWN]: %SOUNDID-4708%%NAME%{%NAME%}%CONTINUE% //Zhar Question Sound
 //GG Items - 3 Star Pick-up
 ItemDisplay[(PD2GGUNIETH1 OR PD2GGUNI1 OR LODGGUNIETH1 OR LODGGUNI1) !TOWN]: %SOUNDID-34%%NAME%{%NAME%}%CONTINUE% //PoE Drop
 //OK Armors - 3 Star
@@ -3060,7 +3058,8 @@ ItemDisplay[LODNOTIFYUNI1 OR LODNOTIFYUNI2]: %PX-68%%TIER-7%%NAME%
 //OK SET
 ItemDisplay[OKSETETH1 OR OKSET1]: %MAP-84%%DARK_GREEN%*%GREEN%*%WHITE%*     %NAME%     %WHITE%*%GREEN%*%DARK_GREEN%*
 // Troll IK Armor
-ItemDisplay[TROLLIK]: %DOT-84%%WHITE%*     %GREEN%Stupid IK Armor     %WHITE%*
+//ItemDisplay[TROLLIK]: %DOT-84%%WHITE%*     %GREEN%Stupid IK Armor     %WHITE%*
+ItemDisplay[TROLLIK]: %DOT-84%%WHITE%*     %GREEN%%NAME%     %WHITE%*
 //Lower Value SET parts
 ItemDisplay[LOWSET1]: %DOT-84%%WHITE%*   %NAME%   %WHITE%*
 //Sets worth notifying
