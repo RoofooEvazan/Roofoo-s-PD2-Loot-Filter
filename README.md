@@ -90,7 +90,8 @@ The sections below document notable changes compared to the base Kryszard filter
 
 12.1.5
 - **Hellmouth** upgraded to ★☆☆
-  
+- **Leviathan** downgraded to ★☆☆
+
 ---
 
 ### 🟩 ITEMS – SET
@@ -108,6 +109,9 @@ The sections below document notable changes compared to the base Kryszard filter
 - **Aldur's Stony Gaze (Helm)** upgraded to ★☆☆
 - **Griswold's Heart (Chest)** upgraded to ★☆☆
 - **Trang-Oul's Girth (Belt)** upgraded to ★☆☆
+
+12.1.5
+- **Immortal King's Soul Cage (Armor)** downgraded to ★☆☆
 
 ---
 
