@@ -15,7 +15,7 @@ All changes are incremental and intentional, designed to enhance high-level play
 ---
 
 ## 🔄 Changelog
-Current Version - 12.1.5 - Updated December 29, 2025
+Current Version - 12.1.6 - Updated January 2nd, 2026
 
 The sections below document notable changes compared to the base Kryszard filter.
 
@@ -91,6 +91,10 @@ The sections below document notable changes compared to the base Kryszard filter
 12.1.5
 - **Hellmouth** upgraded to ★☆☆
 - **Leviathan** downgraded to ★☆☆
+
+12.1.6
+- **Lavagout** upgraded to ★☆☆
+- **Thunderstrokes** downgraded to ★☆☆
 
 ---
 
