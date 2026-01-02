@@ -1,4 +1,4 @@
-//	Roofoo's PD2 Loot Filter for Season 12: ver 12.1.5
+//	Roofoo's PD2 Loot Filter for Season 12: ver 12.1.6
 //
 //	Editor - twitch.tv/roofooevazan
 //	Co-Editor - twitch.tv/enpherno
@@ -16,7 +16,7 @@ ItemDisplayFilterName[]: Strict Filter - w/o Potions
 ItemDisplayFilterName[]: Max-Strictness Filter - Ultra Strict End Game
 
 //Show info about current Filter Level in description of Horadric Cube
-ItemDisplay[box]:%NAME%{%NAME%%NL%%GRAY%item.filter ver 12.1.5 %BLACK%| %GRAY% updated: 2025-12-29%NL%%PURPLE%The GOAT OG Author %WHITE%-%SAGE% Kryszard%NL%%ORANGE%Editors %WHITE%-%SAGE% RoofooEvazan & Enpherno}%CONTINUE%
+ItemDisplay[box]:%NAME%{%NAME%%NL%%GRAY%item.filter ver 12.1.6 %BLACK%| %GRAY% updated: 2026-01-02%NL%%PURPLE%The GOAT OG Author %WHITE%-%SAGE% Kryszard%NL%%ORANGE%Editors %WHITE%-%SAGE% RoofooEvazan & Enpherno}%CONTINUE%
 ItemDisplay[box FILTLVL=0]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%0 - %TAN%Show All Items%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
 ItemDisplay[box FILTLVL=1]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%1 - %TAN%Hide Just Trash Items%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
 ItemDisplay[box FILTLVL=2]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%2 - %TAN%More Notify%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
