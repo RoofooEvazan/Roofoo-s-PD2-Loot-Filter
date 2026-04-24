@@ -1,4 +1,4 @@
-//	Roofoo's PD2 Loot Filter for Season 12: ver 12.1.6
+//	Roofoo's PD2 Loot Filter for Season 13: ver 13.0.0
 //
 //	Editor - twitch.tv/roofooevazan
 //	Co-Editor - twitch.tv/enpherno
@@ -16,7 +16,7 @@ ItemDisplayFilterName[]: Strict Filter - w/o Potions
 ItemDisplayFilterName[]: Max-Strictness Filter - Ultra Strict End Game
 
 //Show info about current Filter Level in description of Horadric Cube
-ItemDisplay[box]:%NAME%{%NAME%%NL%%GRAY%item.filter ver 12.1.6 %BLACK%| %GRAY% updated: 2026-01-02%NL%%PURPLE%The GOAT OG Author %WHITE%-%SAGE% Kryszard%NL%%ORANGE%Editors %WHITE%-%SAGE% RoofooEvazan & Enpherno}%CONTINUE%
+ItemDisplay[box]:%NAME%{%NAME%%NL%%GRAY%item.filter ver 13.0.0 %BLACK%| %GRAY% updated: 2026-04-24%NL%%PURPLE%The GOAT OG Author %WHITE%-%SAGE% Kryszard%NL%%ORANGE%Editors %WHITE%-%SAGE% RoofooEvazan & Enpherno}%CONTINUE%
 ItemDisplay[box FILTLVL=0]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%0 - %TAN%Show All Items%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
 ItemDisplay[box FILTLVL=1]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%1 - %TAN%Hide Just Trash Items%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
 ItemDisplay[box FILTLVL=2]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%2 - %TAN%More Notify%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
@@ -253,11 +253,11 @@ Alias[LOWVENGSFX]: (SUFFIX=695 OR SUFFIX=699 OR SUFFIX=703 OR SUFFIX=707 OR SUFF
 //Towns
 Alias[TOWN]: (MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109)
 //Known Maps
-Alias[KNOWNMAPS]: (t11 OR t12 OR t13 OR t14 OR t15 OR t16 OR t17 OR t21 OR t22 OR t23 OR t24 OR t25 OR t26 OR t27 OR t28 OR t31 OR t32 OR t33 OR t34 OR t35 OR t36 OR t37 OR t38 OR t39 OR t3a OR t41 OR t42 OR t43 OR t44 OR t51 OR t52 OR t53 OR t54 OR t55 OR t56)
+Alias[KNOWNMAPS]: (t11 OR t12 OR t13 OR t14 OR t15 OR t16 OR t17 OR t21 OR t22 OR t23 OR t24 OR t25 OR t26 OR t27 OR t28 OR t31 OR t32 OR t33 OR t34 OR t35 OR t36 OR t37 OR t38 OR t39 OR t3a OR t3b OR t41 OR t42 OR t43 OR t44 OR t51 OR t52 OR t53 OR t54 OR t55 OR t56 OR t57 OR t58)
 
 //NEW PD2 UNIQUES
 //PD2 UBERS DCLONE/DUNGEON/RATHMA/LUCION BOSSES UNIQUES
-Alias[PD2UBERUNI1]: ((uhl OR uth OR utb OR 7bs OR 7qr) UNI !ID)
+Alias[PD2UBERUNI1]: ((uh9 OR uth OR utb OR 7bs OR 7qr) UNI !ID MAPID=137)
 // Overlord's / Dark Abyss / Ithereal's / Hadriel's / Aidan's
 
 Alias[PD2UBERUNI2]: ((rar OR rbe OR ram) UNI !ID)
@@ -271,9 +271,9 @@ Alias[PD2GGUNIETH1]: ((utp OR uhc) UNI ETH !ID)
 Alias[PD2GGUNI1]: ((baf OR 7qs OR utg) UNI !ID)
 // Raekor's / Akarat's / Occultist
 
-//OK PD2 UNIQUES only when ETH - Weapons
-Alias[PD2OKUNIETH1]: ((7st OR 7cm OR 7fb) UNI ETH !ID)
-// Uldyssian / Leoric's Bane / Odium
+//OK PD2 UNIQUES only when ETH - Weapons and Armor
+Alias[PD2OKUNIETH1]: ((uhl OR 7st OR 7cm OR 7fb) UNI ETH !ID)
+// Sage's / Uldyssian / Leoric's Bane / Odium
 
 //OK PD2 UNIQUES - Armors
 Alias[PD2OKUNI1]: ((drf OR ned OR drc OR paf OR dr6 OR uhc OR uul OR 8cb OR 6bs) UNI !ID)
@@ -288,8 +288,8 @@ Alias[PD2LOWUNIETH1]: ((am5) UNI ETH !ID)
 // True Silver
 
 //Lower Value PD2 UNIQUES
-Alias[PD2LOWUNI1]: ((ba6 OR dr2 OR ne6 OR ulb OR 7cm OR 7fb OR aqv2 OR cqv2 OR ulg OR urg OR utp or aqv3) UNI !ID)
-// Cyclopean / Quetzalcoatl / Kalan's / Merman's / Leoric's Bane / Odium / T2 Arrrows / T2 Bolts / Titan's Grip / Twilight's Reflection / Purgatory / T3 Arrows
+Alias[PD2LOWUNI1]: ((uhl OR ba6 OR dr2 OR ne6 OR ulb OR 7cm OR 7fb OR aqv2 OR cqv2 OR ulg OR urg OR utp or aqv3) UNI !ID)
+// Sage's / Cyclopean / Quetzalcoatl / Kalan's / Merman's / Leoric's Bane / Odium / T2 Arrrows / T2 Bolts / Titan's Grip / Twilight's Reflection / Purgatory / T3 Arrows
 
 //PD2 Uniques worth notifying
 Alias[PD2NOTIFYUNI1]: ((9ar OR ob6 OR am5 OR pa3 OR ba7 OR ob7 OR ung OR neg OR ame OR 7di OR 7tw OR amc OR 6hb) UNI !ID)
@@ -2123,700 +2123,13 @@ ItemDisplay[yps]: %GREEN%!%WHITE%ant{%GREEN%!%WHITE%ant, Perf %GREEN%O%WHITE%, %
 
 //keys
 ItemDisplay[key]: %GRAY%key%CONTINUE%
-//keys description in inventory
-ItemDisplay[key (TOWN OR MAPID>132)]: %NAME%{%TAN%Pro-Tip%WHITE%: You can buy many}%CONTINUE%
-ItemDisplay[key (TOWN OR MAPID>132)]: %NAME%{%ORANGE%Crafting %WHITE%Bases from Vendors%NL%%NAME%}%CONTINUE%
-ItemDisplay[key (TOWN OR MAPID>132)]: %NAME%{%WHITE%PD2 %GRAY%"%TAN%Settings%GRAY%" %WHITE%menu available in classic D2 settings%NL%%NL%%NAME%}%CONTINUE%
-ItemDisplay[key (TOWN OR MAPID>132)]: %NAME%{%WHITE%Type %GRAY%"%TAN%.help%GRAY%" %WHITE%on chat to list useful commands%NL%%NAME%}%CONTINUE%
-ItemDisplay[key (TOWN OR MAPID>132)]: %NAME%{%TAN%Note%WHITE%: RuneWords %ORANGE%Recipes %WHITE%Available at Quantity 1-17%NL%%NL%%NAME%}%CONTINUE%
-ItemDisplay[key (TOWN OR MAPID>132)]: %NAME%{%GRAY%[A-E]%WHITE%: 1-5 %GRAY%[F-J]%WHITE%: 5-8 %GRAY%[K-O]%WHITE%: 8-11 %GRAY%[P-T]%WHITE%: 11-16 %GRAY%[U-Z]%WHITE%: 16-17%NL%%NAME%}%CONTINUE%
-ItemDisplay[key (TOWN OR MAPID>132)]: %NAME%{%ORANGE%Crafting %WHITE%Guaranteed Stats Available at Quantity 18-24%NL%%NAME%}%CONTINUE%
-ItemDisplay[key (TOWN OR MAPID>132)]: %NAME%{%CORAL%Pathfinding%WHITE%/%TEAL%Map Reading %WHITE%Tips available outside Town%NL%%NL%%NAME%}%CONTINUE%
-//keys description in SHOP
-ItemDisplay[key SHOP]: %NAME%{%TAN%Note%WHITE%: Key stack descriptions in your inventory}%CONTINUE%
-ItemDisplay[key SHOP]: %NAME%{%WHITE%contain a lot of useful information.%NL%%NAME%}%CONTINUE%
-ItemDisplay[key SHOP]: %NAME%{%CORAL%Be sure to check them out!%NL%%NAME%}%CONTINUE%
-//
-ItemDisplay[key QTY~1-17 (TOWN OR MAPID>132) !SHOP]: %NAME%{%TAN%Note%WHITE%: RuneWords Recipes:}%CONTINUE%
-//
-ItemDisplay[key QTY=1 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Ancient's Foresigh%WHITE%: %ORANGE%Ral %LIGHT_GRAY%+ %ORANGE%Thul%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=1 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Ancient's Pledge%WHITE%: %ORANGE%Ral %LIGHT_GRAY%+ %ORANGE%Ort %LIGHT_GRAY%+ %ORANGE%Tal%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=1 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Ancient's Scripture%WHITE%: %ORANGE%Tal %LIGHT_GRAY%+ %ORANGE%Ort%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=1 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Asylum%WHITE%: %ORANGE%Gul %LIGHT_GRAY%+ %ORANGE%Cham %LIGHT_GRAY%+ %ORANGE%Hel %LIGHT_GRAY%+ %ORANGE%Jah %LIGHT_GRAY%+ %ORANGE%Dol %LIGHT_GRAY%+ %ORANGE%Um%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=1 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Beast%WHITE%: %ORANGE%Ber %LIGHT_GRAY%+ %ORANGE%Tir %LIGHT_GRAY%+ %ORANGE%Um %LIGHT_GRAY%+ %ORANGE%Mal %LIGHT_GRAY%+ %ORANGE%Lum%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=1 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Black%WHITE%: %ORANGE%Thul %LIGHT_GRAY%+ %ORANGE%Io %LIGHT_GRAY%+ %ORANGE%Nef%NL%%NAME%}%CONTINUE%
-
-ItemDisplay[key QTY=2 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Bone%WHITE%: %ORANGE%Sol %LIGHT_GRAY%+ %ORANGE%Um %LIGHT_GRAY%+ %ORANGE%Um%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=2 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Bramble%WHITE%: %ORANGE%Ral %LIGHT_GRAY%+ %ORANGE%Ohm %LIGHT_GRAY%+ %ORANGE%Sur %LIGHT_GRAY%+ %ORANGE%Eth%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=2 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Brand%WHITE%: %ORANGE%Jah %LIGHT_GRAY%+ %ORANGE%Lo %LIGHT_GRAY%+ %ORANGE%Mal %LIGHT_GRAY%+ %ORANGE%Gul%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=2 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Breath of the Dying%WHITE%: %ORANGE%Vex %LIGHT_GRAY%+ %ORANGE%Hel %LIGHT_GRAY%+ %ORANGE%El %LIGHT_GRAY%+ %ORANGE%Eld %LIGHT_GRAY%+ %ORANGE%Zod %LIGHT_GRAY%+ %ORANGE%Eth%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=2 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Call to Arms%WHITE%: %ORANGE%Amn %LIGHT_GRAY%+ %ORANGE%Ral %LIGHT_GRAY%+ %ORANGE%Mal %LIGHT_GRAY%+ %ORANGE%Ist %LIGHT_GRAY%+ %ORANGE%Ohm%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=2 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Chains of Honor%WHITE%: %ORANGE%Dol %LIGHT_GRAY%+ %ORANGE%Um %LIGHT_GRAY%+ %ORANGE%Ber %LIGHT_GRAY%+ %ORANGE%Ist%NL%%NAME%}%CONTINUE%
-
-ItemDisplay[key QTY=3 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Chaos%WHITE%: %ORANGE%Fal %LIGHT_GRAY%+ %ORANGE%Ohm %LIGHT_GRAY%+ %ORANGE%Um%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=3 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Crescent Moon%WHITE%: %ORANGE%Shael %LIGHT_GRAY%+ %ORANGE%Um %LIGHT_GRAY%+ %ORANGE%Tir%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=3 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Death%WHITE%: %ORANGE%Hel %LIGHT_GRAY%+ %ORANGE%El %LIGHT_GRAY%+ %ORANGE%Vex %LIGHT_GRAY%+ %ORANGE%Ort %LIGHT_GRAY%+ %ORANGE%Gul%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=3 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Delirium%WHITE%: %ORANGE%Lem %LIGHT_GRAY%+ %ORANGE%Ist %LIGHT_GRAY%+ %ORANGE%Io%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=3 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Destruction%WHITE%: %ORANGE%Vex %LIGHT_GRAY%+ %ORANGE%Lo %LIGHT_GRAY%+ %ORANGE%Ber %LIGHT_GRAY%+ %ORANGE%Jah %LIGHT_GRAY%+ %ORANGE%Ko%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=3 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Dominion%WHITE%: %ORANGE%Cham %LIGHT_GRAY%+ %ORANGE%Ohm%NL%%NAME%}%CONTINUE%
-
-ItemDisplay[key QTY=4 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Doom%WHITE%: %ORANGE%Hel %LIGHT_GRAY%+ %ORANGE%Ohm %LIGHT_GRAY%+ %ORANGE%Um %LIGHT_GRAY%+ %ORANGE%Lo %LIGHT_GRAY%+ %ORANGE%Cham%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=4 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Dragon%WHITE%: %ORANGE%Sur %LIGHT_GRAY%+ %ORANGE%Lo %LIGHT_GRAY%+ %ORANGE%Sol%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=4 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Dream%WHITE%: %ORANGE%Io %LIGHT_GRAY%+ %ORANGE%Jah %LIGHT_GRAY%+ %ORANGE%Pul%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=4 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Duress%WHITE%: %ORANGE%Shael %LIGHT_GRAY%+ %ORANGE%Um %LIGHT_GRAY%+ %ORANGE%Thul%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=4 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Echo%WHITE%: %ORANGE%Sol %LIGHT_GRAY%+ %ORANGE%Dol%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=4 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Edge%WHITE%: %ORANGE%Tir %LIGHT_GRAY%+ %ORANGE%Tal %LIGHT_GRAY%+ %ORANGE%Amn%NL%%NAME%}%CONTINUE%
-
-ItemDisplay[key QTY=5 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Enigma%WHITE%: %ORANGE%Jah %LIGHT_GRAY%+ %ORANGE%Ith %LIGHT_GRAY%+ %ORANGE%Ber%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=5 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Enlightenment%WHITE%: %ORANGE%Pul %LIGHT_GRAY%+ %ORANGE%Ral %LIGHT_GRAY%+ %ORANGE%Sol%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=5 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Epiphany%WHITE%: %ORANGE%Lo %LIGHT_GRAY%+ %ORANGE%Ith %LIGHT_GRAY%+ %ORANGE%Lo %LIGHT_GRAY%+ %ORANGE%Ist%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=5 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Eternity%WHITE%: %ORANGE%Amn %LIGHT_GRAY%+ %ORANGE%Ber %LIGHT_GRAY%+ %ORANGE%Ist %LIGHT_GRAY%+ %ORANGE%Sol %LIGHT_GRAY%+ %ORANGE%Sur%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=5 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Exile%WHITE%: %ORANGE%Vex %LIGHT_GRAY%+ %ORANGE%Ohm %LIGHT_GRAY%+ %ORANGE%Ist %LIGHT_GRAY%+ %ORANGE%Dol%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=5 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Faith%WHITE%: %ORANGE%Ohm %LIGHT_GRAY%+ %ORANGE%Jah %LIGHT_GRAY%+ %ORANGE%Lem %LIGHT_GRAY%+ %ORANGE%Eld%NL%%NAME%}%CONTINUE%
-
-ItemDisplay[key QTY=6 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Famine%WHITE%: %ORANGE%Fal %LIGHT_GRAY%+ %ORANGE%Ohm %LIGHT_GRAY%+ %ORANGE%Ort %LIGHT_GRAY%+ %ORANGE%Jah%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=6 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Ferocity%WHITE%: %ORANGE%Zod %LIGHT_GRAY%+ %ORANGE%Cham %LIGHT_GRAY%+ %ORANGE%Shael%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=6 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Flickering Flame%WHITE%: %ORANGE%Nef %LIGHT_GRAY%+ %ORANGE%Pul %LIGHT_GRAY%+ %ORANGE%Vex%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=6 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Fortitude%WHITE%: %ORANGE%El %LIGHT_GRAY%+ %ORANGE%Sol %LIGHT_GRAY%+ %ORANGE%Dol %LIGHT_GRAY%+ %ORANGE%Lo%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=6 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Fury%WHITE%: %ORANGE%Jah %LIGHT_GRAY%+ %ORANGE%Gul %LIGHT_GRAY%+ %ORANGE%Eth%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=6 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Gloom%WHITE%: %ORANGE%Fal %LIGHT_GRAY%+ %ORANGE%Um %LIGHT_GRAY%+ %ORANGE%Pul%NL%%NAME%}%CONTINUE%
-
-ItemDisplay[key QTY=7 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Grief%WHITE%: %ORANGE%Eth %LIGHT_GRAY%+ %ORANGE%Tir %LIGHT_GRAY%+ %ORANGE%Lo %LIGHT_GRAY%+ %ORANGE%Mal %LIGHT_GRAY%+ %ORANGE%Ral%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=7 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Hand of Justice%WHITE%: %ORANGE%Sur %LIGHT_GRAY%+ %ORANGE%Cham %LIGHT_GRAY%+ %ORANGE%Amn %LIGHT_GRAY%+ %ORANGE%Lo%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=7 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Harmony%WHITE%: %ORANGE%Tir %LIGHT_GRAY%+ %ORANGE%Ith %LIGHT_GRAY%+ %ORANGE%Sol %LIGHT_GRAY%+ %ORANGE%Ko%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=7 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Heart of the Oak%WHITE%: %ORANGE%Ko %LIGHT_GRAY%+ %ORANGE%Vex %LIGHT_GRAY%+ %ORANGE%Pul %LIGHT_GRAY%+ %ORANGE%Thul%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=7 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Holy Thunder%WHITE%: %ORANGE%Eth %LIGHT_GRAY%+ %ORANGE%Ral %LIGHT_GRAY%+ %ORANGE%Ort %LIGHT_GRAY%+ %ORANGE%Tal%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=7 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Honor%WHITE%: %ORANGE%Amn %LIGHT_GRAY%+ %ORANGE%El %LIGHT_GRAY%+ %ORANGE%Ith %LIGHT_GRAY%+ %ORANGE%Tir %LIGHT_GRAY%+ %ORANGE%Sol%NL%%NAME%}%CONTINUE%
-
-ItemDisplay[key QTY=8 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Hustle%WHITE%: %ORANGE%Shael %LIGHT_GRAY%+ %ORANGE%Ko %LIGHT_GRAY%+ %ORANGE%Eld%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=8 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Ice%WHITE%: %ORANGE%Amn %LIGHT_GRAY%+ %ORANGE%Shael %LIGHT_GRAY%+ %ORANGE%Jah %LIGHT_GRAY%+ %ORANGE%Lo%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=8 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Infinity%WHITE%: %ORANGE%Ber %LIGHT_GRAY%+ %ORANGE%Mal %LIGHT_GRAY%+ %ORANGE%Ber %LIGHT_GRAY%+ %ORANGE%Ist%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=8 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Innocence%WHITE%: %ORANGE%Gul %LIGHT_GRAY%+ %ORANGE%Lem %LIGHT_GRAY%+ %ORANGE%Zod %LIGHT_GRAY%+ %ORANGE%Hel%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=8 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Insight%WHITE%: %ORANGE%Ral %LIGHT_GRAY%+ %ORANGE%Tir %LIGHT_GRAY%+ %ORANGE%Tal %LIGHT_GRAY%+ %ORANGE%Sol%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=8 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%King's Grace%WHITE%: %ORANGE%Amn %LIGHT_GRAY%+ %ORANGE%Ral %LIGHT_GRAY%+ %ORANGE%Thul%NL%%NAME%}%CONTINUE%
-
-ItemDisplay[key QTY=9 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Kingslayer%WHITE%: %ORANGE%Mal %LIGHT_GRAY%+ %ORANGE%Um %LIGHT_GRAY%+ %ORANGE%Gul %LIGHT_GRAY%+ %ORANGE%Fal%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=9 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Last Wish%WHITE%: %ORANGE%Jah %LIGHT_GRAY%+ %ORANGE%Mal %LIGHT_GRAY%+ %ORANGE%Jah %LIGHT_GRAY%+ %ORANGE%Sur %LIGHT_GRAY%+ %ORANGE%Jah %LIGHT_GRAY%+ %ORANGE%Ber%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=9 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Lawbringer%WHITE%: %ORANGE%Amn %LIGHT_GRAY%+ %ORANGE%Lem %LIGHT_GRAY%+ %ORANGE%Ko%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=9 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Leaf%WHITE%: %ORANGE%Tir %LIGHT_GRAY%+ %ORANGE%Ral%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=9 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Lionheart%WHITE%: %ORANGE%Hel %LIGHT_GRAY%+ %ORANGE%Lum %LIGHT_GRAY%+ %ORANGE%Fal%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=9 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Lore%WHITE%: %ORANGE%Ort %LIGHT_GRAY%+ %ORANGE%Sol%NL%%NAME%}%CONTINUE%
-
-ItemDisplay[key QTY=10 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Loyalty%WHITE%: %ORANGE%Pul %LIGHT_GRAY%+ %ORANGE%Tir %LIGHT_GRAY%+ %ORANGE%Dol%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=10 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Malice%WHITE%: %ORANGE%Ith %LIGHT_GRAY%+ %ORANGE%El %LIGHT_GRAY%+ %ORANGE%Eth%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=10 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Melody%WHITE%: %ORANGE%Shael %LIGHT_GRAY%+ %ORANGE%Ko %LIGHT_GRAY%+ %ORANGE%Nef%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=10 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Memory%WHITE%: %ORANGE%Lum %LIGHT_GRAY%+ %ORANGE%Io %LIGHT_GRAY%+ %ORANGE%Sol %LIGHT_GRAY%+ %ORANGE%Eth%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=10 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Mist%WHITE%: %ORANGE%Cham %LIGHT_GRAY%+ %ORANGE%Shael %LIGHT_GRAY%+ %ORANGE%Gul %LIGHT_GRAY%+ %ORANGE%Thul %LIGHT_GRAY%+ %ORANGE%Ith%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=10 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Myth%WHITE%: %ORANGE%Hel %LIGHT_GRAY%+ %ORANGE%Amn %LIGHT_GRAY%+ %ORANGE%Nef%NL%%NAME%}%CONTINUE%
-
-ItemDisplay[key QTY=11 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Nadir%WHITE%: %ORANGE%Nef %LIGHT_GRAY%+ %ORANGE%Tir%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=11 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Neophyte%WHITE%: %ORANGE%Thul %LIGHT_GRAY%+ %ORANGE%Tir%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=11 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Oath%WHITE%: %ORANGE%Shael %LIGHT_GRAY%+ %ORANGE%Pul %LIGHT_GRAY%+ %ORANGE%Mal %LIGHT_GRAY%+ %ORANGE%Lum%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=11 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Obedience%WHITE%: %ORANGE%Hel %LIGHT_GRAY%+ %ORANGE%Ko %LIGHT_GRAY%+ %ORANGE%Thul %LIGHT_GRAY%+ %ORANGE%Eth %LIGHT_GRAY%+ %ORANGE%Fal%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=11 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Obsession%WHITE%: %ORANGE%Zod %LIGHT_GRAY%+ %ORANGE%Ist %LIGHT_GRAY%+ %ORANGE%Lem %LIGHT_GRAY%+ %ORANGE%Lum %LIGHT_GRAY%+ %ORANGE%Io %LIGHT_GRAY%+ %ORANGE%Nef%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=11 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Passion%WHITE%: %ORANGE%Dol %LIGHT_GRAY%+ %ORANGE%Ort %LIGHT_GRAY%+ %ORANGE%Eld %LIGHT_GRAY%+ %ORANGE%Lem%NL%%NAME%}%CONTINUE%
-
-ItemDisplay[key QTY=12 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Pattern%WHITE%: %ORANGE%Tal %LIGHT_GRAY%+ %ORANGE%Ort %LIGHT_GRAY%+ %ORANGE%Tir%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=12 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Peace%WHITE%: %ORANGE%Shael %LIGHT_GRAY%+ %ORANGE%Thul %LIGHT_GRAY%+ %ORANGE%Amn%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=12 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Phoenix%WHITE%: %ORANGE%Vex %LIGHT_GRAY%+ %ORANGE%Vex %LIGHT_GRAY%+ %ORANGE%Lo %LIGHT_GRAY%+ %ORANGE%Jah%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=12 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Plague%WHITE%: %ORANGE%Cham %LIGHT_GRAY%+ %ORANGE%Fal %LIGHT_GRAY%+ %ORANGE%Um%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=12 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Pride%WHITE%: %ORANGE%Cham %LIGHT_GRAY%+ %ORANGE%Sur %LIGHT_GRAY%+ %ORANGE%Io %LIGHT_GRAY%+ %ORANGE%Lo%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=12 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Principle%WHITE%: %ORANGE%Ral %LIGHT_GRAY%+ %ORANGE%Gul %LIGHT_GRAY%+ %ORANGE%Eld%NL%%NAME%}%CONTINUE%
-
-ItemDisplay[key QTY=13 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Prudence%WHITE%: %ORANGE%Mal %LIGHT_GRAY%+ %ORANGE%Tir%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=13 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Purity%WHITE%: %ORANGE%Amn %LIGHT_GRAY%+ %ORANGE%Eth %LIGHT_GRAY%+ %ORANGE%Thul%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=13 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Radiance%WHITE%: %ORANGE%Nef %LIGHT_GRAY%+ %ORANGE%Sol %LIGHT_GRAY%+ %ORANGE%Ith%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=13 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Rain%WHITE%: %ORANGE%Ort %LIGHT_GRAY%+ %ORANGE%Mal %LIGHT_GRAY%+ %ORANGE%Ith%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=13 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Rampage%WHITE%: %ORANGE%Shael %LIGHT_GRAY%+ %ORANGE%El %LIGHT_GRAY%+ %ORANGE%Ith %LIGHT_GRAY%+ %ORANGE%Eth%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=13 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Rapture%WHITE%: %ORANGE%Vex %LIGHT_GRAY%+ %ORANGE%Jah %LIGHT_GRAY%+ %ORANGE%Lo %LIGHT_GRAY%+ %ORANGE%Ral %LIGHT_GRAY%+ %ORANGE%Ko %LIGHT_GRAY%+ %ORANGE%Mal%NL%%NAME%}%CONTINUE%
-
-ItemDisplay[key QTY=14 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Rhyme%WHITE%: %ORANGE%Shael %LIGHT_GRAY%+ %ORANGE%Eth%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=14 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Rift%WHITE%: %ORANGE%Hel %LIGHT_GRAY%+ %ORANGE%Ko %LIGHT_GRAY%+ %ORANGE%Lem %LIGHT_GRAY%+ %ORANGE%Gul%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=14 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Sanctuary%WHITE%: %ORANGE%Ko %LIGHT_GRAY%+ %ORANGE%Ko %LIGHT_GRAY%+ %ORANGE%Mal%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=14 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Shattered Wall%WHITE%: %ORANGE%Zod %LIGHT_GRAY%+ %ORANGE%Jah %LIGHT_GRAY%+ %ORANGE%Ral %LIGHT_GRAY%+ %ORANGE%Cham%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=14 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Silence%WHITE%: %ORANGE%Dol %LIGHT_GRAY%+ %ORANGE%Eld %LIGHT_GRAY%+ %ORANGE%Hel %LIGHT_GRAY%+ %ORANGE%Ist %LIGHT_GRAY%+ %ORANGE%Tir %LIGHT_GRAY%+ %ORANGE%Vex%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=14 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Smoke%WHITE%: %ORANGE%Nef %LIGHT_GRAY%+ %ORANGE%Lum%NL%%NAME%}%CONTINUE%
-
-ItemDisplay[key QTY=15 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Spirit%WHITE%: %ORANGE%Tal %LIGHT_GRAY%+ %ORANGE%Thul %LIGHT_GRAY%+ %ORANGE%Ort %LIGHT_GRAY%+ %ORANGE%Amn%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=15 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Splendor%WHITE%: %ORANGE%Eth %LIGHT_GRAY%+ %ORANGE%Lum%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=15 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Stealth%WHITE%: %ORANGE%Tal %LIGHT_GRAY%+ %ORANGE%Eth%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=15 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Steel%WHITE%: %ORANGE%Tir %LIGHT_GRAY%+ %ORANGE%El%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=15 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Stone%WHITE%: %ORANGE%Shael %LIGHT_GRAY%+ %ORANGE%Um %LIGHT_GRAY%+ %ORANGE%Pul %LIGHT_GRAY%+ %ORANGE%Lum%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=15 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Strength%WHITE%: %ORANGE%Amn %LIGHT_GRAY%+ %ORANGE%Tir%NL%%NAME%}%CONTINUE%
-
-ItemDisplay[key QTY=16 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Treachery%WHITE%: %ORANGE%Shael %LIGHT_GRAY%+ %ORANGE%Thul %LIGHT_GRAY%+ %ORANGE%Lem%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=16 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Unbending Will%WHITE%: %ORANGE%Fal %LIGHT_GRAY%+ %ORANGE%Io %LIGHT_GRAY%+ %ORANGE%Ith %LIGHT_GRAY%+ %ORANGE%Eld %LIGHT_GRAY%+ %ORANGE%El %LIGHT_GRAY%+ %ORANGE%Hel%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=16 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Venom%WHITE%: %ORANGE%Tal %LIGHT_GRAY%+ %ORANGE%Dol %LIGHT_GRAY%+ %ORANGE%Mal%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=16 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Voice of Reason%WHITE%: %ORANGE%Lem %LIGHT_GRAY%+ %ORANGE%Ko %LIGHT_GRAY%+ %ORANGE%El %LIGHT_GRAY%+ %ORANGE%Eld%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=16 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Wealth%WHITE%: %ORANGE%Lem %LIGHT_GRAY%+ %ORANGE%Ko %LIGHT_GRAY%+ %ORANGE%Tir%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=16 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%White%WHITE%: %ORANGE%Dol %LIGHT_GRAY%+ %ORANGE%Io%NL%%NAME%}%CONTINUE%
-
-ItemDisplay[key QTY=17 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Wind%WHITE%: %ORANGE%Sur %LIGHT_GRAY%+ %ORANGE%El%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=17 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Wisdom%WHITE%: %ORANGE%Pul %LIGHT_GRAY%+ %ORANGE%Ith %LIGHT_GRAY%+ %ORANGE%Eld%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=17 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Wrath%WHITE%: %ORANGE%Pul %LIGHT_GRAY%+ %ORANGE%Lum %LIGHT_GRAY%+ %ORANGE%Ber %LIGHT_GRAY%+ %ORANGE%Mal%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=17 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Zenith%WHITE%: %ORANGE%Jah %LIGHT_GRAY%+ %ORANGE%Zod %LIGHT_GRAY%+ %ORANGE%Ort %LIGHT_GRAY%+ %ORANGE%Thul %LIGHT_GRAY%+ %ORANGE%Ral%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=17 (TOWN OR MAPID>132) !SHOP]: %NAME%{%GRAY%Zephyr%WHITE%: %ORANGE%Ort %LIGHT_GRAY%+ %ORANGE%Eth%NL%%NAME%}%CONTINUE%
-//
-ItemDisplay[key QTY=1 (TOWN OR MAPID>132) !SHOP]: %NAME%{%WHITE%Quantity:   %TAN%+1   %WHITE%:Next Page%NL%%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY~2-16 (TOWN OR MAPID>132) !SHOP]: %NAME%{%WHITE%Previous Page:   %TAN%-1   %WHITE%:Quantity:   %TAN%+1   %WHITE%:Next Page%NL%%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=17 (TOWN OR MAPID>132) !SHOP]: %NAME%{%WHITE%Previous Page:   %TAN%-1 %WHITE%:Quantity%NL%%NL%%NAME%}%CONTINUE%
 //
 //Craft Infusions
 ItemDisplay[(crfb OR crfc OR crfs OR crfh OR crfv OR crfu OR crfp)]: %NAME%{%TAN%Note%WHITE%: Guaranteed:}%CONTINUE%
-//keys and Craft Infusions Descriptions
-ItemDisplay[key QTY=18 (TOWN OR MAPID>132) !SHOP]: %NAME%{%WHITE%Blood %ORANGE%[%RED%O%ORANGE%]%WHITE%:}%CONTINUE%
-ItemDisplay[(key QTY=18 (TOWN OR MAPID>132) !SHOP) OR crfb]: %NAME%{Amulet: 10% FRW, [3-6] LPK, [10-20] Life%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=18 (TOWN OR MAPID>132) !SHOP) OR crfb]: %NAME%{Ring: [5-10] Str, [1-3]% LL, [10-20] Life%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=18 (TOWN OR MAPID>132) !SHOP) OR crfb]: %NAME%{Belt: [10-20]% Open Wounds, [3-6]% LL, [10-20] Life%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=18 (TOWN OR MAPID>132) !SHOP) OR crfb]: %NAME%{Gloves: [5-10]% Crushing Blow, [2-4]% LL, [10-20] Life%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=18 (TOWN OR MAPID>132) !SHOP) OR crfb]: %NAME%{Boots: [15-30] Rep Life, [2-4]% LL, [10-20] Life%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=18 (TOWN OR MAPID>132) !SHOP) OR crfb]: %NAME%{Helm: [10-20]% Crushing Blow, [2-4]% LL, [10-20] Life%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=18 (TOWN OR MAPID>132) !SHOP) OR crfb]: %NAME%{Chest: [3-6] LPK, [3-6]% LL, [20-40] Life%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=18 (TOWN OR MAPID>132) !SHOP) OR crfb]: %NAME%{Shield: [10-20]% Block, [3-6]% LL, [10-20] Life%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=18 (TOWN OR MAPID>132) !SHOP) OR crfb]: %NAME%{Weapon: [50-80]% ED, [3-6]% LL, [10-20] Life%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=18 (TOWN OR MAPID>132) !SHOP) OR crfb]: %NAME%{Quiver: [5-10]% Crushing Blow, [2-4]% LL, [10-20] Life%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=19 (TOWN OR MAPID>132) !SHOP]: %NAME%{%WHITE%Caster %ORANGE%[%PURPLE%O%ORANGE%]%WHITE%:}%CONTINUE%
-ItemDisplay[(key QTY=19 (TOWN OR MAPID>132) !SHOP) OR crfc]: %NAME%{Amulet: [5-10]% FCR, [4-10]% Reg Mana, [10-20] Mana%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=19 (TOWN OR MAPID>132) !SHOP) OR crfc]: %NAME%{Ring: [5-10] Energy, [1-2] MPK, [10-20] Mana%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=19 (TOWN OR MAPID>132) !SHOP) OR crfc]: %NAME%{Belt: 10% FCR, [4-10]% Reg Mana, [10-20] Mana%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=19 (TOWN OR MAPID>132) !SHOP) OR crfc]: %NAME%{Gloves: [5-10]% FCR, [1-3] MPK, [10-20] Mana%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=19 (TOWN OR MAPID>132) !SHOP) OR crfc]: %NAME%{Boots: [5-10]% Max Mana, [4-10]% Reg Mana, [10-20] Mana%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=19 (TOWN OR MAPID>132) !SHOP) OR crfc]: %NAME%{Helm: [5-10]% FCR, [4-10]% Reg Mana, [10-20] Mana%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=19 (TOWN OR MAPID>132) !SHOP) OR crfc]: %NAME%{Chest: [5-10]% FCR, [2-6] MPK, [20-30] Mana%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=19 (TOWN OR MAPID>132) !SHOP) OR crfc]: %NAME%{Shield: [10-20]% Block, [5-10]% FCR, [20-30] Mana%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=19 (TOWN OR MAPID>132) !SHOP) OR crfc]: %NAME%{Weapon: 1 to All Skills, [10-20]% FCR, [10-20] Mana%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=19 (TOWN OR MAPID>132) !SHOP) OR crfc]: %NAME%{Quiver: [5-10]% FCR, [2-4] MPK, [10-20] Mana%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=20 (TOWN OR MAPID>132) !SHOP]: %NAME%{%WHITE%Safety %ORANGE%[%GREEN%O%ORANGE%]%WHITE%:}%CONTINUE%
-ItemDisplay[(key QTY=20 (TOWN OR MAPID>132) !SHOP) OR crfs]: %NAME%{Amulet: 10% Block, [4-7] M&PDR%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=20 (TOWN OR MAPID>132) !SHOP) OR crfs]: %NAME%{Ring: [5-10] Vit, [2-5] M&PDR%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=20 (TOWN OR MAPID>132) !SHOP) OR crfs]: %NAME%{Belt: [10-30]% Defense, [10-20]% Psn Res, [2-5] M&PDR%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=20 (TOWN OR MAPID>132) !SHOP) OR crfs]: %NAME%{Gloves: [10-30]% Defense, [10-20]% Cold Res, [2-5] M&PDR%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=20 (TOWN OR MAPID>132) !SHOP) OR crfs]: %NAME%{Boots: [20-60]% Defense, [10-20]% Fire Res, [2-5] M&PDR%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=20 (TOWN OR MAPID>132) !SHOP) OR crfs]: %NAME%{Helm: [20-60]% Defense, [10-20]% Light Res, [5-10]% PDR%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=20 (TOWN OR MAPID>132) !SHOP) OR crfs]: %NAME%{Chest: [20-60]% Defense, [5-10]% PDR, [100-150] Def vs Melee%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=20 (TOWN OR MAPID>132) !SHOP) OR crfs]: %NAME%{Shield: [20-60]% Defense, [5-10]% PDR, [100-150] Def vs Melee%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=20 (TOWN OR MAPID>132) !SHOP) OR crfs]: %NAME%{Weapon: [50-80]% ED, Knockback, [2-5] M&PDR%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=20 (TOWN OR MAPID>132) !SHOP) OR crfs]: %NAME%{Quiver: 10% FRW, [4-7] M&PDR%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=21 (TOWN OR MAPID>132) !SHOP]: %NAME%{%WHITE%Hitpower %ORANGE%[%BLUE%O%ORANGE%]%WHITE%:}%CONTINUE%
-ItemDisplay[(key QTY=21 (TOWN OR MAPID>132) !SHOP) OR crfh]: %NAME%{Amulet: [150-250] AR, [10-20]% FHR%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=21 (TOWN OR MAPID>132) !SHOP) OR crfh]: %NAME%{Ring: [5-10] Dex, [2-4] Max Dmg%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=21 (TOWN OR MAPID>132) !SHOP) OR crfh]: %NAME%{Belt: [5-10]% Dmg Taken as Mana, [10-20]% FHR%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=21 (TOWN OR MAPID>132) !SHOP) OR crfh]: %NAME%{Gloves: Knockback, -[10-20]% Target Defense%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=21 (TOWN OR MAPID>132) !SHOP) OR crfh]: %NAME%{Boots: [60-120] Def vs Melee, [10-20]% FHR%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=21 (TOWN OR MAPID>132) !SHOP) OR crfh]: %NAME%{Helm: [100-200] AR, [10-20]% FHR%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=21 (TOWN OR MAPID>132) !SHOP) OR crfh]: %NAME%{Chest: [25-50]% Defense, [30-40]% FHR%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=21 (TOWN OR MAPID>132) !SHOP) OR crfh]: %NAME%{Shield: [10-20]% Block, [20-30]% FBR%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=21 (TOWN OR MAPID>132) !SHOP) OR crfh]: %NAME%{Weapon: [50-80]% ED, -[10-20]% Target Defense%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=21 (TOWN OR MAPID>132) !SHOP) OR crfh]: %NAME%{Quiver: Knockback, -[10-20]% Target Defense%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=22 (TOWN OR MAPID>132) !SHOP]: %NAME%{%WHITE%Vampiric %ORANGE%[%GRAY%O%ORANGE%]%WHITE%:}%CONTINUE%
-ItemDisplay[(key QTY=22 (TOWN OR MAPID>132) !SHOP) OR crfv]: %NAME%{Amulet: [10-20]% Curse DR, [3-6]% ML, [5-10] R.Life%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=22 (TOWN OR MAPID>132) !SHOP) OR crfv]: %NAME%{Ring: [10-20]% PLR, [1-3]% ML, [5-10] R.Life%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=22 (TOWN OR MAPID>132) !SHOP) OR crfv]: %NAME%{Belt: [10-20]% PLR, [3-6]% ML, [5-10] R.Life%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=22 (TOWN OR MAPID>132) !SHOP) OR crfv]: %NAME%{Gloves: [5-10]% DS, [2-4]% ML, [5-10] R.Life%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=22 (TOWN OR MAPID>132) !SHOP) OR crfv]: %NAME%{Boots: [10-20]% PLR, [2-4]% ML, [5-10] R.Life%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=22 (TOWN OR MAPID>132) !SHOP) OR crfv]: %NAME%{Helm: [10-20]% DS, [2-4]% ML, [5-10] R.Life%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=22 (TOWN OR MAPID>132) !SHOP) OR crfv]: %NAME%{Chest: [3-6]% ML, [5-10] R.Life, [20-30]% PLR%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=22 (TOWN OR MAPID>132) !SHOP) OR crfv]: %NAME%{Shield: [10-20]% Block, [3-6]% ML, [20-30]% PLR%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=22 (TOWN OR MAPID>132) !SHOP) OR crfv]: %NAME%{Weapon: [100-140]% ED Demon/Undead, [3-6]% ML, [10-15] R.Life%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=22 (TOWN OR MAPID>132) !SHOP) OR crfv]: %NAME%{Quiver: [20-30]% PLR, [2-4]% ML, [5-10] R.Life%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=23 (TOWN OR MAPID>132) !SHOP]: %NAME%{%WHITE%Bountiful %ORANGE%[%YELLOW%O%ORANGE%]%WHITE%:}%CONTINUE%
-ItemDisplay[(key QTY=23 (TOWN OR MAPID>132) !SHOP) OR crfu]: %NAME%{Amulet: [10-20] Vit, [20-30]% MF, [1-3] L.Rad%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=23 (TOWN OR MAPID>132) !SHOP) OR crfu]: %NAME%{Ring: [5-10] Vit, [10-20]% MF, [1-3] L.Rad%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=23 (TOWN OR MAPID>132) !SHOP) OR crfu]: %NAME%{Belt: [25-50]% Def, [20-30]% MF, [1-3] L.Rad%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=23 (TOWN OR MAPID>132) !SHOP) OR crfu]: %NAME%{Gloves: [25-50]% Def, [15-25]% MF, [1-3] L.Rad%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=23 (TOWN OR MAPID>132) !SHOP) OR crfu]: %NAME%{Boots: [25-50]% Def, [15-25]% MF, [1-3] L.Rad%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=23 (TOWN OR MAPID>132) !SHOP) OR crfu]: %NAME%{Helm: [25-50]% Def, [20-30]% MF, [1-3] L.Rad%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=23 (TOWN OR MAPID>132) !SHOP) OR crfu]: %NAME%{Chest: [25-50]% Def, [20-30]% MF, [1-3] L.Rad%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=23 (TOWN OR MAPID>132) !SHOP) OR crfu]: %NAME%{Shield: [10-20]% Block, [20-30]% MF, [1-3] L.Rad%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=23 (TOWN OR MAPID>132) !SHOP) OR crfu]: %NAME%{Weapon: 1 to All Skills, [20-30]% MF, [1-3] L.Rad%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=23 (TOWN OR MAPID>132) !SHOP) OR crfu]: %NAME%{Quiver: [5-10] Vit, [15-25]% MF, [20-30]% EG%NL%%NAME%}%CONTINUE%
-ItemDisplay[key QTY=24 (TOWN OR MAPID>132) !SHOP]: %NAME%{%WHITE%Brilliant %ORANGE%[%WHITE%O%ORANGE%]%WHITE%:}%CONTINUE%
-ItemDisplay[(key QTY=24 (TOWN OR MAPID>132) !SHOP) OR crfp]: %NAME%{Amulet: [5-15]% All Res, [100-150] Def vs Missle, [4-8] All Atrb%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=24 (TOWN OR MAPID>132) !SHOP) OR crfp]: %NAME%{Ring: [3-5]% All Res, [50-100] Def vs Missle, HFD%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=24 (TOWN OR MAPID>132) !SHOP) OR crfp]: %NAME%{Belt: [5-10]% IAS, [25-50]% Def, HFD%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=24 (TOWN OR MAPID>132) !SHOP) OR crfp]: %NAME%{Gloves: [5-10]% IAS, [10-20]% AR, [25-50]% Def%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=24 (TOWN OR MAPID>132) !SHOP) OR crfp]: %NAME%{Boots: 10% FRW, [100-150] Def vs Missle, HFD%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=24 (TOWN OR MAPID>132) !SHOP) OR crfp]: %NAME%{Helm: [5-10]% IAS, [25-50]% Def, HFD%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=24 (TOWN OR MAPID>132) !SHOP) OR crfp]: %NAME%{Chest: [5-10]% All Res, [10-20]% Block, [25-50]% Def%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=24 (TOWN OR MAPID>132) !SHOP) OR crfp]: %NAME%{Shield: [5-10]% All Res, [10-20]% Block, HFD%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=24 (TOWN OR MAPID>132) !SHOP) OR crfp]: %NAME%{Weapon: [20-40]% ED, 20% IAS, [50-100] AR%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key QTY=24 (TOWN OR MAPID>132) !SHOP) OR crfp]: %NAME%{Quiver: [5-10]% All Res, [100-150] Def vs Missle, 10% FHR%NL%%NAME%}%CONTINUE%
-//
-//Map Reading Notes on keys stack:
-ItemDisplay[(key OR rkey) !TOWN MAPID~1-132]: %NAME%{%TAN%Note%WHITE%: Pathfinding/Map Reading Tips:%NAME%}%CONTINUE%
-//MAPID=1 : Rogue Encampment
-//MAPID=2 : Blood Moor
-ItemDisplay[(key OR rkey) !TOWN MAPID=2]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Blood Moor %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=2]: %NAME%{%WHITE%The %CORAL%Den of Evil %WHITE%is usually just outside the Town, often branching off the main road.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=2]: %NAME%{%WHITE%Drop a Town Portal at the fork or cave, then head to the %CORAL%Cold Plains %TEAL%Waypoint%WHITE%.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=2]: %NAME%{%WHITE%This saves walking back after clearing the Den.%NL%%NAME%}%CONTINUE%
-//MAPID=3 : Cold Plains
-ItemDisplay[(key OR rkey) !TOWN MAPID=3]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Cold Plains %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=3]: %NAME%{%TEAL%Waypoint %WHITE%is just at the cornered entrance from %CORAL%Blood Moor%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=3]: %NAME%{%CORAL%Burial Grounds %WHITE%road-connected in one of the 3 far corners.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=3]: %NAME%{%CORAL%Stony Fields %WHITE%road-connected at the center of an edge.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=3]: %NAME%{%GRAY%(Entrances can't be on the same edge)%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=3]: %NAME%{%WHITE%Road forks and leads to %CORAL%Cave%WHITE%. %GOLD%Bishibosh %WHITE%is located randomly.%NL%%NAME%}%CONTINUE%
-//MAPID=4 : Stony Field
-ItemDisplay[(key OR rkey) !TOWN MAPID=4]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Stony Field %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=4]: %NAME%{%WHITE%Road will lead you to %CORAL%Underground Passage%WHITE%.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=4]: %NAME%{%CORAL%Cairn Stones%WHITE%/%GOLD%Rakanishu %WHITE%are always next to the road.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=4]: %NAME%{%TEAL%Waypoint %WHITE%and %GOLD%Moldy Tome %WHITE%are located randomly.%NL%%NAME%}%CONTINUE%
-//MAPID=5 : Dark Wood
-ItemDisplay[(key OR rkey) !TOWN MAPID=5]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Dark Wood %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=5]: %NAME%{%CORAL%Black Marsh %WHITE%on one of the edges road-connected.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=5]: %NAME%{%TEAL%Waypoint %WHITE%and %GOLD%Tree of Inifuss %WHITE%are located randomly.%NL%%NAME%}%CONTINUE%
-//MAPID=6 : Black Marsh
-ItemDisplay[(key OR rkey) !TOWN MAPID=6]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Black Marsh %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=6]: %NAME%{%CORAL%Tamoe Highlands %WHITE%road-connected on other edge then %CORAL%Dark Wood.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=6]: %NAME%{%WHITE%Road forks and leads into %CORAL%Hole%WHITE%.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=6]: %NAME%{%GRAY%(Tamoe Highlands exit is never on Bottom-Left!)%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=6]: %NAME%{%TEAL%Waypoint %WHITE%and %GOLD%The Forgotten Tower %WHITE%are located randomly.%NL%%NAME%}%CONTINUE%
-//MAPID=7 : Tamoe Highland
-ItemDisplay[(key OR rkey) !TOWN MAPID=7]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Tamoe Highland %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=7]: %NAME%{%WHITE%Entrance from %CORAL%Dark Wood %WHITE%on one edge road-connected with%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=7]: %NAME%{%CORAL%Monastery Gate %WHITE%which is always at Top-Right edge%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=7]: %NAME%{%WHITE%Road forks and leads into %CORAL%Pit%WHITE%.%NL%%NAME%}%CONTINUE%
-//MAPID=8 : Den of Evil
-ItemDisplay[(key OR rkey) !TOWN MAPID=8]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Den of Evil %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=9 : Cave Level 1
-ItemDisplay[(key OR rkey) !TOWN MAPID=9]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Cave Level 1 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=9]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Next Level %BLUE%Straight%WHITE%: Coldcrow %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=10 : Underground Passage Level 1
-ItemDisplay[(key OR rkey) !TOWN MAPID=10]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Underground Passage Level 1 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=10]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Next Level %BLUE%Straight%WHITE%: Dark Wood %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=11 : Hole Level 1
-ItemDisplay[(key OR rkey) !TOWN MAPID=11]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Hole Level 1 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=11]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Next Level %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=12 : Pit Level 1
-ItemDisplay[(key OR rkey) !TOWN MAPID=12]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Pit Level 1 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=12]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Next Level %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=13 : Cave Level 2
-ItemDisplay[(key OR rkey) !TOWN MAPID=13]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Cave Level 2 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=14 : Underground Passage Level 2
-ItemDisplay[(key OR rkey) !TOWN MAPID=14]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Underground Passage Level 2 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=15 : Hole Level 2
-ItemDisplay[(key OR rkey) !TOWN MAPID=15]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Hole Level 2 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=16 : Pit Level 2
-ItemDisplay[(key OR rkey) !TOWN MAPID=16]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Pit Level 2 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=17 : Burial Grounds
-ItemDisplay[(key OR rkey) !TOWN MAPID=17]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Burial Grounds %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=18 : Crypt
-ItemDisplay[(key OR rkey) !TOWN MAPID=18]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Crypt %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=18]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Golden Chest/Bonebreaker %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=19 : Mausoleum
-ItemDisplay[(key OR rkey) !TOWN MAPID=19]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Mausoleum %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=19]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Golden Chest %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=20 : Forgotten Tower
-ItemDisplay[(key OR rkey) !TOWN MAPID=20]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Forgotten Tower %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=21 : Tower Cellar Level 1
-ItemDisplay[(key OR rkey) !TOWN MAPID=21]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Tower Cellar Level 1 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=21]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Next Level %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=22 : Tower Cellar Level 2
-ItemDisplay[(key OR rkey) !TOWN MAPID=22]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Tower Cellar Level 2 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=22]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Next Level %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=23 : Tower Cellar Level 3
-ItemDisplay[(key OR rkey) !TOWN MAPID=23]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Tower Cellar Level 3 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=23]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Next Level %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=24 : Tower Cellar Level 4
-ItemDisplay[(key OR rkey) !TOWN MAPID=24]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Tower Cellar Level 4 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=24]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Next Level %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=25 : Tower Cellar Level 5
-ItemDisplay[(key OR rkey) !TOWN MAPID=25]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Tower Cellar Level 5 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=26 : Monastery Gate
-ItemDisplay[(key OR rkey) !TOWN MAPID=26]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Monastery Gate %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=27 : Outer Cloister
-ItemDisplay[(key OR rkey) !TOWN MAPID=27]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Outer Cloister %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=27]: %NAME%{%TEAL%Waypoint%WHITE%: Left side of Square | %CORAL%Barracks%WHITE%: Bottom-Right%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=27]: %NAME%{%TEAL%Waypoint%WHITE%: Right side of Square with Bushes in center | %CORAL%Barracks%WHITE%: Top-Right%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=27]: %NAME%{%TEAL%Waypoint%WHITE%: Right side of Square with Fountain in center | %CORAL%Barracks%WHITE%: Top-Left%NL%%NAME%}%CONTINUE%
-//MAPID=28 : Barracks
-ItemDisplay[(key OR rkey) !TOWN MAPID=28]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Barracks %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=28]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Jail/Malus%GRAY%* %BLUE%Straight%WHITE%: Jail/Malus%GRAY%* %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=28]: %NAME%{%GRAY%(*Jail/Malus are located in Left and Straight Lines randomly)%NL%%NL%%NAME%}%CONTINUE%
-//MAPID=29 : Jail Level 1
-ItemDisplay[(key OR rkey) !TOWN MAPID=29]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Jail Level 1 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=29]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Waypoint %BLUE%Straight%WHITE%: Next Level %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=29]: %NAME%{%WHITE%from %TEAL%Waypoint%WHITE%: %YELLOW%Left%WHITE%: Next Level %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: Barracks%NL%%NAME%}%CONTINUE%
-//MAPID=30 : Jail Level 2
-ItemDisplay[(key OR rkey) !TOWN MAPID=30]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Jail Level 2 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=30]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Pitspawn Fouldog %BLUE%Straight%WHITE%: Next Level %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=31 : Jail Level 3
-ItemDisplay[(key OR rkey) !TOWN MAPID=31]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Jail Level 3 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=31]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Inner Cloister %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=32 : Inner Cloister
-ItemDisplay[(key OR rkey) !TOWN MAPID=32]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Inner Cloister %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=33 : Cathedral
-ItemDisplay[(key OR rkey) !TOWN MAPID=33]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Cathedral %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=34 : Catacombs Level 1
-ItemDisplay[(key OR rkey) !TOWN MAPID=34]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Catacombs Level 1 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Random%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=34]: %NAME%{%WHITE%Catacombs has no reliable pattern.%NL%%NAME%}%CONTINUE%
-//MAPID=35 : Catacombs Level 2
-ItemDisplay[(key OR rkey) !TOWN MAPID=35]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Catacombs Level 2 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based/Random%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=35]: %NAME%{%WHITE%from Entrance: Random%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=35]: %NAME%{%WHITE%from %TEAL%Waypoint%WHITE%: %YELLOW%Left%WHITE%: - %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: Next Level%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=35]: %NAME%{%WHITE%Catacombs has no reliable pattern, but:%NL%%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=35]: %NAME%{%WHITE%Once you will find WP, Next Level should be towards Right%NL%%NAME%}%CONTINUE%
-//MAPID=36 : Catacombs Level 3
-ItemDisplay[(key OR rkey) !TOWN MAPID=36]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Catacombs Level 3 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Random%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=36]: %NAME%{%WHITE%Catacombs has no reliable pattern.%NL%%NAME%}%CONTINUE%
-//MAPID=37 : Catacombs Level 4
-ItemDisplay[(key OR rkey) !TOWN MAPID=37]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Catacombs Level 4 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=38 : Tristram
-ItemDisplay[(key OR rkey) !TOWN MAPID=38]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Tristram %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=39 : Moo Moo Farm (Cows)
-ItemDisplay[(key OR rkey) !TOWN MAPID=39]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Moo Moo Farm (Cows) %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-//MAPID=40 : Lut Gholein
-//MAPID=41 : Rocky Waste
-ItemDisplay[(key OR rkey) !TOWN MAPID=41]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Rocky Waste %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=41]: %NAME%{%WHITE%Square shaped border with possible Entrances in corners.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=41]: %NAME%{%GRAY%(Corner need to be full-fledged to has Entrance)%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=41]: %NAME%{%CORAL%Dry Hills %WHITE%and %CORAL%Lut Gholein %WHITE%can be at the same corner!%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=41]: %NAME%{%CORAL%Stony Tomb %WHITE%is located randomly.%NL%%NAME%}%CONTINUE%
-//MAPID=42 : Dry Hills
-ItemDisplay[(key OR rkey) !TOWN MAPID=42]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Dry Hills %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=42]: %NAME%{%WHITE%Square shaped border with possible Entrances in corners.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=42]: %NAME%{%GRAY%(Corner need to be full-fledged to has Entrance)%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=42]: %NAME%{%CORAL%Far Oasis %WHITE%and %CORAL%Rocky Waste %WHITE%can be at the same corner!%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=42]: %NAME%{%TEAL%Waypoint %WHITE%and %GOLD%Halls of the Dead %WHITE%are located randomly.%NL%%NAME%}%CONTINUE%
-//MAPID=43 : Far Oasis
-ItemDisplay[(key OR rkey) !TOWN MAPID=43]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Far Oasis %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=43]: %NAME%{%WHITE%Square shaped border with possible Entrances in corners.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=43]: %NAME%{%GRAY%(Corner need to be full-fledged to has Entrance)%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=43]: %NAME%{%CORAL%Lost City %WHITE%and %CORAL%Dry Hills %WHITE%can be at the same corner!%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=43]: %NAME%{%TEAL%Waypoint %WHITE%and %GOLD%Maggot Lair %WHITE%are located randomly.%NL%%NAME%}%CONTINUE%
-//MAPID=44 : Lost City
-ItemDisplay[(key OR rkey) !TOWN MAPID=44]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Lost City %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=44]: %NAME%{%WHITE%Square shaped border with possible Entrances in corners.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=44]: %NAME%{%GRAY%(Corner need to be full-fledged to has Entrance)%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=44]: %NAME%{%CORAL%Far Oasis %WHITE%and %CORAL%Valley of Snakes %WHITE%can be at the same corner!%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=44]: %NAME%{%TEAL%Waypoint %WHITE%and %CORAL%Ancient Tunnels %WHITE%are located randomly.%NL%%NAME%}%CONTINUE%
-//MAPID=45 : Valley of Snakes
-ItemDisplay[(key OR rkey) !TOWN MAPID=45]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Valley of Snakes %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=46 : Canyon of the Magi
-ItemDisplay[(key OR rkey) !TOWN MAPID=46]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Canyon of the Magi %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=46]: %NAME%{%WHITE%Symbols Order from Left to Right:%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=46]: %NAME%{%WHITE%1. %BLUE%O %BLACK%| %WHITE%2. %BLUE%( %BLACK%| %WHITE%3. %BLUE%[] %BLACK%| %WHITE%4. %BLUE%X %BLACK%| %WHITE%5. %BLUE%V %BLACK%| %WHITE%6. %BLUE%/\ %BLACK%| %WHITE%7. %BLUE%(O%NL%%NAME%}%CONTINUE%
-//MAPID=47 : Sewers Level 1 (Act 2)
-ItemDisplay[(key OR rkey) !TOWN MAPID=47]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Sewers Level 1 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=47]: %NAME%{%WHITE%Next Level is located randomly, but most of the times%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=47]: %NAME%{%WHITE%You will find it somewhere close to Door at the Docks%NL%%NAME%}%CONTINUE%
-//MAPID=48 : Sewers Level 2 (Act 2)
-ItemDisplay[(key OR rkey) !TOWN MAPID=48]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Sewers Level 2 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=48]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Waypoint %BLUE%Straight%WHITE%: Next Level %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=48]: %NAME%{%WHITE%from %TEAL%Waypoint%WHITE%: %YELLOW%Left%WHITE%: Next Level %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: Previous Level%NL%%NAME%}%CONTINUE%
-//MAPID=49 : Sewers Level 3 (Act 2)
-ItemDisplay[(key OR rkey) !TOWN MAPID=49]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Sewers Level 3 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=49]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Radament %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=50 : Harem Level 1
-ItemDisplay[(key OR rkey) !TOWN MAPID=50]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Harem Level 1 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=51 : Harem Level 2
-ItemDisplay[(key OR rkey) !TOWN MAPID=51]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Harem Level 2 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=51]: %NAME%{%WHITE%Do not go in diagonals, Stay on any edge.%NL%%NAME%}%CONTINUE%
-//MAPID=52 : Palace Cellar Level 1
-ItemDisplay[(key OR rkey) !TOWN MAPID=52]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Palace Cellar Level 1 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=52]: %NAME%{%WHITE%Do not go in diagonals, Stay on any edge.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=52]: %NAME%{%TEAL%Waypoint %WHITE%is located near-above Bottom corner.%NL%%NAME%}%CONTINUE%
-//MAPID=53 : Palace Cellar Level 2
-ItemDisplay[(key OR rkey) !TOWN MAPID=53]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Palace Cellar Level 2 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=53]: %NAME%{%WHITE%Do not go in diagonals, Stay on any edge.%NL%%NAME%}%CONTINUE%
-//MAPID=54 : Palace Cellar Level 3
-ItemDisplay[(key OR rkey) !TOWN MAPID=54]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Palace Cellar Level 3 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=54]: %NAME%{%CORAL%Arcane Sanctuary %WHITE%portal is in the middle of map.%NL%%NAME%}%CONTINUE%
-//MAPID=55 : Stony Tomb Level 1
-ItemDisplay[(key OR rkey) !TOWN MAPID=55]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Stony Tomb Level 1 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=55]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Next Level %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=56 : Halls of the Dead Level 1
-ItemDisplay[(key OR rkey) !TOWN MAPID=56]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Halls of the Dead Level 1 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=56]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Next Level %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=57 : Halls of the Dead Level 2
-ItemDisplay[(key OR rkey) !TOWN MAPID=57]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Halls of the Dead Level 2 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=57]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Next Level %BLUE%Straight%WHITE%: Waypoint %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=57]: %NAME%{%WHITE%from %TEAL%Waypoint%WHITE%: %YELLOW%Left%WHITE%: - %BLUE%Straight%WHITE%: Previous Level %GREEN%Right%WHITE%: Next Level%NL%%NAME%}%CONTINUE%
-//MAPID=58 : Claw Viper Temple Level 1
-ItemDisplay[(key OR rkey) !TOWN MAPID=58]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Claw Viper Temple Level 1 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=58]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Next Level %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=59 : Stony Tomb Level 2
-ItemDisplay[(key OR rkey) !TOWN MAPID=59]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Stony Tomb Level 2 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=59]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Golden Chest %BLUE%Straight%WHITE%: Creeping Feature %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=60 : Halls of the Dead Level 3
-ItemDisplay[(key OR rkey) !TOWN MAPID=60]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Halls of the Dead Level 3 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=60]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Bloodwitch the Wild/Horadric Cube %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=61 : Claw Viper Temple Level 2
-ItemDisplay[(key OR rkey) !TOWN MAPID=61]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Claw Viper Temple Level 2 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=62 : Maggot Lair Level 1
-ItemDisplay[(key OR rkey) !TOWN MAPID=62]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Maggot Lair Level 1 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=62]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: - %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: Next Level%NL%%NAME%}%CONTINUE%
-//MAPID=63 : Maggot Lair Level 2
-ItemDisplay[(key OR rkey) !TOWN MAPID=63]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Maggot Lair Level 2 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=63]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: - %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: Next Level%NL%%NAME%}%CONTINUE%
-//MAPID=64 : Maggot Lair Level 3
-ItemDisplay[(key OR rkey) !TOWN MAPID=64]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Maggot Lair Level 3 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=64]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: - %BLUE%Straight%WHITE%: Staff of Kings %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=65 : Ancient Tunnels
-ItemDisplay[(key OR rkey) !TOWN MAPID=65]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Ancient Tunnels %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=63]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Golden Chest %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=66 : Tal Rasha's Tomb - Symbol: X
-ItemDisplay[(key OR rkey) !TOWN MAPID=66]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Tal Rasha's Tomb, Symbol: %BLUE%X %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=66]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Orifice/Golden Chest %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=67 : Tal Rasha's Tomb - Symbol: []
-ItemDisplay[(key OR rkey) !TOWN MAPID=67]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Tal Rasha's Tomb, Symbol: %BLUE%[] %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=67]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Orifice/Golden Chest %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=68 : Tal Rasha's Tomb - Symbol: )
-ItemDisplay[(key OR rkey) !TOWN MAPID=68]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Tal Rasha's Tomb, Symbol: %BLUE%( %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=68]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Orifice/Golden Chest %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=69 : Tal Rasha's Tomb - Symbol: O
-ItemDisplay[(key OR rkey) !TOWN MAPID=69]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Tal Rasha's Tomb, Symbol: %BLUE%O %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=69]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Orifice/Golden Chest %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=70 : Tal Rasha's Tomb - Symbol: V
-ItemDisplay[(key OR rkey) !TOWN MAPID=70]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Tal Rasha's Tomb, Symbol: %BLUE%V %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=70]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Orifice/Golden Chest %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=71 : Tal Rasha's Tomb - Symbol: /\
-ItemDisplay[(key OR rkey) !TOWN MAPID=71]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Tal Rasha's Tomb, Symbol: %BLUE%/\ %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=71]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Orifice/Golden Chest %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=72 : Tal Rasha's Tomb - Symbol: (O
-ItemDisplay[(key OR rkey) !TOWN MAPID=72]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Tal Rasha's Tomb, Symbol: %BLUE%(O %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=72]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Orifice/Golden Chest %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=73 : Tal Rasha's Chamber
-ItemDisplay[(key OR rkey) !TOWN MAPID=73]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Tal Rasha's Chamber %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=74 : Arcane Sanctuary
-ItemDisplay[(key OR rkey) !TOWN MAPID=74]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Arcane Sanctuary %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static/Random%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=74]: %NAME%{%WHITE%There are 4 ways with different theme (portals, stairs, etc.)%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=74]: %NAME%{%WHITE%Each way can Randomly lead to %GOLD%The Summoner %WHITE%or Golden Chest.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=74]: %NAME%{%GRAY%(It is better to start with no stairs/no portals themed road)%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=74]: %NAME%{%BLUE%Missing Symbol %WHITE%at Summoner is the one with %GOLD%Duriel %WHITE%in it.%NL%%NAME%}%CONTINUE%
-//MAPID=75 : Kurast Docks
-//MAPID=76 : Spider Forest
-ItemDisplay[(key OR rkey) !TOWN MAPID=76]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Spider Forest %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=76]: %NAME%{%WHITE%This Jungle zone has %GRAY%(at least) %WHITE%3 side pocket areas:%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=76]: %NAME%{%CORAL%Spider Cavern %WHITE%pocket, %CORAL%Arachnid Lair %WHITE%and %TEAL%Waypoint %WHITE%pocket, Empty pocket%GRAY%(s)%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=76]: %NAME%{%WHITE%Pockets of different zones can connect.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=76]: %NAME%{%WHITE%Pockets can be near: River Forks, River Dead Ends, River Turns%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=76]: %NAME%{%WHITE%When River forks in 3-4 directions: Better to go with turn.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=76]: %NAME%{%WHITE%Jungle can connect with %CORAL%Great Marsh %WHITE%or %CORAL%Flayer Jungle %WHITE%or both.%NL%%NAME%}%CONTINUE%
-//MAPID=77 : Great Marsh
-ItemDisplay[(key OR rkey) !TOWN MAPID=77]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Great Marsh %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=77]: %NAME%{%WHITE%This Jungle zone has %GRAY%(at least) %WHITE%3 side pocket areas:%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=77]: %NAME%{%TEAL%Waypoint %WHITE%pocket, Golden Chest pocket%GRAY%(s)%WHITE%, Empty pocket%GRAY%(s)%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=77]: %NAME%{%WHITE%Pockets of different zones can connect.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=77]: %NAME%{%WHITE%Pockets can be near: River Forks, River Dead Ends, River Turns%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=77]: %NAME%{%WHITE%When River forks in 3-4 directions: Better to go with turn.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=77]: %NAME%{%WHITE%Jungle can connect with %CORAL%Spider Forest %WHITE%or %CORAL%Flayer Jungle %WHITE%or both.%NL%%NAME%}%CONTINUE%
-//MAPID=78 : Flayer Jungle
-ItemDisplay[(key OR rkey) !TOWN MAPID=78]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Flayer Jungle %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=78]: %NAME%{%WHITE%This Jungle zone has %GRAY%(at least) %WHITE%3 side pocket areas:%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=78]: %NAME%{%CORAL%Flayer Dungeon %WHITE%and %GOLD%Gidbinn%WHITE% pocket, %CORAL%Swampy Pit %WHITE%and %TEAL%Waypoint %WHITE%pocket, Empty pocket%GRAY%(s)%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=78]: %NAME%{%WHITE%Pockets of different zones can connect.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=78]: %NAME%{%WHITE%Pockets can be near: River Forks, River Dead Ends, River Turns%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=78]: %NAME%{%WHITE%Drop TP on Quest pocket, and keep moving with river until You find%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=78]: %NAME%{%WHITE%One of the further zones %TEAL%Waypoint%WHITE%. This saves backtracking.%NL%%NAME%}%CONTINUE%
-//MAPID=79 : Lower Kurast
-ItemDisplay[(key OR rkey) !TOWN MAPID=79]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Lower Kurast %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=79]: %NAME%{%WHITE%Entrance from %CORAL%Flayer Jungle %WHITE%on Bottom-Left edge.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=79]: %NAME%{%WHITE%Exit to %CORAL%Kurast Bazaar %WHITE%on Top or Right corner.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=79]: %NAME%{%TEAL%Waypoint %WHITE%is located randomly.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=79]: %NAME%{%GOLD%Super Chests %WHITE%are nerfed in PD2.%NL%%NL%%NAME%}%CONTINUE%
-//MAPID=80 : Kurast Bazaar
-ItemDisplay[(key OR rkey) !TOWN MAPID=80]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Kurast Bazaar %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=80]: %NAME%{%WHITE%Entrance from %CORAL%Lower Kurast %WHITE%on Bottom or Left corner.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=80]: %NAME%{%WHITE%Exit to %CORAL%Upper Kurast %WHITE%on Top or Right corner.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=80]: %NAME%{%WHITE%2 Entrances to %CORAL%Sewers %WHITE%are always in same location.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=80]: %NAME%{%GOLD%Ruined Temple%WHITE%, %CORAL%Disused Fane %WHITE%and %TEAL%Waypoint %WHITE%are located randomly.%NL%%NAME%}%CONTINUE%
-//MAPID=81 : Upper Kurast
-ItemDisplay[(key OR rkey) !TOWN MAPID=81]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Upper Kurast %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=81]: %NAME%{%WHITE%Entrance from %CORAL%Kurast Bazar %WHITE%on Bottom or Left corner.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=81]: %NAME%{%WHITE%Exit to %CORAL%Travincal %WHITE%on Top-Right edge.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=81]: %NAME%{%WHITE%2 Entrances to %CORAL%Sewers %WHITE%are always in same location.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=81]: %NAME%{%CORAL%Forgotten Temple%WHITE%, %CORAL%Forgotten Reliquary %WHITE%and %TEAL%Waypoint %WHITE%are located randomly.%NL%%NAME%}%CONTINUE%
-//MAPID=82 : Kurast Causeway
-ItemDisplay[(key OR rkey) !TOWN MAPID=82]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Kurast Causeway %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=82]: %NAME%{%WHITE%Exit to %CORAL%Travincal %WHITE%on Top-Right edge.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=82]: %NAME%{%CORAL%Disused Reliquary %WHITE%on Left, %CORAL%Ruined Fane %WHITE%on Right.%NL%%NAME%}%CONTINUE%
-//MAPID=83 : Travincal
-ItemDisplay[(key OR rkey) !TOWN MAPID=83]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Travincal %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=83]: %NAME%{%TEAL%Waypoint %WHITE%near Top-Left edge %GOLD%Councils %WHITE%near Top-Right edge.%NL%%NAME%}%CONTINUE%
-//MAPID=84 : Arachnid Lair
-ItemDisplay[(key OR rkey) !TOWN MAPID=84]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Arachnid Lair %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=84]: %NAME%{%WHITE%Golden Chest on Bottom-Left edge.%NL%%NAME%}%CONTINUE%
-//MAPID=85 : Spider Cavern
-ItemDisplay[(key OR rkey) !TOWN MAPID=85]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Spider Cavern %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=85]: %NAME%{%GOLD%Quest Chest %WHITE%on Bottom-Left edge.%NL%%NAME%}%CONTINUE%
-//MAPID=86 : Swampy Pit Level 1
-ItemDisplay[(key OR rkey) !TOWN MAPID=86]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Swampy Pit Level 1 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=86]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Next Level %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=87 : Swampy Pit Level 2
-ItemDisplay[(key OR rkey) !TOWN MAPID=87]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Swampy Pit Level 2 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=87]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Next Level %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=88 : Flayer Dungeon Level 1
-ItemDisplay[(key OR rkey) !TOWN MAPID=88]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Flayer Dungeon Level 1 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=88]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Next Level %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=89 : Flayer Dungeon Level 2
-ItemDisplay[(key OR rkey) !TOWN MAPID=89]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Flayer Dungeon Level 2 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=89]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Next Level %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=90 : Swampy Pit Level 3
-ItemDisplay[(key OR rkey) !TOWN MAPID=90]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Swampy Pit Level 3 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=90]: %NAME%{%WHITE%There is one Golden Chest.%NL%%NAME%}%CONTINUE%
-//MAPID=91 : Flayer Dungeon Level 3
-ItemDisplay[(key OR rkey) !TOWN MAPID=91]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Flayer Dungeon Level 3 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=91]: %NAME%{%WHITE%Labyrinth theme, %GOLD%Quest Chest %WHITE%is located:%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=91]: %NAME%{%WHITE%Entrance in Bottom corner: Chest in Left corner%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=91]: %NAME%{%WHITE%Entrance in Middle of map: Chest in Left corner%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=91]: %NAME%{%WHITE%Entrance in Left Corner: Chest in Top corner%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=91]: %NAME%{%WHITE%Entrance in Top Corner: Chest in Bottom corner%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=91]: %NAME%{%WHITE%Entrance near-below Top corner: Chest in Top corner%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=91]: %NAME%{%WHITE%Entrance near-above Bottom corner: Chest in the Center%NL%%NAME%}%CONTINUE%
-//MAPID=92 : Sewers Level 1 (Act 3)
-ItemDisplay[(key OR rkey) !TOWN MAPID=92]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Sewers Level 1 (Act 3) %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based/Random%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=92]: %NAME%{%WHITE%from Golden Chest: %YELLOW%Left%WHITE%: - %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: Next Level%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=92]: %NAME%{%WHITE%Sewers has no reliable pattern, but%NL%%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=92]: %NAME%{%WHITE%Once you will find Golden Chest, Next Level should be towards Right%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=92]: %NAME%{%WHITE%Mostly somewhere on the Edge, but sometimes in the Middle of map%NL%%NAME%}%CONTINUE%
-//MAPID=93 : Sewers Level 2 (Act 3)
-ItemDisplay[(key OR rkey) !TOWN MAPID=93]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Sewers Level 2 (Act 3) %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=94 : Ruined Temple
-ItemDisplay[(key OR rkey) !TOWN MAPID=94]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Ruined Temple %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-//MAPID=95 : Disused Fane
-ItemDisplay[(key OR rkey) !TOWN MAPID=95]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Disused Fane %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-//MAPID=96 : Forgotten Reliquary
-ItemDisplay[(key OR rkey) !TOWN MAPID=96]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Forgotten Reliquary %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=97 : Forgotten Temple
-ItemDisplay[(key OR rkey) !TOWN MAPID=97]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Forgotten Temple %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=98 : Ruined Fane
-ItemDisplay[(key OR rkey) !TOWN MAPID=98]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Ruined Fane %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=99 : Disused Reliquary
-ItemDisplay[(key OR rkey) !TOWN MAPID=99]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Disused Reliquary %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=100 : Durance of Hate Level 1
-ItemDisplay[(key OR rkey) !TOWN MAPID=100]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Durance of Hate Level 1 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=100]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Next Level %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-//MAPID=101 : Durance of Hate Level 2
-ItemDisplay[(key OR rkey) !TOWN MAPID=101]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Durance of Hate Level 2 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=101]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Waypoint %BLUE%Straight%WHITE%: Next Level %GREEN%Right%WHITE%: -%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=101]: %NAME%{%WHITE%from %TEAL%Waypoint%WHITE%: %YELLOW%Left%WHITE%: Next Level %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: Previous Level%NL%%NAME%}%CONTINUE%
-//MAPID=102 : Durance of Hate Level 3
-ItemDisplay[(key OR rkey) !TOWN MAPID=102]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Durance of Hate Level 3 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=103 : The Pandemonium Fortress
-//MAPID=104 : Outer Steppes
-ItemDisplay[(key OR rkey) !TOWN MAPID=104]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Outer Steppes %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=104]: %NAME%{%WHITE%Entrance from Town is always on Top-Left edge.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=104]: %NAME%{%WHITE%Exit to %CORAL%Plains of Despair %WHITE%is placed either close to Left corner%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=104]: %NAME%{%WHITE%or somewhere near to Right corner. Check Left one first.%NL%%NAME%}%CONTINUE%
-//MAPID=105 : Plains of Despair
-ItemDisplay[(key OR rkey) !TOWN MAPID=105]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Plains of Despair %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=105]: %NAME%{%WHITE%Entrance from %CORAL%Outer Steppes %WHITE%and%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=105]: %NAME%{%WHITE%Exit to %CORAL%City of the Damned %WHITE%located randomly on the edges.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=105]: %NAME%{%GRAY%(Entrances can't be on the same edge)%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=105]: %NAME%{%GOLD%Izual %WHITE%is located randomly.%NL%%NAME%}%CONTINUE%
-//MAPID=106 : City of the Damned
-ItemDisplay[(key OR rkey) !TOWN MAPID=106]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: City of the Damned %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=106]: %NAME%{%WHITE%Entrance from %CORAL%Plains of Despair %WHITE%located randomly on the edge.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=106]: %NAME%{%TEAL%Waypoint %WHITE%and %CORAL%River of Flame %WHITE%together located randomly.%NL%%NAME%}%CONTINUE%
-//MAPID=107 : River of Flame
-ItemDisplay[(key OR rkey) !TOWN MAPID=107]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: River of Flame %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based/Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=107]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Hellforge%GRAY%* %BLUE%Straight%WHITE%: Waypoint, Chaos Sanctuary %GREEN%Right%WHITE%: Hellforge%GRAY%*%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=107]: %NAME%{%GRAY%(*The Hellforge is either Left or Right, randomly)%NL%%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=107]: %NAME%{%WHITE%Running from Waypoint to Chaos Sanctuary go Straight if possible, look at the minimap.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=107]: %NAME%{%WHITE%When Center-Road forks to Left and Right the Lava edges above can be shaped in H letter.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=107]: %NAME%{%WHITE%That means you should go Right. If Lava above the fork is not H shaped go Left.%NL%%NAME%}%CONTINUE%
-//MAPID=108 : Chaos Sanctuary
-ItemDisplay[(key OR rkey) !TOWN MAPID=108]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Chaos Sanctuary %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=108]: %NAME%{%WHITE%You can obtain loot from every monster that You and your Party Members%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=108]: %NAME%{%WHITE%seen ~8 seconds before You hit the last Seal. It is called %SAGE%Seal Popping%WHITE%.%NL%%NAME%}%CONTINUE%
-//MAPID=109 : Harrogath
-//MAPID=110 : Bloody Foothills
-ItemDisplay[(key OR rkey) !TOWN MAPID=110]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Bloody Foothills %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=110]: %NAME%{%WHITE%Keep moving towards Top-Left direction.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=110]: %NAME%{%GOLD%Shenk the Overseer %WHITE%is just before stairs to %CORAL%Frigid Highlands%WHITE%.%NL%%NAME%}%CONTINUE%
-//MAPID=111 : Frigid Highlands
-ItemDisplay[(key OR rkey) !TOWN MAPID=111]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Frigid Highlands %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=111]: %NAME%{%TEAL%Waypoint %WHITE%and %GOLD%Eldritch the Rectifier %WHITE%are just near Entrance.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=111]: %NAME%{%WHITE%Running forward you will pass 3 rows of walls and open space between them.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=111]: %NAME%{%GOLD%Barbarian Cages %WHITE%are always inside the walls, two cages can be on same wall.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=111]: %NAME%{%WHITE%Red Portal to %CORAL%Abaddon %WHITE%is somewhere at open space.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=111]: %NAME%{%WHITE%Exit to %CORAL%Arreat Plateau %WHITE%is at the end of far edge.%NL%%NAME%}%CONTINUE%
-//MAPID=112 : Arreat Plateau
-ItemDisplay[(key OR rkey) !TOWN MAPID=112]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Arreat Plateau %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=112]: %NAME%{%WHITE%Running forward you will pass 3 rows of walls and open space between them.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=112]: %NAME%{%TEAL%Waypoint %WHITE%and Red Portal to %CORAL%Pits of Acheron %WHITE%are somewhere at open space.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=112]: %NAME%{%WHITE%Exit to %CORAL%Crystalline Passage %WHITE%in the center of the farthest short-edge.%NL%%NAME%}%CONTINUE%
-//MAPID=113 : Crystalline Passage
-ItemDisplay[(key OR rkey) !TOWN MAPID=113]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Crystalline Passage %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=113]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Glacial Trail %BLUE%Straight%WHITE%: Frozen River %GREEN%Right%WHITE%: Waypoint%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=113]: %NAME%{%WHITE%from %TEAL%Waypoint%WHITE%: %YELLOW%Left%WHITE%: Arreat Plateau %BLUE%Straight%WHITE%: Glacial Trail %GREEN%Right%WHITE%: Frozen River%NL%%NAME%}%CONTINUE%
-//MAPID=114 : Frozen River
-ItemDisplay[(key OR rkey) !TOWN MAPID=114]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Frozen River %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=114]: %NAME%{%WHITE%Frozen River has only four different layouts which are always the same.%NL%%NAME%}%CONTINUE%
-//MAPID=115 : Glacial Trail
-ItemDisplay[(key OR rkey) !TOWN MAPID=115]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Glacial Trail %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=115]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Frozen Tundra%GRAY%* %BLUE%Straight%WHITE%: Drifter Cavern%GRAY%* %GREEN%Right%WHITE%: Golden Chest/Bonesaw Breaker%GRAY%*%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=115]: %NAME%{%WHITE%from %TEAL%Waypoint%WHITE%: %YELLOW%Left%WHITE%: Frozen Tundra%GRAY%* %BLUE%Straight%WHITE%: Drifter Cavern%GRAY%* %GREEN%Right%WHITE%: Golden Chest/Bonesaw Breaker%GRAY%*%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=115]: %NAME%{%GRAY%(*Waypoint tile will always have the same orientation as the Entry tile)%NL%%NL%%NAME%}%CONTINUE%
-//MAPID=116 : Drifter Cavern
-ItemDisplay[(key OR rkey) !TOWN MAPID=116]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Drifter Cavern %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-//MAPID=117 : Frozen Tundra
-ItemDisplay[(key OR rkey) !TOWN MAPID=117]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Frozen Tundra %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=117]: %NAME%{%WHITE%Running forward you will pass 3 rows of walls and open space between them.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=117]: %NAME%{%TEAL%Waypoint %WHITE%and Red Portal to %CORAL%Infernal Pit %WHITE%are somewhere at open space.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=117]: %NAME%{%WHITE%Exit to %CORAL%Ancients Way %WHITE%in the center of the farthest short-edge.%NL%%NAME%}%CONTINUE%
-//MAPID=118 : The Ancients' Way
-ItemDisplay[(key OR rkey) !TOWN MAPID=118]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: The Ancients' Way %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=118]: %NAME%{%WHITE%from Entrance: %YELLOW%Left%WHITE%: Arreat Summit %BLUE%Straight%WHITE%: Icy Cellar %GREEN%Right%WHITE%: Waypoint%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=118]: %NAME%{%WHITE%from %TEAL%Waypoint%WHITE%: %YELLOW%Left%WHITE%: Frozen Tundra %BLUE%Straight%WHITE%: Arreat Summit %GREEN%Right%WHITE%: Icy Cellar%NL%%NAME%}%CONTINUE%
-//MAPID=119 : Icy Cellar
-ItemDisplay[(key OR rkey) !TOWN MAPID=119]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Icy Cellar %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-//MAPID=120 : Arreat Summit
-ItemDisplay[(key OR rkey) !TOWN MAPID=120]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Arreat Summit %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=121 : Nihlathak's Temple
-ItemDisplay[(key OR rkey) !TOWN MAPID=121]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Nihlathak's Temple %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-//MAPID=122 : Halls of Anguish
-ItemDisplay[(key OR rkey) !TOWN MAPID=122]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Halls of Anguish %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=122]: %NAME%{%WHITE%It has 3 different static layouts. %CORAL%Halls of Pain %WHITE%can be located:%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=122]: %NAME%{%WHITE%Left corner, Bottom-Left edge %GRAY%(close to Bottom corner)%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=122]: %NAME%{%WHITE%or Top-Right edge %GRAY%(close to Right corner)%WHITE%.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=122]: %NAME%{%CORAL%Nihlathak's Temple %WHITE%is always in center point.%NL%%NAME%}%CONTINUE%
-//MAPID=123 : Halls of Pain
-ItemDisplay[(key OR rkey) !TOWN MAPID=123]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Halls of Pain %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=123]: %NAME%{%WHITE%It has 3 different static layouts. %CORAL%Halls of Vaught %WHITE%can be located:%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=123]: %NAME%{%WHITE%Left corner, when %TEAL%Waypoint %WHITE%close to Bottom corner,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=123]: %NAME%{%WHITE%Bottom-Left edge %GRAY%(close to Bottom corner)%WHITE%, when %TEAL%Waypoint %WHITE%on the Right edge,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=123]: %NAME%{%WHITE%Top-Right edge %GRAY%(close to Right corner)%WHITE%, when %TEAL%Waypoint %WHITE%on the Left edge%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=123]: %NAME%{%CORAL%Halls of Anguish %WHITE%is always in center point.%NL%%NAME%}%CONTINUE%
-//MAPID=124 : Halls of Vaught
-ItemDisplay[(key OR rkey) !TOWN MAPID=124]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Halls of Vaught %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=124]: %NAME%{%GOLD%Nihlathak %WHITE%can be found by "Red Eyes Painting":%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=124]: %NAME%{%WHITE%Look at center wall of each direction,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=124]: %NAME%{%WHITE%Wall with Painting reveals correct path.%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=124]: %NAME%{%CORAL%Halls of Pain %WHITE%is always in center point.%NL%%NAME%}%CONTINUE%
-//MAPID=125 : Abaddon
-ItemDisplay[(key OR rkey) !TOWN MAPID=125]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Abaddon %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=125]: %NAME%{%ORANGE%Demonic Insignia %WHITE%can be found only in %CORAL%Abaddon%WHITE%, %CORAL%Pit of Acheron%WHITE%, %CORAL%Infernal Pit%NL%%NAME%}%CONTINUE%
-//MAPID=126 : Pit of Acheron
-ItemDisplay[(key OR rkey) !TOWN MAPID=126]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Pit of Acheron %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=126]: %NAME%{%ORANGE%Demonic Insignia %WHITE%can be found only in %CORAL%Abaddon%WHITE%, %CORAL%Pit of Acheron%WHITE%, %CORAL%Infernal Pit%NL%%NAME%}%CONTINUE%
-//MAPID=127 : Infernal Pit
-ItemDisplay[(key OR rkey) !TOWN MAPID=127]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Infernal Pit %BLACK%| %LIGHT_GRAY%Type%WHITE%: Semi-Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=127]: %NAME%{%ORANGE%Demonic Insignia %WHITE%can be found only in %CORAL%Abaddon%WHITE%, %CORAL%Pit of Acheron%WHITE%, %CORAL%Infernal Pit%NL%%NAME%}%CONTINUE%
-//MAPID=128 : Worldstone Keep Level 1
-ItemDisplay[(key OR rkey) !TOWN MAPID=128]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Worldstone Keep Level 1 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Random%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=128]: %NAME%{%WHITE%Worldstone Keep has no reliable pattern.%NL%%NAME%}%CONTINUE%
-//MAPID=129 : Worldstone Keep Level 2
-ItemDisplay[(key OR rkey) !TOWN MAPID=129]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Worldstone Keep Level 2 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Tile-Based/Random%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=129]: %NAME%{%WHITE%from Entrance: Random%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=129]: %NAME%{%WHITE%from %TEAL%Waypoint%WHITE%: %YELLOW%Left%WHITE%: - %BLUE%Straight%WHITE%: - %GREEN%Right%WHITE%: Next Level%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=129]: %NAME%{%WHITE%Worldstone Keep has no reliable pattern, but:%NL%%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=129]: %NAME%{%WHITE%Once you will find WP, Next Level should be towards Right%NL%%NAME%}%CONTINUE%
-//MAPID=130 : Worldstone Keep Level 3
-ItemDisplay[(key OR rkey) !TOWN MAPID=130]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Worldstone Keep Level 3 %BLACK%| %LIGHT_GRAY%Type%WHITE%: Random%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=130]: %NAME%{%WHITE%Worldstone Keep has no reliable pattern.%NL%%NAME%}%CONTINUE%
-//MAPID=131 : Throne of Destruction
-ItemDisplay[(key OR rkey) !TOWN MAPID=131]: %NAME%{%NL%%LIGHT_GRAY%Map%WHITE%: Throne of Destruction %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
-ItemDisplay[(key OR rkey) !TOWN MAPID=131]: %NAME%{%GOLD%Baal %WHITE%and %CORAL%Worldstone Chamber %WHITE%are in the middle of Top-Right edge.%NL%%NAME%}%CONTINUE%
-//MAPID=132 : Worldstone Chamber
-ItemDisplay[(key OR rkey) !TOWN MAPID=132]: %NAME%{%LIGHT_GRAY%Map%WHITE%: Worldstone Chamber %BLACK%| %LIGHT_GRAY%Type%WHITE%: Static%NL%%NAME%}%CONTINUE%
 //
 ItemDisplay[key FILTLVL>0 ((ASSASSIN DIFF>0) OR FILTLVL>5) !TOWN]: {%NAME%}
 //
 ItemDisplay[rkey (TOWN OR MAPID>132)]: %NAME%{%TAN%Note%WHITE%: You won't lose it in Cube recipes}%CONTINUE%
-ItemDisplay[rkey (TOWN)]: %NAME%{%CORAL%Pathfinding%WHITE%/%TEAL%Map Reading %WHITE%Tips available outside Town%NL%%NAME%}%CONTINUE%
 
 //Choking, Exploding, Fulminating, Oil, Rancid, Strangling, and New PD2 Throwing Potions
 ItemDisplay[opm OR tpfm]: %NAME%{%WHITE%Exoplo. Potion, Perf %RED%O%WHITE%, %BLUE%Ring %WHITE%= Fire Res %BLUE%Ring%NL%%TAN%Note%WHITE%: Crafting Recipe:}%CONTINUE%
@@ -3136,13 +2449,6 @@ ItemDisplay[WEAPON !(hax OR 9ha OR 7ha OR axe OR 9ax OR 7ax OR clb OR 9cl OR 7cl
 ItemDisplay[(6lw OR 6l7 OR 6lb OR 6s7 OR 6cb OR 6lx OR 6mx OR 6hx OR 6rx) MAG !ID ((AMAZON FILTLVL<8) OR FILTLVL<6)]: %NAME%
 ItemDisplay[(am2 OR am7 OR amc) (MAG OR RARE) !ID (ALVL>74 OR CRAFTALVL>74)]: %NAME%
 ItemDisplay[(ob5 OR oba OR obf) (MAG OR RARE) !ID (ALVL>59 OR CRAFTALVL>59)]: %NAME%
-
-// Hide rare Bolts (FL7+)
-// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[(cqv1 OR cqv2 OR cqv3) RARE FILTLVL>6]:
-
-//Class items
-// Hide non-magic, 0-socket daggers
-// DISABLED (superseded by Roofoo FL8 block at top): ItemDisplay[DAGGER (NMAG OR MAG) SOCK=0 (FILTLVL>7)]:
 
 // Hide all magic & rare DIN scepters and shields on filter 8+
 ItemDisplay[(SCEPTER OR DIN) PALADIN (MAG OR RARE) !ID FILTLVL>7]: %NAME%
@@ -5336,22 +4642,22 @@ ItemDisplay[(7ja OR 7pi OR 7s7 OR 7gl OR 7ts OR 7ta) (BARBARIAN OR FILTLVL<2) NM
 
 //RuneWord Bases
 //Chests
-ItemDisplay[((gth OR ful OR aar) OR (xng OR xcl OR xhn OR xrs OR xpl OR xlt OR xld OR xtp)) !INF !ETH NMAG !RW (SOCK=0 OR SOCK=3) ED=15]: %DOT-D6%%NAME%{%NAME%}
+ItemDisplay[((gth OR ful OR aar) OR (xng OR xcl OR xhn OR xrs OR xpl OR xlt OR xld OR xtp)) !INF !ETH NMAG !RW (SOCK=0 OR SOCK=3) ED>14]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[xtp !INF !ETH NMAG !RW !SOCK~1-2 ED>9]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[xtp !INF !ETH NMAG !RW !SOCK~1-2 ED>4]: %DOT-D6%%TIER-5%%NAME%{%NAME%}
 ItemDisplay[((gth OR ful OR aar) OR (xng OR xcl OR xhn OR xrs OR xpl OR xlt OR xld OR xtp)) !INF !ETH NMAG !RW !SOCK=1 ED>4 FILTLVL<8]: %NAME%{%NAME%}
 ItemDisplay[xtp !INF !ETH NMAG !RW !SOCK=1 FILTLVL<6]: %NAME%{%NAME%}
-ItemDisplay[CHEST ELT !INF !ETH NMAG !RW !SOCK~1-2 ED=15]: %DOT-D6%%NAME%{%NAME%}
+ItemDisplay[CHEST ELT !INF !ETH NMAG !RW !SOCK~1-2 ED>14]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[utp !INF !ETH NMAG !RW !SOCK~1-2 ED>9]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[utp !INF !ETH NMAG !RW !SOCK~1-2 ED>4]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[CHEST ELT !INF !ETH NMAG !RW !SOCK~1-2 ED>9]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[CHEST ELT !INF !ETH NMAG !RW !SOCK~1-2 ED>4 FILTLVL<8]: %DOT-D6%%TIER-5%%NAME%{%NAME%}
 ItemDisplay[CHEST ELT !INF !ETH NMAG !RW !SOCK~1-2 FILTLVL<6]: %NAME%{%NAME%}
-ItemDisplay[CHEST ELT !INF ETH NMAG !RW !SOCK~1-2 ED=15]: %DOT-D6%%NAME%{%NAME%}
+ItemDisplay[CHEST ELT !INF ETH NMAG !RW !SOCK~1-2 ED>14]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[CHEST ELT !INF ETH NMAG !RW !SOCK~1-2 DEF>699]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[CHEST ELT !INF ETH NMAG !RW !SOCK~1-2 DEF>649 FILTLVL<8]: %DOT-D6%%TIER-5%%NAME%{%NAME%}
 //Helmets
-ItemDisplay[(xhm OR uh9 OR usk OR urn OR ci3) !INF NMAG !RW (SOCK=0 OR SOCK=3) ED=15]: %DOT-D6%%NAME%{%NAME%}
+ItemDisplay[(xhm OR uh9 OR usk OR urn OR ci3) !INF NMAG !RW (SOCK=0 OR SOCK=3) ED>14]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[(xhm OR uh9 OR usk OR urn OR ci3) !INF ETH NMAG !RW (SOCK=0 OR SOCK=3) ED>9]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[(xhm OR uh9 OR usk OR urn OR ci3) !INF NMAG !RW (SOCK=0 OR SOCK=3) ED>9]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[ci3 NMAG !ETH SOCK=0]: %DOT-D6%%TIER-5%%NAME%{%NAME%} //imbue base
@@ -5379,10 +4685,10 @@ ItemDisplay[DIN (EXC OR ELT) !INF !ETH NMAG !RW !SOCK=1 RES>19 PALADIN]: %DOT-D6
 ItemDisplay[DIN (EXC OR ELT) !INF !ETH NMAG !RW !SOCK=1 RES>24 FILTLVL<8]: %NAME%{%NAME%}
 ItemDisplay[DIN (EXC OR ELT) !INF !ETH NMAG !RW !SOCK=1 RES>19 FILTLVL<6]: %NAME%{%NAME%}
 ItemDisplay[DIN !INF !ETH NMAG !RW !SOCK=1 RES>19 (CLVL<80 OR FILTLVL<2)]: %NAME%{%NAME%}
-ItemDisplay[(ush OR xsh OR upk OR xpk) !INF !ETH NMAG !RW !SOCK=1 ED=15]: %NAME%{%NAME%}
+ItemDisplay[(ush OR xsh OR upk OR xpk) !INF !ETH NMAG !RW !SOCK=1 ED>14]: %NAME%{%NAME%}
 ItemDisplay[(ush OR xsh OR upk OR xpk) !INF !ETH NMAG !RW !SOCK=1 ED>4 FILTLVL<8]: %NAME%{%NAME%}
 ItemDisplay[(ush OR xsh OR upk OR xpk) !INF !ETH NMAG !RW !SOCK=1 FILTLVL<6]: %NAME%{%NAME%}
-ItemDisplay[(uit OR uow OR uts) !INF NMAG !RW (SOCK=0 OR SOCK=4) ED=15]: %DOT-D6%%NAME%{%NAME%}
+ItemDisplay[(uit OR uow OR uts) !INF NMAG !RW (SOCK=0 OR SOCK=4) ED>14]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[(uit OR uow OR uts) !INF NMAG !RW (SOCK=0 OR SOCK=4) ED>9]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[(uit OR uow OR uts) !INF NMAG !RW (SOCK=0 OR SOCK=4) ED>4 FILTLVL<8]: %DOT-D6%%TIER-5%%NAME%{%NAME%}
 ItemDisplay[(uit OR uow OR uts) !INF NMAG !RW ETH (SOCK=0 OR SOCK=4) FILTLVL<8]: %NAME%{%NAME%}
@@ -5401,13 +4707,13 @@ ItemDisplay[(amc OR amb) NMAG !INF !RW TABSK0>2 ED>4 (SOCK=0 OR SOCK=4 OR SOCK=5
 ItemDisplay[(amc OR amb) NMAG !INF !RW TABSK0>2 (SOCK=0 OR SOCK=4 OR SOCK=5) FILTLVL<8]: %DOT-D6%%TIER-5%%NAME%{%NAME%}
 ItemDisplay[(amc OR amb) NMAG !INF !RW TABSK0>2 SOCK=3 FILTLVL<6]: %NAME%{%NAME%}
 ItemDisplay[6cb NMAG !RW !INF (SOCK=0 OR SOCK=4 OR SOCK=5) FILTLVL<6]: %NAME%{%NAME%}
-ItemDisplay[(8rx OR 6rx OR 6lx OR 6mx OR 6hx) NMAG !INF !RW (SOCK=0 OR SOCK=4 OR SOCK=5) ED=15]: %DOT-D6%%NAME%{%NAME%}
+ItemDisplay[(8rx OR 6rx OR 6lx OR 6mx OR 6hx) NMAG !INF !RW (SOCK=0 OR SOCK=4 OR SOCK=5) ED>14]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[(8rx OR 6rx OR 6lx OR 6mx) NMAG !INF !RW (SOCK=0 OR SOCK=4 OR SOCK=5) ED>9 FILTLVL<8]: %DOT-D6%%TIER-5%%NAME%{%NAME%}
 ItemDisplay[(8rx OR 6rx OR 6lx OR 6mx) NMAG !INF !RW (SOCK=0 OR SOCK=4 OR SOCK=5) FILTLVL<6]: %NAME%{%NAME%}
-ItemDisplay[(8rx OR 6rx OR 6lx OR 6mx OR 6hx) NMAG !INF !RW SOCK=3 ED=15]: %NAME%{%NAME%}
+ItemDisplay[(8rx OR 6rx OR 6lx OR 6mx OR 6hx) NMAG !INF !RW SOCK=3 ED>14]: %NAME%{%NAME%}
 ItemDisplay[(8rx OR 6rx OR 6lx OR 6mx OR 6hx) NMAG !INF !RW SOCK=3 ED>9 FILTLVL<8]: %NAME%{%NAME%}
 ItemDisplay[(8rx OR 6rx OR 6lx OR 6mx OR 6hx) NMAG !INF !RW SOCK=3 FILTLVL<6]: %NAME%{%NAME%}
-ItemDisplay[(6lw OR 6l7 OR 6hx) NMAG !INF !RW (SOCK=0 OR SOCK~4-6) ED=15]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
+ItemDisplay[(6lw OR 6l7 OR 6hx) NMAG !INF !RW (SOCK=0 OR SOCK~4-6) ED>14]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[(6lw OR 6l7 OR 6hx) NMAG !INF !RW (SOCK=0 OR SOCK~4-6) ED>9 FILTLVL<8]: %DOT-D6%%TIER-5%%NAME%{%NAME%}
 ItemDisplay[(6lw OR 6l7 OR 6hx) NMAG !INF !RW (SOCK=0 OR SOCK~4-6) FILTLVL<6]: %NAME%{%NAME%}
 //Clubs
@@ -5426,38 +4732,38 @@ ItemDisplay[(7cl OR 7sp) NMAG !INF !RW !SOCK=1 (SK221>2 OR SK223>2 OR SK224>2 OR
 //Daggers
 ItemDisplay[(7dg OR 7di OR 7bl) ((SK254>2 OR SK255>2 OR SK270>2) AND SK275>0) !ETH !INF NMAG !RW !SOCK=1]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[(7dg OR 7di OR 7bl) (SK254>2 OR SK255>2 OR SK270>2) !ETH !INF NMAG !RW !SOCK=1]: %NAME%{%NAME%}
-ItemDisplay[(7dg OR 7di OR 7bl) !ETH !INF NMAG !RW !SOCK=1 ED=15]: %NAME%{%NAME%}
+ItemDisplay[(7dg OR 7di OR 7bl) !ETH !INF NMAG !RW !SOCK=1 ED>14]: %NAME%{%NAME%}
 ItemDisplay[(7dg OR 7di OR 7bl) !ETH !INF NMAG !RW !SOCK=1 ED>9 FILTLVL<8]: %NAME%{%NAME%}
 ItemDisplay[(7dg OR 7di OR 7bl) !ETH !INF NMAG !RW !SOCK=1 ED>4 FILTLVL<6]: %NAME%{%NAME%}
 ItemDisplay[(kri OR 9kr OR 7kr) (SK265>2 AND SK275>0) !ETH !INF NMAG !RW !SOCK~1-2]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[(kri OR 9kr OR 7kr) (SK265>2 OR SK73>2) !ETH !INF NMAG !RW !SOCK~1-2]: %NAME%{%NAME%}
 //Axes
 ItemDisplay[(7wa OR 72a OR 7mp) ETH !INF NMAG !RW !SOCK~1-4]: %DOT-D6%%NAME%{%NAME%}
-ItemDisplay[(7wa OR 72a OR 7mp) ETH !INF NMAG !RW !SOCK=1 ED=15]: %DOT-D6%%NAME%{%NAME%}
+ItemDisplay[(7wa OR 72a OR 7mp) ETH !INF NMAG !RW !SOCK=1 ED>14]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[(7wa OR 72a OR 7mp) ETH !INF NMAG !RW !SOCK=1 ED>4]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[(7wa OR 72a OR 7mp) ETH !INF NMAG !RW !SOCK=1]: %DOT-D6%%TIER-5%%NAME%{%NAME%}
-ItemDisplay[(7wa OR 72a OR 7mp) !ETH !INF NMAG !RW !SOCK=1 ED=15]: %DOT-D6%%NAME%{%NAME%}
+ItemDisplay[(7wa OR 72a OR 7mp) !ETH !INF NMAG !RW !SOCK=1 ED>14]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[(7wa OR 72a OR 7mp) !ETH !INF NMAG !RW !SOCK=1 ED>4 FILTLVL<8]: %NAME%{%NAME%}
 ItemDisplay[(7wa OR 72a OR 7mp) !ETH !INF NMAG !RW !SOCK=1 FILTLVL<6]: %NAME%{%NAME%}
-ItemDisplay[(7bt OR 7ba OR 7ga OR 7gi OR 7la) !INF ETH NMAG !RW (SOCK=0 OR SOCK=5) ED=15]: %DOT-D6%%NAME%{%NAME%}
+ItemDisplay[(7bt OR 7ba OR 7ga OR 7gi OR 7la) !INF ETH NMAG !RW (SOCK=0 OR SOCK=5) ED>14]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[(7bt OR 7ba OR 7ga OR 7gi OR 7la) !INF ETH NMAG !RW (SOCK=0 OR SOCK=5) ED>4]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[(7bt OR 7ba OR 7ga OR 7gi OR 7la) !INF ETH NMAG !RW (SOCK=0 OR SOCK=5) FILTLVL<8]: %DOT-D6%%TIER-3%%NAME%{%NAME%}
 //Hammers
-ItemDisplay[(7m7 OR 7gm) !INF !ETH NMAG !RW !SOCK=1 ED=15]: %DOT-D6%%NAME%{%NAME%}
+ItemDisplay[(7m7 OR 7gm) !INF !ETH NMAG !RW !SOCK=1 ED>14]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[(7m7 OR 7gm) !INF !ETH NMAG !RW !SOCK=1 ED>9]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[(7m7 OR 7gm) !INF !ETH NMAG !RW !SOCK=1 ED>4 FILTLVL<8]: %DOT-D6%%TIER-5%%NAME%{%NAME%}
 ItemDisplay[(7m7 OR 7gm) !INF !ETH NMAG !RW !SOCK=1 FILTLVL<6]: %NAME%{%NAME%}
 ItemDisplay[(7m7 OR 7gm) !INF ETH NMAG !RW !SOCK=1 ED>9]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[(7m7 OR 7gm) !INF ETH NMAG !RW !SOCK=1 ED>4]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[(7m7 OR 7gm) !INF ETH NMAG !RW !SOCK=1 FILTLVL<8]: %DOT-D6%%TIER-5%%NAME%{%NAME%}
-ItemDisplay[7wh !INF NMAG !ETH !RW !SOCK=1 ED=15]: %DOT-D6%%NAME%{%NAME%}
+ItemDisplay[7wh !INF NMAG !ETH !RW !SOCK=1 ED>14]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[7wh !INF NMAG !ETH !RW !SOCK=1 ED>9]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[7wh !INF NMAG !ETH !RW !SOCK=1 ED>4 FILTLVL<8]: %NAME%{%NAME%}
 ItemDisplay[7wh !INF NMAG ETH !RW !SOCK=1 ED>9]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[7wh !INF NMAG ETH !RW !SOCK=1 ED>4]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[7wh !INF NMAG ETH !RW !SOCK=1 FILTLVL<8]: %DOT-D6%%TIER-5%%NAME%{%NAME%}
 //Scepters
-ItemDisplay[7ws NMAG !ETH !RW !SOCK=1 ED=15]: %DOT-D6%%NAME%{%NAME%}
+ItemDisplay[7ws NMAG !ETH !RW !SOCK=1 ED>14]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[7ws NMAG ETH !RW !SOCK~1-2 ED>9]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[7ws NMAG ETH !RW !SOCK~1-2 ED>4 FILTLVL<8]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[(SCEPTER !scp) !INF !ETH NMAG !RW (((SK101>2 AND SK121>0) AND (SK125>0 OR SK124>0)) OR ((SK101>0 AND SK121>2) AND (SK125>0 OR SK124>0))) (SOCK=0 OR SOCK=3)]: %DOT-D6%%NAME%{%NAME%}
@@ -5487,7 +4793,7 @@ ItemDisplay[(crs OR bsd OR lsd) NMAG !INF !RW SOCK=4 FILTLVL<6]: %NAME%{%NAME%}
 ItemDisplay[((crs (ILVL>25 AND ILVL<41)) OR ((bsd OR lsd) ILVL>25)) NMAG !INF !RW (SOCK=0 OR SOCK=4) (CLVL<80 OR FILTLVL<2)]: %NAME%{%NAME%}
 ItemDisplay[crs ILVL>25 NMAG !INF !RW SOCK~4-5 FILTLVL<8]: %NAME%{%NAME%}
 ItemDisplay[crs ILVL>25 NMAG !INF !RW (SOCK=0 OR SOCK>4) FILTLVL<6]: %NAME%{%NAME%}
-ItemDisplay[7cr FILTLVL<8 NMAG !RW !INF !SOCK~1-2 ED=15]: %DOT-D6%%NAME%{%NAME%}
+ItemDisplay[7cr FILTLVL<8 NMAG !RW !INF !SOCK~1-2 ED>14]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[7cr FILTLVL<8 NMAG !RW !INF !SOCK~1-2 ED>9]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[7cr FILTLVL<8 NMAG SOCK=0 PALADIN]: %DOT-D6%%TIER-5%%NAME%{%NAME%} //imbue base
 ItemDisplay[7cr FILTLVL<8 NMAG SOCK=0 !PALADIN]: %DOT-D6%%TIER-3%%NAME%{%NAME%} //imbue base
@@ -5496,7 +4802,7 @@ ItemDisplay[7cr NMAG !RW !INF !SOCK~1-2 FILTLVL<6]: %NAME%{%NAME%}
 ItemDisplay[(72h OR 7fb OR 7gd OR 7gs OR 7ls) ETH NMAG !RW !INF !SOCK~1-2 ED>9]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[(72h OR 7fb OR 7gd OR 7gs OR 7ls) ETH NMAG !RW !INF !SOCK~1-2 ED>4]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[(72h OR 7fb OR 7gd OR 7gs OR 7ls) ETH NMAG !RW !INF !SOCK~1-2 FILTLVL<8]: %DOT-D6%%TIER-5%%NAME%{%NAME%}
-ItemDisplay[(7fb OR 7gd OR 7ls) NMAG !RW !INF !ETH !SOCK~1-2 ED=15]: %DOT-D6%%NAME%{%NAME%}
+ItemDisplay[(7fb OR 7gd OR 7ls) NMAG !RW !INF !ETH !SOCK~1-2 ED>14]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[(7fb OR 7gd OR 7ls) NMAG !RW !INF !ETH !SOCK~1-2 ED>9]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[(7fb OR 7gd OR 7ls) NMAG !RW !INF !ETH !SOCK~1-2 ED>4 FILTLVL<6]: %DOT-D6%%TIER-3%%NAME%{%NAME%}
 ItemDisplay[(7fb OR 7gd OR 7ls) NMAG !RW !INF !ETH !SOCK~1-2 (BARARIAN OR FILTLVL<2) FILTLVL<6]: %NAME%{%NAME%}
@@ -5518,7 +4824,7 @@ ItemDisplay[WAND !(wnd OR ywn OR 9wn) SK91>0 AND SK95>0 !SOCK=1 NMAG !RW]: %NAME
 //Staves
 ItemDisplay[(6cs OR 6bs OR 6ws) (SK48>2 OR SK49>2 OR SK38>2 OR SK53>2 OR SK57>2 OR SK63>2 OR SK383>2 OR SK376>2 OR SK61>2 OR SK51>2 OR SK47>2) NMAG !RW (SOCK=0 OR SOCK=4)]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[(8ws OR 6ws) ((SK44>2 OR SK64>2 OR SK65>2 OR SK59>2 OR SK369>2) OR ((SK44>1 OR SK64>1 OR SK59>1 OR SK369>1) AND SK65>0)) NMAG !RW (SOCK=0 OR SOCK=5)]: %DOT-D6%%NAME%{%NAME%}
-ItemDisplay[(6ws OR 6cs OR 6bs OR 6ls) NMAG !INF !RW !SOCK=1 ED=15]: %DOT-D6%%NAME%{%NAME%}
+ItemDisplay[(6ws OR 6cs OR 6bs OR 6ls) NMAG !INF !RW !SOCK=1 ED>14]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[6ws NMAG !INF !RW !SOCK~1-3]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[(cst OR bst OR 8cs OR 8bs OR 6cs OR 6bs OR wst OR 8ws OR 6ws OR 6ls) (SK58>2 OR (SK58>0 AND SK50>0)) NMAG !RW (SOCK=0 OR SOCK=4 OR SOCK=5)]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[(6ws OR 6cs OR 6bs OR 6ls) NMAG !INF !RW !SOCK=1 ED>9]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
@@ -5536,7 +4842,7 @@ ItemDisplay[(wst OR 8ws OR 6ws) (SK50>0 OR SK58>0 OR SK60>0) NMAG !RW (SOCK=0 OR
 ItemDisplay[(7wc OR 7pa OR 7s8 OR 7vo OR 7h7 OR 7tr OR 7br OR 7st OR 7o7 OR 7sr) ETH NMAG !INF !RW !SOCK~1-3 ED>9 (FILTLVL<8 OR TOWN OR SHOP)]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[(7wc OR 7pa OR 7s8 OR 7vo OR 7h7 OR 7tr OR 7br OR 7st OR 7o7 OR 7sr) ETH NMAG !INF !RW !SOCK~1-3 ED>4 (FILTLVL<8 OR TOWN OR SHOP)]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[(7wc OR 7pa OR 7s8 OR 7vo OR 7h7 OR 7tr OR 7br OR 7st OR 7o7 OR 7sr) ETH NMAG !INF !RW !SOCK~1-3 (FILTLVL<8 OR TOWN OR SHOP)]: %DOT-D6%%TIER-3%%NAME%{%NAME%}
-ItemDisplay[7p7 NMAG !ETH !INF !RW !SOCK=1 ED=15]: %DOT-D6%%NAME%{%NAME%}
+ItemDisplay[7p7 NMAG !ETH !INF !RW !SOCK=1 ED>14]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[7p7 NMAG ETH !INF !RW !SOCK=1 ED>9]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[7p7 NMAG !ETH !INF !RW !SOCK=1 ED>9]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[7p7 NMAG ETH !INF !RW !SOCK=1 ED>4]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
@@ -5547,7 +4853,7 @@ ItemDisplay[((POLEARM OR SPEAR) !JAV ELT) NMAG ETH !INF !RW SOCK~3-4]: %NAME%{%N
 ItemDisplay[((POLEARM OR SPEAR) ELT) NMAG ETH !INF !RW SOCK~3-4 NECROMANCER]: %NAME%{%NAME%}
 ItemDisplay[((POLEARM OR SPEAR) ELT) NMAG !INF !RW SOCK~3-4 NECROMANCER FILTLVL<8]: %NAME%{%NAME%}
 ItemDisplay[((POLEARM OR SPEAR) EXC) NMAG ETH !INF !RW SOCK~3-4 NECROMANCER FILTLVL<8]: %NAME%{%NAME%}
-ItemDisplay[(amd OR ame) TABSK2>2 !ETH !INF NMAG !RW (SOCK=0 OR SOCK=4) ED=15]: %DOT-D6%%NAME%{%NAME%}
+ItemDisplay[(amd OR ame) TABSK2>2 !ETH !INF NMAG !RW (SOCK=0 OR SOCK=4) ED>14]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[(amd OR ame) TABSK2>2 !ETH !INF NMAG !RW (SOCK=0 OR SOCK=4) ED>9]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[(amd OR ame) TABSK2>2 !ETH !INF NMAG !RW (SOCK=0 OR SOCK=4) ED>4]: %DOT-D6%%TIER-3%%NAME%{%NAME%}
 ItemDisplay[(amd OR ame) TABSK2>2 !ETH !INF NMAG !RW (SOCK=0 OR SOCK=4) FILTLVL<6]: %NAME%{%NAME%}
@@ -5568,12 +4874,12 @@ ItemDisplay[((SIN ELT) OR 9tw OR 9lw) ((SK254>2 OR SK252>2 OR SK255>2 OR SK260>2
 ItemDisplay[SIN !(ktr OR wrb OR axf OR ces) (SK254>2 OR SK255>2 OR SK259>2 OR SK260>2 OR SK262>2 OR SK266>2 OR SK267>2 OR SK271>2 OR SK272>2 OR SK273>2 OR SK276>2 OR SK277>2 OR SK278>2 OR SK265>2 OR (SK278>1 AND SK265>1) OR SK366>2 OR SK280>2 OR SK252>2 OR SK257>2) !INF NMAG !RW (SOCK=0 OR SOCK=3) FILTLVL<6]: %NAME%{%NAME%}
 ItemDisplay[((SIN ELT) OR 9tw OR 9lw) !INF ETH NMAG !RW !SOCK=1 FILTLVL<6]: %NAME%{%NAME%}
 //Throwing Weapons
-ItemDisplay[(7ja OR 7pi OR 7s7 OR 7gl OR 7ts OR 7ta) NMAG !RW !INF ETH !SOCK=1 ED=15]: %DOT-D6%%NAME%{%NAME%}
+ItemDisplay[(7ja OR 7pi OR 7s7 OR 7gl OR 7ts OR 7ta) NMAG !RW !INF ETH !SOCK=1 ED>14]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[(7ja OR 7pi OR 7s7 OR 7gl OR 7ts OR 7ta) NMAG !RW !INF ETH !SOCK=1 ED>9]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[(7ja OR 7pi OR 7s7 OR 7gl OR 7ts OR 7ta) NMAG !RW !INF ETH !SOCK=1 ED>4 FILTLVL<6]: %DOT-D6%%TIER-3%%NAME%{%NAME%}
 ItemDisplay[(7ja OR 7pi OR 7s7 OR 7gl OR 7ts OR 7ta) (BARBARIAN OR FILTLVL<2) NMAG ETH (ALVL>74 OR CRAFTALVL>74) SOCK=0 FILTLVL<6]: %DOT-D6%%TIER-3%%NAME%{%NAME%} //imbue base
 ItemDisplay[(7ja OR 7pi OR 7s7 OR 7gl OR 7ts OR 7ta) NMAG !RW !INF ETH !SOCK=1 (BARARIAN OR FILTLVL<2) FILTLVL<6]: %NAME%{%NAME%}
-ItemDisplay[amf TABSK2>2 NMAG !RW !INF ETH !SOCK=1 ED=15]: %DOT-D6%%NAME%{%NAME%}
+ItemDisplay[amf TABSK2>2 NMAG !RW !INF ETH !SOCK=1 ED>14]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[amf TABSK2>2 NMAG !RW !INF ETH !SOCK=1 ED>9]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[amf TABSK2>2 NMAG !RW !INF ETH !SOCK=1 ED>4 FILTLVL<6]: %DOT-D6%%TIER-3%%NAME%{%NAME%}
 ItemDisplay[(am5 OR ama OR amf) (AMAZON OR FILTLVL<2) NMAG ETH (ALVL>59 OR CRAFTALVL>59) SOCK=0 FILTLVL<6]: %DOT-D6%%TIER-3%%NAME%{%NAME%} //imbue base
@@ -5770,6 +5076,15 @@ ItemDisplay[jewf ID]: %BLUE%%NAME%{%GRAY%(Stackable Jewel)%NL%%TAN%Note%WHITE%: 
 //Standard of Heroes
 ItemDisplay[std]: %PX-9D%%NAME%{%NAME%}//{%WHITE%+10% Experience%NL%+20% Magic&Gold Find%NL%+20% Monster Density%NL%%TAN%Note: %WHITE%Cube it with Map to gain:}
 
+//Ears
+ItemDisplay[ivea]: %PX-9D%%NAME%{%NAME%}
+ItemDisplay[ivez]: %PX-9D%%NAME%{%NAME%}
+ItemDisplay[iveb]: %PX-9D%%NAME%{%NAME%}
+ItemDisplay[ived]: %PX-9D%%NAME%{%NAME%}
+ItemDisplay[iven]: %PX-9D%%NAME%{%NAME%}
+ItemDisplay[ivep]: %PX-9D%%NAME%{%NAME%}
+ItemDisplay[ives]: %PX-9D%%NAME%{%NAME%}
+
 //Show me every identified item
 ItemDisplay[(ARMOR OR WEAPON OR QUIVER) (MAG OR RARE OR SET OR UNI OR CRAFT) ID]: %NAME%{%NAME%}
 
@@ -5783,7 +5098,7 @@ ItemDisplay[rera]: %NAME% %ORANGE%*{%YELLOW%Map %WHITE%+ %GOLD%Orb %WHITE%+ Perf
 ItemDisplay[upma]: %NAME% %ORANGE%*{%BLUE%Map %WHITE%+ %GOLD%Orb %WHITE%+ Perf Gem %WHITE%+ %ORANGE%Any Rune%NL%%TAN%Note%WHITE%: Imbue %BLUE%Magic %WHITE%Map to %YELLOW%Rare%WHITE%:%NL%}%CONTINUE%
 ItemDisplay[imma]: %NAME% %ORANGE%*{%BLUE%Map %WHITE%+ %GOLD%Orb%NL%%WHITE%ReRoll %BLUE%Magic %WHITE%Map:%NL%%NL%%GRAY%(Skip Map to make %GOLD%Infused Orb%GRAY%)%NL%%WHITE%Map + %GOLD%Orb %WHITE%+ %BLUE%Jewel %NL%%TAN%Note%WHITE%: Imbue White Map to %BLUE%Magic%WHITE%:%NL%}%CONTINUE%
 ItemDisplay[scou]: %NAME% %ORANGE%*{%BLUE%M%WHITE%a%YELLOW%p %WHITE%+ %GOLD%Orb%NL%%TAN%Note%WHITE%: Imbue %BLUE%Magic%WHITE%/%YELLOW%Rare %WHITE%Map to White:%NL%}
-ItemDisplay[fort]: %GOLD%%NAME% %ORANGE%*{%BLUE%M%WHITE%a%YELLOW%p %WHITE%+ %GOLD%Orb%NL%%WHITE%2x Health, 2x Exp, 20% Damage, 2x Loot%NL%%TAN% Note%WHITE%: Reduces Base Density by Half, Monsters Gain:%NL%}
+ItemDisplay[fort]: %GOLD%%NAME% %ORANGE%*{%BLUE%M%WHITE%a%YELLOW%p %WHITE%+ %GOLD%Orb%NL%%RED%2x Health, 2x Exp, 20% Damage, 2x Loot, 30% FRW%NL%%TAN% Note%WHITE%: Reduces Base Density by Half, Monsters Gain:%NL%}
 ItemDisplay[upmp]: %NAME% %ORANGE%*{%WHITE%3x%BLUE%M%WHITE%a%YELLOW%p %TAN%(%WHITE%Tier:%ORANGE%x%TAN%) %WHITE%+ %GOLD%Orb %WHITE%= Map %TAN%(%WHITE%Tier:%ORANGE%x%WHITE%+1%TAN%)%NL%Note%WHITE%: Upgrade Maps for higher Tier:%NL%}
 ItemDisplay[(imra OR rera OR upma)]: %NAME%{%GRAY%(Skip Map to make %GOLD%Infused Orb%GRAY%)%NL%%NAME%}%CONTINUE%
 ItemDisplay[imma FILTLVL>7 !SHOP !TOWN]: {%NAME%}%CONTINUE%
@@ -5843,80 +5158,83 @@ ItemDisplay[MAPTIER~1-5 !KNOWNMAPS]: %NAME%{%RED%F%WHITE%:%GRAY%??? %BLACK%| %BL
 // Safety: always show maps on any filter level (overrides later hides)
 ItemDisplay[MAPTIER>0]: %MAP-7F%%NAME%%CONTINUE%
 //Ruins of Viz-Jun Map
-ItemDisplay[t11]: %NAME%{%WHITE%Boss Damage: %ORANGE%Magic %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t11]: %NAME%{%RED%F%WHITE%:%CORAL%130 %BLACK%| %BLUE%C%WHITE%:75 %BLACK%| %YELLOW%L%WHITE%:%CORAL%120 %BLACK%| %GREEN%P%WHITE%:80 %BLACK%| %ORANGE%M%WHITE%:50 %BLACK%| %GOLD%P%WHITE%:80%CL%%NAME%}%CONTINUE%
+ItemDisplay[t11]: %NAME%{%WHITE%Boss Damage: %ORANGE%Magic %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t11]: %NAME%{%RED%F%WHITE%:* %BLACK%| %BLUE%C%WHITE%:%CORAL%120 %BLACK%| %YELLOW%L%WHITE%:* %BLACK%| %GREEN%P%WHITE%:* %BLACK%| %ORANGE%M%WHITE%:* %BLACK%| %GOLD%P%WHITE%:%CORAL%115%CL%%NAME%}%CONTINUE%
 //Horazon's Memory Map
-ItemDisplay[t12]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t12]: %NAME%{%RED%F%WHITE%:%CORAL%135 %BLACK%| %BLUE%C%WHITE%:%CORAL%130 %BLACK%| %YELLOW%L%WHITE%:80 %BLACK%| %GREEN%P%WHITE%:75 %BLACK%| %ORANGE%M%WHITE%:50 %BLACK%| %GOLD%P%WHITE%:50%CL%%NAME%}%CONTINUE%
+ItemDisplay[t12]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t12]: %NAME%{%RED%F%WHITE%:* %BLACK%| %BLUE%C%WHITE%:* %BLACK%| %YELLOW%L%WHITE%:%CORAL%120 %BLACK%| %GREEN%P%WHITE%:* %BLACK%| %ORANGE%M%WHITE%:* %BLACK%| %GOLD%P%WHITE%:%CORAL%115%CL%%NAME%}%CONTINUE%
 //Bastion Keep Map
-ItemDisplay[t13]: %NAME%{%WHITE%Boss Damage: %BLUE%Cold %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t13]: %NAME%{%RED%F%WHITE%:%CORAL%125 %BLACK%| %BLUE%C%WHITE%:%CORAL%130 %BLACK%| %YELLOW%L%WHITE%:75 %BLACK%| %GREEN%P%WHITE%:85 %BLACK%| %ORANGE%M%WHITE%:50 %BLACK%| %GOLD%P%WHITE%:%CORAL%110%CL%%NAME%}%CONTINUE%
+ItemDisplay[t13]: %NAME%{%WHITE%Boss Damage: %BLUE%Cold %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t13]: %NAME%{%RED%F%WHITE%:* %BLACK%| %BLUE%C%WHITE%:%CORAL%120 %BLACK%| %YELLOW%L%WHITE%:* %BLACK%| %GREEN%P%WHITE%:* %BLACK%| %ORANGE%M%WHITE%:%CORAL%105 %BLACK%| %GOLD%P%WHITE%:%CORAL%115%CL%%NAME%}%CONTINUE%
 //Sanatorium Map
-ItemDisplay[t14]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys%WHITE%/%ORANGE%Magic %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t14]: %NAME%{%RED%F%WHITE%:75 %BLACK%| %BLUE%C%WHITE%:75 %BLACK%| %YELLOW%L%WHITE%:%CORAL%125 %BLACK%| %GREEN%P%WHITE%:%CORAL%130 %BLACK%| %ORANGE%M%WHITE%:35 %BLACK%| %GOLD%P%WHITE%:60%CL%%NAME%}%CONTINUE%
+ItemDisplay[t14]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys%WHITE%/%ORANGE%Magic %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t14]: %NAME%{%RED%F%WHITE%:* %BLACK%| %BLUE%C%WHITE%:* %BLACK%| %YELLOW%L%WHITE%:%CORAL%120 %BLACK%| %GREEN%P%WHITE%:* %BLACK%| %ORANGE%M%WHITE%:%CORAL%105 %BLACK%| %GOLD%P%WHITE%:*%CL%%NAME%}%CONTINUE%
 //Royal Crypts Map
-ItemDisplay[t15]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys%WHITE%/%ORANGE%Magic %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t15]: %NAME%{%RED%F%WHITE%:75 %BLACK%| %BLUE%C%WHITE%:%CORAL%125 %BLACK%| %YELLOW%L%WHITE%:80 %BLACK%| %GREEN%P%WHITE%:%CORAL%105 %BLACK%| %ORANGE%M%WHITE%:%CORAL%150 %BLACK%| %GOLD%P%WHITE%:60%CL%%NAME%}%CONTINUE%
+ItemDisplay[t15]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys%WHITE%/%ORANGE%Magic %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t15]: %NAME%{%RED%F%WHITE%:%CORAL%120 %BLACK%| %BLUE%C%WHITE%:%CORAL%120 %BLACK%| %YELLOW%L%WHITE%:* %BLACK%| %GREEN%P%WHITE%:* %BLACK%| %ORANGE%M%WHITE%:* %BLACK%| %GOLD%P%WHITE%:*%CL%%NAME%}%CONTINUE%
 //Ruined Cistern Map
-ItemDisplay[t16]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys%WHITE%/%GREEN%Poison %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t16]: %NAME%{%RED%F%WHITE%:75 %BLACK%| %BLUE%C%WHITE%:%CORAL%115 %BLACK%| %YELLOW%L%WHITE%:%CORAL%135 %BLACK%| %GREEN%P%WHITE%:75 %BLACK%| %ORANGE%M%WHITE%:%CORAL%125 %BLACK%| %GOLD%P%WHITE%:60%CL%%NAME%}%CONTINUE%
+ItemDisplay[t16]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys%WHITE%/%GREEN%Poison %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t16]: %NAME%{%RED%F%WHITE%:* %BLACK%| %BLUE%C%WHITE%:* %BLACK%| %YELLOW%L%WHITE%:* %BLACK%| %GREEN%P%WHITE%:%CORAL%120 %BLACK%| %ORANGE%M%WHITE%:%CORAL%105 %BLACK%| %GOLD%P%WHITE%:*%CL%%NAME%}%CONTINUE%
 //Halls of Torture
-ItemDisplay[t17]: %NAME%{%WHITE%Boss Damage: %GRAY%Missing Data %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t17]: %NAME%{%RED%F%WHITE%:85 %BLACK%| %BLUE%C%WHITE%:85 %BLACK%| %YELLOW%L%WHITE%:85 %BLACK%| %GREEN%P%WHITE%:85 %BLACK%| %ORANGE%M%WHITE%:35 %BLACK%| %GOLD%P%WHITE%:50%CL%%NAME%}%CONTINUE%
+ItemDisplay[t17]: %NAME%{%WHITE%Boss Damage: %GRAY%Missing Data %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t17]: %NAME%{%RED%F%WHITE%:* %BLACK%| %BLUE%C%WHITE%:%CORAL%120 %BLACK%| %YELLOW%L%WHITE%:%CORAL%120 %BLACK%| %GREEN%P%WHITE%:* %BLACK%| %ORANGE%M%WHITE%:* %BLACK%| %GOLD%P%WHITE%:*%CL%%NAME%}%CONTINUE%
 //Phlegethon Map
-ItemDisplay[t21]: %NAME%{%WHITE%Boss Damage: %RED%Fire %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t21]: %NAME%{%RED%F%WHITE%:%CORAL%140 %BLACK%| %BLUE%C%WHITE%:50 %BLACK%| %YELLOW%L%WHITE%:%CORAL%125 %BLACK%| %GREEN%P%WHITE%:75 %BLACK%| %ORANGE%M%WHITE%:50 %BLACK%| %GOLD%P%WHITE%:75%CL%%NAME%}%CONTINUE%
+ItemDisplay[t21]: %NAME%{%WHITE%Boss Damage: %RED%Fire %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t21]: %NAME%{%RED%F%WHITE%:%CORAL%120 %BLACK%| %BLUE%C%WHITE%:* %BLACK%| %YELLOW%L%WHITE%:* %BLACK%| %GREEN%P%WHITE%:%CORAL%120 %BLACK%| %ORANGE%M%WHITE%:* %BLACK%| %GOLD%P%WHITE%:*%CL%%NAME%}%CONTINUE%
 //Torajan Jungle Map
-ItemDisplay[t22]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys%WHITE%/%GREEN%Poison %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t22]: %NAME%{%RED%F%WHITE%:%CORAL%125 %BLACK%| %BLUE%C%WHITE%:75 %BLACK%| %YELLOW%L%WHITE%:%CORAL%105 %BLACK%| %GREEN%P%WHITE%:85 %BLACK%| %ORANGE%M%WHITE%:50 %BLACK%| %GOLD%P%WHITE%:50%CL%%NAME%}%CONTINUE%
+ItemDisplay[t22]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys%WHITE%/%GREEN%Poison %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t22]: %NAME%{%RED%F%WHITE%:* %BLACK%| %BLUE%C%WHITE%:%CORAL%120 %BLACK%| %YELLOW%L%WHITE%:* %BLACK%| %GREEN%P%WHITE%:%CORAL%120 %BLACK%| %ORANGE%M%WHITE%:* %BLACK%| %GOLD%P%WHITE%:*%CL%%NAME%}%CONTINUE%
 //Arreat Battlefield Map
-ItemDisplay[t23]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys%WHITE%/%ORANGE%Magic %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t23]: %NAME%{%RED%F%WHITE%:%CORAL%130 %BLACK%| %BLUE%C%WHITE%:80 %BLACK%| %YELLOW%L%WHITE%:%CORAL%100 %BLACK%| %GREEN%P%WHITE%:85 %BLACK%| %ORANGE%M%WHITE%:50 %BLACK%| %GOLD%P%WHITE%:50%CL%%NAME%}%CONTINUE%
+ItemDisplay[t23]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys%WHITE%/%ORANGE%Magic %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t23]: %NAME%{%RED%F%WHITE%:* %BLACK%| %BLUE%C%WHITE%:* %BLACK%| %YELLOW%L%WHITE%:%CORAL%120 %BLACK%| %GREEN%P%WHITE%:%CORAL%120 %BLACK%| %ORANGE%M%WHITE%:%CORAL%105 %BLACK%| %GOLD%P%WHITE%:*%CL%%NAME%}%CONTINUE%
 //Tomb of Zoltun Kulle Map
-ItemDisplay[t24]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys%WHITE%/%GREEN%Poison %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t24]: %NAME%{%RED%F%WHITE%:85 %BLACK%| %BLUE%C%WHITE%:75 %BLACK%| %YELLOW%L%WHITE%:%CORAL%120 %BLACK%| %GREEN%P%WHITE%:%CORAL%110 %BLACK%| %ORANGE%M%WHITE%:50 %BLACK%| %GOLD%P%WHITE%:%CORAL%105%CL%%NAME%}%CONTINUE%
+ItemDisplay[t24]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys%WHITE%/%GREEN%Poison %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t24]: %NAME%{%RED%F%WHITE%:* %BLACK%| %BLUE%C%WHITE%:* %BLACK%| %YELLOW%L%WHITE%:* %BLACK%| %GREEN%P%WHITE%:%CORAL%120 %BLACK%| %ORANGE%M%WHITE%:* %BLACK%| %GOLD%P%WHITE%:%CORAL%115%CL%%NAME%}%CONTINUE%
 //Sewers of Harrogath Map
-ItemDisplay[t25]: %NAME%{%WHITE%Boss Damage: %YELLOW%Light %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t25]: %NAME%{%RED%F%WHITE%:75 %BLACK%| %BLUE%C%WHITE%:85 %BLACK%| %YELLOW%L%WHITE%:%CORAL%135 %BLACK%| %GREEN%P%WHITE%:%CORAL%125 %BLACK%| %ORANGE%M%WHITE%:50 %BLACK%| %GOLD%P%WHITE%:66%CL%%NAME%}%CONTINUE%
+ItemDisplay[t25]: %NAME%{%WHITE%Boss Damage: %YELLOW%Light %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t25]: %NAME%{%RED%F%WHITE%:%CORAL%120 %BLACK%| %BLUE%C%WHITE%:* %BLACK%| %YELLOW%L%WHITE%:* %BLACK%| %GREEN%P%WHITE%:%CORAL%120 %BLACK%| %ORANGE%M%WHITE%:* %BLACK%| %GOLD%P%WHITE%:*%CL%%NAME%}%CONTINUE%
 //Shadows of Westmarch Map
-ItemDisplay[t26]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys%WHITE%/%ORANGE%Magic %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t26]: %NAME%{%RED%F%WHITE%:75 %BLACK%| %BLUE%C%WHITE%:85 %BLACK%| %YELLOW%L%WHITE%:75 %BLACK%| %GREEN%P%WHITE%:%CORAL%135 %BLACK%| %ORANGE%M%WHITE%:50 %BLACK%| %GOLD%P%WHITE%:%CORAL%100%CL%%NAME%}%CONTINUE%
+ItemDisplay[t26]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys%WHITE%/%ORANGE%Magic %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t26]: %NAME%{%RED%F%WHITE%:%CORAL%120 %BLACK%| %BLUE%C%WHITE%:* %BLACK%| %YELLOW%L%WHITE%:%CORAL%120 %BLACK%| %GREEN%P%WHITE%:* %BLACK%| %ORANGE%M%WHITE%:%CORAL%105 %BLACK%| %GOLD%P%WHITE%:*%CL%%NAME%}%CONTINUE%
 //Demon Road
-ItemDisplay[t27]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t27]: %NAME%{%RED%F%WHITE%:85 %BLACK%| %BLUE%C%WHITE%:%CORAL%125 %BLACK%| %YELLOW%L%WHITE%:85 %BLACK%| %GREEN%P%WHITE%:%CORAL%135 %BLACK%| %ORANGE%M%WHITE%:40 %BLACK%| %GOLD%P%WHITE%:45%CL%%NAME%}%CONTINUE%
+ItemDisplay[t27]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t27]: %NAME%{%RED%F%WHITE%:%CORAL%120 %BLACK%| %BLUE%C%WHITE%:* %BLACK%| %YELLOW%L%WHITE%:%CORAL%120 %BLACK%| %GREEN%P%WHITE%:* %BLACK%| %ORANGE%M%WHITE%:* %BLACK%| %GOLD%P%WHITE%:%CORAL%115%CL%%NAME%}%CONTINUE%
 //Skovos Stronghold
-ItemDisplay[t28]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys%WHITE%/%ORANGE%Magic %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t28]: %NAME%{%RED%F%WHITE%:%CORAL%125 %BLACK%| %BLUE%C%WHITE%:85 %BLACK%| %YELLOW%L%WHITE%:%CORAL%130 %BLACK%| %GREEN%P%WHITE%:85 %BLACK%| %ORANGE%M%WHITE%:40 %BLACK%| %GOLD%P%WHITE%:%CORAL%125%CL%%NAME%}%CONTINUE%
+ItemDisplay[t28]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys%WHITE%/%ORANGE%Magic %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t28]: %NAME%{%RED%F%WHITE%:* %BLACK%| %BLUE%C%WHITE%:%CORAL%120 %BLACK%| %YELLOW%L%WHITE%:* %BLACK%| %GREEN%P%WHITE%:%CORAL%120 %BLACK%| %ORANGE%M%WHITE%:* %BLACK%| %GOLD%P%WHITE%:*%CL%%NAME%}%CONTINUE%
 //River of Blood Map
-ItemDisplay[t31]: %NAME%{%WHITE%Boss Damage: %GREEN%Poison%WHITE%/%BLUE%Cold %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t31]: %NAME%{%RED%F%WHITE%:90 %BLACK%| %BLUE%C%WHITE%:%CORAL%180 %BLACK%| %YELLOW%L%WHITE%:85 %BLACK%| %GREEN%P%WHITE%:%CORAL%130 %BLACK%| %ORANGE%M%WHITE%:%CORAL%100 %BLACK%| %GOLD%P%WHITE%:66%CL%%NAME%}%CONTINUE%
+ItemDisplay[t31]: %NAME%{%WHITE%Boss Damage: %GREEN%Poison%WHITE%/%BLUE%Cold %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t31]: %NAME%{%RED%F%WHITE%:* %BLACK%| %BLUE%C%WHITE%:* %BLACK%| %YELLOW%L%WHITE%:%CORAL%120 %BLACK%| %GREEN%P%WHITE%:* %BLACK%| %ORANGE%M%WHITE%:%CORAL%105 %BLACK%| %GOLD%P%WHITE%:*%CL%%NAME%}%CONTINUE%
 //Throne of Insanity Map
-ItemDisplay[t32]: %NAME%{%WHITE%Boss Damage: %RED%Fire %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t32]: %NAME%{%RED%F%WHITE%:%CORAL%130 %BLACK%| %BLUE%C%WHITE%:%CORAL%130 %BLACK%| %YELLOW%L%WHITE%:75 %BLACK%| %GREEN%P%WHITE%:85 %BLACK%| %ORANGE%M%WHITE%:75 %BLACK%| %GOLD%P%WHITE%:50%CL%%NAME%}%CONTINUE%
+ItemDisplay[t32]: %NAME%{%WHITE%Boss Damage: %RED%Fire %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t32]: %NAME%{%RED%F%WHITE%:* %BLACK%| %BLUE%C%WHITE%:* %BLACK%| %YELLOW%L%WHITE%:* %BLACK%| %GREEN%P%WHITE%:%CORAL%120 %BLACK%| %ORANGE%M%WHITE%:* %BLACK%| %GOLD%P%WHITE%:%CORAL%115%CL%%NAME%}%CONTINUE%
 //Lost Temple Map
-ItemDisplay[t33]: %NAME%{%WHITE%Boss Damage: %GREEN%Poison%WHITE%/%GOLD%Phys %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t33]: %NAME%{%RED%F%WHITE%:%CORAL%120 %BLACK%| %BLUE%C%WHITE%:%CORAL%110 %BLACK%| %YELLOW%L%WHITE%:80 %BLACK%| %GREEN%P%WHITE%:80 %BLACK%| %ORANGE%M%WHITE%:50 %BLACK%| %GOLD%P%WHITE%:55%CL%%NAME%}%CONTINUE%
+ItemDisplay[t33]: %NAME%{%WHITE%Boss Damage: %GREEN%Poison%WHITE%/%GOLD%Phys %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t33]: %NAME%{%RED%F%WHITE%:* %BLACK%| %BLUE%C%WHITE%:%CORAL%120 %BLACK%| %YELLOW%L%WHITE%:* %BLACK%| %GREEN%P%WHITE%:* %BLACK%| %ORANGE%M%WHITE%:%CORAL%105 %BLACK%| %GOLD%P%WHITE%:*%CL%%NAME%}%CONTINUE%
 //Ancestral Trial Map
-ItemDisplay[t34]: %NAME%{%WHITE%Boss Damage: %BLUE%Cold %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t34]: %NAME%{%RED%F%WHITE%:75 %BLACK%| %BLUE%C%WHITE%:75 %BLACK%| %YELLOW%L%WHITE%:%CORAL%130 %BLACK%| %GREEN%P%WHITE%:%CORAL%120 %BLACK%| %ORANGE%M%WHITE%:50 %BLACK%| %GOLD%P%WHITE%:50%CL%%NAME%}%CONTINUE%
+ItemDisplay[t34]: %NAME%{%WHITE%Boss Damage: %BLUE%Cold %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t34]: %NAME%{%RED%F%WHITE%:%CORAL%120 %BLACK%| %BLUE%C%WHITE%:* %BLACK%| %YELLOW%L%WHITE%:%CORAL%120 %BLACK%| %GREEN%P%WHITE%:* %BLACK%| %ORANGE%M%WHITE%:* %BLACK%| %GOLD%P%WHITE%:*%CL%%NAME%}%CONTINUE%
 //Blood Moon Map
-ItemDisplay[t35]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys%WHITE%/%YELLOW%Light %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t35]: %NAME%{%RED%F%WHITE%:65 %BLACK%| %BLUE%C%WHITE%:65 %BLACK%| %YELLOW%L%WHITE%:65 %BLACK%| %GREEN%P%WHITE%:65 %BLACK%| %ORANGE%M%WHITE%:33 %BLACK%| %GOLD%P%WHITE%:50%CL%%NAME%}%CONTINUE%
+ItemDisplay[t35]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys%WHITE%/%YELLOW%Light %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t35]: %NAME%{%RED%F%WHITE%:* %BLACK%| %BLUE%C%WHITE%:* %BLACK%| %YELLOW%L%WHITE%:* %BLACK%| %GREEN%P%WHITE%:* %BLACK%| %ORANGE%M%WHITE%:* %BLACK%| %GOLD%P%WHITE%:*%CL%%NAME%}%CONTINUE%
 //Fall of Caldeum Map
-ItemDisplay[t36]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t36]: %NAME%{%RED%F%WHITE%:95 %BLACK%| %BLUE%C%WHITE%:%CORAL%130 %BLACK%| %YELLOW%L%WHITE%:%CORAL%100 %BLACK%| %GREEN%P%WHITE%:80 %BLACK%| %ORANGE%M%WHITE%:50 %BLACK%| %GOLD%P%WHITE%:50%CL%%NAME%}%CONTINUE%
+ItemDisplay[t36]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t36]: %NAME%{%RED%F%WHITE%:* %BLACK%| %BLUE%C%WHITE%:* %BLACK%| %YELLOW%L%WHITE%:%CORAL%120 %BLACK%| %GREEN%P%WHITE%:* %BLACK%| %ORANGE%M%WHITE%:%CORAL%105 %BLACK%| %GOLD%P%WHITE%:%CORAL%115%CL%%NAME%}%CONTINUE%
 //Pandemonium Citadel Map
-ItemDisplay[t37]: %NAME%{%WHITE%Boss Damage: %RED%Fire%WHITE%/%GOLD%Phys %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t37]: %NAME%{%RED%F%WHITE%:75 %BLACK%| %BLUE%C%WHITE%:75 %BLACK%| %YELLOW%L%WHITE%:%CORAL%135 %BLACK%| %GREEN%P%WHITE%:%CORAL%130 %BLACK%| %ORANGE%M%WHITE%:50 %BLACK%| %GOLD%P%WHITE%:%CORAL%100%CL%%NAME%}%CONTINUE%
+ItemDisplay[t37]: %NAME%{%WHITE%Boss Damage: %RED%Fire%WHITE%/%GOLD%Phys %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t37]: %NAME%{%RED%F%WHITE%:* %BLACK%| %BLUE%C%WHITE%:%CORAL%120 %BLACK%| %YELLOW%L%WHITE%:* %BLACK%| %GREEN%P%WHITE%:* %BLACK%| %ORANGE%M%WHITE%:%CORAL%105 %BLACK%| %GOLD%P%WHITE%:*%CL%%NAME%}%CONTINUE%
 //Canyon of Sescheron Map
-ItemDisplay[t38]: %NAME%{%WHITE%Boss Damage: %BLUE%Cold %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t38]: %NAME%{%RED%F%WHITE%:%CORAL%130 %BLACK%| %BLUE%C%WHITE%:80 %BLACK%| %YELLOW%L%WHITE%:75 %BLACK%| %GREEN%P%WHITE%:%CORAL%110 %BLACK%| %ORANGE%M%WHITE%:70 %BLACK%| %GOLD%P%WHITE%:%CORAL%120%CL%%NAME%}%CONTINUE%
+ItemDisplay[t38]: %NAME%{%WHITE%Boss Damage: %BLUE%Cold %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t38]: %NAME%{%RED%F%WHITE%:%CORAL%120 %BLACK%| %BLUE%C%WHITE%:* %BLACK%| %YELLOW%L%WHITE%:* %BLACK%| %GREEN%P%WHITE%:* %BLACK%| %ORANGE%M%WHITE%:* %BLACK%| %GOLD%P%WHITE%:%CORAL%115%CL%%NAME%}%CONTINUE%
 //Kehjistan Marketplace Map
-ItemDisplay[t39]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t39]: %NAME%{%RED%F%WHITE%:%CORAL%125 %BLACK%| %BLUE%C%WHITE%:%CORAL%130 %BLACK%| %YELLOW%L%WHITE%:90 %BLACK%| %GREEN%P%WHITE%:%CORAL%1000 %BLACK%| %ORANGE%M%WHITE%:50 %BLACK%| %GOLD%P%WHITE%:50%CL%%NAME%}%CONTINUE%
+ItemDisplay[t39]: %NAME%{%WHITE%Boss Damage: %GOLD%Phys %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t39]: %NAME%{%RED%F%WHITE%:%CORAL%120 %BLACK%| %BLUE%C%WHITE%:* %BLACK%| %YELLOW%L%WHITE%:* %BLACK%| %GREEN%P%WHITE%:* %BLACK%| %ORANGE%M%WHITE%:* %BLACK%| %GOLD%P%WHITE%:%CORAL%115%CL%%NAME%}%CONTINUE%
 //Ashen Plains Map
-ItemDisplay[t3a]: %NAME%{%WHITE%Boss Damage: %RED%Fire%WHITE%/%YELLOW%Light %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
-ItemDisplay[t3a]: %NAME%{%RED%F%WHITE%:75 %BLACK%| %BLUE%C%WHITE%:%CORAL%130 %BLACK%| %YELLOW%L%WHITE%:80 %BLACK%| %GREEN%P%WHITE%:%CORAL%130 %BLACK%| %ORANGE%M%WHITE%:%CORAL%120 %BLACK%| %GOLD%P%WHITE%:50%CL%%NAME%}%CONTINUE%
+ItemDisplay[t3a]: %NAME%{%WHITE%Boss Damage: %RED%Fire%WHITE%/%YELLOW%Light %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t3a]: %NAME%{%RED%F%WHITE%:%CORAL%120 %BLACK%| %BLUE%C%WHITE%:%CORAL%120 %BLACK%| %YELLOW%L%WHITE%:* %BLACK%| %GREEN%P%WHITE%:* %BLACK%| %ORANGE%M%WHITE%:* %BLACK%| %GOLD%P%WHITE%:*%CL%%NAME%}%CONTINUE%
+//Kyovosahd
+ItemDisplay[t3b]: %NAME%{%WHITE%Boss Damage: %RED%Fire%WHITE%/%YELLOW%Light %BLACK%| %WHITE%Monsters Immunities:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t3b]: %NAME%{%RED%F%WHITE%:* %BLACK%| %BLUE%C%WHITE%:* %BLACK%| %YELLOW%L%WHITE%:* %BLACK%| %GREEN%P%WHITE%:* %BLACK%| %ORANGE%M%WHITE%:* %BLACK%| %GOLD%P%WHITE%:*%CL%%NAME%}%CONTINUE%
 //Cathedral of Light Map
 ItemDisplay[t41]: %NAME%{%WHITE%Boss Damage: %GRAY%Missing Data %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
 ItemDisplay[t41]: %NAME%{%RED%F%WHITE%:%CORAL%165 %BLACK%| %BLUE%C%WHITE%:%CORAL%165 %BLACK%| %YELLOW%L%WHITE%:%CORAL%165 %BLACK%| %GREEN%P%WHITE%:%CORAL%165 %BLACK%| %ORANGE%M%WHITE%:%CORAL%165 %BLACK%| %GOLD%P%WHITE%:%CORAL%140%CL%%NAME%}%CONTINUE%
@@ -5947,7 +5265,12 @@ ItemDisplay[t55]: %NAME%{%RED%F%WHITE%:75 %BLACK%| %BLUE%C%WHITE%:50 %BLACK%| %Y
 //City of Ureh
 ItemDisplay[t56]: %NAME%{%WHITE%Boss Damage: %GRAY%Missing Data %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
 ItemDisplay[t56]: %NAME%{%RED%F%WHITE%:85 %BLACK%| %BLUE%C%WHITE%:80 %BLACK%| %YELLOW%L%WHITE%:%CORAL%100%GRAY%? %BLACK%| %GREEN%P%WHITE%:75 %BLACK%| %ORANGE%M%WHITE%:50 %BLACK%| %GOLD%P%WHITE%:65%CL%%NAME%}%CONTINUE%
-
+//Djinn's Domain
+ItemDisplay[t57]: %NAME%{%WHITE%Boss Damage: %GRAY%Missing Data %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t57]: %NAME%{%RED%F%WHITE%:85 %BLACK%| %BLUE%C%WHITE%:80 %BLACK%| %YELLOW%L%WHITE%:%CORAL%100%GRAY%? %BLACK%| %GREEN%P%WHITE%:75 %BLACK%| %ORANGE%M%WHITE%:50 %BLACK%| %GOLD%P%WHITE%:65%CL%%NAME%}%CONTINUE%
+//Na-Krul's Abyss
+ItemDisplay[t58]: %NAME%{%WHITE%Boss Damage: %GRAY%Missing Data %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t58]: %NAME%{%RED%F%WHITE%:85 %BLACK%| %BLUE%C%WHITE%:80 %BLACK%| %YELLOW%L%WHITE%:%CORAL%100%GRAY%? %BLACK%| %GREEN%P%WHITE%:75 %BLACK%| %ORANGE%M%WHITE%:50 %BLACK%| %GOLD%P%WHITE%:65%CL%%NAME%}%CONTINUE%
 
 //Essences
 ItemDisplay[tes]: %PX-9D%%NAME%{%TAN%Essence %WHITE%from: %BLUE%Andariel %WHITE%or %BLUE%Duriel}
@@ -6096,8 +5419,6 @@ ItemDisplay[(r32 OR r32s)]: %NAME%{%GRAY%Shattered Wall%NL%%NAME%}%CONTINUE%
 ItemDisplay[(r33 OR r33s)]: %NAME%{Breath of the Dying, Ferocity, Innocence,%NL%%NAME%}%CONTINUE%
 ItemDisplay[(r33 OR r33s)]: %NAME%{%GRAY%Obsession, Shattered Wall, Zenith%NL%%NAME%}%CONTINUE%
 //
-ItemDisplay[RUNE>0]: %NAME%{%WHITE%Look at %GRAY%key %WHITE%Quantity: 1-17 for %ORANGE%Recipes%CL%%NAME%}%CONTINUE%
-//
 ItemDisplay[(r01 OR r01s)]: %NAME%{%NAME%%TAN%Note%WHITE%: 3x %ORANGE%El %WHITE%+ %GRAY%key %WHITE%= %ORANGE%Eld %GRAY%[%TAN%2%GRAY%]%NL%}%CONTINUE%
 ItemDisplay[(r02 OR r02s)]: %NAME%{%NAME%%TAN%Note%WHITE%: 3x %ORANGE%Eld %WHITE%+ %GRAY%key %WHITE%= %ORANGE%Tir %GRAY%[%TAN%3%GRAY%]%NL%}%CONTINUE%
 ItemDisplay[(r03 OR r03s)]: %NAME%{%NAME%%TAN%Note%WHITE%: 3x %ORANGE%Tir %WHITE%+ %GRAY%key %WHITE%= %ORANGE%Nef %GRAY%[%TAN%4%GRAY%]%NL%}%CONTINUE%
@@ -6222,4 +5543,3 @@ ItemDisplay[(ARMOR OR WEAPON OR QUIVER) !THROWPOTS ((CLVL>30 FILTLVL>0) OR FILTL
 //BELOW: Minimap Pin + Notify for TIER1, Just Pin for TIER2, Hide for Tier3+
 //ItemDisplay[(ARMOR OR WEAPON OR QUIVER) FILTLVL<4]: %MAP-0A%%PX-62%%TIER-1%%NAME%
 //ItemDisplay[(ARMOR OR WEAPON OR QUIVER) FILTLVL>2]: %NAME%
-
