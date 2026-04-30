@@ -41,6 +41,8 @@ All Unique and Set items are now grouped into easy-to-understand tiers:
 - ⭐⭐⭐ 3-Star (good items)  
 - ⭐⭐⭐📦 3-Star Pickup (always worth grabbing)  
 
+All items and tiers can be easily viewed at https://docs.google.com/spreadsheets/d/1AS-dQqCeaY0zxShYd6qVlFXGqRtlsRKtRBPwFgL5Sws/edit?usp=sharing
+
 ### What Changed
 
 - Cleaned up and unified all tier logic  
