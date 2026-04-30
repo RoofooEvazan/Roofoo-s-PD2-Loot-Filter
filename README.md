@@ -15,8 +15,8 @@ All changes are incremental and intentional, designed to enhance high-level play
 ---
 
 ## 🔄 Changelog
-**Current Version:** 13.0.1  
-**Updated:** April 29th, 2026  
+**Current Version:** 13.0.2  
+**Updated:** April 30th, 2026  
 
 ---
 
