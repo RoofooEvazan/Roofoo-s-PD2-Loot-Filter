@@ -15,259 +15,146 @@ All changes are incremental and intentional, designed to enhance high-level play
 ---
 
 ## 🔄 Changelog
-Current Version - 12.1.6 - Updated January 2nd, 2026
+Current Version - 13.0.1 - Updated April 29th, 2026
 
 The sections below document notable changes compared to the base Kryszard filter.
 
----
+💡 What This Filter Is About
+Clean, readable loot presentation
+Smart highlighting for actually valuable items
+Strict endgame filtering (FL8) without losing safety in town
+Helpful stat summaries so you don’t need to ID everything blindly
+Built for real gameplay, not just theorycrafting
+⭐ ITEMS – UNIQUE & SET
+Simplified Tiering System
 
-### 🟨 ITEMS – UNIQUE
-12.1.1
-- Added meme highlight to **unid Unique Bastard Swords**
-- **Uldyssian’s Awakening** downgraded to ★☆☆ (Eth remains ★★★)
-- **Whispering Mirage** downgraded to ★☆☆
-- **Fleshripper** downgraded to ☆☆☆
-- **Ripsaw** downgraded to ☆☆☆
-- **Achilles’ Edge** downgraded to ☆☆☆ (Eth remains ★★★)
-- **Hellrack** downgraded to ☆☆☆
-- **Wraithflight** downgraded to ☆☆☆ (Eth also ☆☆☆)
-- **Ribcracker** downgraded to ☆☆☆ (Eth remains ★★★)
-- **Steel Carapace** upgraded to ★★★ (Eth pickup enforced)
-- **Wolfhowl** downgraded to ☆☆☆
-- **Steel Shade** downgraded to ★☆☆
-- **Hotspur** downgraded to ★☆☆
-- **Homunculus** downgraded to ★☆☆
-- **Gerke’s Sanctuary** downgraded to ★☆☆
-- **The Oculus** downgraded to ★☆☆
-- **Death Cleaver** downgraded to ★☆☆ (Eth remains ★★★)
-- **Wraithskin** downgraded to ☆☆☆
-- **Sacred Totem** downgraded to ☆☆☆
-- **Zerae’s Resolve** downgraded to ☆☆☆
-- **Shatterblade** downgraded to ☆☆☆
-- **Stalker’s Cull** downgraded to ☆☆☆
-- **Ebonbane** downgraded to ☆☆☆
-- **Crackleshot** downgraded to ☆☆☆
-- **Titan’s Grip** downgraded to ★☆☆
-- **Arkaine’s Valor** upgraded to ★★★ pickup
-- **Snowclash** upgraded to ★★★ pickup
-- **Shifter / Cranium Basher** downgraded to ★☆☆ (Eth remains ★★★)
-- **Magefist** upgraded to ★☆☆
-- **Marrowwalk** upgraded to ★☆☆
-- **Cranebeak** upgraded to ★★★
-- **Skull Collector** upgraded to ★☆☆
-- **Corpsemourn** upgraded to ★☆☆
-- **Harlequin Crest (Shako)** downgraded to ★★★
-- **Widowmaker** upgraded to ★☆☆
-- **Blackhand Key** upgraded to ★☆☆
-- **Pus Spitter** upgraded to ★★★
-- **Razor’s Edge** downgraded to ☆☆☆
-- **Guardian Angel** downgraded to ★☆☆
-- **Twilight’s Reflection** downgraded to ★☆☆
-- **Goblin Toe** downgraded to ☆☆☆
-- **Silks of the Victor** upgraded to ★☆☆
-- **Plague Bearer** upgraded to ★☆☆
-- **Brimstone Rain** downgraded to ★★★
+All Unique and Set items are now grouped into easy-to-understand tiers:
 
-12.1.2
-- **Executioner's Justice** upgraded to ★☆☆
-- **Jade Talon** upgraded to ★☆☆
-- **Steel Pillar** downgraded to ★☆☆ (Eth remains ★★★)
-- **Widowmaker** upgraded to ★☆☆
-- **Purgatory** downgraded to ★☆☆ (Eth remains ★★★)
-- **Messerschmidt's Reaver** downgraded to ★☆☆ (Eth remains ★★★)
-- **Arreat's Face** downgraded to ★☆☆
-- **Gargoyle's Bite** downgraded to ★☆☆
-- Fixed an issue which was causing eth unique spears and polearms to hide but make the drop sound
+⭐ No Star (low priority)
+⭐⭐ 1-Star (situational / niche)
+⭐⭐⭐ 3-Star (good items)
+⭐⭐⭐📦 3-Star Pickup (always worth grabbing)
+What Changed
+Cleaned up and unified all tier logic
+Removed old LoD vs PD2 split (no more confusion)
+Updated tiers to match current endgame expectations
+FL8 Behavior (Strict Mode)
+❌ Unlisted unidentified Uniques/Sets are hidden outside town
+✅ Still visible in town (so you never lose items permanently)
+✅ Special items (like unique maps & Uber drops) are always handled safely
+Special Touches
+The Enpherno Bastard Sword meme highlight lives on
+Uber/DClone drops are still handled with map-specific logic
+👢 BOOTS (RARE / CRAFTED / SET / UNIQUE)
 
-12.1.3
-- **Stoneraven** upgraded to ★☆☆ (Eth upgraded to ★★★)
+This is one of the biggest QoL upgrades.
 
-12.1.4
-- **Skin of the Vipermagi** downgraded to ★☆☆
-- **Grims Burning Dead** upgraded to ★☆☆
-- **Elite Unique Arrows** downgraded to ★☆☆
-- **Demon Machine** upgraded to ★☆☆
+🔥 Resistance Summary System
 
-12.1.5
-- **Hellmouth** upgraded to ★☆☆
-- **Leviathan** downgraded to ★☆☆
+Boots now show total resistance at a glance, like:
 
-12.1.6
-- **Lavagout** upgraded to ★☆☆
-- **Thunderstrokes** downgraded to ★☆☆
+Total resistances show up in the item name on the ground
+🧠 Smart Labels
+Dual Res
+Tri Res
+Quad Res
+🎨 Color Scaling
+🔴 Low (<70) → Red
+🟠 Medium (70–90) → Orange
+🟢 High (90+) → Green
 
----
+### Dual Res Example
+[![Dual Res Example](screenshots/BootDualResExample.jpeg)](screenshots/BootDualResExample.jpeg)
 
-### 🟩 ITEMS – SET
-12.1.1
-- **Laying of Hands** upgraded to ★☆☆
-- **Trang-Oul’s Armor** upgraded to ★☆☆
-- **Trang-Oul’s Shield** upgraded to ★☆☆
-- **Trang-Oul’s Gloves** upgraded to ★☆☆
-- **Natalya’s Mark** downgraded to ★☆☆
+### Tri Res Example
+[![Tri Res Example](screenshots/BootTriResExample.jpeg)](screenshots/BootTriResExample.jpeg)
 
-12.1.2
-- **Tal Rasha's Guardianship (Armor)** downgraded to ★☆☆
+### Quad Res Example
+[![Quad Res Example](screenshots/BootQuadResExample.jpeg)](screenshots/BootQuadResExample.jpeg)
 
-12.1.4
-- **Aldur's Stony Gaze (Helm)** upgraded to ★☆☆
-- **Griswold's Heart (Chest)** upgraded to ★☆☆
-- **Trang-Oul's Girth (Belt)** upgraded to ★☆☆
+🟡 RARES & 🟠 CRAFTED ITEMS
+Same resistance system as boots applied where relevant
+Cleaned-up tooltip info
+Easier to quickly evaluate value vs junk
+🗺️ MAPS – HUGE UPGRADE
 
-12.1.5
-- **Immortal King's Soul Cage (Armor)** downgraded to ★☆☆
+Maps now actually tell you what matters before you enter.
 
----
+⚔️ Debuff Intelligence
+Block reduction → This shows your characters actual block chance with the map debuff accounted for. It's fully dynamic and adjusts with different gear/character/stats/debuffs.
+Faster Hit Recovery → This shows your characters actual FHR with the map debuff accounted for. Additionally, if the map debuff lowers your FHR frames, an additional tooltip will tell you how many frames you will lose.
 
-### 🟦 ITEMS – RARE
-12.1.1
-- **Rare Necromancer Heads** upgraded to ★☆☆
+Both of these debuffs only show up if your map rolls them. Allowing you to quickly reroll maps accorrdingly.
 
----
 
-### 🛒 SHOP
-12.1.1
-- Added bold highlights to:
-  - **+6 Fire Golem Wands**
-  - **+5–6 Fire Golem & Fire Skill Damage (>1%) Wands**
+👹 Monster Roll Alerts
 
----
+Quick tags show dangerous or notable spawns:
 
-### 🧿 CHARMS
-12.1.1
-- Charms now display as **teal text**
-- **Filter Level 8** hides all charms **below iLvl 90**
-- **iLvl 90 charms** gain additional blue dot indicators
-- Minimap icons suppressed when < iLvl 90 charms are hidden
+MoD (Minions of Destruction)
+Dolls 💀
+Souls ⚡
+Cows 🐄
+Ghosts
+Witches
+Fetishes
+Vampire Lords
+Reanimated Horde
+Extra Boss rolls
+🛡️ Resistance Display Upgrade
+Shows actual highest monster resistance values
+100+ still highlights as immunity
 
----
+### Map Debuff & Mob Smart Labeling Example
+[![Map Debuff & Mob Smart Labeling Example](screenshots/MapSmartFilterExample.jpeg)](screenshots/MapSmartFilterExample.jpeg)
 
-### 💎 JEWELS
-12.1.1
-- Jewels now display as **teal text**
-- **≥ iLvl 85 jewels** gain additional dots:
-  - Blue for magic
-  - Yellow for rare
+🔊 SOUND SYSTEM
 
----
+Cleaned up and standardized:
 
-### 🔷 GEMS
-12.1.1
-- **Flawless Skulls** always shown on all filter levels
+❌ No Star / 1-Star → No sound
+⭐⭐⭐ 3-Star → Notification sound
+⭐⭐⭐📦 Pickup Tier → Strong alert
 
----
+👉 Less noise, more signal
 
-### 🔊 SOUNDS
-12.1.1
-- Replaced various drop sounds with **Path of Exile–style sounds**
-- Removed drop sounds from **1-star items**
-- ⚠️ Known issue: some sounds may skip due to priority conflicts
+🚫 FILTER LEVEL 8 (STRICT MODE)
 
-12.1.2
-- High Rune drop sounds changed to POE sounds to ensure priority over other sounds (results of existing LOD sounds having too low priority)
+This is where the filter becomes endgame-ready.
 
-12.1.3
-- Changed HR drop sounds back to Kryszard OG now that prioritization is corrected with the recent patch
-- Changed 3-Star and 3-Star [ETH] to new sound
+Behavior
+Aggressively hides low-value clutter
+Hides unlisted Uniques/Sets outside town only
+Keeps everything visible in town as a safety net
 
----
+👉 You get maximum efficiency without risk
 
-### 🔑 UBER KEYS
-12.1.1
-- Notification color changed to **orange**
+🧹 QUALITY OF LIFE
+💰 Sell Value Cleanup
+Displays as $35K instead of long numbers
+🧼 General Improvements
+Cleaner internal structure (easier future updates)
+Removed experimental / clutter features:
+DPS display experiments
+Ground-name spacing tests
+Formatting leftovers
 
----
+👉 Leaner, faster, easier to maintain
 
-### 🎚 FILTER LEVEL 6 & 7
-**Armor**
-12.1.1
-- Hide all magic helms (including eth; excluding circlets)
-- Hide all magic armors (including eth)
-- Hide all magic shields (including eth)
+🎯 WHO THIS FILTER IS FOR
+Players pushing maps and endgame content
+Anyone tired of loot clutter
+People who want smart info at a glance
+Players who enjoy clean visuals + useful data
+🚀 FINAL NOTE
 
-**Weapons**
-12.1.1
-- Hide all magic spears & polearms (including eth; excluding Pike / Lance / War Pike)
-- Hide all magic Amazon spears (including eth)
+This filter is built from real gameplay experience—not just theory.
 
-**Class Bases**
-12.1.1
-- Hide all ethereal Druid pelts
+It evolves every season to stay aligned with:
 
----
-
-### 🎚 FILTER LEVEL 7 & 8
-12.1.1
-- Hide all rare gloves
-- Hide all rare bolts
-
----
-
-### 🎚 FILTER LEVEL 8 (STRICT)
-**Armor**
-12.1.1
-- Hide all magic & rare non-class shields (including eth)
-- Hide all magic boots, gloves, and belts (including eth)
-
-12.1.2
-- Hide all normal and exceptional armor bases excluding Gothic Plate and Linked Mail (including eth) **To be assessed further, may adjust in future versions**
-- Hide all non-magic and superior elite armor bases with less than 10% enhanced defense (including eth)
-  
-12.1.5
-- Enforced FL8 hide rules for elite armor bases consistently outside of town, ensuring sub-10% enhanced defense bases no longer bypass strict filtering
-- Prevented generic armor formatting passes from re-exposing armor bases intended to be hidden at FL8
-- Normalized FL8 armor behavior to apply only outside of town, matching intended strictness design
-
-**Weapons**
-12.1.1
-- Hide all non-magic, non-superior non-staff weapons
-- Hide all non-magic, non-superior non-class bases
-- Hide non-magic Phase Blades
-- Hide non-magic dagger bases
-- Hide magic daggers and javelins (including eth)
-- Hide non-magic, no-skill Archon staves
-- Hide rare and magic daggers (including eth)
-- Hide all rare and magic scepters (including eth)
-
-12.1.2
-- Hide all rare and magic maces (including eth)
-- Hide all rare and magic Legend Sword/Espandon/Two-handed Sword (including eth)
-- Hide all non-magic and superior spear and polearms with less than 10% enhanced damage (including eth)
-  
-12.1.3
-- Fixed an issue that was causing all phase blades to show
-- Hide all 5os Crystal swords in town but hide outside of town
-- Hide all non-magic non-skill Archon staves
-
-12.1.5
-- Enforced strict FL8 hide behavior for all one-handed sword bases outside of town unless explicitly whitelisted
-(includes Crystal Sword, Broad Sword, Long Sword, War Sword, Rune Sword, Battle Sword, and all exceptional/elite equivalents)
-- Phase Blade handling is under active refinement
-- Groundwork has been implemented to restrict Phase Blades to display only when meeting explicit enhanced damage and socket criteria
-- Current status: Phase Blade visibility on FL8 may still be inconsistent in certain cases and is not yet considered final
-- Prevented generic WEAPON / 1H rules from unintentionally allowing non-approved sword bases to appear on FL8
-- Corrected FL8 evaluation order to ensure non-magic and superior weapon bases are fully hidden unless explicitly allowed
-- Closed edge cases where valid hide rules were previously bypassed due to rule ordering or %CONTINUE% behavior
-Note: Several of these weapon bases were implicitly visible prior to 12.1.5 due to broader weapon rules matching earlier than FL8 hides.
-This version makes those hides deterministic. Phase Blade logic remains a known work in progress.
-  
-**Class Bases**
-12.1.2
-- Hide all non-magic & magic Barbarian helms (including eth)
-- Hide magic & rare Sorceress orbs (including eth),  
-  excluding Jared Stone, Swirling Crystal, Dimensional Shard
-- Hide magic & rare Paladin shields (including eth)
-- Hide non-magic & superior Paladin shields,  
-  excluding Vortex, Kurast, and Zakarum Shields
-- Hide all non-magic, socketed or skills druid pelts
-
-12.1.3
-- Fixed an issue the was causing barb and druid helms to show
-
-12.1.5
-- Fully enforced FL8 hide rules for Barbarian helms and Druid pelts, ensuring no fallback visibility through generic armor or class-base rules
-- Corrected class-base evaluation order so non-magic and superior class items are no longer re-shown by later formatting rules
-- Ensured Paladin shield restrictions apply consistently outside of town with no leakage from non-class shield logic
+PD2 balance changes
+Meta shifts
+What actually matters when you're playing
 
 ## 📸 Screenshot Examples
 
