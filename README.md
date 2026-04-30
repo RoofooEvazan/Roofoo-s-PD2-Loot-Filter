@@ -145,21 +145,21 @@ Quick tags show dangerous or notable spawns:
 
 ---
 
-### ⚔️ Best In Slot Slams - BETA FEATURE FOR NOW
+### ⚔️ Dynamic Best In Slot Slams - BETA FEATURE FOR NOW
 
-- Added BIS slams to each weapon that are updated every 6 hours based on the last 48 hours of listings
+- Added dynamic BIS slams to each weapon which are updated every 6 hours based on the last 48 hours of listings
 
 [![BIS Slam Example](screenshots/BISSlamExample.jpg)](screenshots/BISSlamExample.jpg)
 [![BIS Slam Example](screenshots/BISSlamExample2.jpg)](screenshots/BISSlamExample2.jpg)
 
 ---
 
-### ⚔️ Best In Slot Slams - BETA FEATURE FOR NOW
+### ⚔️ Dynamic Rune Prices - BETA FEATURE FOR NOW
 
-- Added BIS slams to each weapon that are updated every 6 hours based on the last 48 hours of listings
+- Added dynamic rune prices to each stackable rune which are updated every 6 hours based on the last 48 hours of listings
 
-[![BIS Slam Example](screenshots/BISSlamExample.jpg)](screenshots/BISSlamExample.jpg)
-[![BIS Slam Example](screenshots/BISSlamExample2.jpg)](screenshots/BISSlamExample2.jpg)
+[![Rune Price Example](screenshots/RunePriceExample.jpg)](screenshots/RunePriceExample.jpg)
+[![Rune Price Example2](screenshots/RunePriceExample2.jpg)](screenshots/RunePriceExample2.jpg)
 
 ---
 
