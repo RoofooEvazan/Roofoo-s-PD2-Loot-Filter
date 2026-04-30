@@ -111,7 +111,8 @@ Maps now actually tell you what matters before you enter.
 
 - **Block reduction** → Shows your actual block chance after map debuffs  
 - **FHR reduction** → Shows real FHR + frame loss if applicable  
-
+- **All res reduction** → Shows character resistances after the map debuff is applied
+- 
 👉 These only display when rolled on the map  
 
 ---
@@ -137,10 +138,6 @@ Quick tags show dangerous or notable spawns:
 
 - Shows highest monster resistance values  
 - 100+ still highlights immunity  
-
----
-
-### Example
 
 #### Map Debuff & Mob Smart Labeling
 [![Map Debuff & Mob Smart Labeling Example](screenshots/MapSmartFilterExample.jpg)](screenshots/MapSmartFilterExample.jpg)
