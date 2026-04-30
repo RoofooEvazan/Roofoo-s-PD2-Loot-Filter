@@ -5197,6 +5197,26 @@ ItemDisplay[RUNE>25]: %BORDER-62%%GREEN%*%PURPLE%*%RED%*          %NAME%%RED%   
 
 // Rune notes
 ItemDisplay[RUNE>0]: %NAME%{%RUNENAME% %WHITE%is Required for Runewords:%NL%%NAME%}%CONTINUE%
+// BEGIN AUTO PD2TRADER RUNE VALUES
+// Source: PD2 Trader API (48h, ladder=true, hardcore=false)
+// Applies to stackable rune item codes only; Lem is intentionally excluded
+// Static values: Pul, Um, Mal, Ist, Gul, Vex, Sur, Ber
+// Dynamic values: Ohm, Lo, Jah, Cham, Zod; median rounded to nearest 0.05 HR
+// Updated: 2026-04-29T23:59:52.359Z
+ItemDisplay[r21s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%0.03 HR %GRAY%(static)%CL%}%CONTINUE%
+ItemDisplay[r22s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%0.05 HR %GRAY%(static)%CL%}%CONTINUE%
+ItemDisplay[r23s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%0.1 HR %GRAY%(static)%CL%}%CONTINUE%
+ItemDisplay[r24s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%0.15 HR %GRAY%(static)%CL%}%CONTINUE%
+ItemDisplay[r25s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%0.25 HR %GRAY%(static)%CL%}%CONTINUE%
+ItemDisplay[r26s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%0.5 HR %GRAY%(static)%CL%}%CONTINUE%
+ItemDisplay[r27s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%0.85 HR %GRAY%(116 listings)%CL%}%CONTINUE%
+ItemDisplay[r28s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%1 HR %GRAY%(92 listings)%CL%}%CONTINUE%
+ItemDisplay[r29s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%1.5 HR %GRAY%(static)%CL%}%CONTINUE%
+ItemDisplay[r30s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%3 HR %GRAY%(static)%CL%}%CONTINUE%
+ItemDisplay[r31s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%1.6 HR %GRAY%(120 listings)%CL%}%CONTINUE%
+ItemDisplay[r32s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%1.5 HR %GRAY%(82 listings)%CL%}%CONTINUE%
+ItemDisplay[r33s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%3.5 HR %GRAY%(43 listings)%CL%}%CONTINUE%
+// END AUTO PD2TRADER RUNE VALUES
 ItemDisplay[(r01 OR r01s)]: %NAME%{Breath of the Dying, Death, Fortitude, Honor,%NL%%NAME%}%CONTINUE%
 ItemDisplay[(r01 OR r01s)]: %NAME%{Malice, Rampage, Steel, Unbending Will,%NL%%NAME%}%CONTINUE%
 ItemDisplay[(r01 OR r01s)]: %NAME%{%GRAY%Voice of Reason, Wind%NL%%NAME%}%CONTINUE%
