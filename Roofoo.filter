@@ -5209,13 +5209,13 @@ ItemDisplay[r23s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%0.1 HR %GRAY%(
 ItemDisplay[r24s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%0.15 HR %GRAY%(static)%CL%}%CONTINUE%
 ItemDisplay[r25s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%0.25 HR %GRAY%(static)%CL%}%CONTINUE%
 ItemDisplay[r26s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%0.5 HR %GRAY%(static)%CL%}%CONTINUE%
-ItemDisplay[r27s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%0.85 HR %GRAY%(98 listings)%CL%}%CONTINUE%
-ItemDisplay[r28s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%1 HR %GRAY%(84 listings)%CL%}%CONTINUE%
+ItemDisplay[r27s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%0.85 HR %GRAY%(84 listings)%CL%}%CONTINUE%
+ItemDisplay[r28s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%0.95 HR %GRAY%(66 listings)%CL%}%CONTINUE%
 ItemDisplay[r29s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%1.5 HR %GRAY%(static)%CL%}%CONTINUE%
 ItemDisplay[r30s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%3 HR %GRAY%(static)%CL%}%CONTINUE%
-ItemDisplay[r31s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%1.65 HR %GRAY%(105 listings)%CL%}%CONTINUE%
-ItemDisplay[r32s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%1.5 HR %GRAY%(75 listings)%CL%}%CONTINUE%
-ItemDisplay[r33s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%3.5 HR %GRAY%(41 listings)%CL%}%CONTINUE%
+ItemDisplay[r31s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%1.7 HR %GRAY%(87 listings)%CL%}%CONTINUE%
+ItemDisplay[r32s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%1.5 HR %GRAY%(58 listings)%CL%}%CONTINUE%
+ItemDisplay[r33s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%3.5 HR %GRAY%(34 listings)%CL%}%CONTINUE%
 // END AUTO PD2TRADER RUNE VALUES
 ItemDisplay[(r01 OR r01s)]: %NAME%{Breath of the Dying, Death, Fortitude, Honor,%NL%%NAME%}%CONTINUE%
 ItemDisplay[(r01 OR r01s)]: %NAME%{Malice, Rampage, Steel, Unbending Will,%NL%%NAME%}%CONTINUE%
