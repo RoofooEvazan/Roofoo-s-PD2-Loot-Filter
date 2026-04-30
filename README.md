@@ -141,7 +141,7 @@ Quick tags show dangerous or notable spawns:
 
 #### Map Debuff & Mob Smart Labeling
 [![Map Debuff & Mob Smart Labeling Example](screenshots/MapSmartFilterExample.jpg)](screenshots/MapSmartFilterExample.jpg)
-[![Map Debuff & Mob Smart Labeling 2 Example](screenshots/MapSmartFilterExample.jpg)](screenshots/MapSmartFilterExample2.jpg)
+[![Map Debuff & Mob Smart Labeling 2 Example](screenshots/MapSmartFilterExample2.jpg)](screenshots/MapSmartFilterExample2.jpg)
 
 ---
 
