@@ -42,7 +42,12 @@ const runeOrder = [
 const filterFile = process.env.FILTER_FILE || 'Roofoo.filter';
 const isLadder = process.env.PD2TRADER_LADDER !== 'false';
 const isHardcore = process.env.PD2TRADER_HARDCORE === 'true';
-const hours = Number(process.env.PD2TRADER_HOURS || 48);
+const valueWindows = [
+  ['24H', 24],
+  ['48H', 48],
+  ['72H', 72],
+  ['1W', 168],
+];
 
 function formatHr(value) {
   if (!Number.isFinite(value)) {
@@ -61,28 +66,48 @@ function roundToNearestFiveHundredths(value) {
 }
 
 function lineForStaticRune(baseCode, runeName, value) {
-  return `ItemDisplay[${baseCode}s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%${formatHr(value)} HR %GRAY%(static)%CL%}%CONTINUE%`;
+  const values = valueWindows.map(([label]) => `${label} %WHITE%${formatHr(value)} HR`).join(' %PURPLE%');
+  return `ItemDisplay[${baseCode}s]: %NAME%{%NAME%%CL%%PURPLE%${values}%CL%%PURPLE%Current Values:%CL%}%CONTINUE%`;
 }
 
-function lineForDynamicRune(priceByBaseCode, baseCode, runeName) {
-  const price = priceByBaseCode.get(baseCode);
+function priceForWindow(priceByWindow, baseCode, windowIndex) {
+  for (let index = windowIndex; index < valueWindows.length; index += 1) {
+    const [, windowHours] = valueWindows[index];
+    const price = priceByWindow.get(windowHours)?.get(baseCode);
 
-  if (!price) {
+    if (price) {
+      return price;
+    }
+  }
+
+  return undefined;
+}
+
+function lineForDynamicRune(priceByWindow, baseCode, runeName) {
+  const values = valueWindows.map(([label], windowIndex) => {
+    const price = priceForWindow(priceByWindow, baseCode, windowIndex);
+
+    if (!price) {
+      return `${label} %GRAY%?`;
+    }
+
+    const value = roundToNearestFiveHundredths(price.medianPrice ?? price.movingAverage7Days ?? price.averagePrice);
+    return `${label} %WHITE%${formatHr(value)} HR`;
+  });
+
+  if (values.every((value) => value.includes('%GRAY%?'))) {
     return `// ${runeName}: no PD2 Trader value returned`;
   }
 
-  const value = roundToNearestFiveHundredths(price.medianPrice ?? price.movingAverage7Days ?? price.averagePrice);
-  const listings = Number.isFinite(price.sampleCount) ? ` %GRAY%(${price.sampleCount} listings)` : '';
-
-  return `ItemDisplay[${baseCode}s]: %NAME%{%NAME%%CL%%PURPLE%Current Value: %WHITE%${formatHr(value)} HR${listings}%CL%}%CONTINUE%`;
+  return `ItemDisplay[${baseCode}s]: %NAME%{%NAME%%CL%%PURPLE%${values.join(' %PURPLE%')}%CL%%PURPLE%Current Values:%CL%}%CONTINUE%`;
 }
 
-async function fetchRunePrices() {
+async function fetchRunePrices(windowHours) {
   const body = {
     baseCodes: dynamicRunes.map(([baseCode]) => baseCode),
     isLadder,
     isHardcore,
-    hours,
+    hours: windowHours,
   };
 
   const response = await fetch(API_URL, {
@@ -104,13 +129,19 @@ async function fetchRunePrices() {
   return new Map(payload.data.map((price) => [price.baseCode, price]));
 }
 
-function buildBlock(priceByBaseCode) {
-  const updatedAt =
-    [...priceByBaseCode.values()]
+function getUpdatedAt(priceByWindow) {
+  return (
+    [...priceByWindow.values()]
+      .flatMap((pricesByBaseCode) => [...pricesByBaseCode.values()])
       .map((price) => price.timeRange?.end)
       .filter(Boolean)
       .sort()
-      .at(-1) || new Date().toISOString();
+      .at(-1) || new Date().toISOString()
+  );
+}
+
+function buildBlock(priceByWindow) {
+  const updatedAt = getUpdatedAt(priceByWindow);
   const staticByBaseCode = new Map(staticRunes.map((rune) => [rune[0], rune]));
   const dynamicByBaseCode = new Map(dynamicRunes.map((rune) => [rune[0], rune]));
   const generatedLines = runeOrder.map((baseCode) => {
@@ -121,12 +152,12 @@ function buildBlock(priceByBaseCode) {
     }
 
     const dynamicRune = dynamicByBaseCode.get(baseCode);
-    return lineForDynamicRune(priceByBaseCode, dynamicRune[0], dynamicRune[1]);
+    return lineForDynamicRune(priceByWindow, dynamicRune[0], dynamicRune[1]);
   });
 
   return [
     START_MARKER,
-    `// Source: PD2 Trader API (${hours}h, ladder=${isLadder}, hardcore=${isHardcore})`,
+    `// Source: PD2 Trader API (${valueWindows.map(([label]) => label).join(', ')}, ladder=${isLadder}, hardcore=${isHardcore})`,
     '// Applies to stackable rune item codes only; Lem is intentionally excluded',
     '// Static values: Pul, Um, Mal, Ist, Gul, Vex, Sur, Ber',
     '// Dynamic values: Ohm, Lo, Jah, Cham, Zod; median rounded to nearest 0.05 HR',
@@ -141,25 +172,37 @@ function replaceOrInsertBlock(filterText, block) {
   const normalizedBlock = block.replace(/\n/g, eol);
   const start = filterText.indexOf(START_MARKER);
   const end = filterText.indexOf(END_MARKER);
+  const runeTooltipPattern = /^ItemDisplay\[RUNE>0\].*$/m;
 
   if (start !== -1 && end !== -1 && end > start) {
     const afterEnd = end + END_MARKER.length;
+    const withoutExistingBlock = `${filterText.slice(0, start)}${filterText.slice(afterEnd)}`.replace(/\n{3,}/g, `${eol}${eol}`);
+    const match = withoutExistingBlock.match(runeTooltipPattern);
+
+    if (match && match.index !== undefined) {
+      return `${withoutExistingBlock.slice(0, match.index)}${normalizedBlock}${eol}${withoutExistingBlock.slice(match.index)}`;
+    }
+
     return `${filterText.slice(0, start)}${normalizedBlock}${filterText.slice(afterEnd)}`;
   }
 
-  const runeTooltipPattern = /^ItemDisplay\[RUNE>0\].*$/m;
   const match = filterText.match(runeTooltipPattern);
 
   if (match && match.index !== undefined) {
-    const insertAt = match.index + match[0].length;
-    return `${filterText.slice(0, insertAt)}${eol}${normalizedBlock}${filterText.slice(insertAt)}`;
+    const insertAt = match.index;
+    return `${filterText.slice(0, insertAt)}${normalizedBlock}${eol}${filterText.slice(insertAt)}`;
   }
 
   return `${filterText.replace(/\s*$/, '')}${eol}${eol}${normalizedBlock}${eol}`;
 }
 
-const priceByBaseCode = await fetchRunePrices();
-const block = buildBlock(priceByBaseCode);
+const priceByWindow = new Map();
+
+for (const [, windowHours] of valueWindows) {
+  priceByWindow.set(windowHours, await fetchRunePrices(windowHours));
+}
+
+const block = buildBlock(priceByWindow);
 const currentFilter = await readFile(filterFile, 'utf8');
 const nextFilter = replaceOrInsertBlock(currentFilter, block);
 
