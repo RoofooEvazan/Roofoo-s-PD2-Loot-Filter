@@ -1,4 +1,4 @@
-//	Roofoo's PD2 Loot Filter for Season 13: ver 13.0.1
+//	Roofoo's PD2 Loot Filter for Season 12: ver 13.0.1
 //
 //	Editor - twitch.tv/roofooevazan
 //	Co-Editor - twitch.tv/enpherno
@@ -2299,12 +2299,11 @@ ItemDisplay[OSSETETH1 OR OSSET1]: %DOT-84%%WHITE%*   %NAME%   %WHITE%*
 // Set parts worth notifying
 ItemDisplay[NSSETETH1 OR NSSET1]: %PX-84%%TIER-7%%NAME%
 
-// Show all sets and uniques more clearly while leveling
-ItemDisplay[UNI !ID (FILTLVL<4 OR (CLVL<80 AND FILTLVL<6))]: %PX-68%%NAME%%CONTINUE%
-ItemDisplay[SET !ID (FILTLVL<4 OR (CLVL<80 AND FILTLVL<6))]: %PX-84%%NAME%%CONTINUE%
-
 // Rainbow Facet display
 ItemDisplay[jew UNI !ID]: %BORDER-68%%RED%r%ORANGE%a%YELLOW%in%GREEN%b%BLUE%o%PURPLE%w     %NAME%%PURPLE%     r%BLUE%a%GREEN%in%YELLOW%b%ORANGE%o%RED%w
+
+// Hide unlisted set and unique drops outside town on FL8
+ItemDisplay[(UNI OR SET) !ID !TOWN !(MAPTIER>0) FILTLVL>7]:
 
 // Good magic item highlights
 
