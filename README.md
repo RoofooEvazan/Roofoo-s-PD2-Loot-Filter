@@ -154,6 +154,15 @@ Quick tags show dangerous or notable spawns:
 
 ---
 
+### ⚔️ Best In Slot Slams - BETA FEATURE FOR NOW
+
+- Added BIS slams to each weapon that are updated every 6 hours based on the last 48 hours of listings
+
+[![BIS Slam Example](screenshots/BISSlamExample.jpg)](screenshots/BISSlamExample.jpg)
+[![BIS Slam Example](screenshots/BISSlamExample2.jpg)](screenshots/BISSlamExample2.jpg)
+
+---
+
 ## 🔊 SOUND SYSTEM
 
 - ❌ No Star / 1-Star → No sound  
