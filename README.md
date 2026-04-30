@@ -156,10 +156,11 @@ Quick tags show dangerous or notable spawns:
 
 ### ⚔️ Dynamic Rune Prices - BETA FEATURE FOR NOW
 
-- Added dynamic rune prices to each stackable rune which are updated every 6 hours based on the last 48 hours of listings
+- Added dynamic rune prices to each stackable rune which are updated every 6 hours
+- Values show are median values of the listings recorded in the last 24 Hours, 48 Hours, 72 Hours and 1 Week.
 
-[![Rune Price Example](screenshots/RunePriceExample.jpg)](screenshots/RunePriceExample.jpg)
-[![Rune Price Example2](screenshots/RunePriceExample2.jpg)](screenshots/RunePriceExample2.jpg)
+[![Rune Price Example](screenshots/RunePriceExample3.jpg)](screenshots/RunePriceExample3.jpg)
+[![Rune Price Example2](screenshots/RunePriceExample4.jpg)](screenshots/RunePriceExample4.jpg)
 
 ---
 
