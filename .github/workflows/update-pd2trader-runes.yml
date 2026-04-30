@@ -1,0 +1,38 @@
+name: Update PD2 Trader Rune Values
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-rune-values:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Update rune values
+        run: node scripts/update-pd2trader-runes.mjs
+        env:
+          FILTER_FILE: Roofoo.filter
+          PD2TRADER_LADDER: 'true'
+          PD2TRADER_HARDCORE: 'false'
+          PD2TRADER_HOURS: '48'
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet || git add Roofoo.filter
+          git diff --cached --quiet || git commit -m "Update PD2 Trader rune values"
+          git push
