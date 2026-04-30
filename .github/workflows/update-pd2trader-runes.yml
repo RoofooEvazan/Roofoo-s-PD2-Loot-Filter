@@ -1,4 +1,4 @@
-name: Update PD2 Trader Rune Values
+name: Update PD2 Trader Values
 
 on:
   schedule:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  update-rune-values:
+  update-pd2trader-values:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,10 +29,19 @@ jobs:
           PD2TRADER_HARDCORE: 'false'
           PD2TRADER_HOURS: '48'
 
+      - name: Update BIS slam values
+        run: node scripts/update-pd2trader-bis-slams.mjs
+        env:
+          FILTER_FILE: Roofoo.filter
+          PD2TRADER_LADDER: 'true'
+          PD2TRADER_HARDCORE: 'false'
+          PD2TRADER_HOURS: '48'
+          PD2TRADER_BIS_MIN_SAMPLES: '2'
+
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git diff --quiet || git add Roofoo.filter
-          git diff --cached --quiet || git commit -m "Update PD2 Trader rune values"
+          git diff --cached --quiet || git commit -m "Update PD2 Trader values"
           git push
