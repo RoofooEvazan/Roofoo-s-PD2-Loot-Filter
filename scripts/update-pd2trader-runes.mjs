@@ -48,6 +48,7 @@ const valueWindows = [
   ['72H', 72],
   ['1W', 168],
 ];
+const maxTimelineVariance = 0.3;
 
 function formatHr(value) {
   if (!Number.isFinite(value)) {
@@ -70,28 +71,55 @@ function lineForStaticRune(baseCode, runeName, value) {
   return `ItemDisplay[${baseCode}s]: %NAME%{%NAME%%CL%%PURPLE%${values}%CL%%PURPLE%Current Values:%CL%}%CONTINUE%`;
 }
 
-function priceForWindow(priceByWindow, baseCode, windowIndex) {
-  for (let index = windowIndex; index < valueWindows.length; index += 1) {
-    const [, windowHours] = valueWindows[index];
-    const price = priceByWindow.get(windowHours)?.get(baseCode);
-
-    if (price) {
-      return price;
-    }
+function valueFromPrice(price) {
+  if (!price) {
+    return undefined;
   }
 
-  return undefined;
+  return price.medianPrice ?? price.movingAverage7Days ?? price.averagePrice;
+}
+
+function directPriceForWindow(priceByWindow, baseCode, windowIndex) {
+  const [, windowHours] = valueWindows[windowIndex];
+  return priceByWindow.get(windowHours)?.get(baseCode);
+}
+
+function valueForWindow(priceByWindow, baseCode, windowIndex, cache = new Map()) {
+  if (cache.has(windowIndex)) {
+    return cache.get(windowIndex);
+  }
+
+  const directValue = valueFromPrice(directPriceForWindow(priceByWindow, baseCode, windowIndex));
+  const nextValue =
+    windowIndex + 1 < valueWindows.length
+      ? valueForWindow(priceByWindow, baseCode, windowIndex + 1, cache)
+      : undefined;
+
+  let value = directValue;
+
+  if (!Number.isFinite(value)) {
+    value = nextValue;
+  } else if (
+    Number.isFinite(nextValue) &&
+    nextValue > 0 &&
+    Math.abs(value - nextValue) / nextValue > maxTimelineVariance
+  ) {
+    value = nextValue;
+  }
+
+  cache.set(windowIndex, value);
+  return value;
 }
 
 function lineForDynamicRune(priceByWindow, baseCode, runeName) {
+  const valueCache = new Map();
   const values = valueWindows.map(([label], windowIndex) => {
-    const price = priceForWindow(priceByWindow, baseCode, windowIndex);
+    const value = roundToNearestFiveHundredths(valueForWindow(priceByWindow, baseCode, windowIndex, valueCache));
 
-    if (!price) {
+    if (!Number.isFinite(value)) {
       return `${label} %GRAY%?`;
     }
 
-    const value = roundToNearestFiveHundredths(price.medianPrice ?? price.movingAverage7Days ?? price.averagePrice);
     return `${label} %WHITE%${formatHr(value)} HR`;
   });
 
