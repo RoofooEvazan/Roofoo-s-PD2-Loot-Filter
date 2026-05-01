@@ -1,83 +1,8 @@
 import { readFile, writeFile } from 'node:fs/promises';
 
-const API_URL = 'https://pd2trader.com/item-prices/average/batch';
-const START_MARKER = '// BEGIN AUTO PD2TRADER RUNE VALUES';
-const END_MARKER = '// END AUTO PD2TRADER RUNE VALUES';
-
-const staticRunes = [
-  ['r21', 'Pul Rune', 0.03],
-  ['r22', 'Um Rune', 0.05],
-  ['r23', 'Mal Rune', 0.1],
-  ['r24', 'Ist Rune', 0.15],
-  ['r25', 'Gul Rune', 0.25],
-  ['r26', 'Vex Rune', 0.5],
-  ['r29', 'Sur Rune', 1.5],
-  ['r30', 'Ber Rune', 3],
-];
-
-const runeValueOptions = {
-  roundToNearestFiveHundredths: true,
-  useTimelineVarianceFilter: true,
-};
-
-const materialValueOptions = {
-  roundToNearestFiveHundredths: false,
-  useTimelineVarianceFilter: false,
-};
-
-const dynamicRunes = [
-  ['r27', 'Ohm Rune', 'r27s', runeValueOptions],
-  ['r28', 'Lo Rune', 'r28s', runeValueOptions],
-  ['r31', 'Jah Rune', 'r31s', runeValueOptions],
-  ['r32', 'Cham Rune', 'r32s', runeValueOptions],
-  ['r33', 'Zod Rune', 'r33s', runeValueOptions],
-];
-
-const dynamicCurrencyItems = [
-  ['pk3', 'Key of Destruction', 'pk3', materialValueOptions],
-  ['pk2', 'Key of Hate', 'pk2', materialValueOptions],
-  ['pk1', 'Key of Terror', 'pk1', materialValueOptions],
-  ['ubaa', 'Sigil of Madawc', 'ubaa', materialValueOptions],
-  ['ubab', 'Sigil of Talic', 'ubab', materialValueOptions],
-  ['ubac', 'Sigil of Korlic', 'ubac', materialValueOptions],
-  ['dcbl', 'Pure Demonic Essence', 'dcbl', materialValueOptions],
-  ['dcso', 'Prime Evil Soul', 'dcso', materialValueOptions],
-  ['dcho', 'Black Soulstone Shard', 'dcho', materialValueOptions],
-  ['rtmo', "Trang-Oul's Jawbone", 'rtmo', materialValueOptions],
-  ['rtmv', 'Splinter of the Void', 'rtmv', materialValueOptions],
-  ['cm2f', 'Hellfire Ashes', 'cm2f', materialValueOptions],
-  ['lucb', 'Demonic Insignia', 'lucb', materialValueOptions],
-  ['lucc', 'Talisman of Transgression', 'lucc', materialValueOptions],
-  ['lucd', 'Flesh of Malic', 'lucd', materialValueOptions],
-  ['lbox', "Larzuk's Puzzlebox", 'lbox', materialValueOptions],
-  ['lpp', "Larzuk's Puzzlepiece", 'lpp', materialValueOptions],
-  ['imrn', 'Demonic Cube', 'imrn', materialValueOptions],
-  ['iwss', 'Catalyst Shard', 'iwss', materialValueOptions],
-  ['std', 'Standard of Heroes', 'std', materialValueOptions],
-  ['fed', 'Festering Essence of Destruction', 'fed', materialValueOptions],
-  ['ceh', 'Charged Essence of Hatred', 'ceh', materialValueOptions],
-  ['bet', 'Burning Essence of Terror', 'bet', materialValueOptions],
-  ['tes', 'Twisted Essence of Suffering', 'tes', materialValueOptions],
-];
-
-const runeOrder = [
-  'r21',
-  'r22',
-  'r23',
-  'r24',
-  'r25',
-  'r26',
-  'r27',
-  'r28',
-  'r29',
-  'r30',
-  'r31',
-  'r32',
-  'r33',
-];
-const valueOrder = [...runeOrder, ...dynamicCurrencyItems.map(([baseCode]) => baseCode)];
-const dynamicValueItems = [...dynamicRunes, ...dynamicCurrencyItems];
-const currencyDisplayCodes = dynamicCurrencyItems.map(([, , displayCode]) => displayCode);
+const MARKET_API_URL = 'https://api.projectdiablo2.com/market/listing';
+const START_MARKER = '// BEGIN AUTO PD2TRADER FACET VALUES';
+const END_MARKER = '// END AUTO PD2TRADER FACET VALUES';
 
 const filterFile = process.env.FILTER_FILE || 'Roofoo.filter';
 const isLadder = process.env.PD2TRADER_LADDER !== 'false';
@@ -88,37 +13,90 @@ const valueWindows = [
   ['72H', 72],
   ['1W', 168],
 ];
-const maxTimelineVariance = 0.3;
+const marketPageLimit = Number(process.env.PD2TRADER_FACET_MARKET_PAGE_LIMIT || 200);
+const maxMarketListingsPerWindow = Number(process.env.PD2TRADER_FACET_MAX_LISTINGS || 3000);
+
+const runeValues = new Map([
+  ['pul', 0.03],
+  ['um', 0.05],
+  ['mal', 0.1],
+  ['ist', 0.15],
+  ['gul', 0.25],
+  ['vex', 0.5],
+  ['ohm', 0.85],
+  ['lo', 1],
+  ['sur', 1.5],
+  ['jah', 1.6],
+  ['cham', 1.75],
+  ['ber', 3],
+  ['zod', 3.5],
+]);
+
+const facets = [
+  {
+    key: 'fire',
+    label: 'Fire',
+    color: '%RED%',
+    damageStat: 'STAT329',
+    pierceStat: 'STAT333',
+    masteryMod: 'passive_fire_mastery',
+    pierceMod: 'passive_fire_pierce',
+  },
+  {
+    key: 'cold',
+    label: 'Cold',
+    color: '%BLUE%',
+    damageStat: 'STAT331',
+    pierceStat: 'STAT335',
+    masteryMod: 'passive_cold_mastery',
+    pierceMod: 'passive_cold_pierce',
+  },
+  {
+    key: 'lightning',
+    label: 'Light',
+    color: '%YELLOW%',
+    damageStat: 'STAT330',
+    pierceStat: 'STAT334',
+    masteryMod: 'passive_ltng_mastery',
+    pierceMod: 'passive_ltng_pierce',
+  },
+  {
+    key: 'poison',
+    label: 'Poison',
+    color: '%GREEN%',
+    damageStat: 'STAT332',
+    pierceStat: 'STAT336',
+    masteryMod: 'passive_pois_mastery',
+    pierceMod: 'passive_pois_pierce',
+  },
+];
 
 function formatHr(value) {
   if (!Number.isFinite(value)) {
-    return '0';
+    return '?';
   }
 
   return value.toFixed(2).replace(/\.?0+$/, '');
 }
 
-function roundValue(value, options = runeValueOptions) {
-  if (!Number.isFinite(value)) {
-    return value;
+function median(values) {
+  if (values.length === 0) {
+    return undefined;
   }
 
-  if (!options.roundToNearestFiveHundredths) {
-    return value;
+  const sorted = [...values].sort((a, b) => a - b);
+  const middle = Math.floor(sorted.length / 2);
+
+  if (sorted.length % 2 === 1) {
+    return sorted[middle];
   }
 
-  const rounded = Math.round(value * 20) / 20;
-  return value > 0 && rounded === 0 ? 0.05 : rounded;
-}
-
-function lineForStaticRune(baseCode, runeName, value) {
-  const values = valueWindows.map(([label]) => `${label} %WHITE%${formatHr(value)} HR`).join(' %PURPLE%');
-  return `ItemDisplay[${baseCode}s]: %NAME%{%NAME%%CL%%PURPLE%${values}%CL%%PURPLE%Current Values:%CL%}`;
+  return (sorted[middle - 1] + sorted[middle]) / 2;
 }
 
 function normalizePriceValue(value) {
   if (typeof value === 'number') {
-    return value;
+    return value > 0 ? value : undefined;
   }
 
   if (typeof value !== 'string') {
@@ -126,212 +104,164 @@ function normalizePriceValue(value) {
   }
 
   const normalized = value.trim().toLowerCase();
-  const wssMatch = normalized.match(/^(\d+(?:\.\d+)?)\s*wss$/);
+  const wssMatch = normalized.match(/(\d+(?:\.\d+)?)\s*wss\b/);
 
   if (wssMatch) {
     return Number(wssMatch[1]) * 0.01;
   }
 
-  const hrMatch = normalized.match(/^(\d+(?:\.\d+)?)\s*hr$/);
+  const hrMatch = normalized.match(/(\d+(?:\.\d+)?)\s*hr\b/);
 
   if (hrMatch) {
     return Number(hrMatch[1]);
   }
 
-  const numericValue = Number(normalized);
-  return Number.isFinite(numericValue) ? numericValue : undefined;
-}
+  const numericMatch = normalized.match(/^(\d+(?:\.\d+)?|\.\d+)(?:\s|,|\/|$)/);
 
-function valueFromPrice(price) {
-  if (!price) {
-    return undefined;
+  if (numericMatch) {
+    return Number(numericMatch[1]);
   }
 
-  for (const key of ['medianPrice', 'movingAverage7Days', 'averagePrice']) {
-    const value = normalizePriceValue(price[key]);
-
-    if (Number.isFinite(value)) {
-      return value;
+  for (const [runeName, runeValue] of runeValues) {
+    if (new RegExp(`\\b${runeName}\\b`, 'i').test(normalized)) {
+      return runeValue;
     }
   }
 
   return undefined;
 }
 
-function directPriceForWindow(priceByWindow, baseCode, windowIndex) {
-  const [, windowHours] = valueWindows[windowIndex];
-  return priceByWindow.get(windowHours)?.get(baseCode);
-}
+function priceFromListing(listing) {
+  const noteValue = normalizePriceValue(listing.price);
 
-function valueForWindow(priceByWindow, baseCode, windowIndex, cache = new Map(), options = runeValueOptions) {
-  if (cache.has(windowIndex)) {
-    return cache.get(windowIndex);
+  if (Number.isFinite(noteValue)) {
+    return noteValue;
   }
 
-  const directValue = valueFromPrice(directPriceForWindow(priceByWindow, baseCode, windowIndex));
-  const nextValue =
-    windowIndex + 1 < valueWindows.length
-      ? valueForWindow(priceByWindow, baseCode, windowIndex + 1, cache, options)
-      : undefined;
-
-  let value = directValue;
-
-  if (!Number.isFinite(value)) {
-    value = nextValue;
-  } else if (
-    options.useTimelineVarianceFilter &&
-    Number.isFinite(nextValue) &&
-    nextValue > 0 &&
-    Math.abs(value - nextValue) / nextValue > maxTimelineVariance
-  ) {
-    value = nextValue;
-  }
-
-  cache.set(windowIndex, value);
-  return value;
+  const hrValue = normalizePriceValue(listing.hr_price);
+  return Number.isFinite(hrValue) ? hrValue : undefined;
 }
 
-function lineForDynamicItem(priceByWindow, baseCode, itemName, displayCode, options = runeValueOptions) {
-  const valueCache = new Map();
+function facetRollFromListing(listing) {
+  const modifiers = new Map((listing.item?.modifiers || []).map((modifier) => [modifier.name, Number(modifier.values?.[0])]));
+
+  for (const facet of facets) {
+    const damage = modifiers.get(facet.masteryMod);
+    const pierce = modifiers.get(facet.pierceMod);
+
+    if (damage >= 3 && damage <= 5 && pierce >= 3 && pierce <= 5) {
+      return { facet, damage, pierce };
+    }
+  }
+
+  return null;
+}
+
+async function fetchFacetListings(windowHours) {
+  const listings = [];
+  let skip = 0;
+  let total = 0;
+  const updatedAfter = new Date(Date.now() - windowHours * 60 * 60 * 1000).toISOString();
+
+  do {
+    const params = new URLSearchParams({
+      type: 'item',
+      '$limit': String(marketPageLimit),
+      '$skip': String(skip),
+      accepted_offer_id: 'null',
+      'updated_at[$gte]': updatedAfter,
+      '$sort[bumped_at]': '-1',
+      is_hardcore: String(isHardcore),
+      is_ladder: String(isLadder),
+      'item.base_code': 'jew',
+      'item.quality.name': 'Unique',
+      'item.is_identified': 'true',
+      'item.corrupted': 'false',
+    });
+
+    const response = await fetch(`${MARKET_API_URL}?${params}`);
+
+    if (!response.ok) {
+      throw new Error(`ProjectD2 market returned ${response.status} ${response.statusText} for Rainbow Facets`);
+    }
+
+    const payload = await response.json();
+    total = Number(payload.total || 0);
+    listings.push(...(Array.isArray(payload.data) ? payload.data : []));
+    skip += marketPageLimit;
+  } while (skip < total && listings.length < maxMarketListingsPerWindow);
+
+  return listings;
+}
+
+function buildPriceTable(listingsByWindow) {
+  const pricesByWindow = new Map();
+
+  for (const [label, listings] of listingsByWindow) {
+    const groups = new Map();
+
+    for (const listing of listings) {
+      const roll = facetRollFromListing(listing);
+      const price = priceFromListing(listing);
+
+      if (!roll || !Number.isFinite(price) || price <= 0) {
+        continue;
+      }
+
+      const key = `${roll.facet.key}:${roll.damage}:${roll.pierce}`;
+      const group = groups.get(key) || [];
+      group.push(price);
+      groups.set(key, group);
+    }
+
+    pricesByWindow.set(
+      label,
+      new Map([...groups].map(([key, prices]) => [key, median(prices)])),
+    );
+  }
+
+  return pricesByWindow;
+}
+
+function valueForWindow(pricesByWindow, key, windowIndex) {
+  const [label] = valueWindows[windowIndex];
+  return pricesByWindow.get(label)?.get(key);
+}
+
+function lineForFacet(pricesByWindow, facet, damage, pierce) {
+  const key = `${facet.key}:${damage}:${pierce}`;
   const values = valueWindows.map(([label], windowIndex) => {
-    const value = roundValue(valueForWindow(priceByWindow, baseCode, windowIndex, valueCache, options), options);
+    const value = valueForWindow(pricesByWindow, key, windowIndex);
+    return `${label} ${Number.isFinite(value) ? `%WHITE%${formatHr(value)} HR` : '%GRAY%?'}`;
+  });
 
-    if (!Number.isFinite(value)) {
-      return `${label} %GRAY%?`;
+  return `ItemDisplay[jew UNI ID ${facet.damageStat}=${damage} ${facet.pierceStat}=${pierce}]: %NAME%{%NAME%%CL%%PURPLE%${values.join(' %PURPLE%')}%CL%${facet.color}${facet.label} ${damage}/${pierce} Facet Values:%CL%}%CONTINUE%`;
+}
+
+function buildBlock(pricesByWindow, listingsByWindow) {
+  const generatedLines = [];
+
+  for (const facet of facets) {
+    for (let damage = 3; damage <= 5; damage += 1) {
+      for (let pierce = 3; pierce <= 5; pierce += 1) {
+        generatedLines.push(lineForFacet(pricesByWindow, facet, damage, pierce));
+      }
     }
-
-    return `${label} %WHITE%${formatHr(value)} HR`;
-  });
-
-  if (values.every((value) => value.includes('%GRAY%?'))) {
-    return `// ${itemName}: no PD2 Trader value returned`;
   }
 
-  return `ItemDisplay[${displayCode}]: %NAME%{%NAME%%CL%%PURPLE%${values.join(' %PURPLE%')}%CL%%PURPLE%Current Values:%CL%}`;
-}
-
-async function fetchRunePrices(windowHours) {
-  const body = {
-    baseCodes: dynamicValueItems.map(([baseCode]) => baseCode),
-    isLadder,
-    isHardcore,
-    hours: windowHours,
-  };
-
-  const response = await fetch(API_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  });
-
-  if (!response.ok) {
-    throw new Error(`PD2 Trader API returned ${response.status} ${response.statusText}`);
-  }
-
-  const payload = await response.json();
-
-  if (!payload || !Array.isArray(payload.data)) {
-    throw new Error('PD2 Trader API response did not include a data array');
-  }
-
-  return new Map(payload.data.map((price) => [price.baseCode, price]));
-}
-
-function getUpdatedAt(priceByWindow) {
-  return (
-    [...priceByWindow.values()]
-      .flatMap((pricesByBaseCode) => [...pricesByBaseCode.values()])
-      .map((price) => price.timeRange?.end)
-      .filter(Boolean)
-      .sort()
-      .at(-1) || new Date().toISOString()
-  );
-}
-
-function buildBlock(priceByWindow) {
-  const updatedAt = getUpdatedAt(priceByWindow);
-  const staticByBaseCode = new Map(staticRunes.map((rune) => [rune[0], rune]));
-  const dynamicByBaseCode = new Map(dynamicValueItems.map((item) => [item[0], item]));
-  const generatedLines = valueOrder.map((baseCode) => {
-    const staticRune = staticByBaseCode.get(baseCode);
-
-    if (staticRune) {
-      return lineForStaticRune(...staticRune);
-    }
-
-    const dynamicItem = dynamicByBaseCode.get(baseCode);
-    return lineForDynamicItem(priceByWindow, dynamicItem[0], dynamicItem[1], dynamicItem[2], dynamicItem[3]);
-  });
+  const sampleCounts = valueWindows
+    .map(([label]) => `${label}=${listingsByWindow.get(label)?.length || 0}`)
+    .join(', ');
 
   return [
     START_MARKER,
-    `// Source: PD2 Trader API (${valueWindows.map(([label]) => label).join(', ')}, ladder=${isLadder}, hardcore=${isHardcore})`,
-    '// Applies to stackable rune item codes and selected currency/material item codes; Lem is intentionally excluded',
-    '// Static values: Pul, Um, Mal, Ist, Gul, Vex, Sur, Ber',
-    '// Dynamic rune values: Ohm, Lo, Jah, Cham, Zod; median rounded to nearest 0.05 HR',
-    '// Dynamic material values: keys, boss materials, and selected utility currency; exact median HR values with WSS converted at 0.01 HR each',
-    `// Updated: ${updatedAt}`,
+    `// Source: ProjectD2 market listings (${valueWindows.map(([label]) => label).join(', ')}, ladder=${isLadder}, hardcore=${isHardcore})`,
+    '// Applies to identified, uncorrupted Rainbow Facet listings; each timeframe uses only its own listings',
+    '// WSS prices are converted at 0.01 HR each',
+    `// Market samples fetched: ${sampleCounts}`,
     ...generatedLines,
     END_MARKER,
   ].join('\n');
-}
-
-function escapeRegex(text) {
-  return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-function conditionHasDisplayCode(condition, displayCode) {
-  return new RegExp(`(^|[^A-Za-z0-9])${escapeRegex(displayCode)}([^A-Za-z0-9]|$)`).test(condition);
-}
-
-function ensureCurrencyPresentationRulesContinue(filterText) {
-  const eol = filterText.includes('\r\n') ? '\r\n' : '\n';
-  let insideGeneratedBlock = false;
-
-  return filterText
-    .replace(
-      /^ItemDisplay\[std\]: %PX-9D%%NAME%\{%NAME%\}\/\/\{(.+?)\}%CONTINUE%$/m,
-      'ItemDisplay[std]: %PX-9D%%NAME%{%NAME%%CL%$1}%CONTINUE%'
-    )
-    .split(/\r?\n/)
-    .map((line) => {
-      if (line === START_MARKER) {
-        insideGeneratedBlock = true;
-        return line;
-      }
-
-      if (line === END_MARKER) {
-        insideGeneratedBlock = false;
-        return line;
-      }
-
-      if (insideGeneratedBlock || line.includes('%CONTINUE%')) {
-        return line;
-      }
-
-      const match = line.match(/^ItemDisplay\[([^\]]+)\]:(.*)$/);
-
-      if (!match) {
-        return line;
-      }
-
-      const [, condition] = match;
-      const shouldContinue = currencyDisplayCodes.some((displayCode) => conditionHasDisplayCode(condition, displayCode));
-
-      return shouldContinue ? `${line}%CONTINUE%` : line;
-    })
-    .join(eol);
-}
-
-function findLastMatch(text, pattern) {
-  const flags = pattern.flags.includes('g') ? pattern.flags : `${pattern.flags}g`;
-  let lastMatch;
-
-  for (const match of text.matchAll(new RegExp(pattern.source, flags))) {
-    lastMatch = match;
-  }
-
-  return lastMatch;
 }
 
 function replaceOrInsertBlock(filterText, block) {
@@ -339,45 +269,37 @@ function replaceOrInsertBlock(filterText, block) {
   const normalizedBlock = block.replace(/\n/g, eol);
   const start = filterText.indexOf(START_MARKER);
   const end = filterText.indexOf(END_MARKER);
-  const valueBlockAnchorPattern = /^\/\/ Craft Infusions$/m;
-  const runeTooltipPattern = /^ItemDisplay\[RUNE>0\].*$/m;
-  const insertPattern = (filterText.match(valueBlockAnchorPattern) && valueBlockAnchorPattern) || runeTooltipPattern;
 
   if (start !== -1 && end !== -1 && end > start) {
     const afterEnd = end + END_MARKER.length;
-    const withoutExistingBlock = `${filterText.slice(0, start)}${filterText.slice(afterEnd)}`.replace(/\n{3,}/g, `${eol}${eol}`);
-    const match = findLastMatch(withoutExistingBlock, insertPattern);
-
-    if (match && match.index !== undefined) {
-      return `${withoutExistingBlock.slice(0, match.index)}${normalizedBlock}${eol}${withoutExistingBlock.slice(match.index)}`;
-    }
-
     return `${filterText.slice(0, start)}${normalizedBlock}${filterText.slice(afterEnd)}`;
   }
 
-  const match = findLastMatch(filterText, insertPattern);
+  const rainbowFacetDisplay = /^ItemDisplay\[jew UNI !ID\]:.*$/m;
+  const match = filterText.match(rainbowFacetDisplay);
 
   if (match && match.index !== undefined) {
-    const insertAt = match.index;
-    return `${filterText.slice(0, insertAt)}${normalizedBlock}${eol}${filterText.slice(insertAt)}`;
+    const insertAt = match.index + match[0].length;
+    return `${filterText.slice(0, insertAt)}${eol}${eol}${normalizedBlock}${filterText.slice(insertAt)}`;
   }
 
   return `${filterText.replace(/\s*$/, '')}${eol}${eol}${normalizedBlock}${eol}`;
 }
 
-const priceByWindow = new Map();
+const listingsByWindow = new Map();
 
-for (const [, windowHours] of valueWindows) {
-  priceByWindow.set(windowHours, await fetchRunePrices(windowHours));
+for (const [label, windowHours] of valueWindows) {
+  listingsByWindow.set(label, await fetchFacetListings(windowHours));
 }
 
-const block = buildBlock(priceByWindow);
-const currentFilter = ensureCurrencyPresentationRulesContinue(await readFile(filterFile, 'utf8'));
+const pricesByWindow = buildPriceTable(listingsByWindow);
+const block = buildBlock(pricesByWindow, listingsByWindow);
+const currentFilter = await readFile(filterFile, 'utf8');
 const nextFilter = replaceOrInsertBlock(currentFilter, block);
 
 if (nextFilter === currentFilter) {
-  console.log(`No PD2 Trader rune value changes needed in ${filterFile}`);
+  console.log(`No PD2 Trader facet value changes needed in ${filterFile}`);
 } else {
   await writeFile(filterFile, nextFilter, 'utf8');
-  console.log(`Updated PD2 Trader rune values in ${filterFile}`);
+  console.log(`Updated PD2 Trader facet values in ${filterFile}`);
 }
