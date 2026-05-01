@@ -23,4 +23,4 @@ This keeps big drops exciting while still allowing the item to be safely identif
 - 🏠 Returning to town reveals the item name normally  
 
 #### Bastard Mystery Drop Examples
-[![Bastard Example](../screenshots/MysteryExample.jpg)](../screenshots/MysteryExample.jpg)
+[![Bastard Example](../screenshots/MysteryExample2.jpg)](../screenshots/MysteryExample2.jpg)
