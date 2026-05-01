@@ -1,4 +1,4 @@
-//	Roofoo's PD2 Loot Filter for Season 12: ver 13.0.3
+//	Roofoo's PD2 Loot Filter for Season 12: ver 13.0.2
 //
 //	Editor - twitch.tv/roofooevazan
 //	Co-Editor - twitch.tv/enpherno
@@ -16,7 +16,7 @@ ItemDisplayFilterName[]: Strict Filter - w/o Potions
 ItemDisplayFilterName[]: Max-Strictness Filter - Ultra Strict End Game
 
 // Horadric Cube tooltip shows filter credits and the active filter level
-ItemDisplay[box]:%NAME%{%NAME%%NL%%GRAY%item.filter ver 13.0.3 %BLACK%| %GRAY% updated: 2026-05-01%NL%%PURPLE%The GOAT OG Author %WHITE%-%SAGE% Kryszard%NL%%ORANGE%Editors %WHITE%-%SAGE% RoofooEvazan & Enpherno}%CONTINUE%
+ItemDisplay[box]:%NAME%{%NAME%%NL%%GRAY%item.filter ver 13.0.2 %BLACK%| %GRAY% updated: 2026-04-30%NL%%PURPLE%The GOAT OG Author %WHITE%-%SAGE% Kryszard%NL%%ORANGE%Editors %WHITE%-%SAGE% RoofooEvazan & Enpherno}%CONTINUE%
 ItemDisplay[box FILTLVL=0]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%0 - %TAN%Show All Items%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
 ItemDisplay[box FILTLVL=1]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%1 - %TAN%Hide Just Trash Items%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
 ItemDisplay[box FILTLVL=2]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%2 - %TAN%More Notify%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
@@ -47,9 +47,9 @@ ItemDisplay[BASTARD_LITTLE_ITEMS BASTARD_OUTSIDE_TOWN]: %DOT-60%%MAP-21%%BORDER-
 ItemDisplay[BASTARD_LITTLE_RUNES QTY=1 BASTARD_OUTSIDE_TOWN]: %DOT-60%%MAP-21%%BORDER-0A%%SOUNDID-4719%%RED%ººººººººº    %PURPLE%L i t t l e  %RED%B a s t a r d    ººººººººº
 
 // Lucky Bastard: higher mystery items, high runes, and non-eth Sacred Armor uniques.
-ItemDisplay[BASTARD_LUCKY_ITEMS BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-4719%%RED%ººººººº    %PURPLE%L u c k y  %RED%B a s t a r d    ººººººº
-ItemDisplay[BASTARD_LUCKY_RUNES QTY=1 BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-4719%%RED%ººººººº    %PURPLE%L u c k y  %RED%B a s t a r d    ººººººº
-ItemDisplay[BASTARD_LUCKY_UNIQUE BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-4719%%RED%ººººººº    %PURPLE%L u c k y  %RED%B a s t a r d    ººººººº
+ItemDisplay[BASTARD_LUCKY_ITEMS BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-4719%%RED%ºººººººººººººº    %PURPLE%L u c k y  %RED%B a s t a r d    ºººººººººººººº
+ItemDisplay[BASTARD_LUCKY_RUNES QTY=1 BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-4719%%RED%ºººººººººººººº    %PURPLE%L u c k y  %RED%B a s t a r d    ºººººººººººººº
+ItemDisplay[BASTARD_LUCKY_UNIQUE BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-4719%%RED%ºººººººººººººº    %PURPLE%L u c k y  %RED%B a s t a r d    ºººººººººººººº
 
 // Big Bastard: boss items and selected unidentified uniques.
 ItemDisplay[UNI !ID BASTARD_BOSS_UNIQUE BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-4719%%RED%ºººººººººººº    %GREEN%H O L Y  M O L Y    ºººººººººººº
