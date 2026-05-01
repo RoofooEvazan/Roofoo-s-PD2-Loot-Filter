@@ -4489,21 +4489,23 @@ ItemDisplay[(NOTICEME09)]: %NAME%{%DARK_GREEN%Life Tap Charges%CL%%NAME%}%CONTIN
 
 
 
+
+
 // BEGIN AUTO PD2TRADER BIS SLAMS
 // Source: PD2 Trader corruption API (48h, ladder=true, hardcore=false)
 // Shows BIS slam when a corruption has samples >= 2; otherwise marks the item as not worth slamming
 // Shows even after corruption because rules intentionally do not require STAT360=0
-// Generated lines: 498; BIS lines: 306; not worth lines: 192; ambiguous item-code groups skipped: 23
-ItemDisplay[2ax SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// Generated lines: 495; BIS lines: 320; not worth lines: 175; ambiguous item-code groups skipped: 22
+ItemDisplay[2ax SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%4os}%CONTINUE%
 ItemDisplay[6cs SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate, +Fire Skill Damage}%CONTINUE%
-ItemDisplay[7fb SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+Attack Rating against Demons, Damage to Demons}%CONTINUE%
-ItemDisplay[7gd SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Increased Attack Speed}%CONTINUE%
+ItemDisplay[7fb SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Increased Attack Speed}%CONTINUE%
+ItemDisplay[7gd SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%5os}%CONTINUE%
 ItemDisplay[7ls SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[7m7 SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%6os}%CONTINUE%
-ItemDisplay[7ma SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[7m7 SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Deadly Strike}%CONTINUE%
+ItemDisplay[7ma SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate}%CONTINUE%
 ItemDisplay[7qr SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
-ItemDisplay[7ws SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Increased Attack Speed}%CONTINUE%
-ItemDisplay[9mt SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate}%CONTINUE%
+ItemDisplay[7ws SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+Mana after each Kill}%CONTINUE%
+ItemDisplay[9mt SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, +Attack Rating}%CONTINUE%
 ItemDisplay[9vo SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[aar SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[amc SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage}%CONTINUE%
@@ -4515,10 +4517,10 @@ ItemDisplay[bst SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[buc SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[bwn SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[chn SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[ci0 SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
-ItemDisplay[ci3 SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
+ItemDisplay[ci0 SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[ci3 SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Fire Resist, Max Fire resistance}%CONTINUE%
 ItemDisplay[dgr SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[dr8 SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[dr8 SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[fhl SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[ful SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[ghm SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
@@ -4532,9 +4534,9 @@ ItemDisplay[hlm SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[kit SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[lbb SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[lbl SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[lbt SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Hit Recovery}%CONTINUE%
+ItemDisplay[lbt SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%All Resist, Cold Resist, Fire Resist, Lightning Resist, Poison Resist, Transform Dye}%CONTINUE%
 ItemDisplay[lea SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[lgl SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+ItemDisplay[lgl SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Deadly Strike}%CONTINUE%
 ItemDisplay[lrg SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[lsd SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[ltp SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
@@ -4542,8 +4544,8 @@ ItemDisplay[mbt SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[mgl SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[mpi SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[msk SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[ne9 SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Cold Resist, Max Cold resistance}%CONTINUE%
-ItemDisplay[oba SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
+ItemDisplay[ne9 SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[oba SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+Enemy Cold Resistance}%CONTINUE%
 ItemDisplay[paf SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[qui SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[rng SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
@@ -4560,98 +4562,98 @@ ItemDisplay[ucl SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Max Poison re
 ItemDisplay[uh9 SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[uhm SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[uld SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
-ItemDisplay[ulg SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage}%CONTINUE%
-ItemDisplay[ult SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
-ItemDisplay[umc SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+ItemDisplay[ulg SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Increased Attack Speed}%CONTINUE%
+ItemDisplay[ult SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[umc SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%All Resist, Cold Resist, Fire Resist, Lightning Resist, Poison Resist, Transform Dye}%CONTINUE%
 ItemDisplay[upl SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[urn SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Max Poison resistance, Poison Resist}%CONTINUE%
-ItemDisplay[utc SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate}%CONTINUE%
+ItemDisplay[urn SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Cold Resist, Max Cold resistance}%CONTINUE%
+ItemDisplay[utc SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Max Cold resistance, Max Fire resistance, Max Lightning resistance, Max Poison resistance}%CONTINUE%
 ItemDisplay[uth SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
-ItemDisplay[uts SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
-ItemDisplay[uui SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
+ItemDisplay[uts SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
+ItemDisplay[uui SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Cannot Be Frozen}%CONTINUE%
 ItemDisplay[uul SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[vbl SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[vgl SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate}%CONTINUE%
+ItemDisplay[vgl SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage}%CONTINUE%
 ItemDisplay[wsd SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[wsp SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
+ItemDisplay[wsp SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[wst SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[xap SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
 ItemDisplay[xar SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[xcl SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[xh9 SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[xhb SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Run/Walk}%CONTINUE%
-ItemDisplay[xhg SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage}%CONTINUE%
-ItemDisplay[xhl SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
-ItemDisplay[xhm SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Fire Resist, Max Fire resistance}%CONTINUE%
-ItemDisplay[xlb SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Extra Gold from Monsters}%CONTINUE%
-ItemDisplay[xmb SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Lightning Resist, Max Lightning resistance}%CONTINUE%
+ItemDisplay[xhg SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Deadly Strike}%CONTINUE%
+ItemDisplay[xhl SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+ItemDisplay[xhm SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[xlb SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Run/Walk}%CONTINUE%
+ItemDisplay[xmb SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%PDR%}%CONTINUE%
 ItemDisplay[xmg SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate}%CONTINUE%
 ItemDisplay[xml SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[xrn SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[xrs SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[xsk SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
-ItemDisplay[xtb SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%PDR%}%CONTINUE%
+ItemDisplay[xtb SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Hit Recovery}%CONTINUE%
 ItemDisplay[xtg SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage}%CONTINUE%
 ItemDisplay[xul SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[xvg SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Chance to Pierce}%CONTINUE%
-ItemDisplay[zhb SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Max Cold resistance, Max Fire resistance, Max Lightning resistance, Max Poison resistance}%CONTINUE%
+ItemDisplay[zhb SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Run/Walk}%CONTINUE%
 ItemDisplay[zmb SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Better Chance of Getting Magic Items}%CONTINUE%
 ItemDisplay[ztb SET ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[zvb SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Chance to Pierce}%CONTINUE%
+ItemDisplay[zvb SET ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Max Cold resistance, Max Fire resistance, Max Lightning resistance, Max Poison resistance}%CONTINUE%
 ItemDisplay[2ax UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[2hs UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[6bs UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate}%CONTINUE%
-ItemDisplay[6cs UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate, +Fire Skill Damage}%CONTINUE%
-ItemDisplay[6hb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+Enemy Lightning Resistance}%CONTINUE%
-ItemDisplay[6hx UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Ignore Target's Defense}%CONTINUE%
-ItemDisplay[6l7 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Life after each Hit}%CONTINUE%
-ItemDisplay[6lw UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Chance of Crushing Blow, Increased Attack Speed}%CONTINUE%
+ItemDisplay[6bs UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
+ItemDisplay[6cs UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
+ItemDisplay[6hb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Ignore Target's Defense}%CONTINUE%
+ItemDisplay[6hx UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Increased Attack Speed}%CONTINUE%
+ItemDisplay[6l7 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%6os}%CONTINUE%
+ItemDisplay[6lw UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Ignore Target's Defense}%CONTINUE%
 ItemDisplay[6rx UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Increased Attack Speed}%CONTINUE%
-ItemDisplay[6sw UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Better Chance of Getting Magic Items}%CONTINUE%
+ItemDisplay[6sw UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Increased Attack Speed}%CONTINUE%
 ItemDisplay[6ws UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%6os}%CONTINUE%
-ItemDisplay[72a UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Increased Attack Speed}%CONTINUE%
-ItemDisplay[7b7 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Increased Attack Speed}%CONTINUE%
+ItemDisplay[72a UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Life stolen per hit}%CONTINUE%
+ItemDisplay[7b7 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Chance of Crushing Blow, Increased Attack Speed}%CONTINUE%
 ItemDisplay[7b8 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+Enemy Poison Resistance}%CONTINUE%
-ItemDisplay[7ba UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%5os}%CONTINUE%
-ItemDisplay[7bk UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, +Attack Rating}%CONTINUE%
-ItemDisplay[7bl UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate, +Fire Skill Damage}%CONTINUE%
-ItemDisplay[7br UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%5os}%CONTINUE%
+ItemDisplay[7ba UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Increased Attack Speed}%CONTINUE%
+ItemDisplay[7bk UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Deadly Strike}%CONTINUE%
+ItemDisplay[7bl UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Chance of Crushing Blow, Increased Attack Speed}%CONTINUE%
+ItemDisplay[7br UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Chance of Crushing Blow, Increased Attack Speed}%CONTINUE%
 ItemDisplay[7bs UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[7bt UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Increased Attack Speed}%CONTINUE%
 ItemDisplay[7bw UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[7cl UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[7cm UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%4os}%CONTINUE%
-ItemDisplay[7cs UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate}%CONTINUE%
-ItemDisplay[7dg UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+Mana after each Kill}%CONTINUE%
+ItemDisplay[7cm UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Chance of Crushing Blow}%CONTINUE%
+ItemDisplay[7cs UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
+ItemDisplay[7dg UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate}%CONTINUE%
 ItemDisplay[7di UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
-ItemDisplay[7fb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%5os}%CONTINUE%
+ItemDisplay[7fb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Increased Attack Speed}%CONTINUE%
 ItemDisplay[7ga UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Increased Attack Speed}%CONTINUE%
-ItemDisplay[7gd UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Ignore Target's Defense}%CONTINUE%
+ItemDisplay[7gd UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%6os}%CONTINUE%
 ItemDisplay[7gi UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+Mana after each Kill}%CONTINUE%
-ItemDisplay[7gl UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, +Attack Rating}%CONTINUE%
-ItemDisplay[7gs UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Ignore Target's Defense}%CONTINUE%
+ItemDisplay[7gl UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Ignore Target's Defense}%CONTINUE%
+ItemDisplay[7gs UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+Enemy Fire Resistance}%CONTINUE%
 ItemDisplay[7gw UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+Enemy Fire Resistance}%CONTINUE%
-ItemDisplay[7ha UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
-ItemDisplay[7kr UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
-ItemDisplay[7ls UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%4os}%CONTINUE%
-ItemDisplay[7lw UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
+ItemDisplay[7ha UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[7kr UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Increased Attack Speed}%CONTINUE%
+ItemDisplay[7ls UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
+ItemDisplay[7lw UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate, +Poison Skill Damage}%CONTINUE%
 ItemDisplay[7m7 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Life after each Hit}%CONTINUE%
 ItemDisplay[7mp UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Better Chance of Getting Magic Items}%CONTINUE%
 ItemDisplay[7mt UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[7o7 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Deadly Strike}%CONTINUE%
-ItemDisplay[7p7 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Chance of Crushing Blow}%CONTINUE%
+ItemDisplay[7o7 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Increased Attack Speed}%CONTINUE%
+ItemDisplay[7p7 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%6os}%CONTINUE%
 ItemDisplay[7pa UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Increased Attack Speed}%CONTINUE%
 ItemDisplay[7qr UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[7qs UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate, +Lightning Skill Damage}%CONTINUE%
+ItemDisplay[7qs UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Chance of Crushing Blow, Increased Attack Speed}%CONTINUE%
 ItemDisplay[7s7 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Increased Attack Speed}%CONTINUE%
-ItemDisplay[7s8 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Deadly Strike}%CONTINUE%
+ItemDisplay[7s8 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Life stolen per hit}%CONTINUE%
 ItemDisplay[7sb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
-ItemDisplay[7sm UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[7sp UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[7sm UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Chance of Crushing Blow}%CONTINUE%
+ItemDisplay[7sp UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[7sr UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Deadly Strike}%CONTINUE%
-ItemDisplay[7st UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%6os}%CONTINUE%
-ItemDisplay[7ta UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
-ItemDisplay[7ts UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[7st UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage}%CONTINUE%
+ItemDisplay[7ta UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Deadly Strike}%CONTINUE%
+ItemDisplay[7ts UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[7tw UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+Attack Rating}%CONTINUE%
 ItemDisplay[7wa UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Deadly Strike}%CONTINUE%
 ItemDisplay[7wb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
@@ -4662,75 +4664,75 @@ ItemDisplay[8bs UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%4os}%CONTINUE
 ItemDisplay[8cb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[8cs UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%4os}%CONTINUE%
 ItemDisplay[8hb UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[8hx UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Life after each Kill}%CONTINUE%
-ItemDisplay[8l8 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
-ItemDisplay[8lb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
-ItemDisplay[8ls UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Increased Attack Speed}%CONTINUE%
+ItemDisplay[8hx UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Deadly Strike}%CONTINUE%
+ItemDisplay[8l8 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%6os}%CONTINUE%
+ItemDisplay[8lb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%5os}%CONTINUE%
+ItemDisplay[8ls UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Increased Attack Speed}%CONTINUE%
 ItemDisplay[8lw UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%6os}%CONTINUE%
 ItemDisplay[8lx UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[8mx UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[8rx UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Deadly Strike}%CONTINUE%
-ItemDisplay[8s8 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
+ItemDisplay[8s8 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Increased Attack Speed}%CONTINUE%
 ItemDisplay[8sb UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[8ss UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[8sw UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%5os}%CONTINUE%
+ItemDisplay[8sw UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Chance of Crushing Blow, Increased Attack Speed}%CONTINUE%
 ItemDisplay[8ws UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%6os}%CONTINUE%
 ItemDisplay[92a UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[92h UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9ar UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
+ItemDisplay[92h UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[9ar UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage}%CONTINUE%
 ItemDisplay[9ax UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9b7 UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9b8 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage}%CONTINUE%
+ItemDisplay[9b8 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Chance of Crushing Blow}%CONTINUE%
 ItemDisplay[9b9 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%4os}%CONTINUE%
-ItemDisplay[9ba UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[9ba UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9bl UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
 ItemDisplay[9br UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9bs UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+ItemDisplay[9bs UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[9bt UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9bw UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Chance of Crushing Blow}%CONTINUE%
+ItemDisplay[9bw UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[9cl UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9cm UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9cr UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[9cr UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9dg UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage}%CONTINUE%
 ItemDisplay[9di UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9fb UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9fc UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Better Chance of Getting Magic Items}%CONTINUE%
-ItemDisplay[9fl UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+ItemDisplay[9fc UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate, +Poison Skill Damage}%CONTINUE%
+ItemDisplay[9fl UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[9ga UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9gd UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%6os}%CONTINUE%
 ItemDisplay[9gi UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%5os}%CONTINUE%
-ItemDisplay[9gm UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Increased Attack Speed}%CONTINUE%
-ItemDisplay[9gs UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%4os}%CONTINUE%
-ItemDisplay[9gw UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+Enemy Poison Resistance}%CONTINUE%
+ItemDisplay[9gm UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%6os}%CONTINUE%
+ItemDisplay[9gs UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Deadly Strike}%CONTINUE%
+ItemDisplay[9gw UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Chance of Crushing Blow, Increased Attack Speed}%CONTINUE%
 ItemDisplay[9h9 UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9ha UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[9ha UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9kr UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[9la UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%5os}%CONTINUE%
-ItemDisplay[9ls UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage}%CONTINUE%
-ItemDisplay[9m9 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%6os}%CONTINUE%
+ItemDisplay[9ls UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
+ItemDisplay[9m9 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[9ma UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9mp UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9mt UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9p9 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Life stolen per hit}%CONTINUE%
-ItemDisplay[9pa UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9qs UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+ItemDisplay[9pa UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%5os}%CONTINUE%
+ItemDisplay[9qs UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[9s8 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Increased Attack Speed}%CONTINUE%
 ItemDisplay[9sb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+Enemy Fire Resistance}%CONTINUE%
-ItemDisplay[9sc UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+ItemDisplay[9sc UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[9sm UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9sp UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9sr UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%4os}%CONTINUE%
+ItemDisplay[9sp UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Life stolen per hit}%CONTINUE%
+ItemDisplay[9sr UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[9ss UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9st UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9ta UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
 ItemDisplay[9tk UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
 ItemDisplay[9tr UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9tw UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+Enemy Fire Resistance}%CONTINUE%
+ItemDisplay[9tw UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Increased Attack Speed}%CONTINUE%
 ItemDisplay[9vo UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9wa UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9wc UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%6os}%CONTINUE%
+ItemDisplay[9wc UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[9wd UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9wh UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Increased Attack Speed}%CONTINUE%
+ItemDisplay[9wh UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate}%CONTINUE%
 ItemDisplay[9wn UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate}%CONTINUE%
 ItemDisplay[9ws UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[9yw UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
@@ -4738,44 +4740,42 @@ ItemDisplay[aar UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE
 ItemDisplay[am5 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
 ItemDisplay[am7 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%5os}%CONTINUE%
 ItemDisplay[am9 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%6os}%CONTINUE%
-ItemDisplay[ama UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+Enemy Lightning Resistance}%CONTINUE%
-ItemDisplay[amb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
+ItemDisplay[ama UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Deadly Strike}%CONTINUE%
+ItemDisplay[amb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, +Attack Rating}%CONTINUE%
 ItemDisplay[amc UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Increased Attack Speed}%CONTINUE%
-ItemDisplay[amd UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Ignore Target's Defense}%CONTINUE%
-ItemDisplay[ame UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%6os}%CONTINUE%
-ItemDisplay[amf UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+Enemy Lightning Resistance}%CONTINUE%
-ItemDisplay[aqv UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Extra Gold from Monsters}%CONTINUE%
+ItemDisplay[amd UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%6os}%CONTINUE%
+ItemDisplay[ame UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%5os}%CONTINUE%
+ItemDisplay[amf UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Increased Attack Speed}%CONTINUE%
+ItemDisplay[aqv UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[axe UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[ba6 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[ba7 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Cannot Be Frozen}%CONTINUE%
-ItemDisplay[baa UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[baa UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[bac UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[bad UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
-ItemDisplay[bae UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[bae UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Poison Resist}%CONTINUE%
 ItemDisplay[baf UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[bar UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[bax UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[bhm UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+ItemDisplay[bhm UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
 ItemDisplay[bld UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
 ItemDisplay[brn UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[brs UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Max Poison resistance, Poison Resist}%CONTINUE%
+ItemDisplay[brs UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[bsd UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[bsh UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%1os}%CONTINUE%
 ItemDisplay[bst UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%4os}%CONTINUE%
 ItemDisplay[bsw UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[btx UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[buc UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[bwn UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
+ItemDisplay[bwn UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
 ItemDisplay[cap UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[cbw UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[chn UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[ci2 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[ci3 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
-ItemDisplay[clb UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[clm UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[cm2 UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[cm3 UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[cqv UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%1os}%CONTINUE%
+ItemDisplay[clb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+Enemy Fire Resistance}%CONTINUE%
+ItemDisplay[clm UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
+ItemDisplay[cqv UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[crn UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[crs UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%4os}%CONTINUE%
 ItemDisplay[cst UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%4os}%CONTINUE%
@@ -4784,8 +4784,8 @@ ItemDisplay[dir UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[dr2 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[dr6 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[dra UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
-ItemDisplay[drb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
-ItemDisplay[drc UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%All Resist, Cold Resist, Fire Resist, Lightning Resist, Poison Resist, Transform Dye}%CONTINUE%
+ItemDisplay[drb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[drc UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Replenish Life}%CONTINUE%
 ItemDisplay[drd UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%All Resist, Cold Resist, Fire Resist, Lightning Resist, Poison Resist, Transform Dye}%CONTINUE%
 ItemDisplay[dre UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[drf UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
@@ -4794,70 +4794,69 @@ ItemDisplay[fla UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[flb UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[flc UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[fld UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
-ItemDisplay[ful UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%PDR%}%CONTINUE%
+ItemDisplay[ful UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[gax UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[ghm UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+ItemDisplay[ghm UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[gis UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[gix UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%6os}%CONTINUE%
+ItemDisplay[gix UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage, Deadly Strike}%CONTINUE%
 ItemDisplay[gma UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%6os}%CONTINUE%
 ItemDisplay[gsc UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[gsd UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%6os}%CONTINUE%
 ItemDisplay[gth UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
-ItemDisplay[gts UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[gwn UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+ItemDisplay[gts UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Better Chance of Getting Magic Items}%CONTINUE%
+ItemDisplay[gwn UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate, +Poison Skill Damage}%CONTINUE%
 ItemDisplay[hal UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[hax UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[hbl UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[hbt UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Better Chance of Getting Magic Items}%CONTINUE%
+ItemDisplay[hbl UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+Strength}%CONTINUE%
+ItemDisplay[hbt UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%All Resist, Cold Resist, Fire Resist, Lightning Resist, Poison Resist, Transform Dye}%CONTINUE%
 ItemDisplay[hbw UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[hfh UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[hgl UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+Mana after each Kill}%CONTINUE%
+ItemDisplay[hgl UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate}%CONTINUE%
 ItemDisplay[hla UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[hlm UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[hst UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[hxb UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[jew UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[kit UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%1os}%CONTINUE%
-ItemDisplay[kri UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[kit UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
+ItemDisplay[kri UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+Enemy Poison Resistance}%CONTINUE%
 ItemDisplay[lax UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[lbb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%6os}%CONTINUE%
 ItemDisplay[lbl UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[lbt UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+ItemDisplay[lbt UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Fire Resist}%CONTINUE%
 ItemDisplay[lbw UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[lea UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[lgl UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[lrg UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[lsd UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Life after each Kill}%CONTINUE%
+ItemDisplay[lsd UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[lst UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[ltp UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[ltp UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%All Resist, Cold Resist, Fire Resist, Lightning Resist, Poison Resist, Transform Dye}%CONTINUE%
 ItemDisplay[lwb UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[lxb UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[mac UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[mau UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%6os}%CONTINUE%
-ItemDisplay[mbl UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[mbt UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Run/Walk}%CONTINUE%
-ItemDisplay[mgl UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Better Chance of Getting Magic Items}%CONTINUE%
+ItemDisplay[mbl UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Increased Attack Speed}%CONTINUE%
+ItemDisplay[mbt UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Lightning Resist, Max Lightning resistance}%CONTINUE%
+ItemDisplay[mgl UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Extra Gold from Monsters}%CONTINUE%
 ItemDisplay[mpi UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[msf UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[msk UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[mst UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[mxb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+Mana after each Kill}%CONTINUE%
-ItemDisplay[ne6 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Fire Resist}%CONTINUE%
+ItemDisplay[ne6 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Cold Resist}%CONTINUE%
 ItemDisplay[nea UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
-ItemDisplay[ned UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Block Rate}%CONTINUE%
+ItemDisplay[ned UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[nee UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Cold Resist, Max Cold resistance}%CONTINUE%
 ItemDisplay[nef UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
-ItemDisplay[neg UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Poison Resist}%CONTINUE%
+ItemDisplay[neg UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[ob6 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
 ItemDisplay[ob7 UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[oba UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[oba UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[obc UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[obe UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
-ItemDisplay[obf UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Requirements}%CONTINUE%
+ItemDisplay[obf UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate, +Cold Skill Damage}%CONTINUE%
 ItemDisplay[pa3 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[pa9 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Increase Maximum Life}%CONTINUE%
 ItemDisplay[pac UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
-ItemDisplay[pae UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
+ItemDisplay[pae UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Block Rate, Increased Chance of Blocking}%CONTINUE%
 ItemDisplay[paf UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[pax UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[pik UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
@@ -4868,16 +4867,16 @@ ItemDisplay[qui UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[ram UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[rar UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[rbe UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[rng UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
-ItemDisplay[rxb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%5os}%CONTINUE%
+ItemDisplay[rng UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Hit Recovery}%CONTINUE%
+ItemDisplay[rxb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%4os}%CONTINUE%
 ItemDisplay[sbb UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[sbr UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[sbw UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[scl UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Run/Walk}%CONTINUE%
+ItemDisplay[scl UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
 ItemDisplay[scm UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[scp UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[scy UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[skp UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
+ItemDisplay[skp UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[sml UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[spc UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[spk UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
@@ -4886,7 +4885,7 @@ ItemDisplay[spr UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[spt UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[ssd UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[sst UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[stu UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+ItemDisplay[stu UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
 ItemDisplay[swb UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[t51 UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[t52 UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
@@ -4895,12 +4894,12 @@ ItemDisplay[t54 UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[t55 UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[t56 UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[tbl UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Better Chance of Getting Magic Items}%CONTINUE%
-ItemDisplay[tbt UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%PDR%}%CONTINUE%
+ItemDisplay[tbt UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Indestruct, Enhanced Defense}%CONTINUE%
 ItemDisplay[tgl UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate}%CONTINUE%
 ItemDisplay[tow UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[tri UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[uap UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
-ItemDisplay[uh9 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Fire Resist, Max Fire resistance}%CONTINUE%
+ItemDisplay[uh9 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[uhb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%PDR%}%CONTINUE%
 ItemDisplay[uhc UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate}%CONTINUE%
 ItemDisplay[uhg UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage}%CONTINUE%
@@ -4909,28 +4908,28 @@ ItemDisplay[uit UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%
 ItemDisplay[ulb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Run/Walk}%CONTINUE%
 ItemDisplay[ulc UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate}%CONTINUE%
 ItemDisplay[uld UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
-ItemDisplay[ulg UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Extra Gold from Monsters}%CONTINUE%
+ItemDisplay[ulg UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Increased Chance of Blocking}%CONTINUE%
 ItemDisplay[umb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%PDR%}%CONTINUE%
 ItemDisplay[umc UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Max Cold resistance, Max Fire resistance, Max Lightning resistance, Max Poison resistance}%CONTINUE%
-ItemDisplay[umg UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Deadly Strike}%CONTINUE%
-ItemDisplay[uml UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
+ItemDisplay[umg UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage}%CONTINUE%
+ItemDisplay[uml UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Fire Resist, Max Fire resistance}%CONTINUE%
 ItemDisplay[ung UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
-ItemDisplay[uow UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
-ItemDisplay[upk UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
+ItemDisplay[uow UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[upk UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[upl UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
-ItemDisplay[urg UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Indestruct, Enhanced Defense}%CONTINUE%
-ItemDisplay[urn UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Cannot Be Frozen}%CONTINUE%
-ItemDisplay[ush UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Cannot Be Frozen}%CONTINUE%
-ItemDisplay[usk UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
+ItemDisplay[urg UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Cold Resist, Max Cold resistance}%CONTINUE%
+ItemDisplay[urn UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
+ItemDisplay[ush UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Lightning Resist}%CONTINUE%
+ItemDisplay[usk UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[utb UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[utg UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate}%CONTINUE%
 ItemDisplay[uth UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[utp UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%PDR%}%CONTINUE%
-ItemDisplay[uts UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Cannot Be Frozen}%CONTINUE%
-ItemDisplay[utu UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Cold Resist}%CONTINUE%
-ItemDisplay[uui UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
-ItemDisplay[uul UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Fire Resist}%CONTINUE%
-ItemDisplay[uvb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Reduced Curse Duration}%CONTINUE%
+ItemDisplay[uts UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[utu UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[uui UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
+ItemDisplay[uul UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
+ItemDisplay[uvb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Cold Resist, Max Cold resistance}%CONTINUE%
 ItemDisplay[uvc UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Increased Attack Speed}%CONTINUE%
 ItemDisplay[uvg UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Increased Attack Speed}%CONTINUE%
 ItemDisplay[vbl UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Max Cold resistance, Max Fire resistance, Max Lightning resistance, Max Poison resistance}%CONTINUE%
@@ -4945,51 +4944,51 @@ ItemDisplay[wsc UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[wsd UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[wsp UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[wst UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%5os}%CONTINUE%
-ItemDisplay[xap UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Life after each Kill}%CONTINUE%
-ItemDisplay[xar UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
+ItemDisplay[xap UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
+ItemDisplay[xar UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Increase Maximum Life}%CONTINUE%
 ItemDisplay[xcl UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[xea UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[xh9 UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[xhb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Fire Resist, Max Fire resistance}%CONTINUE%
-ItemDisplay[xhg UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Deadly Strike}%CONTINUE%
+ItemDisplay[xhg UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage}%CONTINUE%
 ItemDisplay[xhl UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
-ItemDisplay[xhm UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
-ItemDisplay[xhn UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[xhm UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[xhn UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Indestruct, Enhanced Defense}%CONTINUE%
 ItemDisplay[xit UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[xkp UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%PDR%}%CONTINUE%
 ItemDisplay[xla UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
 ItemDisplay[xlb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Fire Resist, Max Fire resistance}%CONTINUE%
-ItemDisplay[xld UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Indestruct, Enhanced Defense}%CONTINUE%
+ItemDisplay[xld UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Poison Resist}%CONTINUE%
 ItemDisplay[xlg UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage}%CONTINUE%
 ItemDisplay[xlm UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
 ItemDisplay[xlt UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
-ItemDisplay[xmb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+Mana after each Kill}%CONTINUE%
-ItemDisplay[xmg UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Target Defense}%CONTINUE%
-ItemDisplay[xml UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[xng UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Cannot Be Frozen}%CONTINUE%
+ItemDisplay[xmb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Life after each Kill}%CONTINUE%
+ItemDisplay[xmg UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Enhanced Damage}%CONTINUE%
+ItemDisplay[xml UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Block Rate}%CONTINUE%
+ItemDisplay[xng UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Run/Walk}%CONTINUE%
 ItemDisplay[xow UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
-ItemDisplay[xpk UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
+ItemDisplay[xpk UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
 ItemDisplay[xpl UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Cannot Be Frozen}%CONTINUE%
 ItemDisplay[xrg UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[xrn UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Cannot Be Frozen}%CONTINUE%
+ItemDisplay[xrn UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[xrs UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[xsh UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[xsk UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
 ItemDisplay[xtb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Run/Walk}%CONTINUE%
-ItemDisplay[xtg UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Increased Attack Speed}%CONTINUE%
+ItemDisplay[xtg UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+Dexterity, +Energy, +Strength, +Vitality}%CONTINUE%
 ItemDisplay[xth UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
-ItemDisplay[xtp UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Fire Resist}%CONTINUE%
+ItemDisplay[xtp UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Fire Resist, Max Fire resistance}%CONTINUE%
 ItemDisplay[xts UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%3os}%CONTINUE%
-ItemDisplay[xtu UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[xuc UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[xui UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Cold Resist, Max Cold resistance}%CONTINUE%
+ItemDisplay[xtu UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%2os}%CONTINUE%
+ItemDisplay[xuc UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%All Resist, Cold Resist, Fire Resist, Lightning Resist, Poison Resist, Transform Dye}%CONTINUE%
+ItemDisplay[xui UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%All Resist, Cold Resist, Fire Resist, Lightning Resist, Poison Resist, Transform Dye}%CONTINUE%
 ItemDisplay[xul UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%+All Skills}%CONTINUE%
 ItemDisplay[xvb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Fire Resist, Max Fire resistance}%CONTINUE%
 ItemDisplay[xvg UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Deadly Strike}%CONTINUE%
 ItemDisplay[ywn UNI ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[zhb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Max Cold resistance, Max Fire resistance, Max Lightning resistance, Max Poison resistance}%CONTINUE%
-ItemDisplay[zlb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%PDR%}%CONTINUE%
-ItemDisplay[zmb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Increased Chance of Blocking}%CONTINUE%
+ItemDisplay[zhb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Faster Cast Rate}%CONTINUE%
+ItemDisplay[zlb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Increased Attack Speed}%CONTINUE%
+ItemDisplay[zmb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Max Cold resistance, Max Fire resistance, Max Lightning resistance, Max Poison resistance}%CONTINUE%
 ItemDisplay[ztb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Max Cold resistance, Max Fire resistance, Max Lightning resistance, Max Poison resistance}%CONTINUE%
 ItemDisplay[zvb UNI ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%Chance to Pierce}%CONTINUE%
 // END AUTO PD2TRADER BIS SLAMS
