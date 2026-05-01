@@ -2055,6 +2055,7 @@ ItemDisplay[yps]: %GREEN%!%WHITE%ant{%GREEN%!%WHITE%ant, Perf %GREEN%O%WHITE%, %
 // keys
 ItemDisplay[key]: %GRAY%key%CONTINUE%
 //
+
 // Craft Infusions
 ItemDisplay[(crfb OR crfc OR crfs OR crfh OR crfv OR crfu OR crfp)]: %NAME%{%TAN%Note%WHITE%: Guaranteed:}%CONTINUE%
 //
@@ -5446,8 +5447,10 @@ ItemDisplay[jew STAT477=21 ]: %NAME%{%TAN%Note%WHITE%: White %BLUE%Jewel}
 ItemDisplay[jew STAT477=4 ]: %NAME%{%TAN%Note%WHITE%: %GRAY%Black %BLUE%Jewel}
 ItemDisplay[jewf ID]: %BLUE%%NAME%{%GRAY%(Stackable Jewel)%NL%%TAN%Note%WHITE%: Use Those in Cube Recipes}
 
+
+
 // Standard of Heroes
-ItemDisplay[std]: %PX-9D%%NAME%{%NAME%}//{%WHITE%+10% Experience%NL%+20% Magic&Gold Find%NL%+20% Monster Density%NL%%TAN%Note: %WHITE%Cube it with Map to gain:}
+ItemDisplay[std]: %PX-9D%%NAME%{%NAME%%CL%%WHITE%+10% Experience%NL%+20% Magic&Gold Find%NL%+20% Monster Density%NL%%TAN%Note: %WHITE%Cube it with Map to gain:}%CONTINUE%
 
 // Ear displays
 ItemDisplay[ivea]: %PX-9D%%NAME%{%NAME%}
@@ -5474,7 +5477,7 @@ ItemDisplay[(ARMOR OR WEAPON OR QUIVER) (MAG OR RARE OR SET OR UNI OR CRAFT) ID]
 
 // Project Diablo 2 items
 ItemDisplay[wss]: %MAP-0A%%DOT-66%%NAME% %ORANGE%*{%RED%Warning%WHITE%: It can Brick your Item%NL%%TAN%Note%WHITE%: Use to %RED%Corrupt %WHITE%Item/Map:}
-ItemDisplay[iwss]: %MAP-0A%%DOT-66%%NAME% %ORANGE%*{%WHITE%Random Event to Your Map%NL%%TAN%Note%WHITE%: Use to %PURPLE%Add %WHITE%a Guaranteed}
+ItemDisplay[iwss]: %MAP-0A%%DOT-66%%NAME% %ORANGE%*{%WHITE%Random Event to Your Map%NL%%TAN%Note%WHITE%: Use to %PURPLE%Add %WHITE%a Guaranteed}%CONTINUE%
 ItemDisplay[scrb]: %MAP-A9%%NAME% %ORANGE%*{%NAME%}//{%RED%Group Dungeon%NL%%TAN%Note%WHITE%: Cube it with %GRAY%[%ORANGE%T3%GRAY%] %WHITE%Map to Make:}
 ItemDisplay[ubtm]: %MAP-A9%%GRAY%* %NAME% %GRAY%*{%GRAY%(It will create 3 Portals to come back Max 3 Times)%NL%%TAN%Note%WHITE%: Entrance to Uber Tristram}
 ItemDisplay[imra]: %NAME% %ORANGE%*{%WHITE%Map + %GOLD%Orb %WHITE%+ %BLUE%Jewel %WHITE%+ %ORANGE%Any Rune%NL%%TAN%Note%WHITE%: Imbue White Map to %YELLOW%Rare%WHITE%:%NL%}%CONTINUE%
@@ -5490,34 +5493,34 @@ ItemDisplay[irra]: %NAME% %ORANGE%*{%WHITE%Map + %GOLD%Orb%NL%%TAN%Note%WHITE%: 
 ItemDisplay[rrra]: %NAME% %ORANGE%*{%YELLOW%Map %WHITE%+ %GOLD%Orb%NL%%TAN%Note%WHITE%: ReRoll %YELLOW%Rare %WHITE%Map:%NL%}
 ItemDisplay[urma]: %NAME% %ORANGE%*{%BLUE%Map %WHITE%+ %GOLD%Orb%NL%%TAN%Note%WHITE%: Imbue %BLUE%Magic %WHITE%Map to %YELLOW%Rare%WHITE%:%NL%}
 ItemDisplay[irma]: %NAME% %ORANGE%*{%BLUE%Map %WHITE%+ %GOLD%Orb%NL%%WHITE%ReRoll %BLUE%Magic %WHITE%Map:%NL%%NL%%WHITE%Map + %GOLD%Orb%NL%%TAN%Note%WHITE%: Imbue White Map to %BLUE%Magic%WHITE%:%NL%}
-ItemDisplay[lbox]: %BORDER-0A%%DOT-62%%GREEN%*%PURPLE%*%RED%*       %NAME%       %RED%*%PURPLE%*%GREEN%*{%WHITE%Two-Handed Weapon = 2-4 max%NL%One-Handed Weapon = 1-2 max%NL%Helmet, Chest, Shield = 1-2 max%NL%%TAN%Note%WHITE%: Use to %TAN%Socket %WHITE%an Item}
-ItemDisplay[lpp]: %DOT-0A%%PX-62%%GRAY%*%YELLOW%*   %NAME%   %YELLOW%*%GRAY%*{%WHITE%Two-Handed Weapon = 2-4 max%NL%One-Handed Weapon = 1-2 max%NL%Helmet, Chest, Shield = 1-2 max%NL%%TAN%Note%WHITE%: Use to %TAN%Socket %WHITE%Normal/%BLUE%Magic%WHITE%/%YELLOW%Rare%WHITE%/%ORANGE%Crafted %WHITE%Item}
+ItemDisplay[lbox]: %BORDER-0A%%DOT-62%%GREEN%*%PURPLE%*%RED%*       %NAME%       %RED%*%PURPLE%*%GREEN%*{%WHITE%Two-Handed Weapon = 2-4 max%NL%One-Handed Weapon = 1-2 max%NL%Helmet, Chest, Shield = 1-2 max%NL%%TAN%Note%WHITE%: Use to %TAN%Socket %WHITE%an Item}%CONTINUE%
+ItemDisplay[lpp]: %DOT-0A%%PX-62%%GRAY%*%YELLOW%*   %NAME%   %YELLOW%*%GRAY%*{%WHITE%Two-Handed Weapon = 2-4 max%NL%One-Handed Weapon = 1-2 max%NL%Helmet, Chest, Shield = 1-2 max%NL%%TAN%Note%WHITE%: Use to %TAN%Socket %WHITE%Normal/%BLUE%Magic%WHITE%/%YELLOW%Rare%WHITE%/%ORANGE%Crafted %WHITE%Item}%CONTINUE%
 ItemDisplay[lmal]: %GOLD%%NAME% %ORANGE%*{%WHITE%All Types of Items = 1 max%NL%%TAN%Note%WHITE%: Use to %TAN%Socket %WHITE%an Item}
 ItemDisplay[lsvl]: %BORDER-9B%%DOT-62%%GREEN%*%SAGE%*%WHITE%*%CORAL%*%RED%*        %NAME%        %RED%*%CORAL%*%WHITE%*%SAGE%*%GREEN%*{%TAN%Note%WHITE%: %WHITE%This item is %PURPLE%E%RED%x%ORANGE%t%YELLOW%re%ORANGE%m%RED%e%PURPLE%l%RED%y Rare%WHITE%.}
 ItemDisplay[llmr]: %BORDER-9B%%DOT-62%%GREEN%*%SAGE%*%WHITE%*%CORAL%*%RED%*        %NAME%        %RED%*%CORAL%*%WHITE%*%SAGE%*%GREEN%*{%RED%You Can't remove socketed Misc from it%NL%%WHITE%Their colors will be changed to Black and White.%NL%Can't be used in any cube recipes.%NL%%RED%Warning%WHITE%: Items will be marked as %PURPLE%Mirrored %WHITE%and%NL%%WHITE%Only works with %BLUE%magic%WHITE%/%YELLOW%rare%WHITE%/%ORANGE%craft %WHITE%equipment%NL%%TAN%Note%WHITE%: %WHITE%This item is %PURPLE%E%RED%x%ORANGE%t%YELLOW%re%ORANGE%m%RED%e%PURPLE%l%RED%y Rare%WHITE%.}
 ItemDisplay[rkey]: %MAP-0A%%PX-62%%GRAY%*%LIGHT_GRAY%*%YELLOW%*   %NAME%   %YELLOW%*%LIGHT_GRAY%*%GRAY%*{%NAME%}
-ItemDisplay[imrn]: %BORDER-0A%%DOT-62%%GREEN%*%PURPLE%*%RED%*       %NAME%       %RED%*%PURPLE%*%GREEN%*{%TAN%Note%WHITE%: Use to %CORAL%ReRoll %WHITE%an %GOLD%Unique %WHITE%or %GREEN%Set %WHITE%Item}
+ItemDisplay[imrn]: %BORDER-0A%%DOT-62%%GREEN%*%PURPLE%*%RED%*       %NAME%       %RED%*%PURPLE%*%GREEN%*{%TAN%Note%WHITE%: Use to %CORAL%ReRoll %WHITE%an %GOLD%Unique %WHITE%or %GREEN%Set %WHITE%Item}%CONTINUE%
 
 // DClone, Rathma, and Lucion materials
 ItemDisplay[(dcma OR rtma OR luca) STAT185=0]: %MAP-0A%%PX-62%%GRAY%*%RED%* %NAME% %RED%*%GRAY%*{%BLUE%Tier: 0 (Default)%NL%%RED%Enter at your own risk!%NL%%TAN%Note%WHITE%: %GRAY%Many have entered... Few have returned.}
 ItemDisplay[(dcma OR rtma OR luca) STAT185>0]: %MAP-0A%%PX-62%%GRAY%*%RED%* %NAME% %RED%*%GRAY%*{%RED%Enter at your own risk!%NL%%TAN%Note%WHITE%: %GRAY%Many have entered... Few have returned.}
-ItemDisplay[lucb]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: %GRAY%Am I hearing wing beat...? %RED%Lucion%GRAY%...?}
-ItemDisplay[lucc]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: %GRAY%Am I hearing wing beat...? %RED%Lucion%GRAY%...?}
-ItemDisplay[lucd]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: %GRAY%Am I hearing wing beat...? %RED%Lucion%GRAY%...?}
-ItemDisplay[dcbl OR dcho]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: %RED%Diablo Clone %GRAY%walks nearby...}
-ItemDisplay[dcso]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: %GRAY%Contains Soul of %RED%Diablo Clone}
+ItemDisplay[lucb]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: %GRAY%Am I hearing wing beat...? %RED%Lucion%GRAY%...?}%CONTINUE%
+ItemDisplay[lucc]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: %GRAY%Am I hearing wing beat...? %RED%Lucion%GRAY%...?}%CONTINUE%
+ItemDisplay[lucd]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: %GRAY%Am I hearing wing beat...? %RED%Lucion%GRAY%...?}%CONTINUE%
+ItemDisplay[dcbl OR dcho]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: %RED%Diablo Clone %GRAY%walks nearby...}%CONTINUE%
+ItemDisplay[dcso]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: %GRAY%Contains Soul of %RED%Diablo Clone}%CONTINUE%
 ItemDisplay[rtmf]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: 2x %ORANGE%Bone Fragments %WHITE%+ %GOLD%Hellfire Torch %WHITE%= %ORANGE%Trang-Oul's Jawbone}
-ItemDisplay[rtmv]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: %RED%Rathma %GRAY%is getting closer...}
-ItemDisplay[rtmo]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: %RED%Rathma %GRAY%is getting closer...}
-ItemDisplay[cm2f]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: %RED%Rathma %GRAY%is getting closer...}
+ItemDisplay[rtmv]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: %RED%Rathma %GRAY%is getting closer...}%CONTINUE%
+ItemDisplay[rtmo]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: %RED%Rathma %GRAY%is getting closer...}%CONTINUE%
+ItemDisplay[cm2f]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: %RED%Rathma %GRAY%is getting closer...}%CONTINUE%
 ItemDisplay[cwss]: %MAP-0A%%DOT-84%%NAME% %GREEN%*{%RED%Warning%WHITE%: You can actually BRICK it%NL%%TAN%Note%WHITE%: Use to %RED%Corrupt %GOLD%Annihilus}
 ItemDisplay[rid]: %MAP-0A%%PX-62%%GRAY%*%LIGHT_GRAY%*%RED%*   %NAME%    %RED%*%LIGHT_GRAY%*%GRAY%*
 ItemDisplay[rtp]: %MAP-0A%%PX-62%%GRAY%*%LIGHT_GRAY%*%BLUE%*   %NAME%    %BLUE%*%LIGHT_GRAY%*%GRAY%*{%TAN%Note%WHITE%: You won't lose it in Cube recipes}
 
 // Uber Ancients
-ItemDisplay[ubaa]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: Uber Ancients ingredient from %GRAY%[%DARK_GREEN%T1%GRAY%] %WHITE%Maps}
-ItemDisplay[ubab]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: Uber Ancients ingredient from %GRAY%[%TAN%T2%GRAY%] %WHITE%Maps}
-ItemDisplay[ubac]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: Uber Ancients ingredient from %GRAY%[%ORANGE%T3%GRAY%] %WHITE%Maps}
+ItemDisplay[ubaa]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: Uber Ancients ingredient from %GRAY%[%DARK_GREEN%T1%GRAY%] %WHITE%Maps}%CONTINUE%
+ItemDisplay[ubab]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: Uber Ancients ingredient from %GRAY%[%TAN%T2%GRAY%] %WHITE%Maps}%CONTINUE%
+ItemDisplay[ubac]: %MAP-0A%%PX-62%%NAME% %RED%*{%TAN%Note%WHITE%: Uber Ancients ingredient from %GRAY%[%ORANGE%T3%GRAY%] %WHITE%Maps}%CONTINUE%
 ItemDisplay[uba]: %MAP-0A%%PX-62%%GRAY%*%RED%* %NAME% %RED%*%GRAY%*{%TAN%Note%WHITE%: Challenge Yourself, Fight for the Great Loot!}
 
 // Project Diablo 2 maps
@@ -5693,15 +5696,15 @@ ItemDisplay[MAPTIER>0 STAT470>0]: %NAME%{%PURPLE%Mobs: %RED%Souls%CL%%NAME%}%CON
 ItemDisplay[MAPTIER>0 STAT441>0]: %NAME%{%PURPLE%Mobs: %ORANGE%Horde%CL%%NAME%}%CONTINUE%
 ItemDisplay[MAPTIER>0 STAT498>0]: %NAME%{%PURPLE%Mobs: %GREEN%Boss%CL%%NAME%}%CONTINUE%
 // Essences
-ItemDisplay[tes]: %PX-9D%%NAME%{%TAN%Essence %WHITE%from: %BLUE%Andariel %WHITE%or %BLUE%Duriel}
-ItemDisplay[ceh]: %PX-9D%%NAME%{%TAN%Essence %WHITE%from: %TAN%Mephisto}
-ItemDisplay[bet]: %PX-9D%%NAME%{%TAN%Essence %WHITE%from: %RED%Diablo}
-ItemDisplay[fed]: %PX-9D%%NAME%{%TAN%Essence %WHITE%from: %DARK_GREEN%Baal}
+ItemDisplay[tes]: %PX-9D%%NAME%{%TAN%Essence %WHITE%from: %BLUE%Andariel %WHITE%or %BLUE%Duriel}%CONTINUE%
+ItemDisplay[ceh]: %PX-9D%%NAME%{%TAN%Essence %WHITE%from: %TAN%Mephisto}%CONTINUE%
+ItemDisplay[bet]: %PX-9D%%NAME%{%TAN%Essence %WHITE%from: %RED%Diablo}%CONTINUE%
+ItemDisplay[fed]: %PX-9D%%NAME%{%TAN%Essence %WHITE%from: %DARK_GREEN%Baal}%CONTINUE%
 
 // Uber key aliases
-ItemDisplay[pk1]: %DOT-9D%%ORANGE%%NAME%%ORANGE%{%TAN%Key %WHITE%from: %RED%Countess %WHITE%or %RED%Blood Raven}
-ItemDisplay[pk2]: %DOT-9D%%ORANGE%%NAME%%ORANGE%{%TAN%Key %WHITE%from: %BLUE%Summoner %WHITE%or %BLUE%Bloodwitch}
-ItemDisplay[pk3]: %DOT-9D%%ORANGE%%NAME%%ORANGE%{%TAN%Key %WHITE%from: %PURPLE%Nihlathak %WHITE%or %PURPLE%Izual}
+ItemDisplay[pk1]: %DOT-9D%%ORANGE%%NAME%%ORANGE%{%TAN%Key %WHITE%from: %RED%Countess %WHITE%or %RED%Blood Raven}%CONTINUE%
+ItemDisplay[pk2]: %DOT-9D%%ORANGE%%NAME%%ORANGE%{%TAN%Key %WHITE%from: %BLUE%Summoner %WHITE%or %BLUE%Bloodwitch}%CONTINUE%
+ItemDisplay[pk3]: %DOT-9D%%ORANGE%%NAME%%ORANGE%{%TAN%Key %WHITE%from: %PURPLE%Nihlathak %WHITE%or %PURPLE%Izual}%CONTINUE%
 
 // Organs
 ItemDisplay[(mbr OR bey OR dhn)]: %PX-9D%%NAME%{%WHITE%to get %RED%Pandemonium Talisman%NL%%TAN%Note%WHITE%: Cube %ORANGE%One of each %WHITE%of the three Organs}
@@ -5716,26 +5719,7 @@ ItemDisplay[RUNE>25]: %BORDER-62%%GREEN%*%PURPLE%*%RED%*          %NAME%%RED%   
 // Rune notes
 
 
-// BEGIN AUTO PD2TRADER RUNE VALUES
-// Source: PD2 Trader API (24H, 48H, 72H, 1W, ladder=true, hardcore=false)
-// Applies to stackable rune item codes only; Lem is intentionally excluded
-// Static values: Pul, Um, Mal, Ist, Gul, Vex, Sur, Ber
-// Dynamic values: Ohm, Lo, Jah, Cham, Zod; median rounded to nearest 0.05 HR
-// Updated: 2026-04-29T23:59:52.359Z
-ItemDisplay[r21s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.03 HR %PURPLE%48H %WHITE%0.03 HR %PURPLE%72H %WHITE%0.03 HR %PURPLE%1W %WHITE%0.03 HR%CL%%PURPLE%Current Values:%CL%}%CONTINUE%
-ItemDisplay[r22s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.05 HR %PURPLE%48H %WHITE%0.05 HR %PURPLE%72H %WHITE%0.05 HR %PURPLE%1W %WHITE%0.05 HR%CL%%PURPLE%Current Values:%CL%}%CONTINUE%
-ItemDisplay[r23s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.1 HR %PURPLE%48H %WHITE%0.1 HR %PURPLE%72H %WHITE%0.1 HR %PURPLE%1W %WHITE%0.1 HR%CL%%PURPLE%Current Values:%CL%}%CONTINUE%
-ItemDisplay[r24s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.15 HR %PURPLE%48H %WHITE%0.15 HR %PURPLE%72H %WHITE%0.15 HR %PURPLE%1W %WHITE%0.15 HR%CL%%PURPLE%Current Values:%CL%}%CONTINUE%
-ItemDisplay[r25s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.25 HR %PURPLE%48H %WHITE%0.25 HR %PURPLE%72H %WHITE%0.25 HR %PURPLE%1W %WHITE%0.25 HR%CL%%PURPLE%Current Values:%CL%}%CONTINUE%
-ItemDisplay[r26s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.5 HR %PURPLE%48H %WHITE%0.5 HR %PURPLE%72H %WHITE%0.5 HR %PURPLE%1W %WHITE%0.5 HR%CL%%PURPLE%Current Values:%CL%}%CONTINUE%
-ItemDisplay[r27s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.85 HR %PURPLE%48H %WHITE%0.85 HR %PURPLE%72H %WHITE%0.85 HR %PURPLE%1W %WHITE%0.8 HR%CL%%PURPLE%Current Values:%CL%}%CONTINUE%
-ItemDisplay[r28s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.9 HR %PURPLE%48H %WHITE%0.95 HR %PURPLE%72H %WHITE%1 HR %PURPLE%1W %WHITE%1 HR%CL%%PURPLE%Current Values:%CL%}%CONTINUE%
-ItemDisplay[r29s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%1.5 HR %PURPLE%48H %WHITE%1.5 HR %PURPLE%72H %WHITE%1.5 HR %PURPLE%1W %WHITE%1.5 HR%CL%%PURPLE%Current Values:%CL%}%CONTINUE%
-ItemDisplay[r30s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%3 HR %PURPLE%48H %WHITE%3 HR %PURPLE%72H %WHITE%3 HR %PURPLE%1W %WHITE%3 HR%CL%%PURPLE%Current Values:%CL%}%CONTINUE%
-ItemDisplay[r31s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%1.7 HR %PURPLE%48H %WHITE%1.7 HR %PURPLE%72H %WHITE%1.6 HR %PURPLE%1W %WHITE%1.5 HR%CL%%PURPLE%Current Values:%CL%}%CONTINUE%
-ItemDisplay[r32s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%1.85 HR %PURPLE%48H %WHITE%1.5 HR %PURPLE%72H %WHITE%1.5 HR %PURPLE%1W %WHITE%1.5 HR%CL%%PURPLE%Current Values:%CL%}%CONTINUE%
-ItemDisplay[r33s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%3.5 HR %PURPLE%48H %WHITE%3.5 HR %PURPLE%72H %WHITE%3.5 HR %PURPLE%1W %WHITE%3 HR%CL%%PURPLE%Current Values:%CL%}%CONTINUE%
-// END AUTO PD2TRADER RUNE VALUES
+
 ItemDisplay[RUNE>0]: %NAME%{%RUNENAME% %WHITE%is Required for Runewords:%NL%%NAME%}%CONTINUE%
 
 ItemDisplay[(r01 OR r01s)]: %NAME%{Breath of the Dying, Death, Fortitude, Honor,%NL%%NAME%}%CONTINUE%
@@ -5896,6 +5880,54 @@ ItemDisplay[(r31 OR r31s)]: %NAME%{%NAME%%TAN%Note%WHITE%: 2x %ORANGE%Jah %WHITE
 ItemDisplay[(r32 OR r32s)]: %NAME%{%NAME%%TAN%Note%WHITE%: 2x %ORANGE%Cham %WHITE%+ %GRAY%key %WHITE%= %ORANGE%Zod %GRAY%[%GREEN%33%GRAY%]%NL%}%CONTINUE%
 ItemDisplay[(r33 OR r33s)]: %NAME%{%NAME%%TAN%Note%WHITE%: %ORANGE%Zod %WHITE%+ Perf %GRAY%O %WHITE%= Repair any Item %GRAY%(even eth)%NL%}%CONTINUE%
 
+
+
+
+// BEGIN AUTO PD2TRADER RUNE VALUES
+// Source: PD2 Trader API (24H, 48H, 72H, 1W, ladder=true, hardcore=false)
+// Applies to stackable rune item codes and selected currency/material item codes; Lem is intentionally excluded
+// Static values: Pul, Um, Mal, Ist, Gul, Vex, Sur, Ber
+// Dynamic rune values: Ohm, Lo, Jah, Cham, Zod; median rounded to nearest 0.05 HR
+// Dynamic material values: keys, boss materials, and selected utility currency; exact median HR values with WSS converted at 0.01 HR each
+// Updated: 2026-04-30T08:10:31.226Z
+ItemDisplay[r21s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.03 HR %PURPLE%48H %WHITE%0.03 HR %PURPLE%72H %WHITE%0.03 HR %PURPLE%1W %WHITE%0.03 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[r22s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.05 HR %PURPLE%48H %WHITE%0.05 HR %PURPLE%72H %WHITE%0.05 HR %PURPLE%1W %WHITE%0.05 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[r23s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.1 HR %PURPLE%48H %WHITE%0.1 HR %PURPLE%72H %WHITE%0.1 HR %PURPLE%1W %WHITE%0.1 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[r24s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.15 HR %PURPLE%48H %WHITE%0.15 HR %PURPLE%72H %WHITE%0.15 HR %PURPLE%1W %WHITE%0.15 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[r25s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.25 HR %PURPLE%48H %WHITE%0.25 HR %PURPLE%72H %WHITE%0.25 HR %PURPLE%1W %WHITE%0.25 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[r26s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.5 HR %PURPLE%48H %WHITE%0.5 HR %PURPLE%72H %WHITE%0.5 HR %PURPLE%1W %WHITE%0.5 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[r27s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.85 HR %PURPLE%48H %WHITE%0.85 HR %PURPLE%72H %WHITE%0.85 HR %PURPLE%1W %WHITE%0.8 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[r28s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.9 HR %PURPLE%48H %WHITE%1 HR %PURPLE%72H %WHITE%1 HR %PURPLE%1W %WHITE%1 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[r29s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%1.5 HR %PURPLE%48H %WHITE%1.5 HR %PURPLE%72H %WHITE%1.5 HR %PURPLE%1W %WHITE%1.5 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[r30s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%3 HR %PURPLE%48H %WHITE%3 HR %PURPLE%72H %WHITE%3 HR %PURPLE%1W %WHITE%3 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[r31s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%1.7 HR %PURPLE%48H %WHITE%1.6 HR %PURPLE%72H %WHITE%1.6 HR %PURPLE%1W %WHITE%1.5 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[r32s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%1.85 HR %PURPLE%48H %WHITE%1.75 HR %PURPLE%72H %WHITE%1.5 HR %PURPLE%1W %WHITE%1.5 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[r33s]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%3.5 HR %PURPLE%48H %WHITE%3.5 HR %PURPLE%72H %WHITE%3.5 HR %PURPLE%1W %WHITE%3 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[pk3]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.09 HR %PURPLE%48H %WHITE%0.1 HR %PURPLE%72H %WHITE%0.1 HR %PURPLE%1W %WHITE%0.1 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[pk2]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.08 HR %PURPLE%48H %WHITE%0.08 HR %PURPLE%72H %WHITE%0.08 HR %PURPLE%1W %WHITE%0.08 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[pk1]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.1 HR %PURPLE%48H %WHITE%0.1 HR %PURPLE%72H %WHITE%0.1 HR %PURPLE%1W %WHITE%0.09 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[ubaa]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.03 HR %PURPLE%48H %WHITE%0.04 HR %PURPLE%72H %WHITE%0.03 HR %PURPLE%1W %WHITE%0.02 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[ubab]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.1 HR %PURPLE%48H %WHITE%0.08 HR %PURPLE%72H %WHITE%0.07 HR %PURPLE%1W %WHITE%0.05 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[ubac]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.05 HR %PURPLE%48H %WHITE%0.05 HR %PURPLE%72H %WHITE%0.05 HR %PURPLE%1W %WHITE%0.06 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[dcbl]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.1 HR %PURPLE%48H %WHITE%0.1 HR %PURPLE%72H %WHITE%0.1 HR %PURPLE%1W %WHITE%0.15 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[dcso]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.35 HR %PURPLE%48H %WHITE%0.35 HR %PURPLE%72H %WHITE%0.3 HR %PURPLE%1W %WHITE%0.25 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[dcho]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.25 HR %PURPLE%48H %WHITE%0.3 HR %PURPLE%72H %WHITE%0.3 HR %PURPLE%1W %WHITE%0.3 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[rtmo]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.03 HR %PURPLE%48H %WHITE%0.02 HR %PURPLE%72H %WHITE%0.02 HR %PURPLE%1W %WHITE%0.03 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[rtmv]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.25 HR %PURPLE%48H %WHITE%0.25 HR %PURPLE%72H %WHITE%0.21 HR %PURPLE%1W %WHITE%0.15 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[cm2f]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.5 HR %PURPLE%48H %WHITE%0.5 HR %PURPLE%72H %WHITE%0.5 HR %PURPLE%1W %WHITE%0.5 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[lucb]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.15 HR %PURPLE%48H %WHITE%0.2 HR %PURPLE%72H %WHITE%0.2 HR %PURPLE%1W %WHITE%0.2 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[lucc]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.03 HR %PURPLE%48H %WHITE%0.02 HR %PURPLE%72H %WHITE%0.02 HR %PURPLE%1W %WHITE%0.02 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[lucd]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.05 HR %PURPLE%48H %WHITE%0.05 HR %PURPLE%72H %WHITE%0.04 HR %PURPLE%1W %WHITE%0.03 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[lbox]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.5 HR %PURPLE%48H %WHITE%0.5 HR %PURPLE%72H %WHITE%0.5 HR %PURPLE%1W %WHITE%0.5 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[lpp]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.07 HR %PURPLE%48H %WHITE%0.07 HR %PURPLE%72H %WHITE%0.06 HR %PURPLE%1W %WHITE%0.05 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[imrn]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.42 HR %PURPLE%48H %WHITE%0.4 HR %PURPLE%72H %WHITE%0.4 HR %PURPLE%1W %WHITE%0.4 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[iwss]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.15 HR %PURPLE%48H %WHITE%0.13 HR %PURPLE%72H %WHITE%0.1 HR %PURPLE%1W %WHITE%0.1 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[std]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.05 HR %PURPLE%48H %WHITE%0.05 HR %PURPLE%72H %WHITE%0.05 HR %PURPLE%1W %WHITE%0.05 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[fed]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.25 HR %PURPLE%48H %WHITE%0.25 HR %PURPLE%72H %WHITE%0.22 HR %PURPLE%1W %WHITE%0.15 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[ceh]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.07 HR %PURPLE%48H %WHITE%0.05 HR %PURPLE%72H %WHITE%0.07 HR %PURPLE%1W %WHITE%0.07 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[bet]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.04 HR %PURPLE%48H %WHITE%0.04 HR %PURPLE%72H %WHITE%0.05 HR %PURPLE%1W %WHITE%0.04 HR%CL%%PURPLE%Current Values:%CL%}
+ItemDisplay[tes]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE%0.02 HR %PURPLE%48H %WHITE%0.02 HR %PURPLE%72H %WHITE%0.02 HR %PURPLE%1W %WHITE%0.02 HR%CL%%PURPLE%Current Values:%CL%}
+// END AUTO PD2TRADER RUNE VALUES
 // Craft Infusions
 ItemDisplay[crfb]: %DOT-66%%ORANGE%[%RED%O%ORANGE%] %NAME%{%NAME%}
 ItemDisplay[crfc]: %DOT-66%%ORANGE%[%PURPLE%O%ORANGE%] %NAME%{%NAME%}
@@ -5926,7 +5958,7 @@ ItemDisplay[NMAG !RW SORSTAFF (FILTLVL<2 OR (CLVL<80 AND FILTLVL~2-5))]: %NAME%{
 ItemDisplay[UNI OR SET OR RW OR CRAFT OR GEMMED OR EQUIPPED OR SHOP OR leg]: %NAME%{%NAME%}
 
 // Unknown item notification fallback
-ItemDisplay[(ILVL>1 OR QTY>0 OR PRICE>1) !(ARMOR OR WEAPON OR amu OR rin OR QUIVER OR cm1 OR cm2 OR cm3 OR jew OR jewf OR RUNE>0 OR GEMTYPE>0 OR MAPTIER>-1 OR hp1 OR mp1 OR hp2 OR mp2 OR hp3 OR mp3 OR hp4 OR mp4 OR hp5 OR mp5 OR pvpp OR rvs OR rvl OR vps OR wms OR yps OR key OR tsc OR isc OR tbk OR ibk OR ear OR bks OR bkd OR box OR vip OR tr1 OR ass OR j34 OR g34 OR xyz OR bbb OR qbr OR qey OR qhr OR mss OR ice OR tr2 OR toa OR tes OR ceh OR bet OR fed OR dhn OR bey OR mbr OR pk1 OR pk2 OR pk3 OR std OR wss OR cwss OR lpp OR lbox OR lmal OR crfb OR crfc OR crfh OR crfs OR crfv OR crfu OR crfp OR rtp OR rid OR rkey OR lsvl OR llmr OR ubtm OR uba OR ubaa OR ubab OR ubac OR dcma OR dcso OR dcho OR dcbl OR rtma OR rtmv OR rtmo OR cm2f OR rtmf OR iwss OR scrb OR upmp OR scou OR irma OR irra OR urma OR rrra OR imma OR imra OR upma OR rera OR fort OR ram OR luca OR lucb OR lucc OR lucd OR imrn OR cm1p OR cm2p OR cm3p)]: %SOUNDID-705%%MAP-0A%%PX-62%%NAME%{%NAME%%CL%%WHITE%Item description will be adjusted later during the season.%CL%%TAN%Note%WHITE%: This item is recently added to the game.}	// notifications for unknown items (the first group of conditions including ilvl/qty/price is a workaround for !GOLD>0 since that doesn't work like other conditions)
+ItemDisplay[(ILVL>1 OR QTY>0 OR PRICE>1) !(ARMOR OR WEAPON OR amu OR rin OR QUIVER OR cm1 OR cm2 OR cm3 OR jew OR jewf OR RUNE>0 OR GEMTYPE>0 OR MAPTIER>-1 OR hp1 OR mp1 OR hp2 OR mp2 OR hp3 OR mp3 OR hp4 OR mp4 OR hp5 OR mp5 OR pvpp OR rvs OR rvl OR vps OR wms OR yps OR key OR tsc OR isc OR tbk OR ibk OR ear OR bks OR bkd OR box OR vip OR tr1 OR ass OR j34 OR g34 OR xyz OR bbb OR qbr OR qey OR qhr OR mss OR ice OR tr2 OR toa OR tes OR ceh OR bet OR fed OR dhn OR bey OR mbr OR pk1 OR pk2 OR pk3 OR std OR wss OR cwss OR lpp OR lbox OR lmal OR crfb OR crfc OR crfh OR crfs OR crfv OR crfu OR crfp OR rtp OR rid OR rkey OR lsvl OR llmr OR ubtm OR uba OR ubaa OR ubab OR ubac OR dcma OR dcso OR dcho OR dcbl OR rtma OR rtmv OR rtmo OR cm2f OR rtmf OR iwss OR scrb OR upmp OR scou OR irma OR irra OR urma OR rrra OR imma OR imra OR upma OR rera OR fort OR ram OR luca OR lucb OR lucc OR lucd OR imrn OR cm1p OR cm2p OR cm3p)]: %SOUNDID-705%%MAP-0A%%PX-62%%NAME%{%NAME%%CL%%WHITE%Item description will be adjusted later during the season.%CL%%TAN%Note%WHITE%: This item is recently added to the game.}	// notifications for unknown items (the first group of conditions including ilvl/qty/price is a workaround for !GOLD>0 since that doesn't work like other conditions)%CONTINUE%
 
 // Hide rare Heavy Bolts
 ItemDisplay[(cqv1 OR cqv2 OR cqv3) RARE]:{%NAME%}
