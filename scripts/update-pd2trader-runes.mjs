@@ -15,12 +15,49 @@ const staticRunes = [
   ['r30', 'Ber Rune', 3],
 ];
 
+const runeValueOptions = {
+  roundToNearestFiveHundredths: true,
+  useTimelineVarianceFilter: true,
+};
+
+const materialValueOptions = {
+  roundToNearestFiveHundredths: false,
+  useTimelineVarianceFilter: false,
+};
+
 const dynamicRunes = [
-  ['r27', 'Ohm Rune'],
-  ['r28', 'Lo Rune'],
-  ['r31', 'Jah Rune'],
-  ['r32', 'Cham Rune'],
-  ['r33', 'Zod Rune'],
+  ['r27', 'Ohm Rune', 'r27s', runeValueOptions],
+  ['r28', 'Lo Rune', 'r28s', runeValueOptions],
+  ['r31', 'Jah Rune', 'r31s', runeValueOptions],
+  ['r32', 'Cham Rune', 'r32s', runeValueOptions],
+  ['r33', 'Zod Rune', 'r33s', runeValueOptions],
+];
+
+const dynamicCurrencyItems = [
+  ['pk3', 'Key of Destruction', 'pk3', materialValueOptions],
+  ['pk2', 'Key of Hate', 'pk2', materialValueOptions],
+  ['pk1', 'Key of Terror', 'pk1', materialValueOptions],
+  ['ubaa', 'Sigil of Madawc', 'ubaa', materialValueOptions],
+  ['ubab', 'Sigil of Talic', 'ubab', materialValueOptions],
+  ['ubac', 'Sigil of Korlic', 'ubac', materialValueOptions],
+  ['dcbl', 'Pure Demonic Essence', 'dcbl', materialValueOptions],
+  ['dcso', 'Prime Evil Soul', 'dcso', materialValueOptions],
+  ['dcho', 'Black Soulstone Shard', 'dcho', materialValueOptions],
+  ['rtmo', "Trang-Oul's Jawbone", 'rtmo', materialValueOptions],
+  ['rtmv', 'Splinter of the Void', 'rtmv', materialValueOptions],
+  ['cm2f', 'Hellfire Ashes', 'cm2f', materialValueOptions],
+  ['lucb', 'Demonic Insignia', 'lucb', materialValueOptions],
+  ['lucc', 'Talisman of Transgression', 'lucc', materialValueOptions],
+  ['lucd', 'Flesh of Malic', 'lucd', materialValueOptions],
+  ['lbox', "Larzuk's Puzzlebox", 'lbox', materialValueOptions],
+  ['lpp', "Larzuk's Puzzlepiece", 'lpp', materialValueOptions],
+  ['imrn', 'Demonic Cube', 'imrn', materialValueOptions],
+  ['iwss', 'Catalyst Shard', 'iwss', materialValueOptions],
+  ['std', 'Standard of Heroes', 'std', materialValueOptions],
+  ['fed', 'Festering Essence of Destruction', 'fed', materialValueOptions],
+  ['ceh', 'Charged Essence of Hatred', 'ceh', materialValueOptions],
+  ['bet', 'Burning Essence of Terror', 'bet', materialValueOptions],
+  ['tes', 'Twisted Essence of Suffering', 'tes', materialValueOptions],
 ];
 
 const runeOrder = [
@@ -38,6 +75,9 @@ const runeOrder = [
   'r32',
   'r33',
 ];
+const valueOrder = [...runeOrder, ...dynamicCurrencyItems.map(([baseCode]) => baseCode)];
+const dynamicValueItems = [...dynamicRunes, ...dynamicCurrencyItems];
+const currencyDisplayCodes = dynamicCurrencyItems.map(([, , displayCode]) => displayCode);
 
 const filterFile = process.env.FILTER_FILE || 'Roofoo.filter';
 const isLadder = process.env.PD2TRADER_LADDER !== 'false';
@@ -58,17 +98,48 @@ function formatHr(value) {
   return value.toFixed(2).replace(/\.?0+$/, '');
 }
 
-function roundToNearestFiveHundredths(value) {
+function roundValue(value, options = runeValueOptions) {
   if (!Number.isFinite(value)) {
     return value;
   }
 
-  return Math.round(value * 20) / 20;
+  if (!options.roundToNearestFiveHundredths) {
+    return value;
+  }
+
+  const rounded = Math.round(value * 20) / 20;
+  return value > 0 && rounded === 0 ? 0.05 : rounded;
 }
 
 function lineForStaticRune(baseCode, runeName, value) {
   const values = valueWindows.map(([label]) => `${label} %WHITE%${formatHr(value)} HR`).join(' %PURPLE%');
-  return `ItemDisplay[${baseCode}s]: %NAME%{%NAME%%CL%%PURPLE%${values}%CL%%PURPLE%Current Values:%CL%}%CONTINUE%`;
+  return `ItemDisplay[${baseCode}s]: %NAME%{%NAME%%CL%%PURPLE%${values}%CL%%PURPLE%Current Values:%CL%}`;
+}
+
+function normalizePriceValue(value) {
+  if (typeof value === 'number') {
+    return value;
+  }
+
+  if (typeof value !== 'string') {
+    return undefined;
+  }
+
+  const normalized = value.trim().toLowerCase();
+  const wssMatch = normalized.match(/^(\d+(?:\.\d+)?)\s*wss$/);
+
+  if (wssMatch) {
+    return Number(wssMatch[1]) * 0.01;
+  }
+
+  const hrMatch = normalized.match(/^(\d+(?:\.\d+)?)\s*hr$/);
+
+  if (hrMatch) {
+    return Number(hrMatch[1]);
+  }
+
+  const numericValue = Number(normalized);
+  return Number.isFinite(numericValue) ? numericValue : undefined;
 }
 
 function valueFromPrice(price) {
@@ -76,7 +147,15 @@ function valueFromPrice(price) {
     return undefined;
   }
 
-  return price.medianPrice ?? price.movingAverage7Days ?? price.averagePrice;
+  for (const key of ['medianPrice', 'movingAverage7Days', 'averagePrice']) {
+    const value = normalizePriceValue(price[key]);
+
+    if (Number.isFinite(value)) {
+      return value;
+    }
+  }
+
+  return undefined;
 }
 
 function directPriceForWindow(priceByWindow, baseCode, windowIndex) {
@@ -84,7 +163,7 @@ function directPriceForWindow(priceByWindow, baseCode, windowIndex) {
   return priceByWindow.get(windowHours)?.get(baseCode);
 }
 
-function valueForWindow(priceByWindow, baseCode, windowIndex, cache = new Map()) {
+function valueForWindow(priceByWindow, baseCode, windowIndex, cache = new Map(), options = runeValueOptions) {
   if (cache.has(windowIndex)) {
     return cache.get(windowIndex);
   }
@@ -92,7 +171,7 @@ function valueForWindow(priceByWindow, baseCode, windowIndex, cache = new Map())
   const directValue = valueFromPrice(directPriceForWindow(priceByWindow, baseCode, windowIndex));
   const nextValue =
     windowIndex + 1 < valueWindows.length
-      ? valueForWindow(priceByWindow, baseCode, windowIndex + 1, cache)
+      ? valueForWindow(priceByWindow, baseCode, windowIndex + 1, cache, options)
       : undefined;
 
   let value = directValue;
@@ -100,6 +179,7 @@ function valueForWindow(priceByWindow, baseCode, windowIndex, cache = new Map())
   if (!Number.isFinite(value)) {
     value = nextValue;
   } else if (
+    options.useTimelineVarianceFilter &&
     Number.isFinite(nextValue) &&
     nextValue > 0 &&
     Math.abs(value - nextValue) / nextValue > maxTimelineVariance
@@ -111,10 +191,10 @@ function valueForWindow(priceByWindow, baseCode, windowIndex, cache = new Map())
   return value;
 }
 
-function lineForDynamicRune(priceByWindow, baseCode, runeName) {
+function lineForDynamicItem(priceByWindow, baseCode, itemName, displayCode, options = runeValueOptions) {
   const valueCache = new Map();
   const values = valueWindows.map(([label], windowIndex) => {
-    const value = roundToNearestFiveHundredths(valueForWindow(priceByWindow, baseCode, windowIndex, valueCache));
+    const value = roundValue(valueForWindow(priceByWindow, baseCode, windowIndex, valueCache, options), options);
 
     if (!Number.isFinite(value)) {
       return `${label} %GRAY%?`;
@@ -124,15 +204,15 @@ function lineForDynamicRune(priceByWindow, baseCode, runeName) {
   });
 
   if (values.every((value) => value.includes('%GRAY%?'))) {
-    return `// ${runeName}: no PD2 Trader value returned`;
+    return `// ${itemName}: no PD2 Trader value returned`;
   }
 
-  return `ItemDisplay[${baseCode}s]: %NAME%{%NAME%%CL%%PURPLE%${values.join(' %PURPLE%')}%CL%%PURPLE%Current Values:%CL%}%CONTINUE%`;
+  return `ItemDisplay[${displayCode}]: %NAME%{%NAME%%CL%%PURPLE%${values.join(' %PURPLE%')}%CL%%PURPLE%Current Values:%CL%}`;
 }
 
 async function fetchRunePrices(windowHours) {
   const body = {
-    baseCodes: dynamicRunes.map(([baseCode]) => baseCode),
+    baseCodes: dynamicValueItems.map(([baseCode]) => baseCode),
     isLadder,
     isHardcore,
     hours: windowHours,
@@ -171,28 +251,87 @@ function getUpdatedAt(priceByWindow) {
 function buildBlock(priceByWindow) {
   const updatedAt = getUpdatedAt(priceByWindow);
   const staticByBaseCode = new Map(staticRunes.map((rune) => [rune[0], rune]));
-  const dynamicByBaseCode = new Map(dynamicRunes.map((rune) => [rune[0], rune]));
-  const generatedLines = runeOrder.map((baseCode) => {
+  const dynamicByBaseCode = new Map(dynamicValueItems.map((item) => [item[0], item]));
+  const generatedLines = valueOrder.map((baseCode) => {
     const staticRune = staticByBaseCode.get(baseCode);
 
     if (staticRune) {
       return lineForStaticRune(...staticRune);
     }
 
-    const dynamicRune = dynamicByBaseCode.get(baseCode);
-    return lineForDynamicRune(priceByWindow, dynamicRune[0], dynamicRune[1]);
+    const dynamicItem = dynamicByBaseCode.get(baseCode);
+    return lineForDynamicItem(priceByWindow, dynamicItem[0], dynamicItem[1], dynamicItem[2], dynamicItem[3]);
   });
 
   return [
     START_MARKER,
     `// Source: PD2 Trader API (${valueWindows.map(([label]) => label).join(', ')}, ladder=${isLadder}, hardcore=${isHardcore})`,
-    '// Applies to stackable rune item codes only; Lem is intentionally excluded',
+    '// Applies to stackable rune item codes and selected currency/material item codes; Lem is intentionally excluded',
     '// Static values: Pul, Um, Mal, Ist, Gul, Vex, Sur, Ber',
-    '// Dynamic values: Ohm, Lo, Jah, Cham, Zod; median rounded to nearest 0.05 HR',
+    '// Dynamic rune values: Ohm, Lo, Jah, Cham, Zod; median rounded to nearest 0.05 HR',
+    '// Dynamic material values: keys, boss materials, and selected utility currency; exact median HR values with WSS converted at 0.01 HR each',
     `// Updated: ${updatedAt}`,
     ...generatedLines,
     END_MARKER,
   ].join('\n');
+}
+
+function escapeRegex(text) {
+  return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function conditionHasDisplayCode(condition, displayCode) {
+  return new RegExp(`(^|[^A-Za-z0-9])${escapeRegex(displayCode)}([^A-Za-z0-9]|$)`).test(condition);
+}
+
+function ensureCurrencyPresentationRulesContinue(filterText) {
+  const eol = filterText.includes('\r\n') ? '\r\n' : '\n';
+  let insideGeneratedBlock = false;
+
+  return filterText
+    .replace(
+      /^ItemDisplay\[std\]: %PX-9D%%NAME%\{%NAME%\}\/\/\{(.+?)\}%CONTINUE%$/m,
+      'ItemDisplay[std]: %PX-9D%%NAME%{%NAME%%CL%$1}%CONTINUE%'
+    )
+    .split(/\r?\n/)
+    .map((line) => {
+      if (line === START_MARKER) {
+        insideGeneratedBlock = true;
+        return line;
+      }
+
+      if (line === END_MARKER) {
+        insideGeneratedBlock = false;
+        return line;
+      }
+
+      if (insideGeneratedBlock || line.includes('%CONTINUE%')) {
+        return line;
+      }
+
+      const match = line.match(/^ItemDisplay\[([^\]]+)\]:(.*)$/);
+
+      if (!match) {
+        return line;
+      }
+
+      const [, condition] = match;
+      const shouldContinue = currencyDisplayCodes.some((displayCode) => conditionHasDisplayCode(condition, displayCode));
+
+      return shouldContinue ? `${line}%CONTINUE%` : line;
+    })
+    .join(eol);
+}
+
+function findLastMatch(text, pattern) {
+  const flags = pattern.flags.includes('g') ? pattern.flags : `${pattern.flags}g`;
+  let lastMatch;
+
+  for (const match of text.matchAll(new RegExp(pattern.source, flags))) {
+    lastMatch = match;
+  }
+
+  return lastMatch;
 }
 
 function replaceOrInsertBlock(filterText, block) {
@@ -200,12 +339,14 @@ function replaceOrInsertBlock(filterText, block) {
   const normalizedBlock = block.replace(/\n/g, eol);
   const start = filterText.indexOf(START_MARKER);
   const end = filterText.indexOf(END_MARKER);
+  const valueBlockAnchorPattern = /^\/\/ Craft Infusions$/m;
   const runeTooltipPattern = /^ItemDisplay\[RUNE>0\].*$/m;
+  const insertPattern = (filterText.match(valueBlockAnchorPattern) && valueBlockAnchorPattern) || runeTooltipPattern;
 
   if (start !== -1 && end !== -1 && end > start) {
     const afterEnd = end + END_MARKER.length;
     const withoutExistingBlock = `${filterText.slice(0, start)}${filterText.slice(afterEnd)}`.replace(/\n{3,}/g, `${eol}${eol}`);
-    const match = withoutExistingBlock.match(runeTooltipPattern);
+    const match = findLastMatch(withoutExistingBlock, insertPattern);
 
     if (match && match.index !== undefined) {
       return `${withoutExistingBlock.slice(0, match.index)}${normalizedBlock}${eol}${withoutExistingBlock.slice(match.index)}`;
@@ -214,7 +355,7 @@ function replaceOrInsertBlock(filterText, block) {
     return `${filterText.slice(0, start)}${normalizedBlock}${filterText.slice(afterEnd)}`;
   }
 
-  const match = filterText.match(runeTooltipPattern);
+  const match = findLastMatch(filterText, insertPattern);
 
   if (match && match.index !== undefined) {
     const insertAt = match.index;
@@ -231,7 +372,7 @@ for (const [, windowHours] of valueWindows) {
 }
 
 const block = buildBlock(priceByWindow);
-const currentFilter = await readFile(filterFile, 'utf8');
+const currentFilter = ensureCurrencyPresentationRulesContinue(await readFile(filterFile, 'utf8'));
 const nextFilter = replaceOrInsertBlock(currentFilter, block);
 
 if (nextFilter === currentFilter) {
