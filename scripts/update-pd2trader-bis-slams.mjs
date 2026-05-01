@@ -90,6 +90,10 @@ const manualSafeItems = [
   { name: 'Skyfall', base_code: 'obe', quality: 'UNI' },
 ];
 
+const manualPreferredSlamCodes = [
+  { name: 'Dwarf Star', base_code: 'rin', quality: 'UNI', codes: ['damageresist'] },
+];
+
 const manualAmbiguousIdentities = [
   { name: 'Lightsabre', base_code: '7cr', quality: 'UNI', filter_condition: 'MULTI151,110=6' },
   { name: 'Azurewrath', base_code: '7cr', quality: 'UNI', filter_condition: '!(MULTI151,110=6)' },
@@ -124,11 +128,11 @@ const manualAmbiguousIdentities = [
   { name: "Bannerlord's Call", base_code: 'cqv3', quality: 'UNI', filter_condition: 'FCR>19' },
   { name: 'Frozen Sorrow', base_code: 'cqv3', quality: 'UNI', filter_condition: 'MULTI126,4=3' },
   { name: 'Nagelring', base_code: 'rin', quality: 'UNI', filter_condition: 'STAT35=3' },
-  { name: 'Manald Heal', base_code: 'rin', quality: 'UNI', filter_condition: 'LIFE>19' },
+  { name: 'Manald Heal', base_code: 'rin', quality: 'UNI', filter_condition: 'LIFE=20' },
   { name: 'The Stone of Jordan', base_code: 'rin', quality: 'UNI', filter_condition: '(STAT23=1 STAT24=120)' },
   { name: 'Constricting Loop', base_code: 'rin', quality: 'UNI', filter_condition: 'FCR>19' },
-  { name: "Bul-Kathos' Wedding Band", base_code: 'rin', quality: 'UNI', filter_condition: 'STAT11>49' },
-  { name: 'Dwarf Star', base_code: 'rin', quality: 'UNI', filter_condition: 'STAT20=5' },
+  { name: "Bul-Kathos' Wedding Band", base_code: 'rin', quality: 'UNI', filter_condition: '(STAT11=50 !STAT20=5)' },
+  { name: 'Dwarf Star', base_code: 'rin', quality: 'UNI', filter_condition: '(STAT20=5 STAT35>11)' },
   { name: 'Raven Frost', base_code: 'rin', quality: 'UNI', filter_condition: 'STAT153>0' },
   { name: "Nature's Peace", base_code: 'rin', quality: 'UNI', filter_condition: 'STAT117>0' },
   { name: 'Wisp Projector', base_code: 'rin', quality: 'UNI', filter_condition: 'MULTI204,15106>0' },
@@ -141,6 +145,10 @@ const manualAmbiguousIdentities = [
 
 const manualAmbiguousIdentityByKey = new Map(
   manualAmbiguousIdentities.map((item) => [`${item.quality}:${item.base_code}:${item.name}`, item.filter_condition]),
+);
+
+const manualPreferredSlamCodesByKey = new Map(
+  manualPreferredSlamCodes.map((item) => [`${item.quality}:${item.base_code}:${item.name}`, item.codes]),
 );
 
 function isExcludedFromSlamNotes(item) {
@@ -681,7 +689,7 @@ async function fetchMarketListings(item) {
   return listings;
 }
 
-function getBestCorruptionFromListings(listings) {
+function getBestCorruptionFromListings(item, listings) {
   const groups = new Map();
 
   for (const listing of listings) {
@@ -693,6 +701,7 @@ function getBestCorruptionFromListings(listings) {
     }
 
     const group = groups.get(key) || {
+      key,
       name: displayNameFromListing(listing),
       prices: [],
     };
@@ -703,6 +712,7 @@ function getBestCorruptionFromListings(listings) {
 
   const candidates = [...groups.values()]
     .map((group) => ({
+      key: group.key,
       name: group.name,
       medianPrice: median(group.prices),
       averagePrice: average(group.prices),
@@ -713,6 +723,12 @@ function getBestCorruptionFromListings(listings) {
     .filter((candidate) => Number.isFinite(candidate.medianPrice))
     .filter((candidate) => candidate.sampleCount >= minSampleCount)
     .filter((candidate) => candidate.medianPrice >= minMedianPrice);
+
+  const preferredCodes = manualPreferredSlamCodesByKey.get(`${item.quality}:${item.base_code}:${item.name}`);
+  if (preferredCodes) {
+    const preferredKey = corruptionKey(normalizeSlamCodes(preferredCodes));
+    return candidates.find((candidate) => candidate.key === preferredKey) || null;
+  }
 
   return candidates.sort((a, b) => b.medianPrice - a.medianPrice || b.sampleCount - a.sampleCount)[0] || null;
 }
@@ -758,7 +774,7 @@ function getBestSlamCandidateFromListings(item, listings) {
     return getAmuletComboCandidatesFromListings(listings)[0] || null;
   }
 
-  return getBestCorruptionFromListings(listings);
+  return getBestCorruptionFromListings(item, listings);
 }
 
 function getSafeItems(uniqueItems, setItems) {
