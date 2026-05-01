@@ -266,11 +266,11 @@ Alias[ENPHBASTARD]: ((bsw) UNI !ID)
 // Enpherno Bastard meme drop alias
 
 // 0 = no star display tier
-Alias[NSUNI1]: ((6hx OR 72a OR 7b8 OR 7bk OR 7bt OR 7gs OR 7sp OR 7sr OR 7st OR 7vo OR 7wa OR 9gm OR 9gw OR 9kr OR 9s8 OR 9wc OR ama OR amc OR gix) UNI !ETH !ID)
+Alias[NSUNI1]: ((6hx OR 72a OR 7b8 OR 7bk OR 7bt OR 7gs OR 7sp OR 7sr OR 7st OR 7vo OR 9gm OR 9gw OR 9kr OR 9s8 OR 9wc OR ama OR amc OR gix) UNI !ETH !ID)
 Alias[NSUNI2]: ((hbt OR ltp OR mbt OR obd OR ulb OR umb OR ung OR upk OR urg OR ush OR uvb OR xar OR xhm OR xth OR xtp OR xul OR zvb) UNI !ETH !ID)
 Alias[NSUNIETH1]: ((7gs OR 7sp OR 9gw OR 9kr OR 9ls OR 9wc OR aar OR ltp OR mbt OR obd OR obe OR ulb OR ulm OR umb OR ung OR upk) UNI ETH !ID)
 Alias[NSUNIETH2]: ((urg OR ush OR uvb OR vbl OR xar OR xhg OR xhm OR xlg OR xmg OR xow OR xtg OR xth OR xtp OR xul OR xvg OR zvb) UNI ETH !ID)
-Alias[NSSET1]: ((7m7 OR 7qr OR 7ws OR uar OR uh9 OR uth OR xh9 OR xhm) SET !ETH !ID)
+Alias[NSSET1]: ((7m7 OR 7qr OR uar OR uh9 OR uth OR xh9 OR xhm) SET !ETH !ID)
 Alias[NSSETETH1]: ((7m7 OR 7qr OR 7ws OR uar OR uh9 OR uth OR xh9 OR xhm OR xul) SET ETH !ID)
 Alias[NOSTARUNIQUE]: (NSUNI1 OR NSUNI2)
 Alias[NOSTARUNIQUEETH]: (NSUNIETH1 OR NSUNIETH2)
@@ -279,13 +279,13 @@ Alias[NOSTARSETETH]: (NSSETETH1)
 
 // 1 = one star display tier
 Alias[OSUNI1]: ((6bs OR 6cs OR 6lw OR 6sw OR 7b7 OR 7bl OR 7bw OR 7cr OR 7ga OR 7gd OR 7gi OR 7gm OR 7ls OR 7lw OR 7m7 OR 7p7 OR 7pa OR 7qs OR 7s8) UNI !ETH !ID)
-Alias[OSUNI2]: ((7sc OR 7ts OR 7wb OR 7wc OR 7ws OR 7xf OR 7yw OR 8cb OR 8hx OR 8mx OR 8rx OR 8ws OR 9bw OR 9ls OR 9m9 OR aar OR amb OR amd OR amf) UNI !ETH !ID)
+Alias[OSUNI2]: ((7sc OR 7ts OR 7wa OR 7wb OR 7wc OR 7ws OR 7xf OR 7yw OR 8cb OR 8hx OR 8mx OR 8rx OR 8ws OR 9bw OR 9ls OR 9m9 OR aar OR amb OR amd OR amf) UNI !ETH !ID)
 Alias[OSUNI3]: ((aqv2 OR aqv3 OR bae OR baf OR cqv2 OR dr6 OR dra OR drb OR drc OR drf OR ned OR nef OR mau OR obc OR obe OR pab OR pae OR tgl OR uhl OR uit) UNI !ETH !ID)
-Alias[OSUNI4]: ((uld OR ulm OR uow OR utp OR utu OR uvc OR vbl OR xea OR xhg OR xlg OR xmg OR xow OR xpl OR xsh OR xtg OR xvg OR zhb) UNI !ETH !ID)
+Alias[OSUNI4]: ((uld OR ulm OR umc OR uow OR utp OR utu OR uvc OR vbl OR xea OR xhg OR xlg OR xmg OR xow OR xpl OR xsh OR xtg OR xvg OR zhb) UNI !ETH !ID)
 Alias[OSUNIETH1]: ((6bs OR 6cs OR 72a OR 7bl OR 7bt OR 7bw OR 7cr OR 7ls OR 7lw OR 7qs OR 7wb OR 7ws OR 7xf OR 7yw OR 8ws OR 9bw OR bae OR baf) UNI ETH !ID)
 Alias[OSUNIETH2]: ((ci2 OR dr6 OR dra OR drb OR drc OR drd OR dre OR drf OR hbt OR ned OR nee OR nef OR obc OR obe OR pab OR pac OR pae OR paf) UNI ETH !ID)
-Alias[OSUNIETH3]: ((tgl OR uap OR uit OR ulc OR uld OR uow OR upl OR uts OR utu OR uui OR uvc OR xea OR xmb OR xpl OR xsh OR xvb OR zhb OR ztb) UNI ETH !ID)
-Alias[OSSET1]: (((dr8 OR lbt OR ne9 OR ucl OR utc OR xar OR xmg OR xul) SET !ETH !ID) OR ((rin OR amu) SET !ID))
+Alias[OSUNIETH3]: ((tgl OR uap OR uit OR ulc OR uld OR umc OR uow OR upl OR uts OR utu OR uui OR uvc OR xea OR xmb OR xpl OR xsh OR xvb OR zhb OR ztb) UNI ETH !ID)
+Alias[OSSET1]: (((7ws OR dr8 OR lbt OR ne9 OR ucl OR utc OR xar OR xmg OR xul) SET !ETH !ID) OR ((rin OR amu) SET !ID))
 Alias[OSSETETH1]: ((dr8 OR lbt OR ne9 OR ucl OR xar OR xmg) SET ETH !ID)
 Alias[ONESTARUNIQUE]: (OSUNI1 OR OSUNI2 OR OSUNI3 OR OSUNI4)
 Alias[ONESTARUNIQUEETH]: (OSUNIETH1 OR OSUNIETH2 OR OSUNIETH3)
@@ -306,10 +306,10 @@ Alias[THREESTARSETETH]: (TSSETETH1)
 
 
 // 3 = three star pickup display tier
-Alias[TPUNI1]: ((6ws OR ci2 OR ci3 OR uar OR umc OR uhm OR ulc OR upl OR urn) UNI !ETH !ID)
+Alias[TPUNI1]: ((6ws OR ci2 OR ci3 OR uar OR uhm OR ulc OR upl OR urn) UNI !ETH !ID)
 Alias[TPUNI2]: ((rin OR amu) UNI !ID)
 Alias[TPUNIETH1]: ((6ws OR 7b7 OR 7ga OR 7gd OR 7gi OR 7gm OR 7p7 OR 7pa OR 7s8 OR 7wc) UNI ETH !ID)
-Alias[TPUNIETH2]: ((7wh OR 9m9 OR amd OR amf OR uar OR uhb OR umc OR uhm OR urn OR utp OR uul) UNI ETH !ID)
+Alias[TPUNIETH2]: ((7wh OR 9m9 OR amd OR amf OR uar OR uhb OR uhm OR urn OR utp OR uul) UNI ETH !ID)
 Alias[TPSET1]: (CLVL>999)
 Alias[TPSETETH1]: (CLVL>999)
 Alias[THREESTARPICKUPUNIQUE]: (TPUNI1 OR TPUNI2)
@@ -5644,14 +5644,14 @@ ItemDisplay[uba]: %MAP-0A%%PX-62%%GRAY%*%RED%* %NAME% %RED%*%GRAY%*{%TAN%Note%WH
 
 // Project Diablo 2 maps
 ItemDisplay[MAPTIER>0 NMAG]: %WHITE%%NAME%%CONTINUE%
-ItemDisplay[MAPTIER=1]: %GRAY%[%DARK_GREEN%T1%GRAY%] %NAME% %DARK_GREEN%*%CONTINUE%
+ItemDisplay[MAPTIER=1 OR t51]: %GRAY%[%DARK_GREEN%T1%GRAY%] %NAME% %DARK_GREEN%*%CONTINUE%
 ItemDisplay[MAPTIER=2 OR t53]: %GRAY%[%TAN%T2%GRAY%] %NAME% %TAN%*%CONTINUE%
-ItemDisplay[MAPTIER=3 OR (MAPTIER=5 !t53)]: %GRAY%[%ORANGE%T3%GRAY%] %NAME% %ORANGE%*%CONTINUE%
+ItemDisplay[MAPTIER=3 OR (MAPTIER=5 !t53 !t51)]: %GRAY%[%ORANGE%T3%GRAY%] %NAME% %ORANGE%*%CONTINUE%
 ItemDisplay[MAPTIER=4]: %GRAY%[%RED%D%GRAY%] %NAME% %RED%*%CONTINUE%
 ItemDisplay[MAPTIER>0 (!ID OR NMAG) !UNI]: %MAP-7F%%NAME%%CONTINUE%
 ItemDisplay[MAPTIER>0 !ID UNI]: %MAP-7F%%DOT-68%%RED%*%GREEN%*%YELLOW%*          %NAME%          %YELLOW%*%GREEN%*%RED%*%CONTINUE%
-ItemDisplay[MAPTIER~1-3]: %NAME%{%TAN%Note%WHITE%: To Modify Maps visit Anya}%CONTINUE%
-ItemDisplay[MAPTIER=1]: %NAME%{%WHITE%3x%BLUE%M%WHITE%a%YELLOW%p %WHITE%Tier: %DARK_GREEN%1 %WHITE%= Random Tier: %DARK_GREEN%1 %WHITE%Map%CL%%NAME%}%CONTINUE%
+ItemDisplay[MAPTIER~1-3 OR t51]: %NAME%{%TAN%Note%WHITE%: To Modify Maps visit Anya}%CONTINUE%
+ItemDisplay[MAPTIER=1 OR t51]: %NAME%{%WHITE%3x%BLUE%M%WHITE%a%YELLOW%p %WHITE%Tier: %DARK_GREEN%1 %WHITE%= Random Tier: %DARK_GREEN%1 %WHITE%Map%CL%%NAME%}%CONTINUE%
 ItemDisplay[MAPTIER=2]: %NAME%{%WHITE%3x%BLUE%M%WHITE%a%YELLOW%p %WHITE%Tier: %TAN%2 %WHITE%= Random Tier: %TAN%2 %WHITE%Map%CL%%NAME%}%CONTINUE%
 ItemDisplay[MAPTIER=3]: %NAME%{%WHITE%3x%BLUE%M%WHITE%a%YELLOW%p %WHITE%Tier: %ORANGE%3 %WHITE%= Random Tier: %ORANGE%3 %WHITE%Map%CL%%NAME%}%CONTINUE%
 ItemDisplay[MAPTIER=4]: %NAME%{%WHITE%3x%BLUE%M%WHITE%a%YELLOW%p %WHITE%Tier: %RED%4 %WHITE%= Random Tier: %RED%4 %WHITE%Map%CL%%NAME%}%CONTINUE%
