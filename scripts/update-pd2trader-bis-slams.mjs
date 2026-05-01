@@ -25,6 +25,7 @@ const maxResistancePairCodes = new Map([
   ['maxpoisonresist', 'poisonresist'],
 ]);
 const corruptionDisplayNames = new Map([
+  ['all_attributes', 'All Attr'],
   ['all_resist', 'All Res'],
   ['coldresist', 'C Res'],
   ['curse_resistance', 'Curse Res'],
@@ -88,6 +89,59 @@ const manualSafeItems = [
   { name: 'Giant Maimer', base_code: '7vo', quality: 'UNI' },
   { name: 'Skyfall', base_code: 'obe', quality: 'UNI' },
 ];
+
+const manualAmbiguousIdentities = [
+  { name: 'Lightsabre', base_code: '7cr', quality: 'UNI', filter_condition: 'MULTI151,110=6' },
+  { name: 'Azurewrath', base_code: '7cr', quality: 'UNI', filter_condition: '!(MULTI151,110=6)' },
+  { name: "Horizon's Tornado", base_code: '7fl', quality: 'UNI', filter_condition: 'MULTI200,15388=15' },
+  { name: 'Stormlash', base_code: '7fl', quality: 'UNI', filter_condition: 'MULTI198,2713=20' },
+  { name: 'The Cranium Basher', base_code: '7gm', quality: 'UNI', filter_condition: 'MULTI198,4257=8' },
+  { name: 'Earth Shifter', base_code: '7gm', quality: 'UNI', filter_condition: 'MULTI198,15004=25' },
+  { name: "Heaven's Light", base_code: '7sc', quality: 'UNI', filter_condition: 'STAT136>32' },
+  { name: 'The Redeemer', base_code: '7sc', quality: 'UNI', filter_condition: 'STAT116>30' },
+  { name: "Schaefer's Hammer", base_code: '7wh', quality: 'UNI', filter_condition: 'MULTI198,2713=20' },
+  { name: 'Stone Crusher', base_code: '7wh', quality: 'UNI', filter_condition: 'STAT116>20' },
+  { name: 'Nokozan Relic', base_code: 'amu', quality: 'UNI', filter_condition: 'STAT89>2' },
+  { name: 'The Eye of Etlich', base_code: 'amu', quality: 'UNI', filter_condition: '(STAT32>9 STAT32<100)' },
+  { name: 'The Mahim-Oak Curio', base_code: 'amu', quality: 'UNI', filter_condition: '(STAT31>4 STAT31<11)' },
+  { name: "The Cat's Eye", base_code: 'amu', quality: 'UNI', filter_condition: 'STAT32>99' },
+  { name: 'The Rising Sun', base_code: 'amu', quality: 'UNI', filter_condition: 'MULTI201,3607=4' },
+  { name: 'Crescent Moon', base_code: 'amu', quality: 'UNI', filter_condition: 'MANA>44' },
+  { name: "Mara's Kaleidoscope", base_code: 'amu', quality: 'UNI', filter_condition: '(STAT127>1 !STAT121>49)' },
+  { name: "Atma's Scarab", base_code: 'amu', quality: 'UNI', filter_condition: 'MULTI198,4239=8' },
+  { name: "Highlord's Wrath", base_code: 'amu', quality: 'UNI', filter_condition: 'IAS>19' },
+  { name: "Saracen's Chance", base_code: 'amu', quality: 'UNI', filter_condition: 'MULTI201,4876=10' },
+  { name: "Seraph's Hymn", base_code: 'amu', quality: 'UNI', filter_condition: 'STAT121>49' },
+  { name: 'Metalgrid', base_code: 'amu', quality: 'UNI', filter_condition: 'SK90>24' },
+  { name: 'Swiftwind Needle', base_code: 'aqv2', quality: 'UNI', filter_condition: 'CRES>49' },
+  { name: 'Tombsong', base_code: 'aqv2', quality: 'UNI', filter_condition: '!(CRES>49)' },
+  { name: 'Aetherwing', base_code: 'aqv3', quality: 'UNI', filter_condition: 'MULTI201,2728=35' },
+  { name: "Basilisk's Quill", base_code: 'aqv3', quality: 'UNI', filter_condition: 'CLSK0=2' },
+  { name: "Doom's Finger", base_code: 'aqv3', quality: 'UNI', filter_condition: 'TABSK1=2' },
+  { name: 'Anvilguard Strap', base_code: 'cqv2', quality: 'UNI', filter_condition: 'MULTI201,4255=10' },
+  { name: 'Shatterhead', base_code: 'cqv2', quality: 'UNI', filter_condition: 'TABSK0=2' },
+  { name: 'Abyssal Ward', base_code: 'cqv3', quality: 'UNI', filter_condition: 'IAS<0' },
+  { name: "Bannerlord's Call", base_code: 'cqv3', quality: 'UNI', filter_condition: 'FCR>19' },
+  { name: 'Frozen Sorrow', base_code: 'cqv3', quality: 'UNI', filter_condition: 'MULTI126,4=3' },
+  { name: 'Nagelring', base_code: 'rin', quality: 'UNI', filter_condition: 'STAT35=3' },
+  { name: 'Manald Heal', base_code: 'rin', quality: 'UNI', filter_condition: 'LIFE>19' },
+  { name: 'The Stone of Jordan', base_code: 'rin', quality: 'UNI', filter_condition: '(STAT23=1 STAT24=120)' },
+  { name: 'Constricting Loop', base_code: 'rin', quality: 'UNI', filter_condition: 'FCR>19' },
+  { name: "Bul-Kathos' Wedding Band", base_code: 'rin', quality: 'UNI', filter_condition: 'STAT11>49' },
+  { name: 'Dwarf Star', base_code: 'rin', quality: 'UNI', filter_condition: 'STAT20=5' },
+  { name: 'Raven Frost', base_code: 'rin', quality: 'UNI', filter_condition: 'STAT153>0' },
+  { name: "Nature's Peace", base_code: 'rin', quality: 'UNI', filter_condition: 'STAT117>0' },
+  { name: 'Wisp Projector', base_code: 'rin', quality: 'UNI', filter_condition: 'MULTI204,15106>0' },
+  { name: 'Carrion Wind', base_code: 'rin', quality: 'UNI', filter_condition: 'MULTI198,15390=8' },
+  { name: "Tyrael's Might", base_code: 'uar', quality: 'UNI', filter_condition: 'FRW>44' },
+  { name: "Templar's Might", base_code: 'uar', quality: 'UNI', filter_condition: 'FHR>19' },
+  { name: 'Veil of Steel', base_code: 'uhm', quality: 'UNI', filter_condition: 'STAT31=140' },
+  { name: "Nightwing's Veil", base_code: 'uhm', quality: 'UNI', filter_condition: 'STAT118>0' },
+];
+
+const manualAmbiguousIdentityByKey = new Map(
+  manualAmbiguousIdentities.map((item) => [`${item.quality}:${item.base_code}:${item.name}`, item.filter_condition]),
+);
 
 function isExcludedFromSlamNotes(item) {
   return item.quality === 'UNI' && excludedUniqueSlamBaseCodes.has(String(item.base_code).toLowerCase());
@@ -279,16 +333,22 @@ function normalizePriceValue(value) {
   }
 
   const normalized = value.trim().toLowerCase();
-  const wssMatch = normalized.match(/^(\d+(?:\.\d+)?)\s*wss\b/);
+  const wssMatch = normalized.match(/\b(\d+(?:\.\d+)?)\s*wss\b/);
 
   if (wssMatch) {
     return Number(wssMatch[1]) * 0.01;
   }
 
-  const hrMatch = normalized.match(/^(\d+(?:\.\d+)?)\s*hr\b/);
+  const hrMatch = normalized.match(/\b(\d+(?:\.\d+)?)\s*hr\b/);
 
   if (hrMatch) {
     return Number(hrMatch[1]);
+  }
+
+  const leadingNumberMatch = normalized.match(/^(\d+(?:\.\d+)?)(?:\s|\/|$)/);
+
+  if (leadingNumberMatch) {
+    return Number(leadingNumberMatch[1]);
   }
 
   const numericMatch = normalized.match(/^(\d+(?:\.\d+)?)$/);
@@ -394,6 +454,195 @@ function displayNameFromListing(listing) {
   return displayNameFromCorruptionCodes(normalizedCorruptionCodes(listing));
 }
 
+const metaModifierNames = new Set(['corrupted', 'desecrated', 'desecrator']);
+const ignoredDesecrationModifierNames = new Set([
+  'item_attackertakesdamage',
+  'item_attackertakeslightdamage',
+  'item_lightradius',
+]);
+const modifierNameAliases = new Map([
+  ['dmg%', 'maxdamage_percent'],
+  ['item_mindamage_percent', 'maxdamage_percent'],
+  ['healafterhit', 'item_healafterhit'],
+]);
+const sameStatCorruptionIncrease = new Map([
+  ['item_allskills', 1],
+  ['item_fastercastrate', 10],
+  ['item_fastergethitrate', 10],
+  ['item_fastermovevelocity', 10],
+  ['item_fasterattackrate', 20],
+  ['item_cannotbefrozen', 1],
+]);
+
+function normalizedModifierCode(name) {
+  return modifierNameAliases.get(name) || name;
+}
+
+function isAmulet(item) {
+  return item.base_code === 'amu';
+}
+
+function normalizeSlamCodes(codes) {
+  let normalized = [...new Set(codes.map((code) => normalizedModifierCode(code)).filter(Boolean))];
+
+  if ([...resistanceCodes].every((code) => normalized.includes(code))) {
+    normalized = ['all_resist', ...normalized.filter((code) => !resistanceCodes.has(code))];
+  }
+
+  if (normalized.includes('all_resist')) {
+    normalized = normalized.filter((code) => code !== 'coldresist' && code !== 'fireresist' && code !== 'lightresist' && code !== 'poisonresist');
+  }
+
+  if ([...maxResistanceCodes].every((code) => normalized.includes(code))) {
+    normalized = ['max_all_resist', ...normalized.filter((code) => !maxResistanceCodes.has(code))];
+  }
+
+  return normalized.sort();
+}
+
+function normalizeDesecrationCodes(codes, corruptionCodes) {
+  let normalized = normalizeSlamCodes(codes);
+  const regularResCodes = [...resistanceCodes];
+  const combinedResCodes = new Set([
+    ...normalized.filter((code) => resistanceCodes.has(code)),
+    ...normalizeSlamCodes(corruptionCodes).filter((code) => resistanceCodes.has(code)),
+  ]);
+
+  if (regularResCodes.every((code) => combinedResCodes.has(code)) && normalized.some((code) => resistanceCodes.has(code))) {
+    normalized = ['all_resist', ...normalized.filter((code) => !resistanceCodes.has(code))];
+  }
+
+  return normalized.sort();
+}
+
+function isDesecrationEligibleCode(code) {
+  return code === 'all_attributes' || corruptionDisplayNames.has(code);
+}
+
+function primaryModifierValue(modifier) {
+  const values = Array.isArray(modifier.values) ? modifier.values : [];
+  const numericValue = values.map(Number).find((value) => Number.isFinite(value));
+  return Number.isFinite(numericValue) ? numericValue : undefined;
+}
+
+function buildNativeModifierBaseline(listings) {
+  const baseline = new Map();
+
+  for (const listing of listings) {
+    if (listing.item?.desecrated) {
+      continue;
+    }
+
+    for (const modifier of listing.item?.modifiers || []) {
+      const code = normalizedModifierCode(modifier.name);
+
+      if (modifier.corrupted || metaModifierNames.has(modifier.name) || ignoredDesecrationModifierNames.has(modifier.name) || !isDesecrationEligibleCode(code)) {
+        continue;
+      }
+
+      const value = primaryModifierValue(modifier);
+
+      if (!Number.isFinite(value)) {
+        continue;
+      }
+
+      const current = baseline.get(code) || { maxValue: -Infinity };
+      current.maxValue = Math.max(current.maxValue, value);
+      baseline.set(code, current);
+    }
+  }
+
+  return baseline;
+}
+
+function modifierCodesCoveredByCorruption(corruptionCodes) {
+  const covered = new Set();
+  const normalizedCodes = normalizeSlamCodes(corruptionCodes);
+
+  for (const code of normalizedCodes) {
+    covered.add(code);
+
+    if (code === 'maxdamage_percent') {
+      covered.add('dmg%');
+      covered.add('item_mindamage_percent');
+    }
+
+    if (code === 'max_all_resist') {
+      for (const maxResCode of maxResistanceCodes) {
+        covered.add(maxResCode);
+      }
+    }
+  }
+
+  if (['dexterity', 'energy', 'strength', 'vitality'].every((code) => normalizedCodes.includes(code))) {
+    covered.add('all_attributes');
+  }
+
+  return covered;
+}
+
+function modifierNativeMax(modifier, baseline, code) {
+  const baselineEntry = baseline.get(code);
+
+  if (baselineEntry && Number.isFinite(baselineEntry.maxValue)) {
+    return baselineEntry.maxValue;
+  }
+
+  const modifierMax = Number(modifier.max);
+  return Number.isFinite(modifierMax) ? modifierMax : undefined;
+}
+
+function inferDesecrationCodesFromListing(listing, baseline) {
+  const item = listing.item || {};
+
+  if (!item.desecrated) {
+    return [];
+  }
+
+  const corruptionCodes = normalizedCorruptionCodes(listing);
+  const coveredByCorruption = modifierCodesCoveredByCorruption(corruptionCodes);
+  const inferred = [];
+
+  for (const modifier of item.modifiers || []) {
+    const code = normalizedModifierCode(modifier.name);
+
+    if (metaModifierNames.has(modifier.name) || ignoredDesecrationModifierNames.has(modifier.name) || !isDesecrationEligibleCode(code)) {
+      continue;
+    }
+
+    const value = primaryModifierValue(modifier);
+    const nativeMax = modifierNativeMax(modifier, baseline, code);
+
+    if (coveredByCorruption.has(code)) {
+      const expectedCorruptionIncrease = sameStatCorruptionIncrease.get(code);
+
+      if (Number.isFinite(value) && Number.isFinite(nativeMax) && Number.isFinite(expectedCorruptionIncrease) && value > nativeMax + expectedCorruptionIncrease) {
+        inferred.push(code);
+      }
+
+      continue;
+    }
+
+    if (modifier.corrupted) {
+      continue;
+    }
+
+    if (!Number.isFinite(nativeMax) || !Number.isFinite(value) || value > nativeMax) {
+      inferred.push(code);
+    }
+  }
+
+  return normalizeDesecrationCodes(inferred, corruptionCodes);
+}
+
+function amuletComboKey(corruptionCodes, desecrationCodes) {
+  return `${corruptionKey(corruptionCodes)}+${corruptionKey(desecrationCodes)}`;
+}
+
+function amuletComboName(corruptionCodes, desecrationCodes) {
+  return `${displayNameFromCorruptionCodes(corruptionCodes)} + ${displayNameFromCorruptionCodes(desecrationCodes)}`;
+}
+
 async function fetchMarketListings(item) {
   const listings = [];
   let skip = 0;
@@ -468,11 +717,60 @@ function getBestCorruptionFromListings(listings) {
   return candidates.sort((a, b) => b.medianPrice - a.medianPrice || b.sampleCount - a.sampleCount)[0] || null;
 }
 
+function getAmuletComboCandidatesFromListings(listings) {
+  const groups = new Map();
+  const nativeBaseline = buildNativeModifierBaseline(listings);
+
+  for (const listing of listings) {
+    const price = priceFromListing(listing);
+    const corruptionCodes = normalizedCorruptionCodes(listing);
+    const desecrationCodes = inferDesecrationCodesFromListing(listing, nativeBaseline);
+
+    if (!listing.item?.desecrated || corruptionCodes.length === 0 || desecrationCodes.length === 0 || !Number.isFinite(price) || price <= 0) {
+      continue;
+    }
+
+    const key = amuletComboKey(corruptionCodes, desecrationCodes);
+    const group = groups.get(key) || {
+      name: amuletComboName(corruptionCodes, desecrationCodes),
+      prices: [],
+    };
+
+    group.prices.push(price);
+    groups.set(key, group);
+  }
+
+  return [...groups.values()]
+    .map((group) => ({
+      name: group.name,
+      medianPrice: median(group.prices),
+      averagePrice: average(group.prices),
+      lowPrice: Math.min(...group.prices),
+      highPrice: Math.max(...group.prices),
+      sampleCount: group.prices.length,
+    }))
+    .filter((candidate) => Number.isFinite(candidate.medianPrice))
+    .sort((a, b) => b.medianPrice - a.medianPrice || b.sampleCount - a.sampleCount);
+}
+
+function getBestSlamCandidateFromListings(item, listings) {
+  if (isAmulet(item)) {
+    return getAmuletComboCandidatesFromListings(listings)[0] || null;
+  }
+
+  return getBestCorruptionFromListings(listings);
+}
+
 function getSafeItems(uniqueItems, setItems) {
   const rawItems = [
     ...uniqueItems.map((item) => ({ ...item, quality: 'UNI' })),
     ...setItems.map((item) => ({ ...item, quality: 'SET' })),
-  ].filter((item) => item.base_code && item.name && !isExcludedFromSlamNotes(item));
+  ]
+    .map((item) => {
+      const filterCondition = manualAmbiguousIdentityByKey.get(`${item.quality}:${item.base_code}:${item.name}`);
+      return filterCondition ? { ...item, filter_condition: filterCondition } : item;
+    })
+    .filter((item) => item.base_code && item.name && !isExcludedFromSlamNotes(item));
 
   const byFilterKey = new Map();
 
@@ -490,6 +788,8 @@ function getSafeItems(uniqueItems, setItems) {
     const uniqueNames = new Set(items.map((item) => item.name));
     if (items.length === 1 || uniqueNames.size === 1) {
       safeItems.push(items[0]);
+    } else if (items.every((item) => item.filter_condition)) {
+      safeItems.push(...items);
     } else {
       skippedAmbiguous.push({ key, names: items.map((item) => item.name) });
     }
@@ -514,22 +814,32 @@ async function mapWithConcurrency(items, mapper) {
   return results;
 }
 
+function itemFilterCondition(item, extraConditions = []) {
+  return [item.base_code, item.quality, 'ID', 'FILTLVL=8', item.filter_condition, ...extraConditions].filter(Boolean).join(' ');
+}
+
 function lineForBisSlam(item, best) {
-  return `ItemDisplay[${item.base_code} ${item.quality} ID]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%${best.name} %GRAY%[${formatPriceRange(best.lowPrice, best.highPrice)}]}%CONTINUE%`;
+  return `ItemDisplay[${itemFilterCondition(item)}]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%${best.name} %GRAY%[${formatPriceRange(best.lowPrice, best.highPrice)}]}%CONTINUE%`;
 }
 
 function lineForNotWorthSlamming(item) {
-  return `ItemDisplay[${item.base_code} ${item.quality} ID]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%`;
+  return `ItemDisplay[${itemFilterCondition(item)}]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%`;
+}
+
+function pauseAmuletBisLine(item, line) {
+  return isAmulet(item) ? `// ${line}` : line;
 }
 
 function buildBlock(lines, stats) {
   return [
     START_MARKER,
     `// Source: ProjectD2 market listings (${hours}h, ladder=${isLadder}, hardcore=${isHardcore})`,
-    `// Shows abbreviated BIS slam plus low-high HR range when a corruption has priced samples >= ${minSampleCount}; WSS prices are converted at 0.01 HR each`,
+    `// FL8 only: non-amulets show the top corruption with priced samples >= ${minSampleCount}; amulets show the top corruption + desecration combo with no sample minimum`,
+    '// Amulet BIS lines are currently commented out while I tune corruption + desecration handling',
+    '// Value ranges use the true lowest and highest parsed listing prices; WSS prices are converted at 0.01 HR each',
     '// Slam names come from canonical corruption codes so native item stats do not pollute the label',
     '// Items without enough priced corruption samples are marked as not worth slamming',
-    '// Shows even after corruption because rules intentionally do not require STAT360=0',
+    '// Shows even after corruption on FL8 because rules intentionally do not require STAT360=0',
     `// Generated lines: ${stats.generated}; BIS lines: ${stats.bis}; not worth lines: ${stats.notWorth}; ambiguous item-code groups skipped: ${stats.skippedAmbiguous}`,
     ...lines,
     END_MARKER,
@@ -570,7 +880,7 @@ const itemsToCheck = [...safeItems, ...manualSafeItems].filter((item) => !isExcl
 const results = await mapWithConcurrency(itemsToCheck, async (item) => {
   try {
     const listings = await fetchMarketListings(item);
-    const best = getBestCorruptionFromListings(listings);
+    const best = getBestSlamCandidateFromListings(item, listings);
 
     return { item, best };
   } catch (error) {
@@ -582,7 +892,7 @@ const results = await mapWithConcurrency(itemsToCheck, async (item) => {
 const slamLines = results
   .filter(Boolean)
   .sort((a, b) => a.item.quality.localeCompare(b.item.quality) || a.item.base_code.localeCompare(b.item.base_code))
-  .map(({ item, best }) => (best ? lineForBisSlam(item, best) : lineForNotWorthSlamming(item)));
+  .map(({ item, best }) => pauseAmuletBisLine(item, best ? lineForBisSlam(item, best) : lineForNotWorthSlamming(item)));
 
 const block = buildBlock(slamLines, {
   generated: slamLines.length,
