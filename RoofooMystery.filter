@@ -39,8 +39,8 @@ Alias[BASTARD_BIG_RUNES]: (RUNE=30 OR RUNE=31 OR RUNE=32 OR RUNE=33)
 Alias[BASTARD_BER_RUNE]: (RUNE=29)
 Alias[BASTARD_BOSS_ARENA]: (MAPID=137 OR (MAPID>160 MAPID<164))
 Alias[BASTARD_BOSS_UNIQUE]: ((ram OR rar OR rbe OR 7qr OR uhn OR uth OR utc OR utb OR uhl OR 7bs OR 7cr2) BASTARD_BOSS_ARENA)
-Alias[BASTARD_4_STAR_UNIQUE]: (obf OR uar OR uhm OR usk OR urn OR 7wh OR 7ws OR 6bs OR 6ws OR 7gw OR xhb OR uhc OR uul OR 7pa OR drd OR umc OR umg OR xvb)
-Alias[BASTARD_4_STAR_ETH_UNIQUE]: (utp OR amf OR 9gm OR 7p7 OR 7xf OR 9la OR 7s8 OR 7b7 OR 7b8 OR ama OR aar OR xlt OR 7gd OR 7pa OR 8ls OR 7gm OR 7ts OR 9m9)
+Alias[BASTARD_4_STAR_UNIQUE]: ((6ws OR ci2 OR ci3 OR uar OR umc OR uhm OR ulc OR upl OR urn) UNI !ETH !ID)
+Alias[BASTARD_4_STAR_ETH_UNIQUE]: ((6ws OR 7b7 OR 7ga OR 7gd OR 7gi OR 7gm OR 7p7 OR 7pa OR 7s8 OR 7wc OR 7wh OR 9m9 OR amd OR amf OR uar OR uhb OR umc OR uhm OR urn OR utp OR uul) UNI ETH !ID)
 
 // Little Bastard: lower mystery items and runes.
 ItemDisplay[BASTARD_LITTLE_ITEMS BASTARD_OUTSIDE_TOWN]: %DOT-60%%MAP-21%%BORDER-0A%%SOUNDID-4719%%RED%ººººººººº    %PURPLE%L i t t l e  %RED%B a s t a r d    ººººººººº
