@@ -1,7 +1,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 
 const ITEMS_URL = 'https://raw.githubusercontent.com/errolgr/pd2-trade/main/src/assets/items.ts';
-const API_URL = 'https://pd2trader.com/item-prices/corruption-prices';
+const MARKET_API_URL = 'https://api.projectdiablo2.com/market/listing';
 const START_MARKER = '// BEGIN AUTO PD2TRADER BIS SLAMS';
 const END_MARKER = '// END AUTO PD2TRADER BIS SLAMS';
 
@@ -12,10 +12,18 @@ const hours = Number(process.env.PD2TRADER_BIS_HOURS || process.env.PD2TRADER_HO
 const minSampleCount = Number(process.env.PD2TRADER_BIS_MIN_SAMPLES || 2);
 const minMedianPrice = Number(process.env.PD2TRADER_BIS_MIN_MEDIAN || 0);
 const concurrency = Number(process.env.PD2TRADER_BIS_CONCURRENCY || 8);
+const marketPageLimit = Number(process.env.PD2TRADER_BIS_MARKET_PAGE_LIMIT || 200);
+const maxMarketListingsPerItem = Number(process.env.PD2TRADER_BIS_MAX_LISTINGS || 800);
+const excludedUniqueSlamBaseCodes = new Set(['cm1', 'cm2', 'cm3', 'cm1p', 'cm2p', 'cm3p', 'jew']);
 
 const manualSafeItems = [
+  { name: 'Giant Maimer', base_code: '7vo', quality: 'UNI' },
   { name: 'Skyfall', base_code: 'obe', quality: 'UNI' },
 ];
+
+function isExcludedFromSlamNotes(item) {
+  return item.quality === 'UNI' && excludedUniqueSlamBaseCodes.has(String(item.base_code).toLowerCase());
+}
 
 function cleanDisplayText(text) {
   const seen = new Set();
@@ -54,6 +62,10 @@ function cleanCorruptionPart(text) {
     return 'PDR%';
   }
 
+  if (/^Physical Damage Taken Reduced by\s+\d+(?:\.\d+)?%$/i.test(part)) {
+    return 'PDR%';
+  }
+
   const maxResMatch = part.match(/^(?:to\s+)?Maximum\s+(Cold|Fire|Lightning|Poison)\s+Resist(?:ance)?$/i);
   if (maxResMatch) {
     return `Max ${maxResMatch[1]} resistance`;
@@ -82,63 +94,199 @@ async function fetchText(url) {
   return response.text();
 }
 
-async function fetchCorruptionPrices(itemName) {
-  const params = new URLSearchParams({
-    itemName,
-    isLadder: String(isLadder),
-    isHardcore: String(isHardcore),
-    hours: String(hours),
-  });
-
-  const response = await fetch(`${API_URL}?${params}`);
-
-  if (response.status === 404) {
-    return null;
-  }
-
-  if (!response.ok) {
-    throw new Error(`PD2 Trader returned ${response.status} ${response.statusText} for ${itemName}`);
-  }
-
-  return response.json();
+function escapeRegExp(text) {
+  return String(text).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-function getBestCorruption(pricePayload) {
-  const candidates = [];
+function qualityName(item) {
+  return item.quality === 'SET' ? 'Set' : 'Unique';
+}
 
-  for (const corruption of pricePayload?.corruptionPrices || []) {
-    if (Array.isArray(corruption.socketPrices) && corruption.socketPrices.length > 0) {
-      for (const socketPrice of corruption.socketPrices) {
-        candidates.push({
-          name: `${socketPrice.socketCount}os`,
-          medianPrice: Number(socketPrice.medianPrice),
-          averagePrice: Number(socketPrice.averagePrice),
-          sampleCount: Number(socketPrice.sampleCount),
-        });
-      }
+function normalizePriceValue(value) {
+  if (typeof value === 'number') {
+    return value;
+  }
+
+  if (typeof value !== 'string') {
+    return undefined;
+  }
+
+  const normalized = value.trim().toLowerCase();
+  const wssMatch = normalized.match(/^(\d+(?:\.\d+)?)\s*wss\b/);
+
+  if (wssMatch) {
+    return Number(wssMatch[1]) * 0.01;
+  }
+
+  const hrMatch = normalized.match(/^(\d+(?:\.\d+)?)\s*hr\b/);
+
+  if (hrMatch) {
+    return Number(hrMatch[1]);
+  }
+
+  const numericMatch = normalized.match(/^(\d+(?:\.\d+)?)$/);
+  return numericMatch ? Number(numericMatch[1]) : undefined;
+}
+
+function priceFromListing(listing) {
+  const noteValue = normalizePriceValue(listing.price);
+
+  if (Number.isFinite(noteValue)) {
+    return noteValue;
+  }
+
+  const hrValue = normalizePriceValue(listing.hr_price);
+  return Number.isFinite(hrValue) ? hrValue : undefined;
+}
+
+function median(values) {
+  if (values.length === 0) {
+    return undefined;
+  }
+
+  const sorted = [...values].sort((a, b) => a - b);
+  const middle = Math.floor(sorted.length / 2);
+
+  if (sorted.length % 2 === 1) {
+    return sorted[middle];
+  }
+
+  return (sorted[middle - 1] + sorted[middle]) / 2;
+}
+
+function average(values) {
+  if (values.length === 0) {
+    return undefined;
+  }
+
+  return values.reduce((total, value) => total + value, 0) / values.length;
+}
+
+function corruptionKey(parts) {
+  return [...parts].sort().join('|');
+}
+
+function socketKey(socketCount) {
+  return `socket:${socketCount}`;
+}
+
+function listingCorruptionKey(listing) {
+  const item = listing.item || {};
+  const corruptions = Array.isArray(item.corruptions) ? item.corruptions : [];
+
+  if (corruptions.includes('item_numsockets')) {
+    return socketKey(Number(item.socket_count || 0));
+  }
+
+  return corruptions.length > 0 ? corruptionKey(corruptions) : null;
+}
+
+function cleanCorruptionLabel(label) {
+  return cleanCorruptionPart(
+    String(label)
+      .replace(/^[+-]?\d+(?:\.\d+)?%?\s+(?:to\s+)?/i, '')
+      .replace(/^requirements\s+/i, 'Requirements ')
+      .trim(),
+  );
+}
+
+function displayNameFromListing(listing) {
+  const item = listing.item || {};
+  const corruptions = Array.isArray(item.corruptions) ? item.corruptions : [];
+
+  if (corruptions.includes('item_numsockets')) {
+    return `${Number(item.socket_count || 0)}os`;
+  }
+
+  const labels = (Array.isArray(item.modifiers) ? item.modifiers : [])
+    .filter((modifier) => modifier.corrupted)
+    .map((modifier) => cleanCorruptionLabel(modifier.label || modifier.name))
+    .filter(Boolean);
+
+  if (labels.length > 0) {
+    return cleanDisplayText(labels.join(', '));
+  }
+
+  return corruptions.map((corruption) => cleanCorruptionPart(corruption.replace(/^item_/, ''))).join(', ');
+}
+
+async function fetchMarketListings(item) {
+  const listings = [];
+  let skip = 0;
+  let total = 0;
+  const updatedAfter = new Date(Date.now() - hours * 60 * 60 * 1000).toISOString();
+
+  do {
+    const params = new URLSearchParams({
+      type: 'item',
+      '$limit': String(marketPageLimit),
+      '$skip': String(skip),
+      accepted_offer_id: 'null',
+      'updated_at[$gte]': updatedAfter,
+      '$sort[bumped_at]': '-1',
+      is_hardcore: String(isHardcore),
+      is_ladder: String(isLadder),
+      'item.name[$regex]': `^${escapeRegExp(item.name)}$`,
+      'item.name[$options]': 'i',
+      'item.base_code': item.base_code,
+      'item.quality.name': qualityName(item),
+      'item.corrupted': 'true',
+    });
+
+    const response = await fetch(`${MARKET_API_URL}?${params}`);
+
+    if (!response.ok) {
+      throw new Error(`ProjectD2 market returned ${response.status} ${response.statusText} for ${item.name}`);
+    }
+
+    const payload = await response.json();
+    total = Number(payload.total || 0);
+    listings.push(...(Array.isArray(payload.data) ? payload.data : []));
+    skip += marketPageLimit;
+  } while (skip < total && listings.length < maxMarketListingsPerItem);
+
+  return listings;
+}
+
+function getBestCorruptionFromListings(listings) {
+  const groups = new Map();
+
+  for (const listing of listings) {
+    const price = priceFromListing(listing);
+    const key = listingCorruptionKey(listing);
+
+    if (!key || !Number.isFinite(price) || price <= 0) {
       continue;
     }
 
-    candidates.push({
-      name: cleanDisplayText(corruption.corruptionName),
-      medianPrice: Number(corruption.medianPrice),
-      averagePrice: Number(corruption.averagePrice),
-      sampleCount: Number(corruption.sampleCount),
-    });
+    const group = groups.get(key) || {
+      name: displayNameFromListing(listing),
+      prices: [],
+    };
+
+    group.prices.push(price);
+    groups.set(key, group);
   }
 
-  return candidates
+  const candidates = [...groups.values()]
+    .map((group) => ({
+      name: group.name,
+      medianPrice: median(group.prices),
+      averagePrice: average(group.prices),
+      sampleCount: group.prices.length,
+    }))
     .filter((candidate) => Number.isFinite(candidate.medianPrice))
     .filter((candidate) => candidate.sampleCount >= minSampleCount)
-    .filter((candidate) => candidate.medianPrice >= minMedianPrice)
-    .sort((a, b) => b.medianPrice - a.medianPrice || b.sampleCount - a.sampleCount)[0] || null;
+    .filter((candidate) => candidate.medianPrice >= minMedianPrice);
+
+  return candidates.sort((a, b) => b.medianPrice - a.medianPrice || b.sampleCount - a.sampleCount)[0] || null;
 }
 
 function getSafeItems(uniqueItems, setItems) {
   const rawItems = [
     ...uniqueItems.map((item) => ({ ...item, quality: 'UNI' })),
     ...setItems.map((item) => ({ ...item, quality: 'SET' })),
-  ].filter((item) => item.base_code && item.name);
+  ].filter((item) => item.base_code && item.name && !isExcludedFromSlamNotes(item));
 
   const byFilterKey = new Map();
 
@@ -191,8 +339,9 @@ function lineForNotWorthSlamming(item) {
 function buildBlock(lines, stats) {
   return [
     START_MARKER,
-    `// Source: PD2 Trader corruption API (${hours}h, ladder=${isLadder}, hardcore=${isHardcore})`,
-    `// Shows BIS slam when a corruption has samples >= ${minSampleCount}; otherwise marks the item as not worth slamming`,
+    `// Source: ProjectD2 market listings (${hours}h, ladder=${isLadder}, hardcore=${isHardcore})`,
+    `// Shows BIS slam when a corruption has priced samples >= ${minSampleCount}; WSS prices are converted at 0.01 HR each`,
+    '// Items without enough priced corruption samples are marked as not worth slamming',
     '// Shows even after corruption because rules intentionally do not require STAT360=0',
     `// Generated lines: ${stats.generated}; BIS lines: ${stats.bis}; not worth lines: ${stats.notWorth}; ambiguous item-code groups skipped: ${stats.skippedAmbiguous}`,
     ...lines,
@@ -229,12 +378,12 @@ function replaceOrInsertBlock(filterText, block) {
 const source = await fetchText(ITEMS_URL);
 const { uniqueItems, setItems } = parsePd2TraderItems(source);
 const { safeItems, skippedAmbiguous } = getSafeItems(uniqueItems, setItems);
-const itemsToCheck = [...safeItems, ...manualSafeItems];
+const itemsToCheck = [...safeItems, ...manualSafeItems].filter((item) => !isExcludedFromSlamNotes(item));
 
 const results = await mapWithConcurrency(itemsToCheck, async (item) => {
   try {
-    const payload = await fetchCorruptionPrices(item.name);
-    const best = getBestCorruption(payload);
+    const listings = await fetchMarketListings(item);
+    const best = getBestCorruptionFromListings(listings);
 
     return { item, best };
   } catch (error) {
