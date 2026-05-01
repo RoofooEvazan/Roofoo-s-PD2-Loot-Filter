@@ -32,29 +32,29 @@ ItemDisplay[box FILTLVL=8]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Setting
 // ===============================
 // Outside town, these selected drops show a mystery name and custom sound instead of their real identity.
 Alias[BASTARD_OUTSIDE_TOWN]: (!(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109))
-Alias[BASTARD_LITTLE_ITEMS]: (lbox)
+Alias[BASTARD_LITTLE_ITEMS]: (lbox OR rkey)
 Alias[BASTARD_LITTLE_RUNES]: (RUNE=26 OR RUNE=27 OR RUNE=28)
-Alias[BASTARD_BIG_ITEMS]: (lsvl OR llmr OR rkey OR rtp OR rid)
-Alias[BASTARD_BIG_RUNES]: (RUNE=30 OR RUNE=31 OR RUNE=32 OR RUNE=33)
-Alias[BASTARD_BER_RUNE]: (RUNE=29)
+Alias[BASTARD_REALLY_BIG_ITEMS]: (lsvl OR llmr OR rtp OR rid)
+Alias[BASTARD_REALLY_BIG_RUNES]: (RUNE=29 OR RUNE=30 OR RUNE=31 OR RUNE=32 OR RUNE=33)
+Alias[BASTARD_REALLY_BIG_UNIQUE]: (uar UNI !ETH !ID)
 Alias[BASTARD_BOSS_ARENA]: (MAPID=137 OR (MAPID>160 MAPID<164))
-Alias[BASTARD_BOSS_UNIQUE]: ((ram OR rar OR rbe OR 7qr OR uhn OR uth OR utc OR utb OR uhl OR 7bs OR 7cr2) BASTARD_BOSS_ARENA)
-Alias[BASTARD_4_STAR_UNIQUE]: ((6ws OR ci2 OR ci3 OR uar OR umc OR uhm OR ulc OR upl OR urn) UNI !ETH !ID)
-Alias[BASTARD_4_STAR_ETH_UNIQUE]: ((6ws OR 7b7 OR 7ga OR 7gd OR 7gi OR 7gm OR 7p7 OR 7pa OR 7s8 OR 7wc OR 7wh OR 9m9 OR amd OR amf OR uar OR uhb OR umc OR uhm OR urn OR utp OR uul) UNI ETH !ID)
+Alias[BASTARD_BOSS_UNIQUE]: ((ram OR rar OR rbe OR 7qr OR uhn OR uth OR utc OR utb OR uhl OR 7bs) BASTARD_BOSS_ARENA)
+Alias[BASTARD_3_STAR_UNIQUE]: ((6ws OR ci3 OR uhm) UNI !ETH !ID)
+Alias[BASTARD_3_STAR_ETH_UNIQUE]: ((6ws OR 7b7 OR 7gd OR 7gi OR 7gm OR 7p7 OR 7pa OR 7s8 OR 7wc OR 7wh OR 9m9 OR uar OR uhm OR utp OR uul) UNI ETH !ID)
 
 // Little Bastard: lower mystery items and runes.
 ItemDisplay[BASTARD_LITTLE_ITEMS BASTARD_OUTSIDE_TOWN]: %DOT-60%%MAP-21%%BORDER-0A%%SOUNDID-4719%%RED%ººººººººº    %PURPLE%L i t t l e  %RED%B a s t a r d    ººººººººº
 ItemDisplay[BASTARD_LITTLE_RUNES QTY=1 BASTARD_OUTSIDE_TOWN]: %DOT-60%%MAP-21%%BORDER-0A%%SOUNDID-4719%%RED%ººººººººº    %PURPLE%L i t t l e  %RED%B a s t a r d    ººººººººº
 
-// Big Bastard: higher mystery items and high runes.
-ItemDisplay[BASTARD_BIG_ITEMS BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-4719%%RED%ººººººº    %PURPLE%R e a l l y  B i g  %RED%B a s t a r d    ººººººº
-ItemDisplay[BASTARD_BIG_RUNES QTY=1 BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-4719%%RED%ººººººº    %PURPLE%R e a l l y  B i g  %RED%B a s t a r d    ººººººº
-ItemDisplay[BASTARD_BER_RUNE QTY=1 BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-4719%%RED%ºººººººººººº    %PURPLE%B i g  %RED% B a s t a r d    ºººººººººººº
+// Really Big Bastard: higher mystery items, high runes, and non-eth Sacred Armor uniques.
+ItemDisplay[BASTARD_REALLY_BIG_ITEMS BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-4719%%RED%ººººººº    %PURPLE%R e a l l y  B i g  %RED%B a s t a r d    ººººººº
+ItemDisplay[BASTARD_REALLY_BIG_RUNES QTY=1 BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-4719%%RED%ººººººº    %PURPLE%R e a l l y  B i g  %RED%B a s t a r d    ººººººº
+ItemDisplay[BASTARD_REALLY_BIG_UNIQUE BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-4719%%RED%ººººººº    %PURPLE%R e a l l y  B i g  %RED%B a s t a r d    ººººººº
 
-// Some Bastard: boss items and selected unidentified uniques.
+// Big Bastard: boss items and selected unidentified uniques.
 ItemDisplay[UNI !ID BASTARD_BOSS_UNIQUE BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-4719%%RED%ºººººººººººº    %GREEN%H O L Y  M O L Y    ºººººººººººº
-ItemDisplay[UNI !ID BASTARD_4_STAR_UNIQUE BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-4719%%RED%ºººººººººººº    %PURPLE%B i g  %RED% B a s t a r d    ºººººººººººº
-ItemDisplay[UNI !ID ETH BASTARD_4_STAR_ETH_UNIQUE BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-4719%%RED%ºººººººººººº    %PURPLE%B i g  %RED% B a s t a r d    ºººººººººººººº
+ItemDisplay[UNI !ID BASTARD_3_STAR_UNIQUE BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-4719%%RED%ºººººººººººº    %PURPLE%B i g  %RED% B a s t a r d    ºººººººººººº
+ItemDisplay[UNI !ID ETH BASTARD_3_STAR_ETH_UNIQUE BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-4719%%RED%ºººººººººººº    %PURPLE%B i g  %RED% B a s t a r d    ºººººººººººººº
 
 // ===============================
 // FILTER LEVEL 8 STRICT HIDES
