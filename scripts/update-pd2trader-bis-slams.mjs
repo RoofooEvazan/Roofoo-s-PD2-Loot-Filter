@@ -15,6 +15,74 @@ const concurrency = Number(process.env.PD2TRADER_BIS_CONCURRENCY || 8);
 const marketPageLimit = Number(process.env.PD2TRADER_BIS_MARKET_PAGE_LIMIT || 200);
 const maxMarketListingsPerItem = Number(process.env.PD2TRADER_BIS_MAX_LISTINGS || 800);
 const excludedUniqueSlamBaseCodes = new Set(['cm1', 'cm2', 'cm3', 'cm1p', 'cm2p', 'cm3p', 'jew']);
+const cosmeticCorruptionCodes = new Set(['transform_dye']);
+const resistanceCodes = new Set(['coldresist', 'fireresist', 'lightresist', 'poisonresist']);
+const maxResistanceCodes = new Set(['maxcoldresist', 'maxfireresist', 'maxlightresist', 'maxpoisonresist']);
+const maxResistancePairCodes = new Map([
+  ['maxcoldresist', 'coldresist'],
+  ['maxfireresist', 'fireresist'],
+  ['maxlightresist', 'lightresist'],
+  ['maxpoisonresist', 'poisonresist'],
+]);
+const corruptionDisplayNames = new Map([
+  ['all_resist', 'All Res'],
+  ['coldresist', 'C Res'],
+  ['curse_resistance', 'Curse Res'],
+  ['damageresist', 'PDR%'],
+  ['dexterity', 'Dex'],
+  ['dmg%', 'ED'],
+  ['energy', 'Energy'],
+  ['fireresist', 'F Res'],
+  ['hpregen', 'Rep Life'],
+  ['item_allskills', '+Skills'],
+  ['item_armor_percent', 'E-Def'],
+  ['item_cannotbefrozen', 'CBF'],
+  ['item_crushingblow', 'CB'],
+  ['item_deadlystrike', 'DS'],
+  ['item_demon_tohit', 'Demon AR'],
+  ['item_demondamage_percent', 'Demon Dmg'],
+  ['item_fasterattackrate', 'IAS'],
+  ['item_fasterblockrate', 'FBR'],
+  ['item_fastercastrate', 'FCR'],
+  ['item_fastergethitrate', 'FHR'],
+  ['item_fastermovevelocity', 'FRW'],
+  ['item_fractionaltargetac', 'Target Def'],
+  ['item_goldbonus', 'GF'],
+  ['item_healafterkill', 'LAEK'],
+  ['item_ignoretargetac', 'ITD'],
+  ['item_magicbonus', 'MF'],
+  ['item_manaafterkill', 'MAEK'],
+  ['item_maxhp_percent', 'Max Life'],
+  ['item_pierce', 'Pierce'],
+  ['item_thorns_perlevel', 'Thorns'],
+  ['item_undead_tohit', 'Undead AR'],
+  ['item_undeaddamage_percent', 'Undead Dmg'],
+  ['lifedrainmindam', 'LL'],
+  ['lightresist', 'L Res'],
+  ['magic_damage_reduction', 'MDR'],
+  ['manadrainmindam', 'ML'],
+  ['max_all_resist', 'Max All Res'],
+  ['maxcoldresist', 'Max C Res'],
+  ['maxdamage_percent', 'ED'],
+  ['maxfireresist', 'Max F Res'],
+  ['maxhp', 'Life'],
+  ['maxlightresist', 'Max L Res'],
+  ['maxmana', 'Mana'],
+  ['maxpoisonresist', 'Max P Res'],
+  ['passive_cold_mastery', 'C Skill Dmg'],
+  ['passive_cold_pierce', '-Enemy C Res'],
+  ['passive_fire_mastery', 'F Skill Dmg'],
+  ['passive_fire_pierce', '-Enemy F Res'],
+  ['passive_ltng_mastery', 'L Skill Dmg'],
+  ['passive_ltng_pierce', '-Enemy L Res'],
+  ['passive_pois_mastery', 'P Skill Dmg'],
+  ['passive_pois_pierce', '-Enemy P Res'],
+  ['poisonresist', 'P Res'],
+  ['strength', 'Str'],
+  ['toblock', 'ICB'],
+  ['tohit', 'AR'],
+  ['vitality', 'Vit'],
+]);
 
 const manualSafeItems = [
   { name: 'Giant Maimer', base_code: '7vo', quality: 'UNI' },
@@ -28,7 +96,7 @@ function isExcludedFromSlamNotes(item) {
 function cleanDisplayText(text) {
   const seen = new Set();
 
-  return String(text)
+  const parts = String(text)
     .split(',')
     .map((part) => cleanCorruptionPart(part))
     .filter(Boolean)
@@ -39,15 +107,21 @@ function cleanDisplayText(text) {
       }
       seen.add(key);
       return true;
-    })
-    .join(', ');
+    });
+
+  const maxResParts = new Set(['Max C Res', 'Max F Res', 'Max L Res', 'Max P Res']);
+  if ([...maxResParts].every((part) => parts.includes(part))) {
+    return ['Max All Res', ...parts.filter((part) => !maxResParts.has(part))].join(', ');
+  }
+
+  return parts.join(', ');
 }
 
 function cleanCorruptionPart(text) {
   const part = String(text).trim();
 
   if (/^to All Skills$/i.test(part)) {
-    return '+All Skills';
+    return '+Skills';
   }
 
   if (/^Numsockets$/i.test(part)) {
@@ -55,7 +129,7 @@ function cleanCorruptionPart(text) {
   }
 
   if (/^(Dmg%|Maxdamage Percent|ED|Max Damage)$/i.test(part)) {
-    return 'Enhanced Damage';
+    return 'ED';
   }
 
   if (/^Physical Damage Taken Reduced by\s*%?$/i.test(part)) {
@@ -68,10 +142,103 @@ function cleanCorruptionPart(text) {
 
   const maxResMatch = part.match(/^(?:to\s+)?Maximum\s+(Cold|Fire|Lightning|Poison)\s+Resist(?:ance)?$/i);
   if (maxResMatch) {
-    return `Max ${maxResMatch[1]} resistance`;
+    return `Max ${resistanceAbbreviation(maxResMatch[1])} Res`;
   }
 
-  return part.replace(/^to\s+/i, '+');
+  return abbreviateCorruptionPart(part.replace(/^to\s+/i, '+'));
+}
+
+function resistanceAbbreviation(resistance) {
+  return {
+    cold: 'C',
+    fire: 'F',
+    lightning: 'L',
+    poison: 'P',
+  }[String(resistance).toLowerCase()] || resistance;
+}
+
+function abbreviateCorruptionPart(part) {
+  const allResMatch = part.match(/^All Resistances\s+\+?(\d+%)$/i);
+  if (allResMatch) {
+    return `All Res ${allResMatch[1]}`;
+  }
+
+  const singleResMatch = part.match(/^(Cold|Fire|Lightning|Poison) Resist\s+(\d+%)$/i);
+  if (singleResMatch) {
+    return `${resistanceAbbreviation(singleResMatch[1])} Res ${singleResMatch[2]}`;
+  }
+
+  const enemyResMatch = part.match(/^Enemy (Cold|Fire|Lightning|Poison) Resistance$/i);
+  if (enemyResMatch) {
+    return `-Enemy ${resistanceAbbreviation(enemyResMatch[1])} Res`;
+  }
+
+  const maxLifeMatch = part.match(/^Increase Maximum Life\s+(\d+%)$/i);
+  if (maxLifeMatch) {
+    return `Max Life ${maxLifeMatch[1]}`;
+  }
+
+  const replenishLifeMatch = part.match(/^Replenish Life\s+\+?(\d+)$/i);
+  if (replenishLifeMatch) {
+    return `Rep Life ${replenishLifeMatch[1]}`;
+  }
+
+  const requirementsMatch = part.match(/^Requirements\s+(-?\d+%)$/i);
+  if (requirementsMatch) {
+    return `Req ${requirementsMatch[1]}`;
+  }
+
+  const replacements = new Map([
+    ['All Skills', '+Skills'],
+    ['Attack Rating', 'AR'],
+    ['Attack Rating against Demons', 'Demon AR'],
+    ['Better Chance of Getting Magic Items', 'MF'],
+    ['Cannot Be Frozen', 'CBF'],
+    ['Chance of Crushing Blow', 'CB'],
+    ['Chance of Deadly Strike', 'DS'],
+    ['Chance to Pierce', 'Pierce'],
+    ['Cold Skill Damage', 'C Skill Dmg'],
+    ['Damage to Demons', 'Demon Dmg'],
+    ['Enhanced Damage', 'ED'],
+    ['Enhanced Defense', 'E-Def'],
+    ['Extra Gold from Monsters', 'GF'],
+    ['Faster Block Rate', 'FBR'],
+    ['Faster Cast Rate', 'FCR'],
+    ['Faster Run/Walk', 'FRW'],
+    ['Fire Skill Damage', 'F Skill Dmg'],
+    ["Ignore Target's Defense", 'ITD'],
+    ['Increased Attack Speed', 'IAS'],
+    ['Increased Chance of Blocking', 'ICB'],
+    ['Life stolen per hit', 'LL'],
+    ['Life after each Kill', 'LAEK'],
+    ['Lightning Skill Damage', 'L Skill Dmg'],
+    ['Mana stolen per hit', 'ML'],
+    ['Mana after each Kill', 'MAEK'],
+    ['Target Defense', 'Target Def'],
+    ['Vitality', 'Vit'],
+  ]);
+
+  return replacements.get(part) || part;
+}
+
+function formatHr(value) {
+  if (!Number.isFinite(value)) {
+    return '?';
+  }
+
+  return value.toFixed(2).replace(/\.?0+$/, '');
+}
+
+function formatPriceRange(lowPrice, highPrice) {
+  if (!Number.isFinite(lowPrice) || !Number.isFinite(highPrice)) {
+    return '? HR';
+  }
+
+  if (lowPrice === highPrice) {
+    return `${formatHr(lowPrice)} HR`;
+  }
+
+  return `${formatHr(lowPrice)}-${formatHr(highPrice)} HR`;
 }
 
 function parsePd2TraderItems(source) {
@@ -170,15 +337,48 @@ function socketKey(socketCount) {
   return `socket:${socketCount}`;
 }
 
-function listingCorruptionKey(listing) {
+function normalizedCorruptionCodes(listing) {
   const item = listing.item || {};
-  const corruptions = Array.isArray(item.corruptions) ? item.corruptions : [];
+  let corruptions = Array.isArray(item.corruptions)
+    ? [...new Set(item.corruptions.filter((corruption) => !cosmeticCorruptionCodes.has(corruption)))]
+    : [];
 
   if (corruptions.includes('item_numsockets')) {
-    return socketKey(Number(item.socket_count || 0));
+    return [socketKey(Number(item.socket_count || 0))];
   }
 
+  if (corruptions.includes('all_resist')) {
+    return ['all_resist'];
+  }
+
+  if ([...maxResistanceCodes].every((code) => corruptions.includes(code))) {
+    return ['max_all_resist'];
+  }
+
+  for (const [maxResCode, pairedResCode] of maxResistancePairCodes) {
+    if (corruptions.includes(maxResCode)) {
+      corruptions = corruptions.filter((corruption) => corruption !== pairedResCode);
+    }
+  }
+
+  return corruptions.sort();
+}
+
+function listingCorruptionKey(listing) {
+  const corruptions = normalizedCorruptionCodes(listing);
   return corruptions.length > 0 ? corruptionKey(corruptions) : null;
+}
+
+function displayNameFromCorruptionCodes(corruptions) {
+  const labels = corruptions.map((corruption) => {
+    if (corruption.startsWith('socket:')) {
+      return `${Number(corruption.split(':')[1] || 0)}os`;
+    }
+
+    return corruptionDisplayNames.get(corruption) || cleanCorruptionPart(corruption.replace(/^item_/, ''));
+  });
+
+  return cleanDisplayText(labels.join(', '));
 }
 
 function cleanCorruptionLabel(label) {
@@ -191,23 +391,7 @@ function cleanCorruptionLabel(label) {
 }
 
 function displayNameFromListing(listing) {
-  const item = listing.item || {};
-  const corruptions = Array.isArray(item.corruptions) ? item.corruptions : [];
-
-  if (corruptions.includes('item_numsockets')) {
-    return `${Number(item.socket_count || 0)}os`;
-  }
-
-  const labels = (Array.isArray(item.modifiers) ? item.modifiers : [])
-    .filter((modifier) => modifier.corrupted)
-    .map((modifier) => cleanCorruptionLabel(modifier.label || modifier.name))
-    .filter(Boolean);
-
-  if (labels.length > 0) {
-    return cleanDisplayText(labels.join(', '));
-  }
-
-  return corruptions.map((corruption) => cleanCorruptionPart(corruption.replace(/^item_/, ''))).join(', ');
+  return displayNameFromCorruptionCodes(normalizedCorruptionCodes(listing));
 }
 
 async function fetchMarketListings(item) {
@@ -273,6 +457,8 @@ function getBestCorruptionFromListings(listings) {
       name: group.name,
       medianPrice: median(group.prices),
       averagePrice: average(group.prices),
+      lowPrice: Math.min(...group.prices),
+      highPrice: Math.max(...group.prices),
       sampleCount: group.prices.length,
     }))
     .filter((candidate) => Number.isFinite(candidate.medianPrice))
@@ -329,7 +515,7 @@ async function mapWithConcurrency(items, mapper) {
 }
 
 function lineForBisSlam(item, best) {
-  return `ItemDisplay[${item.base_code} ${item.quality} ID]: %NAME%{%NAME%%CL%%PURPLE%BIS Slam: %WHITE%${best.name}}%CONTINUE%`;
+  return `ItemDisplay[${item.base_code} ${item.quality} ID]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%${best.name} %GRAY%[${formatPriceRange(best.lowPrice, best.highPrice)}]}%CONTINUE%`;
 }
 
 function lineForNotWorthSlamming(item) {
@@ -340,7 +526,8 @@ function buildBlock(lines, stats) {
   return [
     START_MARKER,
     `// Source: ProjectD2 market listings (${hours}h, ladder=${isLadder}, hardcore=${isHardcore})`,
-    `// Shows BIS slam when a corruption has priced samples >= ${minSampleCount}; WSS prices are converted at 0.01 HR each`,
+    `// Shows abbreviated BIS slam plus low-high HR range when a corruption has priced samples >= ${minSampleCount}; WSS prices are converted at 0.01 HR each`,
+    '// Slam names come from canonical corruption codes so native item stats do not pollute the label',
     '// Items without enough priced corruption samples are marked as not worth slamming',
     '// Shows even after corruption because rules intentionally do not require STAT360=0',
     `// Generated lines: ${stats.generated}; BIS lines: ${stats.bis}; not worth lines: ${stats.notWorth}; ambiguous item-code groups skipped: ${stats.skippedAmbiguous}`,
