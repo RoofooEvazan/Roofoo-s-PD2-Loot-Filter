@@ -17,7 +17,7 @@ const staticRunes = [
 
 const runeValueOptions = {
   roundToNearestFiveHundredths: true,
-  useTimelineVarianceFilter: true,
+  useTimelineVarianceFilter: false,
 };
 
 const materialValueOptions = {
