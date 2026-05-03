@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: update-pd2trader-values
+  cancel-in-progress: false
+
 jobs:
   update-pd2trader-values:
     runs-on: ubuntu-latest
@@ -15,6 +19,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -73,6 +79,15 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git diff --quiet || git add Roofoo.filter RoofooMystery.filter
-          git diff --cached --quiet || git commit -m "Update PD2 Trader values"
-          git push
+          if git diff --quiet -- Roofoo.filter RoofooMystery.filter; then
+            echo "No PD2 Trader value changes to commit."
+            exit 0
+          fi
+          git add Roofoo.filter RoofooMystery.filter
+          if git diff --cached --quiet; then
+            echo "No staged PD2 Trader value changes to commit."
+            exit 0
+          fi
+          git commit -m "Update PD2 Trader values"
+          git pull --rebase origin main
+          git push origin HEAD:main
