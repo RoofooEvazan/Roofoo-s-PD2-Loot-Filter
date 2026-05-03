@@ -22,7 +22,9 @@ const runeValueOptions = {
 
 const materialValueOptions = {
   roundToNearestFiveHundredths: false,
-  useTimelineVarianceFilter: false,
+  useTimelineVarianceFilter: true,
+  maxTimelineVariance: 10,
+  onlyFilterHighOutliers: true,
 };
 
 const dynamicRunes = [
@@ -60,6 +62,11 @@ const dynamicCurrencyItems = [
   ['tes', 'Twisted Essence of Suffering', 'tes', materialValueOptions],
 ];
 
+const cubeValueItems = [
+  ['lsvl', 'Vial of Lightsong', materialValueOptions],
+  ['llmr', "Lilith's Mirror", materialValueOptions],
+];
+
 const runeOrder = [
   'r21',
   'r22',
@@ -77,6 +84,7 @@ const runeOrder = [
 ];
 const valueOrder = [...runeOrder, ...dynamicCurrencyItems.map(([baseCode]) => baseCode)];
 const dynamicValueItems = [...dynamicRunes, ...dynamicCurrencyItems];
+const priceQueryItems = [...dynamicValueItems, ...cubeValueItems.map(([baseCode, itemName, options]) => [baseCode, itemName, baseCode, options])];
 const currencyDisplayCodes = dynamicCurrencyItems.map(([, , displayCode]) => displayCode);
 
 const filterFile = process.env.FILTER_FILE || 'Roofoo.filter';
@@ -168,10 +176,10 @@ function valueFromPrice(price) {
     return undefined;
   }
 
-  for (const key of ['medianPrice', 'movingAverage7Days', 'averagePrice']) {
+  for (const key of ['medianPrice', 'averagePrice', 'movingAverage7Days']) {
     const value = normalizePriceValue(price[key]);
 
-    if (Number.isFinite(value)) {
+    if (Number.isFinite(value) && value > 0) {
       return value;
     }
   }
@@ -199,20 +207,21 @@ function valueForWindow(priceByWindow, baseCode, windowIndex, cache = new Map(),
 
   if (!Number.isFinite(value)) {
     value = nextValue;
-  } else if (
-    options.useTimelineVarianceFilter &&
-    Number.isFinite(nextValue) &&
-    nextValue > 0 &&
-    Math.abs(value - nextValue) / nextValue > maxTimelineVariance
-  ) {
-    value = nextValue;
+  } else if (options.useTimelineVarianceFilter && Number.isFinite(nextValue) && nextValue > 0) {
+    const allowedVariance = options.maxTimelineVariance ?? maxTimelineVariance;
+    const variance = Math.abs(value - nextValue) / nextValue;
+    const isOutlier = options.onlyFilterHighOutliers ? value > nextValue && variance > allowedVariance : variance > allowedVariance;
+
+    if (isOutlier) {
+      value = nextValue;
+    }
   }
 
   cache.set(windowIndex, value);
   return value;
 }
 
-function lineForDynamicItem(priceByWindow, baseCode, itemName, displayCode, updatedAt, options = runeValueOptions) {
+function valueLinesForDynamicItem(priceByWindow, baseCode, options = runeValueOptions) {
   const valueCache = new Map();
   const roundedValuesByWindow = [];
   const values = valueWindows.map(([label], windowIndex) => {
@@ -226,6 +235,12 @@ function lineForDynamicItem(priceByWindow, baseCode, itemName, displayCode, upda
     return `${label} %WHITE%${formatHr(value)} HR`;
   });
 
+  return { values, roundedValuesByWindow };
+}
+
+function lineForDynamicItem(priceByWindow, baseCode, itemName, displayCode, updatedAt, options = runeValueOptions) {
+  const { values, roundedValuesByWindow } = valueLinesForDynamicItem(priceByWindow, baseCode, options);
+
   if (values.every((value) => value.includes('%GRAY%?'))) {
     return `// ${itemName}: no PD2 Trader value returned`;
   }
@@ -235,9 +250,24 @@ function lineForDynamicItem(priceByWindow, baseCode, itemName, displayCode, upda
   return lineForValueDisplay(displayCode, values, updatedAt, roundedValuesByWindow[0], stackLabel);
 }
 
+function lineForCubeValueItem(priceByWindow, baseCode, itemName, options = materialValueOptions) {
+  const { values } = valueLinesForDynamicItem(priceByWindow, baseCode, options);
+
+  if (values.every((value) => value.includes('%GRAY%?'))) {
+    return `%GRAY%${itemName}: no value`;
+  }
+
+  return `%PURPLE%${itemName}: ${values.join(' %PURPLE%')}`;
+}
+
+function lineForCubeValues(priceByWindow) {
+  const cubeLines = cubeValueItems.map(([baseCode, itemName, options]) => lineForCubeValueItem(priceByWindow, baseCode, itemName, options));
+  return `ItemDisplay[box]: %NAME%{%NAME%%NL%%BLACK%|%NL%%GOLD%Market Watch:%NL%${cubeLines.join('%NL%')}%NL%%BLACK%|%NL%}`;
+}
+
 async function fetchRunePrices(windowHours) {
   const body = {
-    baseCodes: dynamicValueItems.map(([baseCode]) => baseCode),
+    baseCodes: priceQueryItems.map(([baseCode]) => baseCode),
     isLadder,
     isHardcore,
     hours: windowHours,
@@ -288,6 +318,7 @@ function buildBlock(priceByWindow) {
     const dynamicItem = dynamicByBaseCode.get(baseCode);
     return lineForDynamicItem(priceByWindow, dynamicItem[0], dynamicItem[1], dynamicItem[2], updatedAt, dynamicItem[3]);
   });
+  const cubeValueLine = lineForCubeValues(priceByWindow);
 
   return [
     START_MARKER,
@@ -296,8 +327,10 @@ function buildBlock(priceByWindow) {
     '// Static values: Pul, Um, Mal, Ist, Gul, Vex, Sur, Ber',
     '// Dynamic rune values: Ohm, Lo, Jah, Cham, Zod; median rounded to nearest 0.05 HR',
     '// Dynamic material values: keys, boss materials, and selected utility currency; exact median HR values with WSS converted at 0.01 HR each',
+    '// Horadric Cube market watch: Vial of Lightsong and Lilith\'s Mirror, when PD2 Trader returns values',
     `// Updated: ${updatedAt}`,
     `// Price data through: ${priceDataUpdatedAt}`,
+    cubeValueLine,
     ...generatedLines,
     END_MARKER,
   ].join('\n');
@@ -350,6 +383,15 @@ function ensureCurrencyPresentationRulesContinue(filterText) {
     .join(eol);
 }
 
+function ensureCubeFilterLevelRulesContinue(filterText) {
+  const eol = filterText.includes('\r\n') ? '\r\n' : '\n';
+
+  return filterText
+    .split(/\r?\n/)
+    .map((line) => (/^ItemDisplay\[box FILTLVL=\d+\]:/.test(line) && !line.includes('%CONTINUE%') ? `${line}%CONTINUE%` : line))
+    .join(eol);
+}
+
 function findLastMatch(text, pattern) {
   const flags = pattern.flags.includes('g') ? pattern.flags : `${pattern.flags}g`;
   let lastMatch;
@@ -399,7 +441,7 @@ for (const [, windowHours] of valueWindows) {
 }
 
 const block = buildBlock(priceByWindow);
-const currentFilter = ensureCurrencyPresentationRulesContinue(await readFile(filterFile, 'utf8'));
+const currentFilter = ensureCubeFilterLevelRulesContinue(ensureCurrencyPresentationRulesContinue(await readFile(filterFile, 'utf8')));
 const nextFilter = replaceOrInsertBlock(currentFilter, block);
 
 if (nextFilter === currentFilter) {
