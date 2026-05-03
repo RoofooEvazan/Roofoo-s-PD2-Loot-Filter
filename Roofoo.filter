@@ -14,6 +14,7 @@ ItemDisplayFilterName[]: Recommended - w/o Potions
 ItemDisplayFilterName[]: Strict Filter
 ItemDisplayFilterName[]: Strict Filter - w/o Potions
 ItemDisplayFilterName[]: Max-Strictness Filter - Ultra Strict End Game
+ItemDisplayFilterName[]: Max-Strictness Filter - No Large Charms
 
 // Horadric Cube tooltip shows filter credits and the active filter level
 ItemDisplay[box]:%NAME%{%NAME%%NL%%GRAY%item.filter ver 13.0.2 %BLACK%| %GRAY% updated: 2026-04-30%NL%%PURPLE%The GOAT OG Author %WHITE%-%SAGE% Kryszard%NL%%ORANGE%Editors %WHITE%-%SAGE% RoofooEvazan & Enpherno}%CONTINUE%
@@ -26,28 +27,33 @@ ItemDisplay[box FILTLVL=5]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Setting
 ItemDisplay[box FILTLVL=6]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%6 - %ORANGE%Strict Filter%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
 ItemDisplay[box FILTLVL=7]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%7 - %ORANGE%Strict Filter %WHITE%- %RED%w/o Potions%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
 ItemDisplay[box FILTLVL=8]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%8 - %RED%Max-Strictness Filter %WHITE%- %RED%Ultra Strict End Game%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
+ItemDisplay[box FILTLVL=9]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%9 - %RED%Max-Strictness Filter %WHITE%- %RED%No Large Charms%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
 
 // ===============================
-// FILTER LEVEL 8 STRICT HIDES
+// FILTER LEVEL 8/9 STRICT HIDES
 // ===============================
-// My strictest filter level:
+// My strictest filter levels:
 //  - Sets, uniques, and Runewords always pass through.
 //  - Identified magic and rare items stay visible; later rules handle formatting.
 //  - Town/shop keeps unid gear visible so I can browse and compare.
 //  - Outside town, unid items use the strict hide/show lists below.
+//  - Filter level 9 also hides magic Large Charms at every item level.
 //  - Show rules continue into the normal formatting sections.
 //  - Hide rules blank the item name.
 // Each strict rule stays on one line for parser safety.
 
-// FL8 guard aliases
-Alias[FL8_ACTIVE]: (FILTLVL=8)
+// FL8/9 guard aliases
+Alias[FL8_ACTIVE]: (FILTLVL>7)
 Alias[FL8_EXEMPT]: (UNI OR SET OR RW)
 Alias[FL8_INTOWN]: (TOWN OR SHOP)
 Alias[FL8_OUTSIDE]: (!TOWN !SHOP)
 Alias[FL8_UNID]: (!ID)
 Alias[FL8_ID_MR]: (ID (MAG OR RARE))
 
-// FL8 quick-pass rules
+// FL9 charm override
+ItemDisplay[FILTLVL=9 cm2 MAG]:
+
+// FL8/9 quick-pass rules
 ItemDisplay[FL8_ACTIVE FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
 ItemDisplay[FL8_ACTIVE FL8_ID_MR !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
 ItemDisplay[FL8_ACTIVE FL8_INTOWN !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
