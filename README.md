@@ -15,8 +15,16 @@ All changes are incremental and intentional, designed to enhance high-level play
 ---
 
 ## 🔄 Changelog
-**Current Version:** 13.0.2  
-**Updated:** April 30th, 2026  
+**Current Version:** 13.0.3  
+**Updated:** May 2, 2026  
+
+May 2, 2026
+Added Filter Level 9 which is the same as FL8 however hides all Large Charms
+
+Filter Level 8
+- Reduced non-eth rare Necro heads to No Star
+- Now shows non-eth magic Aegis, Ward, and Monarch shields
+- Now hides eth magic wands and eth rare boots
 
 ---
 
