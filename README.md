@@ -19,7 +19,7 @@ All changes are incremental and intentional, designed to enhance high-level play
 **Updated:** May 2, 2026  
 
 May 2, 2026
-Added Filter Level 9 which is the same as FL8 however hides all Large Charms
+- Added Filter Level 9 which is the same as FL8 however hides all Large Charms
 
 Filter Level 8
 - Reduced non-eth rare Necro heads to No Star
