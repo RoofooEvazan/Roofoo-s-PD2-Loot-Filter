@@ -30,6 +30,34 @@ ItemDisplay[box FILTLVL=8]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Setting
 ItemDisplay[box FILTLVL=9]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Settings%NL%9 - %RED%Max-Strictness Filter %WHITE%- %RED%No Large Charms%NL%%TAN% Note%WHITE%: Roofoo's PD2 Loot-Filter level:%NL%}
 
 // ===============================
+// LITTLE/BIG BASTARD MYSTERY DROPS
+// ===============================
+// Outside town, these selected drops show a mystery name and custom sound instead of their real identity.
+Alias[BASTARD_OUTSIDE_TOWN]: (!(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109))
+Alias[BASTARD_LITTLE_ITEMS]: (lbox OR rkey)
+Alias[BASTARD_LITTLE_RUNES]: (RUNE=26 OR RUNE=27 OR RUNE=28)
+Alias[BASTARD_LUCKY_ITEMS]: (lsvl OR llmr OR rtp OR rid)
+Alias[BASTARD_LUCKY_RUNES]: (RUNE=29 OR RUNE=30 OR RUNE=31 OR RUNE=32 OR RUNE=33)
+Alias[BASTARD_LUCKY_UNIQUE]: (uar UNI !ETH !ID)
+Alias[BASTARD_BOSS_UNIQUE]: (ram OR rar OR rbe OR 7qr OR uhn OR uth OR utc OR utb OR uh9 OR 7bs)
+Alias[BASTARD_3_STAR_UNIQUE]: ((6ws OR ci3 OR uhm) UNI !ETH !ID)
+Alias[BASTARD_3_STAR_ETH_UNIQUE]: ((6ws OR 7b7 OR 7gd OR 7gi OR 7gm OR 7p7 OR 7pa OR 7s8 OR 7wc OR 7wh OR 9m9 OR uar OR uhm OR utp OR uul) UNI ETH !ID)
+
+// Little Bastard: lower mystery items and runes.
+ItemDisplay[BASTARD_LITTLE_ITEMS BASTARD_OUTSIDE_TOWN]: %DOT-60%%MAP-21%%BORDER-0A%%SOUNDID-418%%RED%ººººººººº    %PURPLE%L i t t l e  %RED%B a s t a r d    ººººººººº
+ItemDisplay[BASTARD_LITTLE_RUNES QTY=1 BASTARD_OUTSIDE_TOWN]: %DOT-60%%MAP-21%%BORDER-0A%%SOUNDID-418%%RED%ººººººººº    %PURPLE%L i t t l e  %RED%B a s t a r d    ººººººººº
+
+// Lucky Bastard: higher mystery items, high runes, and non-eth Sacred Armor uniques.
+ItemDisplay[BASTARD_LUCKY_ITEMS BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-418%%RED%ºººººººººººººº    %PURPLE%L u c k y  %RED%B a s t a r d    ºººººººººººººº
+ItemDisplay[BASTARD_LUCKY_RUNES QTY=1 BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-418%%RED%ºººººººººººººº    %PURPLE%L u c k y  %RED%B a s t a r d    ºººººººººººººº
+ItemDisplay[BASTARD_LUCKY_UNIQUE BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-418%%RED%ºººººººººººººº    %PURPLE%L u c k y  %RED%B a s t a r d    ºººººººººººººº
+
+// Big Bastard: boss items and selected unidentified uniques.
+ItemDisplay[UNI !ID BASTARD_BOSS_UNIQUE (MAPID=137 OR (MAPID>160 MAPID<164)) BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-418%%RED%ºººººººººººº    %GREEN%H O L Y  M O L Y    %RED%ºººººººººººº
+ItemDisplay[UNI !ID BASTARD_3_STAR_UNIQUE BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-418%%RED%ºººººººººººº    %PURPLE%B i g  %RED% B a s t a r d    ºººººººººººº
+ItemDisplay[UNI !ID ETH BASTARD_3_STAR_ETH_UNIQUE BASTARD_OUTSIDE_TOWN]: %DOT-0D%%MAP-21%%BORDER-0A%%SOUNDID-418%%RED%ºººººººººººº    %PURPLE%B i g  %RED% B a s t a r d    ºººººººººººººº
+
+// ===============================
 // FILTER LEVEL 8/9 STRICT HIDES
 // ===============================
 // My strictest filter levels:
@@ -51,6 +79,7 @@ Alias[FL8_UNID]: (!ID)
 Alias[FL8_ID_MR]: (ID (MAG OR RARE))
 
 // FL9 charm override
+ItemDisplay[FILTLVL=9 cm2 MAG ID]: %NAME%{%NAME%}
 ItemDisplay[FILTLVL=9 cm2 MAG !ID]:
 
 // FL8/9 quick-pass rules
@@ -6026,7 +6055,7 @@ ItemDisplay[(r33 OR r33s)]: %NAME%{%NAME%%TAN%Note%WHITE%: %ORANGE%Zod %WHITE%+ 
 // Static values: Pul, Um, Mal, Ist, Gul, Vex, Sur, Ber
 // Dynamic rune values: Ohm, Lo, Jah, Cham, Zod; median rounded to nearest 0.05 HR
 // Dynamic material values: keys, boss materials, and selected utility currency; exact median HR values with WSS converted at 0.01 HR each
-// Updated: 2026-05-03T00:47:07.799Z
+// Updated: 2026-05-03T00:47:07.743Z
 // Price data through: 2026-05-02T08:06:14.496Z
 ItemDisplay[r21s]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Rune Stack Value: %WHITE%$f(round(QTY*0.03*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%0.03 HR %PURPLE%48H %WHITE%0.03 HR %PURPLE%72H %WHITE%0.03 HR %PURPLE%1W %WHITE%0.03 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-05-03 00:47:07 UTC%CL%%BLACK%|%CL%}
 ItemDisplay[r22s]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Rune Stack Value: %WHITE%$f(round(QTY*0.05*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%0.05 HR %PURPLE%48H %WHITE%0.05 HR %PURPLE%72H %WHITE%0.05 HR %PURPLE%1W %WHITE%0.05 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-05-03 00:47:07 UTC%CL%%BLACK%|%CL%}
