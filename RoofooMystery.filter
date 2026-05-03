@@ -33,7 +33,7 @@ ItemDisplay[box FILTLVL=9]: %NAME%{%NAME%%NL%%WHITE%You Can Change it in Setting
 // LITTLE/BIG BASTARD MYSTERY DROPS
 // ===============================
 // Outside town, these selected drops show a mystery name and custom sound instead of their real identity.
-Alias[BASTARD_OUTSIDE_TOWN]: (!(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109))
+Alias[BASTARD_OUTSIDE_TOWN]: (!TOWN !SHOP)
 Alias[BASTARD_LITTLE_ITEMS]: (lbox OR rkey)
 Alias[BASTARD_LITTLE_RUNES]: (RUNE=26 OR RUNE=27 OR RUNE=28)
 Alias[BASTARD_LUCKY_ITEMS]: (lsvl OR llmr OR rtp OR rid)
@@ -79,6 +79,7 @@ Alias[FL8_UNID]: (!ID)
 Alias[FL8_ID_MR]: (ID (MAG OR RARE))
 
 // FL9 charm override
+ItemDisplay[FILTLVL=9 cm2 MAG ID]: %NAME%{%NAME%}%CONTINUE%
 ItemDisplay[FILTLVL=9 cm2 MAG !ID]:
 
 // FL8/9 quick-pass rules
@@ -200,8 +201,9 @@ ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (lbt OR vbt OR mbt OR tbt OR hbt OR xlb OR xv
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (lbt OR vbt OR mbt OR tbt OR hbt OR xlb OR xvb OR xmb OR xtb OR xhb OR ulb OR uvb OR umb OR utb OR uhb) RARE !ETH !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (lbt OR vbt OR mbt OR tbt OR hbt OR xlb OR xvb OR xmb OR xtb OR xhb OR ulb OR uvb OR umb OR utb OR uhb) MAG !FL8_EXEMPT]:
 
-// Belts: RARE show all; MAGIC hide all
-ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (lbl OR vbl OR mbl OR tbl OR hbl OR zlb OR zvb OR zmb OR ztb OR zhb OR ulc OR uvc OR umc OR utc OR uhc) RARE !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
+// Belts: show non-eth rares; hide eth rares and magic
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (lbl OR vbl OR mbl OR tbl OR hbl OR zlb OR zvb OR zmb OR ztb OR zhb OR ulc OR uvc OR umc OR utc OR uhc) RARE ETH !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (lbl OR vbl OR mbl OR tbl OR hbl OR zlb OR zvb OR zmb OR ztb OR zhb OR ulc OR uvc OR umc OR utc OR uhc) RARE !ETH !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (lbl OR vbl OR mbl OR tbl OR hbl OR zlb OR zvb OR zmb OR ztb OR zhb OR ulc OR uvc OR umc OR utc OR uhc) MAG !FL8_EXEMPT]:
 
 // Druid Pelts (MAG/RARE): hide all
