@@ -79,7 +79,6 @@ Alias[FL8_UNID]: (!ID)
 Alias[FL8_ID_MR]: (ID (MAG OR RARE))
 
 // FL9 charm override
-ItemDisplay[FILTLVL=9 cm2 MAG ID]: %NAME%{%NAME%}
 ItemDisplay[FILTLVL=9 cm2 MAG !ID]:
 
 // FL8/9 quick-pass rules
