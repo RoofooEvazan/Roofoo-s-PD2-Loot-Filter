@@ -18,6 +18,7 @@ const staticRunes = [
 const runeValueOptions = {
   roundToNearestFiveHundredths: true,
   useTimelineVarianceFilter: false,
+  minSampleCount: 2,
 };
 
 const materialValueOptions = {
@@ -62,11 +63,6 @@ const dynamicCurrencyItems = [
   ['tes', 'Twisted Essence of Suffering', 'tes', materialValueOptions],
 ];
 
-const cubeValueItems = [
-  ['lsvl', 'Vial of Lightsong', materialValueOptions],
-  ['llmr', "Lilith's Mirror", materialValueOptions],
-];
-
 const runeOrder = [
   'r21',
   'r22',
@@ -82,9 +78,22 @@ const runeOrder = [
   'r32',
   'r33',
 ];
+const cubeRuneOrder = [
+  'r27',
+  'r28',
+  'r31',
+  'r32',
+  'r33',
+];
+const cubeRuneExtraPadding = new Map([
+  ['r28', 2],
+  ['r31', 2],
+  ['r32', 6],
+  ['r33', 3],
+]);
 const valueOrder = [...runeOrder, ...dynamicCurrencyItems.map(([baseCode]) => baseCode)];
 const dynamicValueItems = [...dynamicRunes, ...dynamicCurrencyItems];
-const priceQueryItems = [...dynamicValueItems, ...cubeValueItems.map(([baseCode, itemName, options]) => [baseCode, itemName, baseCode, options])];
+const priceQueryItems = dynamicValueItems;
 const currencyDisplayCodes = dynamicCurrencyItems.map(([, , displayCode]) => displayCode);
 
 const filterFile = process.env.FILTER_FILE || 'Roofoo.filter';
@@ -171,8 +180,12 @@ function normalizePriceValue(value) {
   return Number.isFinite(numericValue) ? numericValue : undefined;
 }
 
-function valueFromPrice(price) {
+function valueFromPrice(price, options = runeValueOptions) {
   if (!price) {
+    return undefined;
+  }
+
+  if (options.minSampleCount && (price.sampleCount ?? 0) < options.minSampleCount) {
     return undefined;
   }
 
@@ -197,13 +210,19 @@ function valueForWindow(priceByWindow, baseCode, windowIndex, cache = new Map(),
     return cache.get(windowIndex);
   }
 
-  const directValue = valueFromPrice(directPriceForWindow(priceByWindow, baseCode, windowIndex));
+  const directPrice = directPriceForWindow(priceByWindow, baseCode, windowIndex);
+  const directValue = valueFromPrice(directPrice, options);
   const nextValue =
     windowIndex + 1 < valueWindows.length
       ? valueForWindow(priceByWindow, baseCode, windowIndex + 1, cache, options)
       : undefined;
 
   let value = directValue;
+
+  if (!Number.isFinite(value) && baseCode === 'r32' && directPrice && options.minSampleCount && (directPrice.sampleCount ?? 0) < options.minSampleCount) {
+    const zodValue = valueForWindow(priceByWindow, 'r33', windowIndex, new Map(), options);
+    value = Number.isFinite(zodValue) ? zodValue / 2 : undefined;
+  }
 
   if (!Number.isFinite(value)) {
     value = nextValue;
@@ -250,19 +269,43 @@ function lineForDynamicItem(priceByWindow, baseCode, itemName, displayCode, upda
   return lineForValueDisplay(displayCode, values, updatedAt, roundedValuesByWindow[0], stackLabel);
 }
 
-function lineForCubeValueItem(priceByWindow, baseCode, itemName, options = materialValueOptions) {
-  const { values } = valueLinesForDynamicItem(priceByWindow, baseCode, options);
+function lineForCubeRuneValue(priceByWindow, baseCode, staticByBaseCode, dynamicByBaseCode) {
+  const staticRune = staticByBaseCode.get(baseCode);
+  const dynamicRune = dynamicByBaseCode.get(baseCode);
+  const runeName = (staticRune?.[1] || dynamicRune?.[1] || baseCode).replace(' Rune', '');
+  const values = staticRune
+    ? valueWindows.map(([label]) => `${label} %WHITE%${formatHr(staticRune[2])} HR`)
+    : valueLinesForDynamicItem(priceByWindow, baseCode, dynamicRune?.[3] || runeValueOptions).values;
 
-  if (values.every((value) => value.includes('%GRAY%?'))) {
-    return `%GRAY%${itemName}: no value`;
-  }
+  const compactValues = values.map((value) => {
+    const match = value.match(/%WHITE%([^ ]+) HR/);
+    return match ? match[1] : value.includes('%GRAY%?') ? '?' : value;
+  });
 
-  return `%PURPLE%${itemName}: ${values.join(' %PURPLE%')}`;
+  const labeledValues = valueWindows.map(([label], index) => `%PURPLE%${label} %WHITE%${compactValues[index]}`).join('  ');
+  return `%RED%${runeName}: ${labeledValues} HR`;
 }
 
-function lineForCubeValues(priceByWindow) {
-  const cubeLines = cubeValueItems.map(([baseCode, itemName, options]) => lineForCubeValueItem(priceByWindow, baseCode, itemName, options));
-  return `ItemDisplay[box]: %NAME%{%NAME%%NL%%BLACK%|%NL%%GOLD%Market Watch:%NL%${cubeLines.join('%NL%')}%NL%%BLACK%|%NL%}`;
+function visibleFilterTextLength(line) {
+  return line.replace(/%[A-Z0-9_-]+%/g, '').length;
+}
+
+function lineForCubeValues(priceByWindow, staticByBaseCode, dynamicByBaseCode, updatedAt) {
+  const rawCubeLines = cubeRuneOrder.map((baseCode) => lineForCubeRuneValue(priceByWindow, baseCode, staticByBaseCode, dynamicByBaseCode));
+  const targetVisibleLength = Math.max(...rawCubeLines.map(visibleFilterTextLength));
+  const cubeLines = rawCubeLines.map((line, index) => {
+    const baseCode = cubeRuneOrder[index];
+    const extraPadding = cubeRuneExtraPadding.get(baseCode) || 0;
+    return `${line}${' '.repeat(targetVisibleLength - visibleFilterTextLength(line) + extraPadding)}`;
+  });
+  const updatedLine = `%GOLD%Updated: ${formatUpdatedAtForDisplay(updatedAt)}`;
+  const displayLines = [
+    `ItemDisplay[box]: %NAME%{%NAME%%CL%%BLACK%|}%CONTINUE%`,
+    ...cubeLines.map((line) => `ItemDisplay[box]: %NAME%{%NAME%%CL%${line}}%CONTINUE%`),
+    `ItemDisplay[box]: %NAME%{%NAME%%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%${updatedLine}%CL%%BLACK%|%CL%}`,
+  ];
+
+  return displayLines.join('\n');
 }
 
 async function fetchRunePrices(windowHours) {
@@ -318,7 +361,7 @@ function buildBlock(priceByWindow) {
     const dynamicItem = dynamicByBaseCode.get(baseCode);
     return lineForDynamicItem(priceByWindow, dynamicItem[0], dynamicItem[1], dynamicItem[2], updatedAt, dynamicItem[3]);
   });
-  const cubeValueLine = lineForCubeValues(priceByWindow);
+  const cubeValueLine = lineForCubeValues(priceByWindow, staticByBaseCode, dynamicByBaseCode, updatedAt);
 
   return [
     START_MARKER,
@@ -327,7 +370,7 @@ function buildBlock(priceByWindow) {
     '// Static values: Pul, Um, Mal, Ist, Gul, Vex, Sur, Ber',
     '// Dynamic rune values: Ohm, Lo, Jah, Cham, Zod; median rounded to nearest 0.05 HR',
     '// Dynamic material values: keys, boss materials, and selected utility currency; exact median HR values with WSS converted at 0.01 HR each',
-    '// Horadric Cube market watch: Vial of Lightsong and Lilith\'s Mirror, when PD2 Trader returns values',
+    '// Horadric Cube rune values: dynamic PD2 Trader runes only',
     `// Updated: ${updatedAt}`,
     `// Price data through: ${priceDataUpdatedAt}`,
     cubeValueLine,
