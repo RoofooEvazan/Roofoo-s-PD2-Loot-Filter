@@ -15,10 +15,17 @@ All changes are incremental and intentional, designed to enhance high-level play
 ---
 
 ## 🔄 Changelog
-**Current Version:** 13.0.3  
-**Updated:** May 2, 2026  
+**Current Version:** 13.0.4  
+**Updated:** May 3, 2026  
 
-May 2, 2026
+13.0.4 - May 3, 2026
+- Removed set ammy's from showing in FL8 & 9
+- Cube now displays rune prices for runes which prices may adjust through the season (Ohm, Lo, Jah, Cham, Zod)
+- Demonic cube added to the Little Bastard bucket in the Mystery Filter
+- Currency values added to Demonic Cube matching other currencies
+- Fixed an issue where the Lucky/Little/Big Bastard name was overwriting the items name while in the cube or inventory
+
+13.0.3 - May 2, 2026
 - Added Filter Level 9 which is the same as FL8 however hides all Large Charms
 
 Filter Level 8
