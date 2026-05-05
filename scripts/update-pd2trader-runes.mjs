@@ -17,7 +17,9 @@ const staticRunes = [
 
 const runeValueOptions = {
   roundToNearestFiveHundredths: true,
-  useTimelineVarianceFilter: false,
+  useTimelineVarianceFilter: true,
+  maxTimelineVariance: 0.3,
+  onlyFilterHighOutliers: false,
   minSampleCount: 2,
 };
 
@@ -368,7 +370,7 @@ function buildBlock(priceByWindow) {
     `// Source: PD2 Trader API (${valueWindows.map(([label]) => label).join(', ')}, ladder=${isLadder}, hardcore=${isHardcore})`,
     '// Applies to stackable rune item codes and selected currency/material item codes; Lem is intentionally excluded',
     '// Static values: Pul, Um, Mal, Ist, Gul, Vex, Sur, Ber',
-    '// Dynamic rune values: Ohm, Lo, Jah, Cham, Zod; median rounded to nearest 0.05 HR',
+    '// Dynamic rune values: Ohm, Lo, Jah, Cham, Zod; median rounded to nearest 0.05 HR with 30% timeline sanity check',
     '// Dynamic material values: keys, boss materials, and selected utility currency; exact median HR values with WSS converted at 0.01 HR each',
     '// Horadric Cube rune values: dynamic PD2 Trader runes only',
     `// Updated: ${updatedAt}`,
