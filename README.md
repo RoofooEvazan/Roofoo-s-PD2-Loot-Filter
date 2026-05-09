@@ -15,8 +15,19 @@ All changes are incremental and intentional, designed to enhance high-level play
 ---
 
 ## 🔄 Changelog
-**Current Version:** 13.0.4  
-**Updated:** May 3, 2026  
+**Current Version:** 13.0.5  
+**Updated:** May 8, 2026  
+
+13.0.5 - May 8, 2026
+-The following now hide on FL8 & 9
+-     Magic/Rare non-eth claws
+-     Set Amulets
+- The following now hide on FL9 only
+-     Antidotes
+-     Set Rings
+- The following now show on FL8 & 9
+-     Magic and Rare Barb helms
+-     Magic and Rare War, Rune and Archon staves
 
 13.0.4 - May 3, 2026
 - Removed set ammy's from showing in FL8 & 9
