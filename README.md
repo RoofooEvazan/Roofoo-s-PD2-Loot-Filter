@@ -15,8 +15,14 @@ All changes are incremental and intentional, designed to enhance high-level play
 ---
 
 ## 🔄 Changelog
-**Current Version:** 13.0.5  
+**Current Version:** 13.0.6  
 **Updated:** May 8, 2026  
+
+13.0.6 - May 9, 2026
+
+The following now show on FL8 & 9
+- Magic and Rare Barb helms *Wasn't working properly on last update*
+
 
 13.0.5 - May 8, 2026
 
