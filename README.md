@@ -15,9 +15,19 @@ All changes are incremental and intentional, designed to enhance high-level play
 ---
 
 ## 🔄 Changelog
-**Current Version:** 13.0.6  
-**Updated:** May 8, 2026  
+**Current Version:** 13.0.7  
+**Updated:** May 11, 2026  
 
+13.0.7 - May 11, 2026
+
+The following now hide on FL8 & 9
+- Magic/Rare Non-eth Arreat style only show now
+- Magic/Rare Eth Thunder maul styles now show
+
+The following now changed forr all filters
+- Moved some runes to 1 star (Ral, Tir, Tal, Sol, Amn, Lum)
+- Arach, Shako, Marrowalks and Valk Wing are all now 1-star
+  
 13.0.6 - May 9, 2026
 
 The following now show on FL8 & 9
