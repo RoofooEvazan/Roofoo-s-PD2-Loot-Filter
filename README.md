@@ -15,8 +15,12 @@ All changes are incremental and intentional, designed to enhance high-level play
 ---
 
 ## 🔄 Changelog
-**Current Version:** 13.0.7  
-**Updated:** May 11, 2026  
+**Current Version:** 13.0.8  
+**Updated:** May 15, 2026  
+
+13.0.8 - May 15, 2026
+
+Added details for what each crafting recipe gives. Information is shown on Crafting Infusions for said craft.
 
 13.0.7 - May 11, 2026
 
