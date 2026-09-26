@@ -73,6 +73,17 @@ version tag (`?v=2026-09-26e`) in `docs/index.html`, `docs/js/app.js` (scripts a
 Change it everywhere at once when you change the builder's code, so players get matching new files.
 Filter updates (including the automatic price commits) need nothing: the page always fetches the latest filter.
 
+## README screenshots
+
+`screenshots/Builder*.png` are taken with headless Chrome or Edge:
+
+```
+node --experimental-websocket tools/site/screenshots.mjs
+```
+
+It shoots the live site by default; pass a URL (e.g. `http://localhost:8765/docs/`) to shoot a local copy.
+If no browser is found, set `BROWSER` to the path of `chrome.exe`. Re-run it after visible changes to the builder.
+
 ## Running it locally
 
 ```
