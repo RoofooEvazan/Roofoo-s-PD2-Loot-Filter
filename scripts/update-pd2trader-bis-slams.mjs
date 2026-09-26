@@ -304,7 +304,9 @@ function formatPriceRange(lowPrice, highPrice) {
 }
 
 function parsePd2TraderItems(source) {
+  // items.ts is TypeScript; strip the `as const` assertions so it evaluates as plain JS.
   const transformed = source
+    .replace(/\]\s*as\s+const\s*;/g, '];')
     .replace(/^export const uniqueItems =/m, 'const uniqueItems =')
     .replace(/^export const setItems =/m, 'const setItems =')
     .replace(/^export const runeWords =/m, 'const runeWords =')
