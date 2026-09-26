@@ -13,7 +13,7 @@ A customized fork of **[Kryszard](https://twitch.tv/Kryszard)’s Project Diablo
 ## Contents
 
 - [Getting the filter](#-getting-the-filter)
-- [Filter levels](#-filter-levels)
+- [Filter levels](#%EF%B8%8F-filter-levels)
 - [Make it yours: Filter Builder](#-make-it-yours-filter-builder)
 - [Unique & set tiers](#-unique--set-tiers)
 - [Mystery drops](#-mystery-drops)
