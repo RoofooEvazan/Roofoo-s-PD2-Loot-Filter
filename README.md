@@ -28,6 +28,12 @@ All changes are incremental and intentional, designed to enhance high-level play
 
 The builder always starts from the newest version of this filter, so come back after an update and download again. Your choices are saved in your browser.
 
+Custom versions leave out the live market prices (rune values, Rainbow Facet values, slam suggestions), which only stay current in the launcher version, and always show items newer than the filter, marked `[Missing]`.
+
+[![Filter Builder: Items](screenshots/BuilderItems.png)](screenshots/BuilderItems.png)
+
+More builder screenshots are in [Screenshot Examples](#-screenshot-examples).
+
 ---
 
 ## 🔄 Changelog
@@ -321,6 +327,23 @@ It evolves every season to stay aligned with:
 ---
 
 ## 📸 Screenshot Examples
+
+### Filter Builder
+
+**Colors & sounds:** color themes, drop sounds and every highlight style
+[![Filter Builder: Colors & sounds](screenshots/BuilderColorsSounds.png)](screenshots/BuilderColorsSounds.png)
+
+**Items:** star tiers, show / hide per filter level and options, with an in-game style item card
+[![Filter Builder: Items](screenshots/BuilderItems.png)](screenshots/BuilderItems.png)
+
+**Test an item:** how one item looks on every filter level
+[![Filter Builder: Test an item](screenshots/BuilderTestItem.png)](screenshots/BuilderTestItem.png)
+
+**Overview & review:** everything hidden (red) and shown (green) on a filter level, by rarity, sockets and item level
+[![Filter Builder: Overview & review](screenshots/BuilderOverview.png)](screenshots/BuilderOverview.png)
+
+**Save & install:** download, install steps and the new-item safety net
+[![Filter Builder: Save & install](screenshots/BuilderSaveInstall.png)](screenshots/BuilderSaveInstall.png)
 
 ### Charm & Jewel Examples
 [![Charm & Jewel examples](screenshots/Jewel&Charms.png)](screenshots/Jewel&Charms.png)
