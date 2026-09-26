@@ -1,7 +1,7 @@
-import * as E from './engine.js';
+import * as E from './engine.js?v=2026-09-26b';
 import {
   TEXT_SLOTS, MARKER_SLOTS, MYSTERY_SLOT_IDS, PRESETS, SOUND_PACKS, TIERS, TEXT_COLORS, TEXT_COLOR_NAMES, MARKER_COLORS, MARKER_SIZES,
-} from './themes.js';
+} from './themes.js?v=2026-09-26b';
 
 const REPO = 'RoofooEvazan/Roofoo-s-PD2-Loot-Filter';
 const BRANCH = 'main';

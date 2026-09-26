@@ -1,6 +1,6 @@
 // Filter engine: reads a PD2 loot filter, simulates how items display, and applies a
 // player's customization profile as small targeted edits to the live filter text.
-import { TEXT_SLOTS, MARKER_SLOTS, PRESETS, SOUND_PACKS } from './themes.js';
+import { TEXT_SLOTS, MARKER_SLOTS, PRESETS, SOUND_PACKS } from './themes.js?v=2026-09-26b';
 
 export const FILTER_LEVELS = 10; // FL0 .. FL9
 const TOKEN_RE = /%([A-Z_]+)(?:-([0-9A-Fa-f]+))?%/g;
