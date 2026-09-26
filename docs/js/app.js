@@ -1742,12 +1742,31 @@ async function loadBase(file) {
   }
 }
 
+// Opens a pre-filled GitHub issue with what we need to reproduce the problem
+async function reportBug() {
+  const tab = (document.querySelector('#tabs [aria-selected="true"]') || {}).textContent || S.tab;
+  let code = '';
+  try { code = await profileCode(); } catch { /* no setup yet */ }
+  const setup = code && code.length < 3500 ? code : '(too long for the link: copy it from Save & install and paste it here)';
+  const body = [
+    '**What happened?**', '', '', '**What did you expect to happen?**', '', '', '**Steps to reproduce**', '1. ', '',
+    '---', '_Builder details (please keep these, they help us reproduce it):_',
+    `- Tab: ${tab.replace(/^\d+/, '').trim()}`,
+    `- Filter: ${S.baseFile}${S.baseDate ? ' (updated ' + S.baseDate + ')' : ''}`,
+    `- Browser: ${navigator.userAgent}`,
+    `- Setup code: \`${setup}\``,
+  ].join('\n');
+  const url = `https://github.com/${REPO}/issues/new?labels=bug&title=${encodeURIComponent('Filter Builder: ')}&body=${encodeURIComponent(body)}`;
+  window.open(url, '_blank', 'noopener');
+}
+
 async function boot() {
   const sel = $('#base-select');
   sel.innerHTML = BASES.map(b => `<option value="${b.file}">${esc(b.label)}</option>`).join('');
   sel.addEventListener('change', () => loadBase(sel.value));
   $('#tabs').addEventListener('click', e => { const b = e.target.closest('[data-tab]'); if (b) setTab(b.dataset.tab); });
   $('#download-top').addEventListener('click', download);
+  for (const id of ['#report-bug', '#report-bug-footer']) $(id).addEventListener('click', e => { e.preventDefault(); reportBug(); });
 
   const look = panel('look');
   for (const type of ['click', 'change', 'input']) look.addEventListener(type, onLookEvent);
