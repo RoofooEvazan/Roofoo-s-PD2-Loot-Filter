@@ -1,7 +1,7 @@
-import * as E from './engine.js?v=2026-09-26c';
+import * as E from './engine.js?v=2026-09-26d';
 import {
   TEXT_SLOTS, MARKER_SLOTS, MYSTERY_SLOT_IDS, PRESETS, SOUND_PACKS, TIERS, TEXT_COLORS, TEXT_COLOR_NAMES, MARKER_COLORS, MARKER_SIZES,
-} from './themes.js?v=2026-09-26c';
+} from './themes.js?v=2026-09-26d';
 
 const REPO = 'RoofooEvazan/Roofoo-s-PD2-Loot-Filter';
 const BRANCH = 'main';
@@ -1458,6 +1458,39 @@ function namesFor(code, quality) {
   return list ? list.filter(u => u.c === code).map(u => u.n) : undefined;
 }
 
+// Extra facts about the base that the game doesn't print but players look up: sockets by item level,
+// quality level, attack speed, class restriction, and the Normal / Exceptional / Elite versions.
+function baseDetailsHTML(code, it, spec) {
+  const rows = [];
+  const equip = it.k === 'weapon' || it.k === 'armor';
+  if (equip) {
+    const msl = it.msl || [it.ms || 0, it.ms || 0, it.ms || 0];
+    if (!it.ms) rows.push(['Max sockets', 'can\'t have sockets']);
+    else if (msl[0] === msl[2]) rows.push(['Max sockets', String(it.ms)]);
+    else {
+      rows.push(['Max sockets', `${msl[0]} / ${msl[1]} / ${msl[2]}`, 'at item level 1–25 / 26–40 / 41+']);
+    }
+    if (it.lvl) rows.push(['Quality level (qlvl)', String(it.lvl), 'item level needed to drop it']);
+    if (it.k === 'weapon') {
+      const sp = (it.s && it.s.speed) || 0;
+      rows.push(['Base speed', sp > 0 ? `+${sp}` : String(sp), 'lower is faster']);
+    }
+    if (it.cls) rows.push(['Class', `${it.cls} only`]);
+    if (it.up) {
+      const names = it.up.map(c => (S.game.items[c] || {}).n || c);
+      rows.push(['Versions', names.map((n, i) => it.up[i] === code ? `<b>${esc(n)}</b>` : esc(n)).join(' › '), 'Normal › Exceptional › Elite', true]);
+    }
+  } else {
+    if (it.rune) rows.push(['Rune number', `#${it.rune}`]);
+    if (it.gem) rows.push(['Gem grade', ['Chipped', 'Flawed', 'Normal', 'Flawless', 'Perfect'][it.gem - 1] || String(it.gem)]);
+    if (it.maptier) rows.push(['Map tier', `T${it.maptier}`]);
+    if (it.st) rows.push(['Stackable', 'yes']);
+  }
+  if (!rows.length) return '';
+  return `<div class="tt-extra"><div class="tt-extra-h">Base details</div>${rows.map(([k, v, note, raw]) =>
+    `<div class="tt-row"><span>${esc(k)}</span><span>${raw ? v : esc(v)}${note ? `<small>${esc(note)}</small>` : ''}</span></div>`).join('')}</div>`;
+}
+
 function itemCardHTML(spec) {
   const code = spec.code;
   const it = S.game.items[code] || { n: code, f: [] };
@@ -1489,6 +1522,7 @@ function itemCardHTML(spec) {
       html += `<div class="tt-name">${heldName(u.n)}</div>`;
       html += seg(color, it.n);
       if (u.s) html += seg('GRAY', u.s, 'tt-small');
+      if (it.cls) html += seg('WHITE', `(${it.cls} Only)`);
       for (const [c, t] of statLines(code, { ...o, quality: q })) html += seg(c, t.replace(/^(Defense|One-Hand Damage|Two-Hand Damage|Throw Damage):/, 'Base $1:'));
       if (u.rl) html += seg('WHITE', `Required Level: ${u.rl}`);
       for (const p of u.p || []) html += seg('BLUE', p);
@@ -1500,10 +1534,13 @@ function itemCardHTML(spec) {
     html += `<div class="tt-name">${heldName()}</div>`;
     if (magicQ) html += seg(q === 'RARE' ? 'YELLOW' : q === 'CRAFT' ? 'ORANGE' : 'BLUE', it.n);
     html += baseLine();
+    if (it.cls) html += seg('WHITE', `(${it.cls} Only)`);
     for (const [c, t] of statLines(code, o)) html += seg(c, t);
+    if (it.rl) html += seg('WHITE', `Required Level: ${it.rl}`);
     if (q === 'MAG' || q === 'RARE' || q === 'CRAFT') html += seg('BLUE', q === 'MAG' ? '+ 1–2 random magic properties' : q === 'RARE' ? '+ 3–6 random magic properties' : '+ crafted properties');
   }
   if (spec.ilvlText) html += seg('GRAY', `Item Level: ${spec.ilvlText}`);
+  html += baseDetailsHTML(code, it, spec);
   if (spec.verdict) {
     const v = spec.verdict;
     const ground = sim.evaluate(E.makeItem(S.game, { ...o, identified: false, filtlvl: v.fl, clvl: v.clvl, diff: v.diff, where: 'ground' }));
@@ -1837,7 +1874,7 @@ async function boot() {
   if (saved && saved.profile) { S.profile = { ...blankProfile(), ...saved.profile }; S.baseFile = saved.baseFile || S.baseFile; }
 
   try {
-    const res = await fetch('data/game.json?v=2026-09-26c');
+    const res = await fetch('data/game.json?v=2026-09-26d');
     S.game = await res.json();
   } catch {
     $('#status').className = 'wrap status error';

@@ -47,8 +47,6 @@ class PropFormatter:
         try:
             mn = int(mn) if mn not in ('', None) else 0
             mx = int(mx) if mx not in ('', None) else mn
-            if abs(mx) < abs(mn):
-                mx = mn
         except ValueError:
             return None
         v = self.num(mn, mx)
@@ -113,9 +111,28 @@ class PropFormatter:
             except ValueError:
                 per = 0
             return (f'+{per:g} per Character Level {s} {s2}'.strip(), prio)
+        if func != 15 and abs(mx) < abs(mn):
+            # a "max" below "min" isn't a range (e.g. splash stores 100 / 1); skill procs (func 15)
+            # use min = chance and max = skill level, so they keep both numbers
+            mx = mn
+            v = self.num(mn, mx)
         av = v.lstrip('-') if mn < 0 else v
-        if '%d' in s or '%+d' in s or '%s' in s:
-            return (s.replace('%+d', f'{plus}{v}').replace('%d', v).replace('%s', v), prio)
+        if re.search(r'%[+]?d|%s', s):
+            # Fill-in-the-blanks text: fill each blank in order. Skill-event stats (descfunc 15,
+            # e.g. "%d%% Chance to cast level %d %s on block") take chance, skill level, skill name.
+            if func == 15:
+                args = [str(mn), str(mx), self.skill(par)[0]]
+            else:
+                args = [v] * 4
+            it = iter(args)
+
+            def fill(m):
+                tok = m.group(0)
+                if tok == '%%':
+                    return '%'
+                val = next(it, v)
+                return f'{plus}{val}' if tok == '%+d' else val
+            return (re.sub(r'%%|%\+d|%d|%s', fill, s), prio)
         if dval == 0 and func not in (3, 5, 6, 7, 8, 9, 11, 20, 21):
             txt = s  # the game shows only the text (e.g. "Melee Attacks Deal Splash Damage")
         elif func in (1, 12):

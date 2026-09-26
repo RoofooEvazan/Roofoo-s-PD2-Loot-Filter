@@ -88,6 +88,8 @@ def gem_info(code):
     return None
 
 
+CLASS_NAMES = {'ama': 'Amazon', 'sor': 'Sorceress', 'nec': 'Necromancer', 'pal': 'Paladin', 'bar': 'Barbarian',
+               'dru': 'Druid', 'ass': 'Assassin'}
 NAME_COLORS = {'0': 'WHITE', '1': 'RED', '2': 'GREEN', '3': 'BLUE', '4': 'GOLD', '5': 'GRAY', '6': 'BLACK',
                '7': 'TAN', '8': 'ORANGE', '9': 'YELLOW', ':': 'DARK_GREEN', ';': 'PURPLE'}
 items = {}
@@ -139,11 +141,29 @@ def add(rows, kind):
                 if r.get('nodurability') == '1':
                     stats.pop('durability', None)
             it['s'] = stats
-            if types.get(r.get('type')):
-                it['tn'] = types[r['type']]['ItemType']
+            t = types.get(r.get('type'))
+            if t:
+                it['tn'] = t['ItemType']
+                # Max sockets by item level 1-25 / 26-40 / 41+ (the type's limit, capped by the base's own)
+                try:
+                    it['msl'] = [min(it.get('ms', 0), int(t[k] or 0)) for k in ('MaxSock1', 'MaxSock25', 'MaxSock40')]
+                except ValueError:
+                    pass
+                cls = t.get('Class') or (types.get(r.get('type2')) or {}).get('Class')
+                if cls in CLASS_NAMES:
+                    it['cls'] = CLASS_NAMES[cls]
+            # Normal -> Exceptional -> Elite versions of this base
+            up = [r.get('normcode'), r.get('ubercode'), r.get('ultracode')]
+            if all(up) and len(set(up)) == 3:
+                it['up'] = up
         if r.get('stackable') == '1':
             it['st'] = 1  # has a quantity (QTY) in filters
         if kind == 'misc':
+            try:
+                if int(r.get('levelreq') or 0):
+                    it['rl'] = int(r['levelreq'])
+            except ValueError:
+                pass
             mr = re.fullmatch(r'r(\d\d)s?', code)
             if mr:
                 it['rune'] = int(mr.group(1))

@@ -367,3 +367,10 @@ textarea { width: 100%; min-height: 70px; background: var(--bg-2); border: 1px s
 .safety { margin: 2px 0 8px; display: grid; gap: 6px; }
 .safety .hint { margin: 0; }
 .safety-prev { display: grid; gap: 4px; }
+.tip .tt-extra { margin-top: 10px; padding-top: 8px; border-top: 1px solid #2c2822; text-align: left; font: 12px/1.4 Inter, sans-serif; }
+.tip .tt-extra-h { font-size: 10.5px; text-transform: uppercase; letter-spacing: .08em; color: var(--faint); margin-bottom: 4px; }
+.tip .tt-row { display: flex; justify-content: space-between; gap: 12px; padding: 1px 0; }
+.tip .tt-row > span:first-child { color: var(--muted); white-space: nowrap; }
+.tip .tt-row > span:last-child { color: #e8e2d6; text-align: right; }
+.tip .tt-row small { display: block; color: var(--faint); font-size: 10.5px; }
+.tip .tt-row b { color: var(--gold-2); }
