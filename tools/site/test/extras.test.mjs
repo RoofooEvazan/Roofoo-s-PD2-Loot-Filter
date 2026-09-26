@@ -1,0 +1,16 @@
+import fs from 'node:fs';
+import assert from 'node:assert';
+import { buildFilter, splitLines, readTiers, Simulator, makeItem } from '../../../docs/js/engine.js';
+const game = JSON.parse(fs.readFileSync('docs/data/game.json', 'utf8'));
+const base = fs.readFileSync('Roofoo.filter', 'latin1');
+const t0 = readTiers(splitLines(base).lines);
+console.log('amu SET', t0.map.get('SET|N|amu'), 'rin SET', t0.map.get('SET|N|rin'));
+const { text } = buildFilter(base, { theme: 'classic', soundPack: 'classic', tiers: { 'SET|N|amu': 'TS' } }, game);
+const lines = splitLines(text).lines;
+console.log(lines.find(l => l.startsWith('Alias[OSSET1]')));
+console.log(lines.find(l => l.startsWith('Alias[TSSET1]')));
+const t1 = readTiers(lines);
+assert.strictEqual(t1.map.get('SET|N|amu'), 'TS');
+const sim = new Simulator(text);
+console.log('set amu FL4/FL8:', [4, 8].map(fl => sim.evaluate(makeItem(game, { code: 'amu', quality: 'SET', filtlvl: fl })).name.trim()));
+console.log('ok');

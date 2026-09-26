@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roofoo Filter Builder</title>
+  <meta name="description" content="Customize Roofoo's Project Diablo 2 loot filter: pick a color theme, drop sounds, star tiers and what shows on each filter level, then download your own filter.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23141210'/%3E%3Cpath d='M16 5l3.2 7 7.6.6-5.8 5 1.8 7.4L16 21l-6.8 4 1.8-7.4-5.8-5 7.6-.6z' fill='%23d9b25f'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&family=Spectral:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">★</span>
+        <div>
+          <h1>Roofoo Filter Builder</h1>
+          <p class="tagline">Roofoo's PD2 loot filter, with your colors, sounds and drops.</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <label class="base-pick">
+          <span>Filter</span>
+          <select id="base-select" aria-label="Which Roofoo filter to start from"></select>
+        </label>
+        <button class="btn primary" id="download-top" disabled>Download my filter</button>
+      </div>
+    </div>
+    <nav class="wrap tabs" id="tabs" role="tablist">
+      <button role="tab" data-tab="look" aria-selected="true"><span class="n">1</span>Colors &amp; sounds</button>
+      <button role="tab" data-tab="items"><span class="n">2</span>Items</button>
+      <button role="tab" data-tab="test"><span class="n">3</span>Test an item</button>
+      <button role="tab" data-tab="report"><span class="n">4</span>Overview &amp; review</button>
+      <button role="tab" data-tab="save"><span class="n">5</span>Save &amp; install</button>
+    </nav>
+  </header>
+
+  <div class="wrap status" id="status" role="status">Loading the latest filter from GitHub…</div>
+
+  <main class="wrap" id="main">
+    <section class="panel" id="panel-look" role="tabpanel"></section>
+    <section class="panel" id="panel-items" role="tabpanel" hidden></section>
+    <section class="panel" id="panel-test" role="tabpanel" hidden></section>
+    <section class="panel" id="panel-report" role="tabpanel" hidden></section>
+    <section class="panel" id="panel-save" role="tabpanel" hidden></section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>Filter by <a href="https://twitch.tv/RoofooEvazan">RoofooEvazan</a> &amp; <a href="https://twitch.tv/Enpherno">Enpherno</a>, based on <a href="https://twitch.tv/Kryszard">Kryszard</a>'s filter.
+      Source on <a href="https://github.com/RoofooEvazan/Roofoo-s-PD2-Loot-Filter">GitHub</a>.
+      Item names and sounds come from Project Diablo 2's own game files. Not affiliated with Blizzard or the PD2 team.</p>
+  </footer>
+
+  <div class="tip" id="tip" role="tooltip" hidden></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

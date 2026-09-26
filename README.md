@@ -14,6 +14,22 @@ All changes are incremental and intentional, designed to enhance high-level play
 
 ---
 
+## 🎨 Make It Yours: Filter Builder
+
+**[Open the Filter Builder](https://roofooevazan.github.io/Roofoo-s-PD2-Loot-Filter/)**: no filter code needed.
+
+- Pick a color theme (Classic, Ember, Frost, Venom, Royal, High Contrast) or tweak any single style
+- Choose drop sounds and preview them in your browser
+- One **Items** page: every unique, set, rare, magic, base, rune, gem and potion in collapsible sections, with star tiers and show/hide per filter level
+- Narrow any choice by ethereal, sockets, superior, item level or character level
+- Turn **Mystery drops** on or off, restyle the Little / Lucky / Big Bastard labels, and choose which drops are mysteries
+- Test how an item looks on every filter level
+- Overview & review: see everything shown or hidden on each filter level (by rarity, sockets and item level), with in-game style item cards on hover, then download your own `.filter`
+
+The builder always starts from the newest version of this filter, so come back after an update and download again. Your choices are saved in your browser.
+
+---
+
 ## 🔄 Changelog
 **Current Version:** 13.0.8  
 **Updated:** May 15, 2026  
