@@ -24,6 +24,8 @@ Nothing is rewritten. The builder makes small, targeted edits to the live filter
 | Minimap markers | The `%DOT-D6%`-style token on every line in that marker group. |
 | Show / hide | A clearly labelled block right after the Horadric Cube lines. Hides only apply outside town. |
 | Mystery drops | Turning them on starts from `RoofooMystery.filter`. Bucket choices rewrite the `Alias[BASTARD_…]` lists; label styles and sounds edit the Little / Lucky / Big Bastard and HOLY MOLY lines. |
+| Market prices | Every `BEGIN/END AUTO PD2TRADER` block is removed (they only stay current in the launcher version); the file header and the Horadric Cube tooltip say so. |
+| Safety net | Items whose code is neither in PD2's item list (when `game.json` was built) nor mentioned in the filter always show, marked `[Missing]`. The known codes are split over `Alias[BUILDER_KNOWN_ITEMS_n]` lines to keep every line under the length the filter already uses. Players can turn it off on Save & install. |
 
 The downloaded file starts with a `BUILDER-PROFILE:` comment so a player can load it back into the builder later.
 
@@ -56,6 +58,9 @@ node tools/site/test/engine.test.mjs
 node tools/site/test/transform.test.mjs
 node tools/site/test/extras.test.mjs
 node tools/site/test/mystery.test.mjs
+node tools/site/test/items.test.mjs
+node tools/site/test/prices.test.mjs
+node tools/site/test/safety.test.mjs
 ```
 
 `engine.test.mjs` checks that a build with no changes reproduces each filter byte for byte and
@@ -64,7 +69,7 @@ prints how common items display on FL0–9.
 ## Releasing a change to the builder
 
 GitHub Pages lets browsers reuse files for up to 10 minutes. The script and style links carry a
-version tag (`?v=2026-09-26b`) in `docs/index.html`, `docs/js/app.js` and `docs/js/engine.js`.
+version tag (`?v=2026-09-26c`) in `docs/index.html`, `docs/js/app.js` (scripts and `data/game.json`) and `docs/js/engine.js`.
 Change it everywhere at once when you change the builder's code, so players get matching new files.
 Filter updates (including the automatic price commits) need nothing: the page always fetches the latest filter.
 

@@ -1,6 +1,6 @@
 // Filter engine: reads a PD2 loot filter, simulates how items display, and applies a
 // player's customization profile as small targeted edits to the live filter text.
-import { TEXT_SLOTS, MARKER_SLOTS, PRESETS, SOUND_PACKS } from './themes.js?v=2026-09-26b';
+import { TEXT_SLOTS, MARKER_SLOTS, PRESETS, SOUND_PACKS } from './themes.js?v=2026-09-26c';
 
 export const FILTER_LEVELS = 10; // FL0 .. FL9
 const TOKEN_RE = /%([A-Z_]+)(?:-([0-9A-Fa-f]+))?%/g;
@@ -773,6 +773,49 @@ export function stripPriceBlocks(lines) {
   return { lines: out, blocks };
 }
 
+// ---------------------------------------------------------------- safety net for unknown items
+
+export const MISSING_CAPTION = 'Missing';
+
+// Codes an ItemDisplay condition or alias mentions (lowercase item codes like 7gd, r33s, cm2f)
+function filterCodes(lines) {
+  const codes = new Set();
+  for (const l of lines) {
+    let cond = null;
+    if (l.startsWith('ItemDisplay[')) cond = l.slice(12, l.indexOf(']'));
+    else { const m = /^Alias\[[^\]]+\]:\s*(.*)$/.exec(l); if (m) cond = m[1].replace(/\s*\/\/.*$/, ''); }
+    if (cond) for (const t of cond.match(/\b[a-z0-9]{2,5}\b/g) || []) if (/[a-z]/.test(t)) codes.add(t);
+  }
+  return codes;
+}
+
+// Items the game didn't have when the builder's data was made, and that the filter doesn't mention
+// either, always show with a "Missing" caption. Codes are split over several aliases so no line
+// gets longer than the ones Roofoo's filter already uses (PD2 reads each line into a fixed buffer).
+export function safetyNetLines(allCodes, lines) {
+  const known = [...new Set([...allCodes, ...filterCodes(lines)])].sort();
+  const chunks = [];
+  let cur = [];
+  for (const c of known) {
+    if ((cur.join(' OR ').length + c.length + 4) > 1800) { chunks.push(cur); cur = []; }
+    cur.push(c);
+  }
+  if (cur.length) chunks.push(cur);
+  const names = chunks.map((_, i) => `BUILDER_KNOWN_ITEMS_${i + 1}`);
+  return {
+    known: known.length,
+    lines: [
+      '// ===============================',
+      '// SAFETY NET (Roofoo Filter Builder)',
+      '// Items newer than this filter (not in PD2\'s item list when the builder was updated, and not',
+      `// mentioned anywhere in the filter) always show, marked [${MISSING_CAPTION}], so a game patch can't hide them.`,
+      '// ===============================',
+      ...chunks.map((c, i) => `Alias[${names[i]}]: (${c.join(' OR ')})`),
+      `ItemDisplay[${names.map(n => '!' + n).join(' ')}]: %MAP-0A%%NAME% %GRAY%[%RED%${MISSING_CAPTION}%GRAY%]{%NAME%%CL%%RED%${MISSING_CAPTION}%WHITE%: this item is newer than your filter.%CL%%GRAY%It always shows so you never miss it. Update your filter to style it.}`,
+    ],
+  };
+}
+
 export function buildFilter(baseText, profile, game, meta = {}) {
   let { lines, eol } = splitLines(baseText);
   const report = { tiers: 0, slots: [], missing: [], markers: 0, rules: 0, soundLinesAdded: 0, priceBlocks: 0 };
@@ -860,6 +903,15 @@ export function buildFilter(baseText, profile, game, meta = {}) {
       '// These run before everything else. Hidden items still show in town.',
       '// ===============================',
       ...ov.top, '');
+  }
+
+  // Safety net goes first of all, so no hide rule can swallow an item the filter has never heard of
+  if (profile.safetyNet !== false && game.allCodes) {
+    const net = safetyNetLines(game.allCodes, lines);
+    report.safetyNetCodes = net.known;
+    let at = firstRuleIndex(lines);
+    while (at > 0 && /^(\/\/|Alias\[|\s*$)/.test(lines[at - 1])) at--;
+    lines.splice(at, 0, ...net.lines, '');
   }
 
   const header = [

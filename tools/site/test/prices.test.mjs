@@ -6,7 +6,7 @@ const game = JSON.parse(fs.readFileSync('docs/data/game.json', 'utf8'));
 for (const f of ['Roofoo.filter', 'RoofooMystery.filter', 'RoofooSlamfestBETA.filter']) {
   const base = fs.readFileSync(f, 'utf8');
   const baseLines = splitLines(base).lines;
-  const { text, report } = buildFilter(base, { theme: 'classic', soundPack: 'classic' }, game);
+  const { text, report } = buildFilter(base, { theme: 'classic', soundPack: 'classic', safetyNet: false }, game);
   const lines = splitLines(text).lines;
   assert.ok(!lines.some(l => /^\/\/ (BEGIN|END) AUTO PD2TRADER/.test(l)), 'no price blocks left');
   assert.ok(!/ HR[ }%]/.test(text.replace(/^\/\/.*$/gm, '')), 'no HR prices in rules');

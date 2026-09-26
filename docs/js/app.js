@@ -1,7 +1,7 @@
-import * as E from './engine.js?v=2026-09-26b';
+import * as E from './engine.js?v=2026-09-26c';
 import {
   TEXT_SLOTS, MARKER_SLOTS, MYSTERY_SLOT_IDS, PRESETS, SOUND_PACKS, TIERS, TEXT_COLORS, TEXT_COLOR_NAMES, MARKER_COLORS, MARKER_SIZES,
-} from './themes.js?v=2026-09-26b';
+} from './themes.js?v=2026-09-26c';
 
 const REPO = 'RoofooEvazan/Roofoo-s-PD2-Loot-Filter';
 const BRANCH = 'main';
@@ -1574,6 +1574,22 @@ function priceNoticeHTML() {
   return `<div class="notice price-note"><b>Live market prices are not included.</b> Rune values, Rainbow Facet values and slam suggestions${slam ? " (including Slamfest's whole FL9 slam mode)" : ''} update every 6 hours only in the <b>launcher version</b> of Roofoo's filter, so they're removed from custom versions instead of going out of date. Want them? Pick Roofoo's filter from the PD2 launcher's online filter list instead.</div>`;
 }
 
+// Safety net switch, with a preview of how an unknown item looks in the player's own filter
+function safetyNetHTML() {
+  const on = S.profile.safetyNet !== false;
+  let preview = '';
+  if (on) {
+    // 'zz9' stands in for an item a future PD2 patch adds: no filter rule or builder data knows it
+    const r = finalSim().evaluate(E.makeItem(S.game, { code: 'zz9', quality: 'NMAG', filtlvl: 8 }));
+    r.name = r.name.replace('zz9', 'New Item');
+    preview = `<div class="safety-prev"><span class="hint">In game it looks like this, on every filter level:</span>${groundHTML(r, '', true)}</div>`;
+  }
+  return `<div class="safety">
+    <label class="qchip"><input type="checkbox" data-act="safety" ${on ? 'checked' : ''}> Always show items that are newer than this filter, marked <b>[${E.MISSING_CAPTION}]</b></label>
+    <p class="hint">If a PD2 patch adds an item before the filter knows about it, it shows up with this caption instead of possibly being hidden. Once Roofoo's filter handles the item, the caption goes away the next time you download.</p>
+    ${preview}</div>`;
+}
+
 function renderSave() {
   const b = built();
   const r = b.report;
@@ -1596,6 +1612,7 @@ function renderSave() {
         <h3>1. Download your filter</h3>
         ${items.length ? `<ul class="changes">${items.map(x => `<li>${x}</li>`).join('')}</ul>` : '<p class="hint">No changes yet. You\'ll get Roofoo\'s filter as it is, minus the live market prices (see below).</p>'}
         ${priceNoticeHTML()}
+        ${safetyNetHTML()}
         <div class="row"><input type="text" id="out-name" value="${esc(S.outName || base.out)}" aria-label="File name" style="flex:1;min-width:180px">
           <button class="btn primary" data-act="download">Download</button></div>
         <h3>2. Install it</h3>
@@ -1670,6 +1687,10 @@ async function onSaveEvent(ev) {
   if (!t || ev.type !== 'click') return;
   const act = t.dataset.act;
   if (act === 'download') return download();
+  if (act === 'safety') {
+    if (t.checked) delete S.profile.safetyNet; else S.profile.safetyNet = false;
+    return changed();
+  }
   if (act === 'share') return copy(`${location.origin}${location.pathname}#p=${await profileCode()}`, 'Share link copied.');
   if (act === 'copy-code') return copy(await profileCode(), 'Setup code copied.');
   if (act === 'import') {
@@ -1816,7 +1837,7 @@ async function boot() {
   if (saved && saved.profile) { S.profile = { ...blankProfile(), ...saved.profile }; S.baseFile = saved.baseFile || S.baseFile; }
 
   try {
-    const res = await fetch('data/game.json');
+    const res = await fetch('data/game.json?v=2026-09-26c');
     S.game = await res.json();
   } catch {
     $('#status').className = 'wrap status error';

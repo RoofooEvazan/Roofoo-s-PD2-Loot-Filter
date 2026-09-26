@@ -227,7 +227,11 @@ if manifest:
     os.remove(mf)
 
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
-json.dump({'items': items, 'uniques': uniques, 'sets': sets, 'palette': palette, 'sounds': sounds,
+# Every item code the game has right now (all rows, even unnamed ones). The builder's safety net
+# shows any item whose code isn't in this list, i.e. items added to PD2 after this data was built.
+all_codes = sorted({r['code'] for t in ('Weapons.txt', 'Armor.txt', 'Misc.txt') for r in excel(pd2, t) if r.get('code')})
+
+json.dump({'items': items, 'uniques': uniques, 'sets': sets, 'palette': palette, 'sounds': sounds, 'allCodes': all_codes,
            'soundNames': sound_names}, open(OUT, 'w'), separators=(',', ':'))
 print('items', len(items), 'uniques', len(uniques), 'sets', len(sets), 'sounds', len(sounds),
       '->', OUT, os.path.getsize(OUT))

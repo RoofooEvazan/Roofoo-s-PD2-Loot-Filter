@@ -364,3 +364,6 @@ textarea { width: 100%; min-height: 70px; background: var(--bg-2); border: 1px s
 }
 
 .price-note { margin: 4px 0 8px; font-size: 13.5px; }
+.safety { margin: 2px 0 8px; display: grid; gap: 6px; }
+.safety .hint { margin: 0; }
+.safety-prev { display: grid; gap: 4px; }
