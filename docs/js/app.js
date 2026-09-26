@@ -1568,6 +1568,12 @@ function onReportEvent(ev) {
 
 // ---------------------------------------------------------------- tab: save & install
 
+// Custom downloads drop the PD2 Trader market prices, which only keep updating in the launcher version.
+function priceNoticeHTML() {
+  const slam = S.baseFile === 'RoofooSlamfestBETA.filter';
+  return `<div class="notice price-note"><b>Live market prices are not included.</b> Rune values, Rainbow Facet values and slam suggestions${slam ? " (including Slamfest's whole FL9 slam mode)" : ''} update every 6 hours only in the <b>launcher version</b> of Roofoo's filter, so they're removed from custom versions instead of going out of date. Want them? Pick Roofoo's filter from the PD2 launcher's online filter list instead.</div>`;
+}
+
 function renderSave() {
   const b = built();
   const r = b.report;
@@ -1588,7 +1594,8 @@ function renderSave() {
     <div class="save-grid">
       <div class="card save-box">
         <h3>1. Download your filter</h3>
-        ${items.length ? `<ul class="changes">${items.map(x => `<li>${x}</li>`).join('')}</ul>` : '<p class="hint">No changes yet. You\'ll get Roofoo\'s filter exactly as it is.</p>'}
+        ${items.length ? `<ul class="changes">${items.map(x => `<li>${x}</li>`).join('')}</ul>` : '<p class="hint">No changes yet. You\'ll get Roofoo\'s filter as it is, minus the live market prices (see below).</p>'}
+        ${priceNoticeHTML()}
         <div class="row"><input type="text" id="out-name" value="${esc(S.outName || base.out)}" aria-label="File name" style="flex:1;min-width:180px">
           <button class="btn primary" data-act="download">Download</button></div>
         <h3>2. Install it</h3>
@@ -1598,7 +1605,7 @@ function renderSave() {
           <li>In game, pick your filter level like you normally do. The Horadric Cube tooltip shows which level is active.</li>
         </ol>
         <h3>3. Staying up to date</h3>
-        <p class="hint" style="margin:0">This builder always starts from Roofoo's newest filter on GitHub (including the automatic rune prices). Your choices are saved in this browser, so when Roofoo updates, come back and download again.</p>
+        <p class="hint" style="margin:0">This builder always starts from Roofoo's newest filter on GitHub. Your choices are saved in this browser, so when Roofoo updates, come back and download again.</p>
       </div>
       <div class="card save-box">
         <h3>Share your setup</h3>
@@ -1722,7 +1729,7 @@ async function loadBase(file) {
     S.base = { lines, slots: E.findSlots(lines), tiers: E.readTiers(lines), mystery: E.readMystery(lines), levelNames: sim.levelNames, markerCounts: E.findMarkers(lines) };
     S.memo = {};
     $('#base-select').value = file;
-    status.innerHTML = `Using the latest <b>${esc(file)}</b> ${url.startsWith('http') ? 'from GitHub' : '(local copy)'}<span id="base-date"></span>. Your choices are saved in this browser.`;
+    status.innerHTML = `Using the latest <b>${esc(file)}</b> ${url.startsWith('http') ? 'from GitHub' : '(local copy)'}<span id="base-date"></span>. Your choices are saved in this browser. Custom versions leave out the live market prices, which only work in the launcher version.`;
     $('#download-top').disabled = false;
     persist();
     updateTabCounts();

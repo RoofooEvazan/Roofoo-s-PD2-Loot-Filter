@@ -9,7 +9,7 @@ for (const f of ['Roofoo.filter', 'RoofooMystery.filter', 'RoofooSlamfestBETA.fi
   const missing = Object.entries(slots).filter(([k, v]) => !v.display.length).map(([k]) => k);
   const nosound = Object.entries(slots).filter(([k, v]) => v.sound === null).map(([k]) => k);
   console.log(f, 'slots missing:', missing.join(',') || 'none', '| no sound line:', nosound.join(','), '| markers:', JSON.stringify(findMarkers(lines)));
-  const { text } = buildFilter(base, { theme: 'classic', soundPack: 'classic' }, game);
+  const { text } = buildFilter(base, { theme: 'classic', soundPack: 'classic' }, game, { stripPrices: false });
   const body = text.split(/\r?\n/).slice(5).join(base.includes('\r\n') ? '\r\n' : '\n');
   assert.strictEqual(body, base, 'identity build must equal base for ' + f);
 }

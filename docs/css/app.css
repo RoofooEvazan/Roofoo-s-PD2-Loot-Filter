@@ -362,3 +362,5 @@ textarea { width: 100%; min-height: 70px; background: var(--bg-2); border: 1px s
   .irow-fl { flex-direction: column; align-items: stretch; }
   .flstrip.mini { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 }
+
+.price-note { margin: 4px 0 8px; font-size: 13.5px; }

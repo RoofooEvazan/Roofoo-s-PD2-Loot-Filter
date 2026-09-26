@@ -744,9 +744,43 @@ function overrideLines(profile, game) {
 
 // ---------------------------------------------------------------- build
 
+export const PRICE_NOTE = "Live market prices (rune values, Rainbow Facet values and slam suggestions) only work in the launcher version of Roofoo's filter.";
+
+// Custom filters don't get the 6-hourly PD2 Trader updates, so their market prices would go stale.
+// Remove every "BEGIN AUTO PD2TRADER ... END AUTO PD2TRADER" block and leave a note in its place.
+export function stripPriceBlocks(lines) {
+  const out = [];
+  let inBlock = false, blocks = 0;
+  for (const line of lines) {
+    if (/^\/\/ BEGIN AUTO PD2TRADER\b/.test(line)) {
+      inBlock = true;
+      blocks++;
+      out.push(`// ${line.slice(3).replace('BEGIN AUTO', 'REMOVED AUTO')}: ${PRICE_NOTE}`);
+      continue;
+    }
+    if (inBlock) {
+      if (/^\/\/ END AUTO PD2TRADER\b/.test(line)) inBlock = false;
+      continue;
+    }
+    out.push(line);
+  }
+  if (blocks) {
+    // In game: say so on the Horadric Cube tooltip, where the rune prices used to be listed
+    out.splice(firstRuleIndex(out), 0,
+      '// Note on the Horadric Cube tooltip (Roofoo Filter Builder)',
+      'ItemDisplay[box]: %NAME%{%NAME%%NL%%GRAY%Custom build: live market prices only in the launcher version}%CONTINUE%');
+  }
+  return { lines: out, blocks };
+}
+
 export function buildFilter(baseText, profile, game, meta = {}) {
-  const { lines, eol } = splitLines(baseText);
-  const report = { tiers: 0, slots: [], missing: [], markers: 0, rules: 0, soundLinesAdded: 0 };
+  let { lines, eol } = splitLines(baseText);
+  const report = { tiers: 0, slots: [], missing: [], markers: 0, rules: 0, soundLinesAdded: 0, priceBlocks: 0 };
+  if (meta.stripPrices !== false) {
+    const stripped = stripPriceBlocks(lines);
+    lines = stripped.lines;
+    report.priceBlocks = stripped.blocks;
+  }
 
   // 1) tier moves (alias edits, line count unchanged)
   report.tiers = applyTiers(lines, profile.tiers || {});
@@ -833,6 +867,7 @@ export function buildFilter(baseText, profile, game, meta = {}) {
     `//\tBase: ${meta.baseName || 'Roofoo.filter'}${meta.baseDate ? ' (' + meta.baseDate + ')' : ''} | Theme: ${presetById(profile.theme).label} | Sounds: ${soundPackById(profile.soundPack).label}`,
     '//\tTo keep editing, open the builder and use "Load a filter file" with this file.',
     `//\tBUILDER-PROFILE: ${meta.profileCode || ''}`,
+    ...(report.priceBlocks ? [`//\tNOTE: ${PRICE_NOTE} They were removed from this custom version.`] : []),
     '//',
   ];
   const text = [...header, ...lines].join(eol);
