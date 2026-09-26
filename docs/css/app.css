@@ -253,7 +253,7 @@ details.customize[open] summary::before { transform: rotate(90deg); }
 .rp-chip.shown { border-color: #3fb950; box-shadow: inset 0 0 0 1px rgba(63, 185, 80, .25); }
 .rp-chip em { font: 12px Inter, sans-serif; font-style: normal; color: var(--muted); margin-left: 6px; }
 .rp-chip:hover, .rp-chip:focus-visible { background: #1a1714; }
-.tip { position: fixed; z-index: 60; width: min(340px, calc(100vw - 16px)); background: rgba(8, 8, 8, .97); border: 1px solid #4a4336; border-radius: 8px; padding: 12px 14px; text-align: center; font: 14px/1.45 var(--label-font); box-shadow: 0 14px 40px rgba(0, 0, 0, .7); pointer-events: none; }
+.tip { position: fixed; z-index: 60; width: min(340px, calc(100vw - 16px)); background: #0a0908; isolation: isolate; border: 1px solid #4a4336; border-radius: 8px; padding: 12px 14px; text-align: center; font: 14px/1.45 var(--label-font); box-shadow: 0 14px 40px rgba(0, 0, 0, .7); pointer-events: none; }
 .tip .tt-head { display: flex; justify-content: center; margin-bottom: 4px; }
 .tip .tt-head .ico { width: 34px; height: 34px; stroke-width: 1.3; }
 .tip .tt-name .label { background: none; padding: 0; font-size: 15.5px; white-space: normal; }
