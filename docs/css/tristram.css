@@ -39,3 +39,26 @@ h3 { font: 400 11px var(--tri-display); letter-spacing: .05em; color: var(--tri-
 
 /* ---------- panels sit on a stone sheet over the page ground */
 main.wrap { background: color-mix(in srgb, var(--tri-panel) 94%, transparent); box-shadow: inset 0 4px 0 var(--tri-gold), inset 0 -4px 0 var(--tri-shadow); border: 1px solid var(--tri-line); margin-top: 14px; padding-top: 12px; }
+
+/* ---------- Chaos: the other theme from the site nav's switch */
+:root[data-theme="chaos"] {
+  --bg: #090807;
+  --bg-2: #14110f;
+  --panel: #14110f;
+  --panel-2: #1e1814;
+  --line: #4e3b28;
+  --line-2: #6e5230;
+  --text: #f0e6d6;
+  --muted: #a89480;
+  --faint: #86735f;
+  --gold: #c4924a;
+  --gold-2: #e0b878;
+  --focus: #c4924a;
+}
+:root[data-theme="chaos"] .topbar { background: rgba(9, 8, 7, .95); }
+:root[data-theme="chaos"] .brand h1 { font-size: 19px; letter-spacing: .12em; text-transform: uppercase; }
+:root[data-theme="chaos"] .tabs button { font-size: 13px; letter-spacing: .08em; }
+:root[data-theme="chaos"] h2 { font-size: 20px; letter-spacing: .06em; }
+:root[data-theme="chaos"] h3 { font-size: 13px; letter-spacing: .1em; }
+:root[data-theme="chaos"] .btn:not(.icon-btn) { font-size: 12px; letter-spacing: .08em; }
+:root[data-theme="chaos"] main.wrap { box-shadow: none; border-color: color-mix(in srgb, var(--tri-gold) 60%, transparent); }
