@@ -377,12 +377,13 @@ textarea { width: 100%; min-height: 70px; background: var(--bg-2); border: 1px s
 
 /* online-features warning (Colors & sounds and Save & install) */
 .price-banner { display: flex; gap: 14px; align-items: flex-start; margin: 16px 0 6px; padding: 14px 16px; border-radius: var(--radius);
-  background: linear-gradient(90deg, #3d2710, #25190c 60%, var(--panel)); border: 1px solid #e08a2c; border-left: 5px solid #f0a13a;
+  background: repeating-linear-gradient(-45deg, #3a260d 0 16px, #221607 16px 32px); border: 1px solid #e08a2c; border-left: 5px solid #f0a13a;
   box-shadow: 0 0 0 1px rgba(240, 161, 58, .15), 0 6px 20px rgba(0, 0, 0, .35); color: #f3e3c6; }
 .price-banner .pb-icon { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%;
   background: #f0a13a; color: #1d1305; font: 800 18px/1 Inter, sans-serif; margin-top: 1px; }
 .price-banner .pb-title { display: block; font-size: 16px; color: #ffcf85; margin-bottom: 3px; }
-.price-banner p { margin: 0; font-size: 14px; line-height: 1.5; }
+.price-banner p { margin: 0; font-size: 14px; line-height: 1.5; text-shadow: 0 1px 2px #000; }
+.price-banner .pb-title { text-shadow: 0 1px 2px #000; }
 .price-banner p b { color: #fff0d6; }
 .price-banner .pb-alt { margin-top: 6px; color: #e9cfa3; }
 .pb-reminder { margin: -2px 0 6px; font-size: 13px; color: #f0b25c; }

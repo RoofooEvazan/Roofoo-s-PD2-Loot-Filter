@@ -69,7 +69,7 @@ prints how common items display on FL0–9.
 ## Releasing a change to the builder
 
 GitHub Pages lets browsers reuse files for up to 10 minutes. The script and style links carry a
-version tag (`?v=2026-09-26f`) in `docs/index.html`, `docs/js/app.js` (scripts and `data/game.json`) and `docs/js/engine.js`.
+version tag (`?v=2026-09-26g`) in `docs/index.html`, `docs/js/app.js` (scripts and `data/game.json`) and `docs/js/engine.js`.
 Change it everywhere at once when you change the builder's code, so players get matching new files.
 Filter updates (including the automatic price commits) need nothing: the page always fetches the latest filter.
 

@@ -1,7 +1,7 @@
-import * as E from './engine.js?v=2026-09-26f';
+import * as E from './engine.js?v=2026-09-26g';
 import {
   TEXT_SLOTS, MARKER_SLOTS, MYSTERY_SLOT_IDS, PRESETS, SOUND_PACKS, TIERS, TEXT_COLORS, TEXT_COLOR_NAMES, MARKER_COLORS, MARKER_SIZES,
-} from './themes.js?v=2026-09-26f';
+} from './themes.js?v=2026-09-26g';
 
 const REPO = 'RoofooEvazan/Roofoo-s-PD2-Loot-Filter';
 const BRANCH = 'main';
@@ -1882,7 +1882,7 @@ async function boot() {
   if (saved && saved.profile) { S.profile = { ...blankProfile(), ...saved.profile }; S.baseFile = saved.baseFile || S.baseFile; }
 
   try {
-    const res = await fetch('data/game.json?v=2026-09-26f');
+    const res = await fetch('data/game.json?v=2026-09-26g');
     S.game = await res.json();
   } catch {
     $('#status').className = 'wrap status error';
