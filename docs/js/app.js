@@ -1,7 +1,7 @@
-import * as E from './engine.js?v=2026-09-26e';
+import * as E from './engine.js?v=2026-09-26f';
 import {
   TEXT_SLOTS, MARKER_SLOTS, MYSTERY_SLOT_IDS, PRESETS, SOUND_PACKS, TIERS, TEXT_COLORS, TEXT_COLOR_NAMES, MARKER_COLORS, MARKER_SIZES,
-} from './themes.js?v=2026-09-26e';
+} from './themes.js?v=2026-09-26f';
 
 const REPO = 'RoofooEvazan/Roofoo-s-PD2-Loot-Filter';
 const BRANCH = 'main';
@@ -331,6 +331,7 @@ function renderLook() {
       <span class="t-blurb">${esc(sp.blurb || 'The sounds Roofoo picked for each drop type.')}</span></button>`).join('');
 
   panel('look').innerHTML = `
+    ${priceNoticeHTML()}
     ${mysterySwitchHTML()}
     <h2>Pick a color theme</h2>
     <p class="lead">Themes recolor the highlights on valuable drops. The star tiers and everything that shows or hides stay exactly like Roofoo's filter. You can fine-tune any single style further down.</p>
@@ -1606,9 +1607,15 @@ function onReportEvent(ev) {
 // ---------------------------------------------------------------- tab: save & install
 
 // Custom downloads drop the PD2 Trader market prices, which only keep updating in the launcher version.
+// Shown as a highlighted banner at the top of Colors & sounds and Save & install.
 function priceNoticeHTML() {
   const slam = S.baseFile === 'RoofooSlamfestBETA.filter';
-  return `<div class="notice price-note"><b>Live market prices are not included.</b> Rune values, Rainbow Facet values and slam suggestions${slam ? " (including Slamfest's whole FL9 slam mode)" : ''} update every 6 hours only in the <b>launcher version</b> of Roofoo's filter, so they're removed from custom versions instead of going out of date. Want them? Pick Roofoo's filter from the PD2 launcher's online filter list instead.</div>`;
+  return `<div class="price-banner" role="note">
+    <span class="pb-icon" aria-hidden="true">!</span>
+    <div><b class="pb-title">Custom filters don't include the online features</b>
+      <p>Live market prices (<b>rune values</b>, <b>Rainbow Facet values</b> and <b>best-slam suggestions</b>${slam ? ", including Slamfest's whole FL9 slam mode" : ''}) update every 6 hours and only work in the <b>launcher version</b> of Roofoo's filter. They're removed from any filter you download here, so they can't go out of date.</p>
+      <p class="pb-alt">Want them? Pick <b>Roofoo's Filter</b> from the PD2 launcher's online filter list instead of a custom one.</p></div>
+  </div>`;
 }
 
 // Safety net switch, with a preview of how an unknown item looks in the player's own filter
@@ -1644,14 +1651,15 @@ function renderSave() {
   if (c.rules) items.push(`<b>${c.rules}</b> ${c.rules === 1 ? 'item' : 'items'} with show/hide or sound changes`);
   panel('save').innerHTML = `
     <h2>Save &amp; install</h2>
+    ${priceNoticeHTML()}
     <div class="save-grid">
       <div class="card save-box">
         <h3>1. Download your filter</h3>
-        ${items.length ? `<ul class="changes">${items.map(x => `<li>${x}</li>`).join('')}</ul>` : '<p class="hint">No changes yet. You\'ll get Roofoo\'s filter as it is, minus the live market prices (see below).</p>'}
-        ${priceNoticeHTML()}
+        ${items.length ? `<ul class="changes">${items.map(x => `<li>${x}</li>`).join('')}</ul>` : '<p class="hint">No changes yet. You\'ll get Roofoo\'s filter as it is, minus the online features (see above).</p>'}
         ${safetyNetHTML()}
         <div class="row"><input type="text" id="out-name" value="${esc(S.outName || base.out)}" aria-label="File name" style="flex:1;min-width:180px">
           <button class="btn primary" data-act="download">Download</button></div>
+        <p class="pb-reminder">⚠ No live market prices in this file: those only work in the launcher version.</p>
         <h3>2. Install it</h3>
         <ol class="steps">
           <li>Move the file into your PD2 filter folder:<br><span class="path">Diablo II\\ProjectD2\\filters\\local\\</span><br><span class="hint">Usually <span class="path">C:\\Program Files (x86)\\Diablo II\\ProjectD2\\filters\\local\\</span></span></li>
@@ -1787,7 +1795,7 @@ async function loadBase(file) {
     S.base = { lines, slots: E.findSlots(lines), tiers: E.readTiers(lines), mystery: E.readMystery(lines), levelNames: sim.levelNames, markerCounts: E.findMarkers(lines) };
     S.memo = {};
     $('#base-select').value = file;
-    status.innerHTML = `Using the latest <b>${esc(file)}</b> ${url.startsWith('http') ? 'from GitHub' : '(local copy)'}<span id="base-date"></span>. Your choices are saved in this browser. Custom versions leave out the live market prices, which only work in the launcher version.`;
+    status.innerHTML = `Using the latest <b>${esc(file)}</b> ${url.startsWith('http') ? 'from GitHub' : '(local copy)'}<span id="base-date"></span>. Your choices are saved in this browser.`;
     $('#download-top').disabled = false;
     persist();
     updateTabCounts();
@@ -1874,7 +1882,7 @@ async function boot() {
   if (saved && saved.profile) { S.profile = { ...blankProfile(), ...saved.profile }; S.baseFile = saved.baseFile || S.baseFile; }
 
   try {
-    const res = await fetch('data/game.json?v=2026-09-26e');
+    const res = await fetch('data/game.json?v=2026-09-26f');
     S.game = await res.json();
   } catch {
     $('#status').className = 'wrap status error';
