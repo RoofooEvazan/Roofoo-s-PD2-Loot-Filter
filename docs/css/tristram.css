@@ -1,47 +1,9 @@
-/* Tristram theme for the Filter Builder, matching roofooevazan.github.io.
-   Loaded after app.css and the shared assets/tristram.css. The in-game item
-   labels (Spectral, the filter's own colors) are left as the game draws them. */
+/* Chaos theme for the Filter Builder, matching roofooevazan.github.io (the
+   file keeps its old name). Loaded after app.css and the shared
+   assets/tristram.css: black stone, dull brass, Cinzel for display text.
+   The in-game item labels (Spectral, the filter's own colors) are left as
+   the game draws them. */
 :root {
-  --bg: #100c0a;
-  --bg-2: #1a1410;
-  --panel: #1a1410;
-  --panel-2: #261c16;
-  --line: #5a4030;
-  --line-2: #7a5a3e;
-  --text: #f1e2c6;
-  --muted: #b59a76;
-  --faint: #8f7a5e;
-  --gold: #d2b06a;
-  --gold-2: #ecd29a;
-  --focus: #d2b06a;
-  --radius: 0;
-}
-body.tri { --tri-dim: 62%; font-size: 16px; }
-
-/* ---------- top bar */
-.topbar { background: rgba(16, 12, 10, .95); box-shadow: inset 0 -3px 0 var(--tri-accent); }
-.brand-mark { background: var(--tri-bg); border: 2px solid var(--tri-gold); color: var(--tri-gold); }
-.brand h1 { font: 700 15px/1.3 var(--tri-display); letter-spacing: .04em; color: var(--tri-fg); }
-.tabs button { font: 400 11px var(--tri-display); letter-spacing: .05em; text-transform: uppercase; }
-.tabs button[aria-selected="true"] { color: var(--tri-accent-fg); background: var(--tri-accent); border-bottom-color: var(--tri-gold); }
-.tabs .n { font-family: var(--tri-body); }
-.tabs button[aria-selected="true"] .n { background: var(--tri-bg); color: var(--tri-gold); border-color: var(--tri-gold); }
-
-/* ---------- headings, sized for Silkscreen */
-h2 { font: 700 15px/1.35 var(--tri-display); letter-spacing: .03em; color: var(--tri-gold); }
-h3 { font: 400 11px var(--tri-display); letter-spacing: .05em; color: var(--tri-gold); }
-
-/* ---------- buttons: the red "Open" of the theme for primary actions */
-.btn.primary { background: var(--tri-accent); color: var(--tri-accent-fg); border-color: var(--tri-accent); }
-.btn.primary:hover:not(:disabled) { background: var(--tri-accent); filter: brightness(1.12); }
-.btn:not(.icon-btn) { font: 400 11px/1.2 var(--tri-display); letter-spacing: .06em; text-transform: uppercase; }
-.btn.small:not(.icon-btn) { font-size: 10px; }
-
-/* ---------- panels sit on a stone sheet over the page ground */
-main.wrap { background: color-mix(in srgb, var(--tri-panel) 94%, transparent); box-shadow: inset 0 4px 0 var(--tri-gold), inset 0 -4px 0 var(--tri-shadow); border: 1px solid var(--tri-line); margin-top: 14px; padding-top: 12px; }
-
-/* ---------- Chaos: the other theme from the site nav's switch */
-:root[data-theme="chaos"] {
   --bg: #090807;
   --bg-2: #14110f;
   --panel: #14110f;
@@ -54,11 +16,27 @@ main.wrap { background: color-mix(in srgb, var(--tri-panel) 94%, transparent); b
   --gold: #c4924a;
   --gold-2: #e0b878;
   --focus: #c4924a;
+  --radius: 0;
 }
-:root[data-theme="chaos"] .topbar { background: rgba(9, 8, 7, .95); }
-:root[data-theme="chaos"] .brand h1 { font-size: 19px; letter-spacing: .12em; text-transform: uppercase; }
-:root[data-theme="chaos"] .tabs button { font-size: 13px; letter-spacing: .08em; }
-:root[data-theme="chaos"] h2 { font-size: 20px; letter-spacing: .06em; }
-:root[data-theme="chaos"] h3 { font-size: 13px; letter-spacing: .1em; }
-:root[data-theme="chaos"] .btn:not(.icon-btn) { font-size: 12px; letter-spacing: .08em; }
-:root[data-theme="chaos"] main.wrap { box-shadow: none; border-color: color-mix(in srgb, var(--tri-gold) 60%, transparent); }
+body.tri { --tri-dim: 62%; font-size: 16px; }
+
+/* ---------- top bar */
+.topbar { background: rgba(9, 8, 7, .95); box-shadow: inset 0 -3px 0 var(--tri-accent); }
+.brand-mark { background: var(--tri-bg); border: 2px solid var(--tri-gold); color: var(--tri-gold); }
+.brand h1 { font: 700 19px/1.3 var(--tri-display); letter-spacing: .12em; text-transform: uppercase; color: var(--tri-fg); }
+.tabs button { font: 400 13px var(--tri-display); letter-spacing: .08em; text-transform: uppercase; }
+.tabs button[aria-selected="true"] { color: var(--tri-accent-fg); background: var(--tri-accent); border-bottom-color: var(--tri-gold); }
+.tabs .n { font-family: var(--tri-body); }
+.tabs button[aria-selected="true"] .n { background: var(--tri-bg); color: var(--tri-gold); border-color: var(--tri-gold); }
+
+/* ---------- headings */
+h2 { font: 700 20px/1.35 var(--tri-display); letter-spacing: .06em; color: var(--tri-gold); }
+h3 { font: 400 13px var(--tri-display); letter-spacing: .1em; color: var(--tri-gold); }
+
+/* ---------- buttons: solid brass for primary actions */
+.btn.primary { background: var(--tri-accent); color: var(--tri-accent-fg); border-color: var(--tri-accent); }
+.btn.primary:hover:not(:disabled) { background: var(--tri-accent); filter: brightness(1.12); }
+.btn:not(.icon-btn) { font: 400 12px/1.2 var(--tri-display); letter-spacing: .08em; text-transform: uppercase; }
+
+/* ---------- panels sit on an obsidian sheet over the page ground */
+main.wrap { background: color-mix(in srgb, var(--tri-panel) 94%, transparent); border: 1px solid color-mix(in srgb, var(--tri-gold) 60%, transparent); margin-top: 14px; padding-top: 12px; }
