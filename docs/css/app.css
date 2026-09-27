@@ -42,6 +42,11 @@ button, input, select { font: inherit; color: inherit; }
 .brand-mark { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 0; background: linear-gradient(160deg, #3a2e1a, #1a1510); border: 1px solid #5a4726; color: var(--gold); font-size: 20px; }
 .brand h1 { margin: 0; font: 700 21px/1.1 var(--tri-display); letter-spacing: .02em; color: var(--gold-2); }
 .tagline { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
+.brand-title { display: flex; align-items: center; gap: 8px; }
+.brand-social { display: inline-flex; }
+.brand-social .social { display: grid; place-items: center; width: 30px; height: 30px; color: var(--muted); }
+.brand-social .social:hover { color: var(--gold); }
+.brand-social svg { width: 17px; height: 17px; }
 .topbar-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 .base-pick { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; }
 
@@ -293,6 +298,7 @@ textarea { width: 100%; min-height: 70px; background: var(--bg-2); border: 1px s
   .wrap { padding: 0 16px; }
   .brand h1 { font-size: 18px; }
   .tagline { display: none; }
+  .brand-social { display: none; } /* the site nav bar right above has the same links */
   .topbar-actions { width: 100%; }
   .topbar-actions .btn { flex: 1; }
   .slot-grid { grid-template-columns: 1fr; }
