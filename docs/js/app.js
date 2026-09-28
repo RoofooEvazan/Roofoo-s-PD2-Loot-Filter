@@ -1,7 +1,7 @@
-import * as E from './engine.js?v=2026-09-27d';
+import * as E from './engine.js?v=2026-09-27e';
 import {
   TEXT_SLOTS, MARKER_SLOTS, MYSTERY_SLOT_IDS, PRESETS, SOUND_PACKS, TIERS, TEXT_COLORS, TEXT_COLOR_NAMES, MARKER_COLORS, MARKER_SIZES,
-} from './themes.js?v=2026-09-27d';
+} from './themes.js?v=2026-09-27e';
 
 const REPO = 'RoofooEvazan/Roofoo-s-PD2-Loot-Filter';
 const BRANCH = 'main';
@@ -22,7 +22,7 @@ const S = {
   profile: blankProfile(),
   tab: 'look',
   open: new Set(),
-  itemsUI: { q: '', changed: false, mystery: false, open: new Set(), opts: new Set() },
+  itemsUI: { q: '', changed: false, mystery: false, open: new Set(), opts: new Set(), breakdown: new Set() },
   test: { entry: null, quality: 'NMAG', eth: false, identified: false, sockets: 0, ilvl: 85, ed: 0, where: 'ground', clvl: 90 },
   memo: {},
 };
@@ -641,14 +641,18 @@ function rowDefaultsDetail(row, r) {
     varies.sockets ? (v.sockets ? `${v.sockets} socket${v.sockets === 1 ? '' : 's'}` : 'no sockets') : '',
   ].filter(Boolean).join(' ');
   const out = [];
+  // per version: its description and whether it's hidden on each level (for the breakdown table)
+  out.versions = variants.map(v => ({ label: describe(v) || 'this item', hidden: [] }));
   for (let fl = 0; fl < E.FILTER_LEVELS; fl++) {
     const states = variants.map(v => ({ v, hidden: sim.evaluate(E.makeItem(S.game, { ...v, filtlvl: fl })).hidden }));
+    states.forEach((s, i) => out.versions[i].hidden.push(s.hidden));
     const shownV = states.filter(s => !s.hidden).map(s => s.v);
     const hiddenV = states.filter(s => s.hidden).map(s => s.v);
     if (!hiddenV.length) { out.push({ state: 'show' }); continue; }
     if (!shownV.length) { out.push({ state: 'hide' }); continue; }
-    // A short label when one thing explains the split (e.g. every ethereal version is the hidden one)
-    let short = 'Partly';
+    // A short label when one thing explains the split (e.g. every ethereal version is the hidden one);
+    // "Mixed" when it takes more than one difference to explain it (see the breakdown table)
+    let short = 'Mixed';
     const all = (list, f) => list.every(f);
     if (varies.eth && all(hiddenV, v => v.eth) && all(shownV, v => !v.eth)) short = 'No eth';
     else if (varies.eth && all(hiddenV, v => !v.eth) && all(shownV, v => v.eth)) short = 'Eth only';
@@ -662,7 +666,7 @@ function rowDefaultsDetail(row, r) {
 
 // One line under the level strip explaining split levels, e.g.
 // "FL8–FL9: only the non-ethereal version shows; the ethereal version is hidden."
-function splitNoteHTML(details, r) {
+function splitNoteHTML(details, r, row) {
   const groups = new Map();
   details.forEach((d, fl) => {
     if (d.state !== 'some' || (r && r.fl && r.fl[fl])) return;
@@ -672,8 +676,30 @@ function splitNoteHTML(details, r) {
   });
   if (!groups.size) return '';
   const range = fls => (fls.length > 1 && fls[fls.length - 1] - fls[0] === fls.length - 1 ? `FL${fls[0]}–FL${fls[fls.length - 1]}` : fls.map(f => `FL${f}`).join(', '));
-  const parts = [...groups.values()].map(({ d, fls }) => `<b>${range(fls)}</b>: only the ${esc(d.shown)} version shows; the ${esc(d.hidden)} version is hidden.`);
-  return `<p class="split-note">${parts.join(' ')} Use <b>Options</b> to set them separately.</p>`;
+  const list = [...groups.values()];
+  const simple = list.length === 1 && list[0].d.short !== 'Mixed';
+  const allFls = list.flatMap(g => g.fls).sort((a, b) => a - b);
+  const plain = { 'No eth': 'ethereal versions are hidden', 'Eth only': 'only ethereal versions show', 'Sup only': 'only superior versions show', 'No sup': 'superior versions are hidden' };
+  const text = simple
+    ? `<b>${range(list[0].fls)}</b>: ${plain[list[0].d.short] || `only the ${esc(list[0].d.shown)} version shows; the ${esc(list[0].d.hidden)} version is hidden`}.`
+    : `<b>${range(allFls)}</b>: different versions of this item show on different levels.`;
+  const open = S.itemsUI.breakdown.has(row.key);
+  return `<div class="split-note"><p>${text} Use <b>Options</b> to set them separately.
+      <button class="linkish" data-act="breakdown" data-row="${row.key}" aria-expanded="${open}">${open ? 'Hide breakdown ▴' : 'See breakdown ▾'}</button></p>
+    ${open ? breakdownHTML(details, r) : ''}</div>`;
+}
+
+// Every version of the row on every level, so splits with several differences are easy to read
+function breakdownHTML(details, r) {
+  const versions = details.versions || [];
+  const head = `<tr><th>Version</th>${details.map((_, fl) => `<th>FL${fl}</th>`).join('')}</tr>`;
+  const rows = versions.map(v => `<tr><td>${esc(v.label)}</td>${v.hidden.map((h, fl) => {
+    const ov = r && r.fl && r.fl[fl];
+    if (ov) return `<td class="bd-${ov === 'show' ? 'shown' : 'hid'} bd-ov" title="Your choice">${ov === 'show' ? 'Show' : 'Hide'}</td>`;
+    return `<td class="bd-${h ? 'hid' : 'shown'}">${h ? 'Hidden' : 'Shown'}</td>`;
+  }).join('')}</tr>`).join('');
+  return `<div class="breakdown"><table><thead>${head}</thead><tbody>${rows}</tbody></table>
+    <p class="hint">Roofoo's filter by version. Your Show / Hide choices (outlined) apply to every version, narrowed by Options.</p></div>`;
 }
 
 function rowChanged(row) {
@@ -846,7 +872,7 @@ function itemRowHTML(row) {
     </div>
     <div class="irow-fl"><div class="flstrip mini">${cells}</div>
       <button class="btn small ${optsOpen ? '' : 'ghost'}" data-act="opts" data-row="${row.key}" aria-expanded="${optsOpen}">Options${nOpts ? ` (${nOpts})` : ''} ${optsOpen ? '▴' : '▾'}</button></div>
-    ${splitNoteHTML(details, r)}
+    ${splitNoteHTML(details, r, row)}
     ${optsOpen ? optionsHTML(row, r) : ''}
   </div>`;
 }
@@ -955,6 +981,10 @@ function onItemsEvent(ev) {
   }
   const row = t.dataset.row && rowByKey(t.dataset.row);
   if (!row) return;
+  if (act === 'breakdown') {
+    if (u.breakdown.has(row.key)) u.breakdown.delete(row.key); else u.breakdown.add(row.key);
+    return refreshRow(row.key);
+  }
   if (act === 'opts') {
     if (u.opts.has(row.key)) u.opts.delete(row.key); else u.opts.add(row.key);
     return refreshRow(row.key);
@@ -1929,7 +1959,7 @@ async function boot() {
   if (saved && saved.profile) { S.profile = { ...blankProfile(), ...saved.profile }; S.baseFile = saved.baseFile || S.baseFile; }
 
   try {
-    const res = await fetch('data/game.json?v=2026-09-27d');
+    const res = await fetch('data/game.json?v=2026-09-27e');
     S.game = await res.json();
   } catch {
     $('#status').className = 'wrap status error';
