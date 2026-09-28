@@ -86,7 +86,7 @@ themes, sound packs, labels, minimap markers and items are dropped (and reported
 ## Releasing a change to the builder
 
 GitHub Pages lets browsers reuse files for up to 10 minutes. The script and style links carry a
-version tag (`?v=2026-09-27g`) in `docs/index.html`, `docs/js/app.js` (scripts and `data/game.json`), `docs/js/engine.js` and `docs/js/setup.js`.
+version tag (`?v=2026-09-28a`) in `docs/index.html`, `docs/js/app.js` (scripts and `data/game.json`), `docs/js/engine.js` and `docs/js/setup.js`.
 Change it everywhere at once when you change the builder's code, so players get matching new files.
 Filter updates (including the automatic price commits) need nothing: the page always fetches the latest filter.
 

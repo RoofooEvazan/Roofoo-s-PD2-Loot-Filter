@@ -6,7 +6,7 @@
 // BUILDER-PROFILE line of a built filter) goes through upgradeSetup(), so old setups keep working.
 // Each step lists anything it couldn't carry over, and the player is told.
 // Keep a sample of each old format in tools/site/test/setups/ (see setups.test.mjs).
-import { PRESETS, SOUND_PACKS, TEXT_SLOTS, MARKER_SLOTS } from './themes.js?v=2026-09-27g';
+import { PRESETS, SOUND_PACKS, TEXT_SLOTS, MARKER_SLOTS } from './themes.js?v=2026-09-28a';
 
 export const SETUP_VERSION = 2;
 export const SECTIONS = ['UNI', 'SET', 'RARE', 'MAG', 'NMAG', 'RUNE', 'GEM', 'POT', 'MISC'];

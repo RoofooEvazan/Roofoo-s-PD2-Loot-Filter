@@ -1,8 +1,8 @@
-import * as E from './engine.js?v=2026-09-27g';
+import * as E from './engine.js?v=2026-09-28a';
 import {
   TEXT_SLOTS, MARKER_SLOTS, MYSTERY_SLOT_IDS, PRESETS, SOUND_PACKS, TIERS, TEXT_COLORS, TEXT_COLOR_NAMES, MARKER_COLORS, MARKER_SIZES,
-} from './themes.js?v=2026-09-27g';
-import { blankProfile, normalizeProfile, upgradeSetup, upgradeMessage, categoryOf, SCROLLS } from './setup.js?v=2026-09-27g';
+} from './themes.js?v=2026-09-28a';
+import { blankProfile, normalizeProfile, upgradeSetup, upgradeMessage, categoryOf, SCROLLS } from './setup.js?v=2026-09-28a';
 
 const REPO = 'RoofooEvazan/Roofoo-s-PD2-Loot-Filter';
 const BRANCH = 'main';
@@ -1907,19 +1907,30 @@ function setTab(tab) {
   window.scrollTo({ top: 0 });
 }
 
+// Where the filter can come from, best first. If a browser, blocker or network can't reach one
+// GitHub host, the next is tried. jsDelivr is a mirror that can lag GitHub by a few hours.
+function filterSources(file) {
+  const out = [];
+  if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) out.push({ url: `../${file}`, from: '(local copy)' });
+  const raw = { url: `https://raw.githubusercontent.com/${REPO}/${BRANCH}/${file}`, from: 'from GitHub' };
+  out.push(raw,
+    { url: `https://api.github.com/repos/${REPO}/contents/${encodeURIComponent(file)}?ref=${BRANCH}`, from: 'from GitHub', headers: { Accept: 'application/vnd.github.raw' } },
+    { ...raw, retry: true },
+    { url: `https://cdn.jsdelivr.net/gh/${REPO}@${BRANCH}/${file}`, from: 'from the jsDelivr mirror of GitHub (can be a few hours behind)', mirror: true });
+  return out;
+}
 async function fetchFilter(file) {
-  const sources = [];
-  if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) sources.push(`../${file}`);
-  sources.push(`https://raw.githubusercontent.com/${REPO}/${BRANCH}/${file}`);
-  let lastErr;
-  for (const url of sources) {
+  const errors = [];
+  for (const src of filterSources(file)) {
     try {
-      const res = await fetch(url, { cache: 'no-cache' });
-      if (res.ok) return { text: await res.text(), url };
-      lastErr = new Error(res.status + ' ' + url);
-    } catch (e) { lastErr = e; }
+      if (src.retry) await new Promise(r => setTimeout(r, 1500));
+      const res = await fetch(src.url, { cache: 'no-cache', headers: src.headers || {} });
+      const text = res.ok ? await res.text() : '';
+      if (res.ok && /ItemDisplay\[/.test(text)) return { text, ...src };
+      errors.push(`${new URL(src.url, location.href).host}: ${res.ok ? 'not a filter' : res.status}`);
+    } catch (e) { errors.push(`${new URL(src.url, location.href).host}: ${e.message}`); }
   }
-  throw lastErr;
+  throw new Error([...new Set(errors)].join('; '));
 }
 
 async function loadBase(file) {
@@ -1928,7 +1939,7 @@ async function loadBase(file) {
   status.textContent = `Loading ${file} from GitHub…`;
   $('#download-top').disabled = true;
   try {
-    const { text, url } = await fetchFilter(file);
+    const { text, from, mirror } = await fetchFilter(file);
     S.baseFile = file;
     S.baseText = text;
     const { lines } = E.splitLines(text);
@@ -1936,7 +1947,7 @@ async function loadBase(file) {
     S.base = { lines, slots: E.findSlots(lines), tiers: E.readTiers(lines), mystery: E.readMystery(lines), levelNames: sim.levelNames, markerCounts: E.findMarkers(lines) };
     S.memo = {};
     $('#base-select').value = file;
-    status.innerHTML = `Using the latest <b>${esc(file)}</b> ${url.startsWith('http') ? 'from GitHub' : '(local copy)'}<span id="base-date"></span>. Your choices are saved in this browser.`;
+    status.innerHTML = `Using the latest <b>${esc(file)}</b> ${esc(from)}${mirror ? '' : '<span id="base-date"></span>'}. Your choices are saved in this browser.`;
     $('#download-top').disabled = false;
     persist();
     updateTabCounts();
@@ -1952,7 +1963,9 @@ async function loadBase(file) {
       }).catch(() => {});
   } catch (e) {
     status.className = 'wrap status error';
-    status.textContent = `Couldn't load ${file} from GitHub. Check your connection and refresh the page. (${e.message})`;
+    status.innerHTML = `Couldn't download ${esc(file)} from GitHub. Check your connection, and if you use an ad or script blocker, allow <b>raw.githubusercontent.com</b> for this page.
+      <button class="btn small" id="retry-base">Try again</button> <small>(${esc(e.message)})</small>`;
+    $('#retry-base').addEventListener('click', () => loadBase(file));
   }
 }
 
@@ -2039,7 +2052,7 @@ async function boot() {
   }
 
   try {
-    const res = await fetch('data/game.json?v=2026-09-27g');
+    const res = await fetch('data/game.json?v=2026-09-28a');
     S.game = await res.json();
   } catch {
     $('#status').className = 'wrap status error';
