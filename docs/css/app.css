@@ -285,7 +285,7 @@ details.customize[open] summary::before { transform: rotate(90deg); }
 .changes b { color: var(--text); font-weight: 600; }
 textarea { width: 100%; min-height: 70px; background: var(--bg-2); border: 1px solid var(--line-2); border-radius: 0; color: var(--text); padding: 8px; font: 12px ui-monospace, Consolas, monospace; resize: vertical; }
 
-.toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: #2d2718; border: 1px solid #6b5627; color: var(--text); padding: 10px 16px; border-radius: 0; box-shadow: 0 10px 30px rgba(0,0,0,.5); z-index: 50; max-width: calc(100% - 32px); }
+.toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: #2d2718; border: 1px solid #6b5627; color: var(--text); padding: 10px 16px; border-radius: 0; box-shadow: 0 10px 30px rgba(0,0,0,.5); z-index: 50; max-width: min(640px, calc(100% - 32px)); }
 
 @media (max-width: 860px) {
   .trow { grid-template-columns: 1fr; gap: 8px; }
@@ -406,3 +406,10 @@ textarea { width: 100%; min-height: 70px; background: var(--bg-2); border: 1px s
 .breakdown .bd-hid { color: #ff9b93; background: rgba(217, 70, 62, .10); }
 .breakdown .bd-ov { outline: 1px solid currentColor; outline-offset: -2px; font-weight: 700; }
 .breakdown .hint { margin: 4px 0 0; color: var(--faint); }
+/* My setups */
+.presets { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; max-height: 320px; overflow-y: auto; }
+.preset { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg-2); }
+.preset.auto { opacity: .85; }
+.preset b { font-weight: 600; }
+.preset small { display: block; color: var(--faint); font-size: 12px; }
+.preset .row { flex-wrap: nowrap; }

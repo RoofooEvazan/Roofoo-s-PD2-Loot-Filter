@@ -1,0 +1,21 @@
+{
+  "format": "roofoo-filter-builder-setup",
+  "version": 1,
+  "name": "v1: before the Items tab (rules by kind and quality, no mystery or safety net)",
+  "base": "Roofoo.filter",
+  "profile": {
+    "theme": "ember",
+    "soundPack": "classic",
+    "slots": { "uber": { "color": "RED" }, "retired_slot": { "color": "BLUE" } },
+    "markers": {},
+    "tiers": {},
+    "rules": [
+      { "id": "r1", "kind": "unique", "codes": ["uap"], "note": "Shako", "fl": { "9": "hide" } },
+      { "id": "r2", "kind": "base", "q": ["SUP"], "codes": ["7cr"], "fl": { "8": "show" } },
+      { "id": "r3", "kind": "base", "q": ["CRAFT"], "codes": ["amu"], "fl": { "8": "show" } },
+      { "id": "r4", "kind": "misc", "codes": ["r01", "r01s"], "fl": { "4": "hide" } },
+      { "id": "r5", "kind": "misc", "codes": ["hp5"], "fl": { "6": "hide" } },
+      { "id": "r6", "kind": "unique", "codes": ["zz_removed_item"], "fl": { "9": "hide" } }
+    ]
+  }
+}

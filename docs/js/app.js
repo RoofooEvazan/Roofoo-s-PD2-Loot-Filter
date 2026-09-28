@@ -1,7 +1,8 @@
-import * as E from './engine.js?v=2026-09-27e';
+import * as E from './engine.js?v=2026-09-27g';
 import {
   TEXT_SLOTS, MARKER_SLOTS, MYSTERY_SLOT_IDS, PRESETS, SOUND_PACKS, TIERS, TEXT_COLORS, TEXT_COLOR_NAMES, MARKER_COLORS, MARKER_SIZES,
-} from './themes.js?v=2026-09-27e';
+} from './themes.js?v=2026-09-27g';
+import { blankProfile, normalizeProfile, upgradeSetup, upgradeMessage, categoryOf, SCROLLS } from './setup.js?v=2026-09-27g';
 
 const REPO = 'RoofooEvazan/Roofoo-s-PD2-Loot-Filter';
 const BRANCH = 'main';
@@ -27,10 +28,6 @@ const S = {
   memo: {},
 };
 
-function blankProfile() {
-  return { v: 1, theme: 'classic', soundPack: 'classic', slots: {}, markers: {}, tiers: {}, mystery: {}, rules: [] };
-}
-
 // ---------------------------------------------------------------- utilities
 
 const $ = s => document.querySelector(s);
@@ -43,7 +40,7 @@ function toast(msg) {
   t.textContent = msg;
   t.hidden = false;
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => { t.hidden = true; }, 3200);
+  toastTimer = setTimeout(() => { t.hidden = true; }, Math.max(3200, msg.length * 60)); // time to read longer ones
 }
 function store(get, value) {
   try {
@@ -52,6 +49,48 @@ function store(get, value) {
   } catch { return null; }
 }
 function persist() { store(false, { profile: S.profile, baseFile: S.baseFile }); }
+
+// ---- saved setups: presets, automatic backups and setup files
+// Everything lives in this browser's localStorage, which survives builder updates (only the
+// scripts change). Presets and setup files protect against clearing the browser or switching PCs.
+const PRESETS_KEY = 'roofoo-builder-presets-v1';
+const MAX_BACKUPS = 5;
+const SETUP_FORMAT = 'roofoo-filter-builder-setup';
+
+const isDefaultSetup = () => S.baseFile === BASES[0].file && JSON.stringify(normalizeProfile(S.profile)) === JSON.stringify(blankProfile());
+
+function presetsList() {
+  try { const l = JSON.parse(localStorage.getItem(PRESETS_KEY) || '[]'); return Array.isArray(l) ? l : []; } catch { return []; }
+}
+function savePresets(list) {
+  try { localStorage.setItem(PRESETS_KEY, JSON.stringify(list)); return true; } catch {
+    toast("Couldn't save: this browser's storage is full or blocked. Download a setup file instead.");
+    return false;
+  }
+}
+function addPreset(name, auto = false, profile = S.profile, base = S.baseFile) {
+  let list = presetsList();
+  list.unshift({ id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), name, saved: new Date().toISOString(), base, auto, profile: clone(profile) });
+  const backups = list.filter(p => p.auto);
+  if (backups.length > MAX_BACKUPS) { const drop = new Set(backups.slice(MAX_BACKUPS).map(p => p.id)); list = list.filter(p => !drop.has(p.id)); }
+  return savePresets(list);
+}
+// Keep a copy of the current setup before something replaces it (unless it's just the defaults)
+function backupCurrent(reason) {
+  if (!isDefaultSetup()) addPreset(`Backup before ${reason}`, true);
+}
+function setupFileJSON(name, base, profile) {
+  return JSON.stringify({ format: SETUP_FORMAT, version: 1, name, saved: new Date().toISOString(), base, profile }, null, 2);
+}
+function downloadText(filename, text, type = 'application/json') {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([text], { type }));
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+}
+const fileSafe = s => (s || 'setup').replace(/[^\w\- ]+/g, '').trim().replace(/\s+/g, '-').slice(0, 40) || 'setup';
 
 const markerHex = code => (S.game.palette[parseInt(code, 16)] || '#fff');
 const markerName = code => (MARKER_COLORS.find(m => m[0] === code) || [code, 'Color ' + code])[1];
@@ -176,20 +215,6 @@ function baselineSim() {
 async function profileCode() { return E.encodeProfile({ ...S.profile, base: S.baseFile }); }
 
 // ---------------------------------------------------------------- catalog (item picker)
-
-function categoryOf(code, it) {
-  const f = it.f || [];
-  if (it.rune) return 'Rune';
-  if (it.gem) return 'Gem';
-  if (/Potion|Elixir/.test(it.n)) return 'Potion';
-  if (f.includes('CHARM')) return 'Charm';
-  if (it.t === 'jewl') return 'Jewel';
-  if (f.includes('JEWELRY')) return 'Jewelry';
-  if (it.maptier || /Map$/.test(it.n)) return 'Map';
-  if (it.k === 'weapon') return 'Weapon base';
-  if (it.k === 'armor') return 'Armor base';
-  return 'Other item';
-}
 
 function buildCatalog() {
   const out = [];
@@ -534,7 +559,6 @@ const ITEM_SECTIONS = [
 ];
 const EQUIP_SECTIONS = ['UNI', 'SET', 'RARE', 'MAG', 'NMAG'];
 const JEWELRY_GROUP = 'Rings, amulets & jewels';
-const SCROLLS = ['isc', 'tsc', 'ibk', 'tbk'];
 
 // Every row of every section: { key, section, code, codes, name, tier, group, names }
 function itemRows(section) {
@@ -1031,29 +1055,6 @@ function onItemsEvent(ev) {
 }
 
 // Old "Show / hide items" rules (one rule per added item) -> Items tab rows
-function migrateRules(p) {
-  for (const r of p.rules || []) {
-    if (r.section || !r.codes || !r.codes.length) continue;
-    const code = r.codes[0];
-    const it = (S.game && S.game.items[code]) || {};
-    let section = (r.q && r.q[0]) || 'NMAG';
-    if (r.kind === 'unique') section = 'UNI';
-    else if (r.kind === 'set') section = 'SET';
-    else if (r.kind === 'misc') {
-      const cat = categoryOf(code, it);
-      section = cat === 'Rune' ? 'RUNE' : cat === 'Gem' ? 'GEM' : cat === 'Potion' || SCROLLS.includes(code) ? 'POT' : 'MISC';
-    }
-    if (section === 'CRAFT') continue;
-    r.section = section;
-    r.key = `${section}:${code}`;
-    r.id = r.key;
-    delete r.q; delete r.kind; delete r.note;
-  }
-  // one rule per row
-  const seen = new Set();
-  p.rules = (p.rules || []).filter(r => !r.key || (seen.has(r.key) ? false : seen.add(r.key)));
-}
-
 // ---------------------------------------------------------------- tab: test an item
 
 function testQualities(entry) {
@@ -1747,14 +1748,15 @@ function renderSave() {
         <p class="hint" style="margin:0">This builder always starts from Roofoo's newest filter on GitHub. Your choices are saved in this browser, so when Roofoo updates, come back and download again.</p>
       </div>
       <div class="card save-box">
+        ${mySetupsHTML()}
         <h3>Share your setup</h3>
         <p class="hint" style="margin:0">A link that opens this builder with all your choices. Great for sharing with friends or moving to another computer.</p>
         <div class="row"><button class="btn" data-act="share">Copy share link</button><button class="btn ghost" data-act="copy-code">Copy setup code</button></div>
         <h3>Load a setup</h3>
-        <p class="hint" style="margin:0">Paste a setup code, or pick a filter file you made here before.</p>
+        <p class="hint" style="margin:0">Paste a setup code, or pick a setup file or a filter file you made here before. Your current setup is backed up first.</p>
         <textarea id="import-code" placeholder="Paste a setup code…" aria-label="Setup code"></textarea>
         <div class="row"><button class="btn" data-act="import">Load code</button>
-          <label class="btn ghost">Load a filter file<input type="file" accept=".filter,.txt" id="import-file" hidden></label></div>
+          <label class="btn ghost">Load a setup or filter file<input type="file" accept=".json,.filter,.txt" id="import-file" hidden></label></div>
         <h3>Start over</h3>
         <div class="row"><button class="btn danger" data-act="reset">Reset everything to Roofoo's filter</button></div>
       </div>
@@ -1785,23 +1787,62 @@ async function copy(text, msg) {
   try { await navigator.clipboard.writeText(text); toast(msg); } catch { prompt('Copy this:', text); }
 }
 
-async function applyImported(p) {
+// Loads a setup from anywhere (upgrading older ones). Returns a note for the player if parts of it
+// couldn't be carried over, else ''.
+async function applyImported(p, reason = 'loading a setup') {
   if (!p || typeof p !== 'object') throw new Error('bad');
   const base = p.base && BASES.some(b => b.file === p.base) ? p.base : S.baseFile;
-  delete p.base;
-  S.profile = { ...blankProfile(), ...p };
-  migrateRules(S.profile);
+  const up = upgradeSetup(p, S.game);
+  backupCurrent(reason);
+  S.profile = up.profile;
   if (base !== S.baseFile) await loadBase(base); else changed();
   persist();
+  return upgradeMessage(up);
 }
+const loadedToast = (msg, warn) => toast(warn ? `${msg} ${warn}` : msg);
 
+// Loads a setup file (.json from "Download setup file") or a filter made here (its BUILDER-PROFILE line).
+// A loaded setup file is also added to My setups, so it's there next time.
 async function importFile(ev) {
   const file = ev.target.files[0];
+  ev.target.value = '';
   if (!file) return;
   const text = await file.text();
+  if (/^\s*\{/.test(text)) {
+    let data;
+    try { data = JSON.parse(text); } catch { return toast("That setup file is damaged and can't be read."); }
+    if (!data || data.format !== SETUP_FORMAT || !data.profile) return toast("That file isn't a setup file from this builder.");
+    try {
+      const warn = await applyImported({ ...data.profile, base: data.base }, `loading "${data.name || file.name}"`);
+      const name = data.name || file.name.replace(/\.json$/i, '');
+      const same = presetsList().some(p => !p.auto && p.name === name && p.base === S.baseFile
+        && JSON.stringify(upgradeSetup(p.profile).profile) === JSON.stringify(upgradeSetup(S.profile).profile));
+      if (!same) addPreset(name);
+      render();
+      loadedToast(`Loaded "${data.name || file.name}" and added it to My setups.`, warn);
+    } catch { toast("Couldn't load that setup file."); }
+    return;
+  }
   const m = /BUILDER-PROFILE:\s*(\S+)/.exec(text);
   if (!m) return toast("That file wasn't made with this builder, so there's nothing to load.");
-  try { await applyImported(await E.decodeProfile(m[1])); toast('Loaded your setup from the filter file.'); } catch { toast("Couldn't read the setup in that file."); }
+  try { loadedToast('Loaded your setup from the filter file.', await applyImported(await E.decodeProfile(m[1]), 'loading a filter file')); } catch { toast("Couldn't read the setup in that file."); }
+}
+
+function mySetupsHTML() {
+  const list = presetsList();
+  const baseLabel = f => (BASES.find(b => b.file === f) || { label: f }).label;
+  const when = iso => { try { return new Date(iso).toLocaleString(undefined, { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }); } catch { return ''; } };
+  const rows = list.map(p => `<li class="preset${p.auto ? ' auto' : ''}">
+      <div><b>${esc(p.name)}</b>${p.auto ? ' <span class="badge">auto backup</span>' : ''}<small>${esc(baseLabel(p.base))} · ${esc(when(p.saved))}</small></div>
+      <div class="row"><button class="btn small" data-act="preset-load" data-id="${p.id}">Load</button>
+        <button class="btn small ghost" data-act="preset-file" data-id="${p.id}" title="Download as a setup file">File</button>
+        <button class="btn small ghost danger" data-act="preset-del" data-id="${p.id}">Delete</button></div></li>`).join('');
+  return `<h3>My setups</h3>
+    <p class="hint" style="margin:0">Save setups under a name and switch between them. Builder updates don't touch them, but they live in this browser, so <b>download a setup file</b> as a backup if you clear your browser or switch computers. The builder also keeps a backup automatically before you load or reset anything.</p>
+    <div class="row"><input type="text" id="preset-name" placeholder="Name, e.g. Sorc MF run" maxlength="40" aria-label="Setup name" style="flex:1;min-width:160px">
+      <button class="btn" data-act="preset-save">Save current setup</button></div>
+    ${list.length ? `<ul class="presets">${rows}</ul>` : '<p class="hint" style="margin:0">No saved setups yet.</p>'}
+    <div class="row"><button class="btn ghost" data-act="setup-file">Download current setup file</button></div>`;
 }
 
 async function onSaveEvent(ev) {
@@ -1817,13 +1858,36 @@ async function onSaveEvent(ev) {
   if (act === 'copy-code') return copy(await profileCode(), 'Setup code copied.');
   if (act === 'import') {
     const code = $('#import-code').value.trim().replace(/^.*#p=/, '');
-    try { await applyImported(await E.decodeProfile(code)); toast('Setup loaded.'); } catch { toast("That code doesn't look right. Check you copied all of it."); }
+    try { loadedToast('Setup loaded. Your previous setup was saved under My setups.', await applyImported(await E.decodeProfile(code), 'loading a setup code')); } catch { toast("That code doesn't look right. Check you copied all of it."); }
   }
   if (act === 'reset') {
-    if (!confirm('Reset all your choices back to Roofoo\'s filter?')) return;
+    if (!confirm('Reset all your choices back to Roofoo\'s filter? Your current setup is kept as a backup under My setups.')) return;
+    backupCurrent('reset');
     S.profile = blankProfile();
     changed();
-    toast('Everything is back to Roofoo\'s filter.');
+    toast('Everything is back to Roofoo\'s filter. Your old setup is under My setups.');
+  }
+  if (act === 'preset-save') {
+    const input = $('#preset-name');
+    const name = (input.value || '').trim() || `Setup ${new Date().toLocaleDateString()}`;
+    if (addPreset(name)) { render(); toast(`Saved "${name}". Download it as a file too for a backup outside this browser.`); }
+  }
+  const preset = t.dataset.id && presetsList().find(p => p.id === t.dataset.id);
+  if (act === 'preset-load' && preset) {
+    try { const warn = await applyImported({ ...clone(preset.profile), base: preset.base }, `loading "${preset.name}"`); render(); loadedToast(`Loaded "${preset.name}".`, warn); } catch { toast("Couldn't load that setup."); }
+  }
+  if (act === 'preset-file' && preset) {
+    downloadText(`${fileSafe(preset.name)}.roofoo-setup.json`, setupFileJSON(preset.name, preset.base, preset.profile));
+  }
+  if (act === 'preset-del' && preset) {
+    if (!preset.auto && !confirm(`Delete "${preset.name}"?`)) return;
+    savePresets(presetsList().filter(p => p.id !== preset.id));
+    render();
+  }
+  if (act === 'setup-file') {
+    const name = ($('#preset-name') && $('#preset-name').value.trim()) || 'My Roofoo setup';
+    downloadText(`${fileSafe(name)}.roofoo-setup.json`, setupFileJSON(name, S.baseFile, S.profile));
+    toast('Setup file downloaded. Load it here any time with "Load a setup or filter file".');
   }
 }
 
@@ -1955,11 +2019,27 @@ async function boot() {
   }, true);
   panel('save').addEventListener('click', onSaveEvent);
 
-  const saved = store(true);
-  if (saved && saved.profile) { S.profile = { ...blankProfile(), ...saved.profile }; S.baseFile = saved.baseFile || S.baseFile; }
+  // Load the saved setup. If it can't be read (e.g. after a bug), keep the raw copy aside instead of
+  // silently starting over and overwriting it on the next change.
+  let startupNote = '';
+  let raw = null;
+  let saved = null;
+  try { raw = localStorage.getItem(STORE_KEY); } catch { /* storage blocked */ }
+  if (raw) {
+    try {
+      saved = JSON.parse(raw);
+      if (saved && saved.profile) {
+        S.profile = normalizeProfile(saved.profile);
+        S.baseFile = BASES.some(b => b.file === saved.baseFile) ? saved.baseFile : S.baseFile;
+      }
+    } catch {
+      try { localStorage.setItem(`${STORE_KEY}-unreadable-${Date.now()}`, raw); } catch { /* ignore */ }
+      startupNote = "Your saved setup couldn't be read, so the builder started fresh. A copy was kept in this browser so it can be recovered: please use Report a bug. Setups under My setups aren't affected.";
+    }
+  }
 
   try {
-    const res = await fetch('data/game.json?v=2026-09-27e');
+    const res = await fetch('data/game.json?v=2026-09-27g');
     S.game = await res.json();
   } catch {
     $('#status').className = 'wrap status error';
@@ -1967,21 +2047,34 @@ async function boot() {
     return;
   }
   S.catalog = buildCatalog();
-  migrateRules(S.profile);
+  // Upgrade a setup saved by an older builder. If anything is lost on the way (or it came from a
+  // newer builder, e.g. this page is an old cached copy), keep the original under My setups first.
+  try {
+    const up = upgradeSetup(S.profile, S.game);
+    const warn = upgradeMessage(up);
+    if (warn) {
+      addPreset('Before builder update', true, saved.profile, S.baseFile);
+      startupNote = `${warn} Your setup as it was is kept under My setups.`;
+    }
+    S.profile = up.profile;
+  } catch { S.profile.rules = []; }
 
   const hash = /[#&]p=([\w-]+)/.exec(location.hash);
   if (hash) {
     try {
       const p = await E.decodeProfile(hash[1]);
+      backupCurrent('opening a shared link'); // the player's own setup is kept as a backup
       if (p.base && BASES.some(b => b.file === p.base)) S.baseFile = p.base;
       delete p.base;
-      S.profile = { ...blankProfile(), ...p };
-      migrateRules(S.profile);
+      const up = upgradeSetup(p, S.game);
+      S.profile = up.profile;
       history.replaceState(null, '', location.pathname);
-      setTimeout(() => toast('Loaded a shared setup.'), 400);
+      const warn = upgradeMessage(up);
+      setTimeout(() => loadedToast('Loaded a shared setup. Your previous setup was saved under My setups.', warn), 400);
     } catch { toast("That share link didn't work."); }
   }
   await loadBase(S.baseFile);
+  if (startupNote) setTimeout(() => toast(startupNote), 600);
 }
 
 boot();

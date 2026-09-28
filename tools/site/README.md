@@ -61,15 +61,32 @@ node tools/site/test/mystery.test.mjs
 node tools/site/test/items.test.mjs
 node tools/site/test/prices.test.mjs
 node tools/site/test/safety.test.mjs
+node tools/site/test/setups.test.mjs
 ```
 
 `engine.test.mjs` checks that a build with no changes reproduces each filter byte for byte and
-prints how common items display on FL0–9.
+prints how common items display on FL0–9. `setups.test.mjs` loads every sample in
+`test/setups/` (old, current and newer setup formats) and checks each still upgrades, builds and simulates.
+
+## Changing what a setup saves
+
+Players keep setups in their browser (My setups), as setup files, share links, setup codes and inside
+filters they built. All of these carry a version number (`v`), and every one is loaded through
+`upgradeSetup()` in `docs/js/setup.js`. If you change the shape of a setup (rename a field, move rules
+around, retire a label or theme):
+
+1. Bump `SETUP_VERSION` in `docs/js/setup.js`.
+2. Add one step to `UPGRADES` that turns the previous version into the new one. Push anything it can't
+   carry over onto `notes`; the player is told what was dropped and their original is kept under My setups.
+3. Save a sample of the old format in `tools/site/test/setups/` and run the tests.
+
+Never edit an old step: setups of every age run through all of them in order. Renamed or removed
+themes, sound packs, labels, minimap markers and items are dropped (and reported) automatically.
 
 ## Releasing a change to the builder
 
 GitHub Pages lets browsers reuse files for up to 10 minutes. The script and style links carry a
-version tag (`?v=2026-09-27e`) in `docs/index.html`, `docs/js/app.js` (scripts and `data/game.json`) and `docs/js/engine.js`.
+version tag (`?v=2026-09-27g`) in `docs/index.html`, `docs/js/app.js` (scripts and `data/game.json`), `docs/js/engine.js` and `docs/js/setup.js`.
 Change it everywhere at once when you change the builder's code, so players get matching new files.
 Filter updates (including the automatic price commits) need nothing: the page always fetches the latest filter.
 

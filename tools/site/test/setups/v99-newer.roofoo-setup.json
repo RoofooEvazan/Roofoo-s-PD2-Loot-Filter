@@ -1,0 +1,11 @@
+{
+  "format": "roofoo-filter-builder-setup",
+  "version": 1,
+  "name": "From a newer builder than this one",
+  "base": "Roofoo.filter",
+  "profile": {
+    "v": 99, "theme": "classic", "soundPack": "classic", "slots": {}, "markers": {}, "tiers": {}, "mystery": {},
+    "someFutureOption": { "x": 1 },
+    "rules": [ { "key": "UNI:uap", "id": "UNI:uap", "section": "UNI", "codes": ["uap"], "fl": { "9": "hide" } } ]
+  }
+}

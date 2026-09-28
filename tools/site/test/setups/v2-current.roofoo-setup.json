@@ -1,0 +1,13 @@
+{
+  "format": "roofoo-filter-builder-setup",
+  "version": 1,
+  "name": "v2: section rules (Items tab), mystery and safety net",
+  "base": "Roofoo.filter",
+  "profile": {
+    "v": 2, "theme": "classic", "soundPack": "tinks", "slots": {}, "markers": {}, "tiers": {}, "mystery": {}, "safetyNet": false,
+    "rules": [
+      { "key": "UNI:7gd", "id": "UNI:7gd", "section": "UNI", "codes": ["7gd"], "eth": "yes", "fl": { "9": "hide" } },
+      { "key": "MAG:cm3", "id": "MAG:cm3", "section": "MAG", "codes": ["cm3"], "ilvlMin": 50, "fl": { "8": "show" } }
+    ]
+  }
+}
