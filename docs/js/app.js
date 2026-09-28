@@ -1,7 +1,7 @@
-import * as E from './engine.js?v=2026-09-26g';
+import * as E from './engine.js?v=2026-09-27d';
 import {
   TEXT_SLOTS, MARKER_SLOTS, MYSTERY_SLOT_IDS, PRESETS, SOUND_PACKS, TIERS, TEXT_COLORS, TEXT_COLOR_NAMES, MARKER_COLORS, MARKER_SIZES,
-} from './themes.js?v=2026-09-26g';
+} from './themes.js?v=2026-09-27d';
 
 const REPO = 'RoofooEvazan/Roofoo-s-PD2-Loot-Filter';
 const BRANCH = 'main';
@@ -622,14 +622,58 @@ function rowVariants(row, r = {}) {
 }
 
 function rowDefaults(row, r) {
+  return rowDefaultsDetail(row, r).map(d => d.state);
+}
+
+// Per filter level: 'show' / 'hide' / 'some', and for 'some' which versions show and which are hidden,
+// e.g. { state: 'some', short: 'No eth', shown: 'non-ethereal', hidden: 'ethereal' }
+function rowDefaultsDetail(row, r) {
   const sim = baselineSim();
+  const variants = rowVariants(row, r);
+  const varies = {
+    quality: new Set(variants.map(v => v.quality)).size > 1,
+    eth: new Set(variants.map(v => v.eth)).size > 1,
+    sockets: new Set(variants.map(v => v.sockets)).size > 1,
+  };
+  const describe = v => [
+    varies.quality ? (v.quality === 'SUP' ? 'superior' : 'normal') : '',
+    varies.eth ? (v.eth ? 'ethereal' : 'non-ethereal') : '',
+    varies.sockets ? (v.sockets ? `${v.sockets} socket${v.sockets === 1 ? '' : 's'}` : 'no sockets') : '',
+  ].filter(Boolean).join(' ');
   const out = [];
   for (let fl = 0; fl < E.FILTER_LEVELS; fl++) {
-    const states = rowVariants(row, r).map(v => sim.evaluate(E.makeItem(S.game, { ...v, filtlvl: fl })));
-    const shown = states.filter(s => !s.hidden).length;
-    out.push(shown === states.length ? 'show' : shown === 0 ? 'hide' : 'some');
+    const states = variants.map(v => ({ v, hidden: sim.evaluate(E.makeItem(S.game, { ...v, filtlvl: fl })).hidden }));
+    const shownV = states.filter(s => !s.hidden).map(s => s.v);
+    const hiddenV = states.filter(s => s.hidden).map(s => s.v);
+    if (!hiddenV.length) { out.push({ state: 'show' }); continue; }
+    if (!shownV.length) { out.push({ state: 'hide' }); continue; }
+    // A short label when one thing explains the split (e.g. every ethereal version is the hidden one)
+    let short = 'Partly';
+    const all = (list, f) => list.every(f);
+    if (varies.eth && all(hiddenV, v => v.eth) && all(shownV, v => !v.eth)) short = 'No eth';
+    else if (varies.eth && all(hiddenV, v => !v.eth) && all(shownV, v => v.eth)) short = 'Eth only';
+    else if (varies.quality && all(hiddenV, v => v.quality !== 'SUP') && all(shownV, v => v.quality === 'SUP')) short = 'Sup only';
+    else if (varies.quality && all(hiddenV, v => v.quality === 'SUP') && all(shownV, v => v.quality !== 'SUP')) short = 'No sup';
+    const uniq = list => [...new Set(list.map(describe))].join(', ');
+    out.push({ state: 'some', short, shown: uniq(shownV), hidden: uniq(hiddenV) });
   }
   return out;
+}
+
+// One line under the level strip explaining split levels, e.g.
+// "FL8–FL9: only the non-ethereal version shows; the ethereal version is hidden."
+function splitNoteHTML(details, r) {
+  const groups = new Map();
+  details.forEach((d, fl) => {
+    if (d.state !== 'some' || (r && r.fl && r.fl[fl])) return;
+    const k = `${d.shown}|${d.hidden}`;
+    if (!groups.has(k)) groups.set(k, { d, fls: [] });
+    groups.get(k).fls.push(fl);
+  });
+  if (!groups.size) return '';
+  const range = fls => (fls.length > 1 && fls[fls.length - 1] - fls[0] === fls.length - 1 ? `FL${fls[0]}–FL${fls[fls.length - 1]}` : fls.map(f => `FL${f}`).join(', '));
+  const parts = [...groups.values()].map(({ d, fls }) => `<b>${range(fls)}</b>: only the ${esc(d.shown)} version shows; the ${esc(d.hidden)} version is hidden.`);
+  return `<p class="split-note">${parts.join(' ')} Use <b>Options</b> to set them separately.</p>`;
 }
 
 function rowChanged(row) {
@@ -763,14 +807,16 @@ function sectionBody(sec, rows = filteredRows(sec.id)) {
 
 function itemRowHTML(row) {
   const r = ruleFor(row.key);
-  const defs = rowDefaults(row, r);
+  const details = rowDefaultsDetail(row, r);
   const names = S.base.levelNames;
   const sec = row.section;
-  const cells = defs.map((d, fl) => {
+  const cells = details.map((dd, fl) => {
+    const d = dd.state;
     const ov = r && r.fl && r.fl[fl];
     const cls = ov ? `ov-${ov}` : `def-${d === 'hide' ? 'hide' : d === 'some' ? 'some' : 'show'}`;
-    const label = ov === 'show' ? 'Show' : ov === 'hide' ? 'Hide' : d === 'show' ? 'Shown' : d === 'hide' ? 'Hidden' : 'Some';
-    const tip = `FL${fl} ${names[fl] || ''}: Roofoo ${d === 'show' ? 'shows' : d === 'hide' ? 'hides' : 'shows some versions of'} this.${ov ? ` You: ${ov === 'show' ? 'always show' : 'hide'}.` : ''} Click to change.`;
+    const label = ov === 'show' ? 'Show' : ov === 'hide' ? 'Hide' : d === 'show' ? 'Shown' : d === 'hide' ? 'Hidden' : dd.short;
+    const what = d === 'show' ? 'shows this' : d === 'hide' ? 'hides this' : `shows the ${dd.shown} version but hides the ${dd.hidden} version`;
+    const tip = `FL${fl} ${names[fl] || ''}: Roofoo ${what}.${ov ? ` You: ${ov === 'show' ? 'always show' : 'hide'} all of them.` : ''} Click to change.`;
     return `<button class="fl ${cls}" data-act="fl" data-row="${row.key}" data-fl="${fl}" title="${esc(tip)}"><span class="num">FL${fl}</span><span class="st">${label}</span></button>`;
   }).join('');
   const quality = EQUIP_SECTIONS.includes(sec) ? (sec === 'NMAG' ? 'NMAG' : sec) : 'NMAG';
@@ -800,6 +846,7 @@ function itemRowHTML(row) {
     </div>
     <div class="irow-fl"><div class="flstrip mini">${cells}</div>
       <button class="btn small ${optsOpen ? '' : 'ghost'}" data-act="opts" data-row="${row.key}" aria-expanded="${optsOpen}">Options${nOpts ? ` (${nOpts})` : ''} ${optsOpen ? '▴' : '▾'}</button></div>
+    ${splitNoteHTML(details, r)}
     ${optsOpen ? optionsHTML(row, r) : ''}
   </div>`;
 }
@@ -1882,7 +1929,7 @@ async function boot() {
   if (saved && saved.profile) { S.profile = { ...blankProfile(), ...saved.profile }; S.baseFile = saved.baseFile || S.baseFile; }
 
   try {
-    const res = await fetch('data/game.json?v=2026-09-26g');
+    const res = await fetch('data/game.json?v=2026-09-27d');
     S.game = await res.json();
   } catch {
     $('#status').className = 'wrap status error';
