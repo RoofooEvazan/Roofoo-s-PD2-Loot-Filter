@@ -41,6 +41,13 @@ jobs:
           PD2TRADER_LADDER: 'true'
           PD2TRADER_HARDCORE: 'false'
 
+      - name: Update rune and currency values - mystery beta
+        run: node scripts/update-pd2trader-runes.mjs
+        env:
+          FILTER_FILE: RoofooMysteryBETA.filter
+          PD2TRADER_LADDER: 'true'
+          PD2TRADER_HARDCORE: 'false'
+
       - name: Update BIS slam values - main
         run: node scripts/update-pd2trader-bis-slams.mjs
         env:
@@ -54,6 +61,15 @@ jobs:
         run: node scripts/update-pd2trader-bis-slams.mjs
         env:
           FILTER_FILE: RoofooMystery.filter
+          PD2TRADER_LADDER: 'true'
+          PD2TRADER_HARDCORE: 'false'
+          PD2TRADER_HOURS: '48'
+          PD2TRADER_BIS_MIN_SAMPLES: '2'
+
+      - name: Update BIS slam values - mystery beta
+        run: node scripts/update-pd2trader-bis-slams.mjs
+        env:
+          FILTER_FILE: RoofooMysteryBETA.filter
           PD2TRADER_LADDER: 'true'
           PD2TRADER_HARDCORE: 'false'
           PD2TRADER_HOURS: '48'
@@ -73,15 +89,22 @@ jobs:
           PD2TRADER_LADDER: 'true'
           PD2TRADER_HARDCORE: 'false'
 
+      - name: Update Rainbow Facet values - mystery beta
+        run: node scripts/update-pd2trader-facets.mjs
+        env:
+          FILTER_FILE: RoofooMysteryBETA.filter
+          PD2TRADER_LADDER: 'true'
+          PD2TRADER_HARDCORE: 'false'
+
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- Roofoo.filter RoofooMystery.filter; then
+          if git diff --quiet -- Roofoo.filter RoofooMystery.filter RoofooMysteryBETA.filter; then
             echo "No PD2 Trader value changes to commit."
             exit 0
           fi
-          git add Roofoo.filter RoofooMystery.filter
+          git add Roofoo.filter RoofooMystery.filter RoofooMysteryBETA.filter
           git commit -m "Update PD2 Trader values"
           git pull --rebase origin main
           git push origin HEAD:main

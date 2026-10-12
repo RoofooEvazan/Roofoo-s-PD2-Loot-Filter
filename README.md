@@ -34,6 +34,7 @@ A customized fork of **[Kryszard](https://twitch.tv/Kryszard)’s Project Diablo
 | `Roofoo.filter` | The main filter. |
 | `RoofooMystery.filter` | The main filter plus [Mystery drops](#-mystery-drops): big drops hide their name outside town. |
 | `RoofooSlamfestBETA.filter` | Beta. The main filter plus a town "slamfest" mode on FL9 that shows the best corruptions and their prices for identified uniques and sets. |
+| `RoofooMysteryBETA.filter` | Beta for Season 14. Roofoo Mystery plus a holy grail tag and protection (items you haven't found always show), every item shows in town with a warning when it's hidden outside, HiimFilter's skill weapon bases on every level, and a cleaned-up filter. Players on the PD2 beta client get it automatically. |
 
 **Your own version.** Use the [Filter Builder](#-make-it-yours-filter-builder) to change colors, sounds, tiers and what shows on each level, then put the downloaded file in `Diablo II\ProjectD2\filters\local\` and pick it under **Local** in the launcher.
 

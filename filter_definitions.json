@@ -1,0 +1,25 @@
+{
+  "filter_info": {
+    "1": {
+      "display_name": "Roofoo",
+      "description": "The main filter.",
+      "file_name": "Roofoo.filter"
+    },
+    "2": {
+      "display_name": "Roofoo Mystery",
+      "description": "The main filter plus Mystery drops: big drops hide their name outside town.",
+      "file_name": "RoofooMystery.filter",
+      "file_name_beta": "RoofooMysteryBETA.filter"
+    },
+    "3": {
+      "display_name": "Roofoo Slamfest (BETA)",
+      "description": "The main filter plus a town \"slamfest\" mode on FL9 that shows the best corruptions and their prices for identified uniques and sets.",
+      "file_name": "RoofooSlamfestBETA.filter"
+    },
+    "4": {
+      "display_name": "Roofoo Mystery (BETA)",
+      "description": "Season 14 beta of Roofoo Mystery: holy grail tags and protection, every item shows in town with a warning when it's hidden outside, HiimFilter skill weapon bases on every level, and a cleaned-up filter.",
+      "file_name": "RoofooMysteryBETA.filter"
+    }
+  }
+}
