@@ -1,5 +1,5 @@
 //	Roofoo's PD2 Loot Filter for Season 12: ver 13.0.8
-//	BETA for Season 14: holy grail tags and protection, every item shows in town (with a warning when it's hidden outside),
+//	BETA for Season 14: holy grail tags (found items hide unless the filter shows them specifically),
 //	HiimFilter skill weapon bases on every level, and a cleaned-up filter. Made with PD2 Filter Forge.
 //
 //	Editor - twitch.tv/roofooevazan
@@ -20,15 +20,12 @@ ItemDisplayFilterName[]: Max-Strictness Filter - No Large Charms
 
 //=================== HOLY GRAIL ===================
 // Made in PD2 Filter Forge (Season 14): tags uniques and sets you haven't found yet, and hides the ones you have. Does nothing on older game versions.
-//@ffg options {"uniques":true,"sets":true,"mark":true,"markText":" [GRAIL]","markColor":"PURPLE","unid":"any","hide":"always","keepExtra":[],"hideAnyway":[],"icon":{"size":"border","hex":"9B"},"sound":4715,"town":"%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town"}
+//@ffg options {"uniques":true,"sets":true,"mark":true,"markText":" [GRAIL]","markColor":"PURPLE","unid":"any","hide":"always","keepExtra":[],"hideAnyway":[],"icon":{"size":"border","hex":"9B"},"sound":4715}
 ItemDisplay[UNI !((7qs OR 9bw OR ba6 OR jew) !ID) !ALLDISCOVERED]: %NAME%%PURPLE% [GRAIL]%BORDER-9B%%SOUNDID-4715%%CONTINUE% //@ffg uni new
 ItemDisplay[UNI (7qs OR 9bw OR ba6 OR jew) !ID !ANYDISCOVERED]: %NAME%%PURPLE% [GRAIL]%BORDER-9B%%SOUNDID-4715%%CONTINUE% //@ffg uni new variants
-ItemDisplay[UNI !(!ALLDISCOVERED) !(6bs OR 6cs OR 6hx OR 6lw OR 6sw OR 6ws OR 72a OR 7b7 OR 7b8 OR 7bk OR 7bl OR 7bt OR 7bw OR 7cr OR 7fl OR 7ga OR 7gd OR 7gi OR 7gm OR 7gs OR 7gw OR 7ls OR 7lw OR 7m7 OR 7p7 OR 7pa OR 7qs OR 7s8 OR 7sc OR 7sp OR 7sr OR 7st OR 7ts OR 7vo OR 7wa OR 7wb OR 7wc OR 7wh OR 7ws OR 7xf OR 7yw OR 8cb OR 8hx OR 8mx OR 8rx OR 8ws OR 9bw OR 9gm OR 9gw OR 9kr OR 9m9 OR 9p9 OR 9s8 OR 9wc OR aar OR ama OR amb OR amc OR amd OR amf OR amu OR aqv2 OR aqv3 OR bae OR baf OR bsw OR ci2 OR ci3 OR cm1 OR cm2 OR cm3 OR cqv2 OR cqv3 OR dr6 OR dra OR drb OR drc OR drd OR dre OR drf OR gix OR hbt OR jew OR ltp OR mau OR mbt OR ned OR nee OR nef OR obc OR obd OR obe OR obf OR pa9 OR pab OR pac OR pae OR paf OR pik OR ram OR rar OR rbe OR rin OR tgl OR uap OR uar OR uh9 OR uhb OR uhc OR uhg OR uhl OR uhm OR uit OR ulb OR ulc OR uld OR ulm OR umb OR umc OR umg OR ung OR uow OR upk OR upl OR urg OR urn OR ush OR usk OR utg OR utp OR uts OR utu OR uui OR uul OR uvb OR uvc OR uvg OR vbl OR xar OR xea OR xh9 OR xhb OR xhg OR xhm OR xhn OR xlg OR xlt OR xmb OR xmg OR xow OR xpl OR xsh OR xtb OR xtg OR xth OR xtp OR xul OR xvb OR xvg OR zhb OR zlb OR ztb OR zvb) (MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} //@ffg uni town
-ItemDisplay[UNI !(!ANYDISCOVERED) (7qs OR 9bw OR ba6 OR jew) !ID !(6bs OR 6cs OR 6hx OR 6lw OR 6sw OR 6ws OR 72a OR 7b7 OR 7b8 OR 7bk OR 7bl OR 7bt OR 7bw OR 7cr OR 7fl OR 7ga OR 7gd OR 7gi OR 7gm OR 7gs OR 7gw OR 7ls OR 7lw OR 7m7 OR 7p7 OR 7pa OR 7qs OR 7s8 OR 7sc OR 7sp OR 7sr OR 7st OR 7ts OR 7vo OR 7wa OR 7wb OR 7wc OR 7wh OR 7ws OR 7xf OR 7yw OR 8cb OR 8hx OR 8mx OR 8rx OR 8ws OR 9bw OR 9gm OR 9gw OR 9kr OR 9m9 OR 9p9 OR 9s8 OR 9wc OR aar OR ama OR amb OR amc OR amd OR amf OR amu OR aqv2 OR aqv3 OR bae OR baf OR bsw OR ci2 OR ci3 OR cm1 OR cm2 OR cm3 OR cqv2 OR cqv3 OR dr6 OR dra OR drb OR drc OR drd OR dre OR drf OR gix OR hbt OR jew OR ltp OR mau OR mbt OR ned OR nee OR nef OR obc OR obd OR obe OR obf OR pa9 OR pab OR pac OR pae OR paf OR pik OR ram OR rar OR rbe OR rin OR tgl OR uap OR uar OR uh9 OR uhb OR uhc OR uhg OR uhl OR uhm OR uit OR ulb OR ulc OR uld OR ulm OR umb OR umc OR umg OR ung OR uow OR upk OR upl OR urg OR urn OR ush OR usk OR utg OR utp OR uts OR utu OR uui OR uul OR uvb OR uvc OR uvg OR vbl OR xar OR xea OR xh9 OR xhb OR xhg OR xhm OR xhn OR xlg OR xlt OR xmb OR xmg OR xow OR xpl OR xsh OR xtb OR xtg OR xth OR xtp OR xul OR xvb OR xvg OR zhb OR zlb OR ztb OR zvb) (MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} //@ffg uni town variants
 ItemDisplay[UNI !(!ALLDISCOVERED) !(6bs OR 6cs OR 6hx OR 6lw OR 6sw OR 6ws OR 72a OR 7b7 OR 7b8 OR 7bk OR 7bl OR 7bt OR 7bw OR 7cr OR 7fl OR 7ga OR 7gd OR 7gi OR 7gm OR 7gs OR 7gw OR 7ls OR 7lw OR 7m7 OR 7p7 OR 7pa OR 7qs OR 7s8 OR 7sc OR 7sp OR 7sr OR 7st OR 7ts OR 7vo OR 7wa OR 7wb OR 7wc OR 7wh OR 7ws OR 7xf OR 7yw OR 8cb OR 8hx OR 8mx OR 8rx OR 8ws OR 9bw OR 9gm OR 9gw OR 9kr OR 9m9 OR 9p9 OR 9s8 OR 9wc OR aar OR ama OR amb OR amc OR amd OR amf OR amu OR aqv2 OR aqv3 OR bae OR baf OR bsw OR ci2 OR ci3 OR cm1 OR cm2 OR cm3 OR cqv2 OR cqv3 OR dr6 OR dra OR drb OR drc OR drd OR dre OR drf OR gix OR hbt OR jew OR ltp OR mau OR mbt OR ned OR nee OR nef OR obc OR obd OR obe OR obf OR pa9 OR pab OR pac OR pae OR paf OR pik OR ram OR rar OR rbe OR rin OR tgl OR uap OR uar OR uh9 OR uhb OR uhc OR uhg OR uhl OR uhm OR uit OR ulb OR ulc OR uld OR ulm OR umb OR umc OR umg OR ung OR uow OR upk OR upl OR urg OR urn OR ush OR usk OR utg OR utp OR uts OR utu OR uui OR uul OR uvb OR uvc OR uvg OR vbl OR xar OR xea OR xh9 OR xhb OR xhg OR xhm OR xhn OR xlg OR xlt OR xmb OR xmg OR xow OR xpl OR xsh OR xtb OR xtg OR xth OR xtp OR xul OR xvb OR xvg OR zhb OR zlb OR ztb OR zvb)]: //@ffg uni found
 ItemDisplay[UNI !(!ANYDISCOVERED) (7qs OR 9bw OR ba6 OR jew) !ID !(6bs OR 6cs OR 6hx OR 6lw OR 6sw OR 6ws OR 72a OR 7b7 OR 7b8 OR 7bk OR 7bl OR 7bt OR 7bw OR 7cr OR 7fl OR 7ga OR 7gd OR 7gi OR 7gm OR 7gs OR 7gw OR 7ls OR 7lw OR 7m7 OR 7p7 OR 7pa OR 7qs OR 7s8 OR 7sc OR 7sp OR 7sr OR 7st OR 7ts OR 7vo OR 7wa OR 7wb OR 7wc OR 7wh OR 7ws OR 7xf OR 7yw OR 8cb OR 8hx OR 8mx OR 8rx OR 8ws OR 9bw OR 9gm OR 9gw OR 9kr OR 9m9 OR 9p9 OR 9s8 OR 9wc OR aar OR ama OR amb OR amc OR amd OR amf OR amu OR aqv2 OR aqv3 OR bae OR baf OR bsw OR ci2 OR ci3 OR cm1 OR cm2 OR cm3 OR cqv2 OR cqv3 OR dr6 OR dra OR drb OR drc OR drd OR dre OR drf OR gix OR hbt OR jew OR ltp OR mau OR mbt OR ned OR nee OR nef OR obc OR obd OR obe OR obf OR pa9 OR pab OR pac OR pae OR paf OR pik OR ram OR rar OR rbe OR rin OR tgl OR uap OR uar OR uh9 OR uhb OR uhc OR uhg OR uhl OR uhm OR uit OR ulb OR ulc OR uld OR ulm OR umb OR umc OR umg OR ung OR uow OR upk OR upl OR urg OR urn OR ush OR usk OR utg OR utp OR uts OR utu OR uui OR uul OR uvb OR uvc OR uvg OR vbl OR xar OR xea OR xh9 OR xhb OR xhg OR xhm OR xhn OR xlg OR xlt OR xmb OR xmg OR xow OR xpl OR xsh OR xtb OR xtg OR xth OR xtp OR xul OR xvb OR xvg OR zhb OR zlb OR ztb OR zvb)]: //@ffg uni variants
 ItemDisplay[SET !ALLDISCOVERED]: %NAME%%PURPLE% [GRAIL]%BORDER-9B%%SOUNDID-4715%%CONTINUE% //@ffg set new
-ItemDisplay[SET !(!ALLDISCOVERED) !(7m7 OR 7qr OR 7ws OR amu OR dr8 OR lbt OR ne9 OR rin OR uar OR ucl OR uh9 OR utc OR uth OR xar OR xh9 OR xhm OR xmg OR xul) (MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} //@ffg set town
 ItemDisplay[SET !(!ALLDISCOVERED) !(7m7 OR 7qr OR 7ws OR amu OR dr8 OR lbt OR ne9 OR rin OR uar OR ucl OR uh9 OR utc OR uth OR xar OR xh9 OR xhm OR xmg OR xul)]: //@ffg set found
 
 // Horadric Cube tooltip shows filter credits and the active filter level
@@ -98,12 +95,10 @@ Alias[FL8_ID_MR]: (ID (MAG OR RARE))
 // FL9 charm override
 ItemDisplay[FILTLVL=9 cm2 MAG ID]: %NAME%{%NAME%}%CONTINUE%
 ItemDisplay[FILTLVL=9 FL8_OUTSIDE cm2 MAG !ID]:
-ItemDisplay[(UNI OR SET) !ALLDISCOVERED (FILTLVL=9 FL8_OUTSIDE rin SET)]: %NAME%{%NAME%} // Filter Forge: grail protection, keeps a possible new find showing
 ItemDisplay[FILTLVL=9 FL8_OUTSIDE rin SET]:
 ItemDisplay[FILTLVL=9 FL8_OUTSIDE yps]:
 
 // FL8/9 quick-pass rules
-ItemDisplay[(UNI OR SET) !ALLDISCOVERED (FL8_ACTIVE FL8_OUTSIDE amu SET !ID)]: %NAME%{%NAME%} // Filter Forge: grail protection, keeps a possible new find showing
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE amu SET !ID]:
 ItemDisplay[FL8_ACTIVE FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
 ItemDisplay[FL8_ACTIVE FL8_ID_MR !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
@@ -687,19 +682,12 @@ ItemDisplay[(ubtm OR dcma OR dcso OR dcbl OR dcho OR rtma OR rtmv OR rtmo OR cm2
 ItemDisplay[MAPTIER>0 !ID UNI]: %SOUNDID-35%%NAME%{%NAME%}%CONTINUE% //hellforgesmash - for unique maps
 
 // Gold hiding thresholds
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) (GOLD<100 (CLVL>11 OR FILTLVL>5))]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[GOLD<100 (CLVL>11 OR FILTLVL>5)]:
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) (GOLD<200 (CLVL>23 OR FILTLVL>5))]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[GOLD<200 (CLVL>23 OR FILTLVL>5)]:
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) (GOLD<400 (CLVL>39 OR FILTLVL>5))]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[GOLD<400 (CLVL>39 OR FILTLVL>5)]:
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) (GOLD<1000 CLVL>79)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[GOLD<1000 CLVL>79]:
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) (GOLD<2000 CLVL>79 FILTLVL>1)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[GOLD<2000 CLVL>79 FILTLVL>1]:
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) (GOLD<3000 CLVL>79 FILTLVL>5)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[GOLD<3000 CLVL>79 FILTLVL>5]:
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) (GOLD<5000 CLVL>79 FILTLVL>7)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[GOLD<5000 CLVL>79 FILTLVL>7]:
 
 // Shorten superior/inferior base names before later tags are added
@@ -2092,7 +2080,6 @@ ItemDisplay[ETH OR (DIN NMAG !RW RES>0) OR (DIN NMAG !RW EDAM>0) OR ((AMASTAFF O
 // Health & Mana & Rejuvenation Potions
 ItemDisplay[rvl]: %PURPLE%R %WHITE%Full{%WHITE%Full Rejuvenation Potion}%CONTINUE%
 ItemDisplay[rvs]: %PURPLE%r %WHITE%35%{%PURPLE%r %WHITE%35%, Perf %YELLOW%O%WHITE%, %BLUE%Ring %WHITE%= Light Res %BLUE%Ring%NL%%WHITE%3x %PURPLE%r %WHITE%35% = %PURPLE%R%WHITE% Full%NL%%TAN% Note%WHITE%: Crafting Recipes:%NL%Rejuvenation Potion}%CONTINUE%
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) (rvs FILTLVL>7) (rvs)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[rvs FILTLVL>7]: {%NAME%}%CONTINUE%
 ItemDisplay[hp5]: %RED%!%WHITE%Hp{%WHITE%Super Healing Potion}%CONTINUE%
 ItemDisplay[mp5]: %BLUE%!%WHITE%Mp{%WHITE%Super Mana Potion}%CONTINUE%
@@ -2104,11 +2091,8 @@ ItemDisplay[mp1]: %BLUE%!%WHITE%minor mp{%WHITE%Minor Mana Potion}%CONTINUE%
 ItemDisplay[mp2]: %BLUE%!%WHITE%light mp{%WHITE%Light Mana Potion}%CONTINUE%
 ItemDisplay[mp3]: %BLUE%!%WHITE%mana{%WHITE%Mana Potion}%CONTINUE%
 ItemDisplay[mp4]: %BLUE%!%WHITE%great mp{%WHITE%Greater Mana Potion}%CONTINUE%
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) ((hp1 OR hp2 OR hp3 OR mp1 OR mp2 OR mp3) ((FILTLVL>0 DIFF>0) OR (FILTLVL=3 OR FILTLVL=5 OR FILTLVL>6)) !SHOP)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[(hp1 OR hp2 OR hp3 OR mp1 OR mp2 OR mp3) ((FILTLVL>0 DIFF>0) OR (FILTLVL=3 OR FILTLVL=5 OR FILTLVL>6)) !SHOP]: {%NAME%}
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) ((hp4 OR mp4) ((FILTLVL>0 DIFF>1) OR (FILTLVL=3 OR FILTLVL=5 OR FILTLVL>6)) !SHOP)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[(hp4 OR mp4) ((FILTLVL>0 DIFF>1) OR (FILTLVL=3 OR FILTLVL=5 OR FILTLVL>6)) !SHOP]: {%NAME%}
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) ((hp5 OR mp5) (FILTLVL=3 OR FILTLVL=5 OR FILTLVL>6) !SHOP)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[(hp5 OR mp5) (FILTLVL=3 OR FILTLVL=5 OR FILTLVL>6) !SHOP]: {%NAME%}
 
 // Utilities
@@ -2116,7 +2100,6 @@ ItemDisplay[tsc]: %BLUE%* %GRAY%tp %WHITE%scroll{%RED%Warning%WHITE%: You gonna 
 ItemDisplay[isc]: %RED%* %GRAY%id %WHITE%scroll{%WHITE%Scroll of Identify}%CONTINUE%
 ItemDisplay[vps]: %GREEN%!%WHITE%stamina{%GRAY%(time stack)%NL%%WHITE%Gives infinite stamina for 30s%NL%%TAN%Note%WHITE%: Instantly restores stamina%NL%Stamina Potion}%CONTINUE%
 ItemDisplay[wms]: %GREEN%!%WHITE%thaw{%GREEN%!%WHITE%thaw, Perf %BLUE%O%WHITE%, %BLUE%Ring %WHITE%= Cold Res %BLUE%Ring%NL%%GRAY%(time stack)%NL%%WHITE%Gives +25 Cold Res for 30s%NL%%TAN%Note%WHITE%: Instantly thaws character%NL%Thawing Potion}%CONTINUE%
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) ((tsc OR isc OR vps) FILTLVL>0 (CLVL>30 OR FILTLVL>5) !SHOP) (isc OR tsc OR vps)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[(tsc OR isc OR vps) FILTLVL>0 (CLVL>30 OR FILTLVL>5) !SHOP]: {%NAME%}%CONTINUE%
 ItemDisplay[wms FILTLVL>0 (CHARSTAT118>1 OR CHARSTAT153>0) !SHOP]: {%NAME%}%CONTINUE%
 ItemDisplay[yps FL9_MARKER_OK]: %GREEN%!%WHITE%ant{%GREEN%!%WHITE%ant, Perf %GREEN%O%WHITE%, %BLUE%Ring %WHITE%= Psn Res %BLUE%Ring%NL%%GRAY%(time stack)%NL%%WHITE%Gives +25 Psn Res for 30s%NL%%TAN%Note%WHITE%: Instantly cures poison%NL%Antidote Potion}
@@ -2134,15 +2117,10 @@ ItemDisplay[rkey (TOWN OR MAPID>132)]: %NAME%{%TAN%Note%WHITE%: You won't lose i
 
 // Choking, Exploding, Fulminating, Oil, Rancid, Strangling, and New PD2 Throwing Potions
 ItemDisplay[opm OR tpfm]: %NAME%{%WHITE%Exoplo. Potion, Perf %RED%O%WHITE%, %BLUE%Ring %WHITE%= Fire Res %BLUE%Ring%NL%%TAN%Note%WHITE%: Crafting Recipe:}%CONTINUE%
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) ((opm OR tpfm) FILTLVL>0 (CLVL>79 OR FILTLVL>5))]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[(opm OR tpfm) FILTLVL>0 (CLVL>79 OR FILTLVL>5)]: {%NAME%}
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) ((gpm OR opl OR ops OR gps OR gpl) FILTLVL>0 (CLVL>23 OR FILTLVL>5))]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[(gpm OR opl OR ops OR gps OR gpl) FILTLVL>0 (CLVL>23 OR FILTLVL>5)]: {%NAME%}
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) ((tpfs OR tpgs OR tpcs OR tpls) FILTLVL>0 (CLVL>17 OR FILTLVL>5))]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[(tpfs OR tpgs OR tpcs OR tpls) FILTLVL>0 (CLVL>17 OR FILTLVL>5)]: {%NAME%}
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) ((tpfm OR tpgm OR tpcm OR tplm) FILTLVL>0 (CLVL>23 OR FILTLVL>5))]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[(tpfm OR tpgm OR tpcm OR tplm) FILTLVL>0 (CLVL>23 OR FILTLVL>5)]: {%NAME%}
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) ((tpfl OR tpgl OR tpcl OR tpll) FILTLVL>0 (CLVL>39 OR FILTLVL>5))]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[(tpfl OR tpgl OR tpcl OR tpll) FILTLVL>0 (CLVL>39 OR FILTLVL>5)]: {%NAME%}
 
 // Gems
@@ -2186,9 +2164,7 @@ ItemDisplay[GEMTYPE=6 GEM>3]: %NAME% %ORANGE%[%YELLOW%O%ORANGE%]{%NAME%}%CONTINU
 ItemDisplay[GEMTYPE=7 GEM<4 !(skl OR skz)]: %NAME% %ORANGE%[%GRAY%*%ORANGE%]{%NAME%}%CONTINUE%
 ItemDisplay[GEMTYPE=7 GEM>3]: %NAME% %ORANGE%[%GRAY%O%ORANGE%]{%NAME%}%CONTINUE%
 // hiding low ones
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) (GEM<3 FILTLVL>0 (DIFF>0 OR FILTLVL>5) !(gzv OR gpv OR glw OR gpw OR glg OR gpg OR glr OR gpr OR glb OR gpb OR gly OR gpy OR skl OR skz)) (gcb OR gcg OR gcr OR gcv OR gcw OR gcy OR gfb OR gfg OR gfr OR gfv OR gfw OR gfy OR skc OR skf)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[GEM<3 FILTLVL>0 (DIFF>0 OR FILTLVL>5) !(gzv OR gpv OR glw OR gpw OR glg OR gpg OR glr OR gpr OR glb OR gpb OR gly OR gpy OR skl OR skz)]:{%NAME%}%CONTINUE%
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) (GEM<4 FILTLVL>0 (DIFF>1 OR FILTLVL>5) !(gzv OR gpv OR glw OR gpw OR glg OR gpg OR glr OR gpr OR glb OR gpb OR gly OR gpy OR skl OR skz)) (gcb OR gcg OR gcr OR gcv OR gcw OR gcy OR gfb OR gfg OR gfr OR gfv OR gfw OR gfy OR gsb OR gsg OR gsr OR gsv OR gsw OR gsy OR skc OR skf OR sku)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[GEM<4 FILTLVL>0 (DIFF>1 OR FILTLVL>5) !(gzv OR gpv OR glw OR gpw OR glg OR gpg OR glr OR gpr OR glb OR gpb OR gly OR gpy OR skl OR skz)]:{%NAME%}%CONTINUE%
 // ping for flawlesses and perfects
 ItemDisplay[(skl OR skls)]: %DOT-70%%TIER-3%%NAME%{%NAME%}%CONTINUE%
@@ -2197,7 +2173,6 @@ ItemDisplay[(glr OR glrs) FILTLVL>7]: %DOT-70%%TIER-3%%NAME%{%NAME%}%CONTINUE%
 ItemDisplay[(gpv OR gpvs OR gpy OR gpys OR gpb OR gpbs OR gpg OR gpgs OR gpr OR gprs OR gpw OR gpws OR skz OR skzs)]: %DOT-70%%NAME%{%NAME%}%CONTINUE%
 
 // Hide Flawlesses on Max Strict Level
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) ((GEM<4 OR (gzv OR gzvs OR gly OR glys OR glb OR glbs OR glg OR glgs OR glw OR glws)) FILTLVL>7) (gcb OR gcg OR gcr OR gcv OR gcw OR gcy OR gfb OR gfg OR gfr OR gfv OR gfw OR gfy OR glb OR glbs OR glg OR glgs OR glw OR glws OR gly OR glys OR gsb OR gsg OR gsr OR gsv OR gsw OR gsy OR gzv OR gzvs OR skc OR skf OR sku)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[(GEM<4 OR (gzv OR gzvs OR gly OR glys OR glb OR glbs OR glg OR glgs OR glw OR glws)) FILTLVL>7]: {%NAME%}%CONTINUE%
 
 // Rune appearance
@@ -2208,7 +2183,6 @@ ItemDisplay[RUNE>25]: %ORANGE%%RUNENAME% Rune %GRAY%[%GREEN%%RUNENUM%%GRAY%]{%NA
 
 // All Charms
 // 1) Filter level 8+: hide sub-90 unid magic GCs
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) ((cm1 OR cm2 OR cm3) MAG !ID (ILVL<90) (FILTLVL>7))]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[(cm1 OR cm2 OR cm3) MAG !ID (ILVL<90) (FILTLVL>7)]: {%NAME%}
 
 // 2) Filter level 8+: special display for ilvl 90+ unid magic GCs
@@ -2426,7 +2400,6 @@ ItemDisplay[jew UNI ID STAT332=5 STAT336=5]: %NAME%{%NAME%%CL%%PURPLE%24H %WHITE
 // END AUTO PD2TRADER FACET VALUES
 
 // Hide unlisted set and unique drops outside town on FL8
-ItemDisplay[(UNI OR SET) !ALLDISCOVERED ((UNI OR SET) !ID !TOWN !SHOP !INVENTORY !STASH !(MAPTIER>0) FILTLVL>7)]: %NAME%{%NAME%} // Filter Forge: grail protection, keeps a possible new find showing
 ItemDisplay[(UNI OR SET) !ID !TOWN !SHOP !INVENTORY !STASH !(MAPTIER>0) FILTLVL>7]:
 
 // Good magic item highlights
@@ -2509,17 +2482,14 @@ ItemDisplay[BAR BARBARIAN RARE !ID]: %NAME%
 ItemDisplay[(SIN OR (DAGGER !THROWING)) ASSASSIN RARE !ID]: %NAME%
 
 // Hide unid magic rings and amulets at FL8
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) ((rin OR amu) MAG !ID FILTLVL>7)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[(rin OR amu) MAG !ID FILTLVL>7]: {%NAME%}
 
 // Circlet fallback displays
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) (CIRC MAG !ID FILTLVL>7)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[CIRC MAG !ID FILTLVL>7]: {%NAME%}
 ItemDisplay[CIRC (MAG OR RARE) !ID]: %NAME%
 
 // Rare glove, belt, and boot fallback displays
 // Filter level 7+ hides unid rare gloves
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) ((lgl OR vgl OR mgl OR tgl OR hgl OR xlg OR xvg OR xmg OR xtg OR xhg OR ulg OR uvg OR umg OR utg OR uhg) RARE !ID (FILTLVL>6))]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[(lgl OR vgl OR mgl OR tgl OR hgl OR xlg OR xvg OR xmg OR xtg OR xhg OR ulg OR uvg OR umg OR utg OR uhg) RARE !ID (FILTLVL>6)]:{%NAME%}
 ItemDisplay[(GLOVES OR BOOTS OR BELT) RARE !ID]: %NAME%
 
@@ -6165,7 +6135,6 @@ ItemDisplay[UNI OR SET OR RW OR CRAFT OR GEMMED OR EQUIPPED OR SHOP OR leg]: %NA
 ItemDisplay[(ILVL>1 OR QTY>0 OR PRICE>1) !(ARMOR OR WEAPON OR amu OR rin OR QUIVER OR cm1 OR cm2 OR cm3 OR jew OR jewf OR RUNE>0 OR GEMTYPE>0 OR MAPTIER>-1 OR hp1 OR mp1 OR hp2 OR mp2 OR hp3 OR mp3 OR hp4 OR mp4 OR hp5 OR mp5 OR pvpp OR rvs OR rvl OR vps OR wms OR yps OR key OR tsc OR isc OR tbk OR ibk OR ear OR bks OR bkd OR box OR vip OR tr1 OR ass OR j34 OR g34 OR xyz OR bbb OR qbr OR qey OR qhr OR mss OR ice OR tr2 OR toa OR tes OR ceh OR bet OR fed OR dhn OR bey OR mbr OR pk1 OR pk2 OR pk3 OR std OR wss OR cwss OR lpp OR lbox OR lmal OR crfb OR crfc OR crfh OR crfs OR crfv OR crfu OR crfp OR rtp OR rid OR rkey OR lsvl OR llmr OR ubtm OR uba OR ubaa OR ubab OR ubac OR dcma OR dcso OR dcho OR dcbl OR rtma OR rtmv OR rtmo OR cm2f OR rtmf OR iwss OR scrb OR upmp OR scou OR irma OR irra OR urma OR rrra OR imma OR imra OR upma OR rera OR fort OR ram OR luca OR lucb OR lucc OR lucd OR imrn OR cm1p OR cm2p OR cm3p)]: %SOUNDID-705%%MAP-0A%%PX-62%%NAME%{%NAME%%CL%%WHITE%Item description will be adjusted later during the season.%CL%%TAN%Note%WHITE%: This item is recently added to the game.}	// notifications for unknown items (the first group of conditions including ilvl/qty/price is a workaround for !GOLD>0 since that doesn't work like other conditions)%CONTINUE%
 
 // Hide rare Heavy Bolts
-ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) ((cqv2 OR cqv3) RARE)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[(cqv2 OR cqv3) RARE]: {%NAME%}
 
 // Filter level 7+ hides unid rare gloves
@@ -6189,10 +6158,8 @@ ItemDisplay[(aqv2 OR cqv2) NMAG !INF SOCK=2 ((CLVL<61 AND DIFF<2) FILTLVL<6)]: %
 ItemDisplay[(aqv3 OR cqv3) NMAG !INF SOCK=1 ((CLVL<61 AND DIFF<2) FILTLVL<6)]: %NAME%{%NAME%}
 ItemDisplay[(aqv3 OR cqv3) NMAG !INF !SOCK=1 (CLVL<61 FILTLVL<6)]: %NAME%{%NAME%}
 ItemDisplay[(ARMOR OR WEAPON OR QUIVER) TOWN FILTLVL>0]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%}
-ItemDisplay[(UNI OR SET) !ALLDISCOVERED ((ARMOR OR WEAPON OR QUIVER) !TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED FILTLVL>0)]: %NAME%{%NAME%} // Filter Forge: grail protection, keeps a possible new find showing
 ItemDisplay[(ARMOR OR WEAPON OR QUIVER) !TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED FILTLVL>0]: {%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%}
 ItemDisplay[(ARMOR OR WEAPON OR QUIVER) !TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED INF FILTLVL>0]: {%NAME%}
-ItemDisplay[(UNI OR SET) !ALLDISCOVERED ((ARMOR OR WEAPON OR QUIVER) !TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED !THROWPOTS ((CLVL>30 FILTLVL>0) OR FILTLVL>5))]: %NAME%{%NAME%} // Filter Forge: grail protection, keeps a possible new find showing
 ItemDisplay[(ARMOR OR WEAPON OR QUIVER) !TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED !THROWPOTS ((CLVL>30 FILTLVL>0) OR FILTLVL>5)]: {%NAME%}
 
 // Size reference: BORDER > MAP > DOT > PX
