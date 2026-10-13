@@ -31,11 +31,11 @@ const materialValueOptions = {
 };
 
 const dynamicRunes = [
-  ['r27', 'Ohm Rune', 'r27s', runeValueOptions],
-  ['r28', 'Lo Rune', 'r28s', runeValueOptions],
-  ['r31', 'Jah Rune', 'r31s', runeValueOptions],
-  ['r32', 'Cham Rune', 'r32s', runeValueOptions],
-  ['r33', 'Zod Rune', 'r33s', runeValueOptions],
+  ['r27', 'Ohm Rune', '(r27 OR r27s)', runeValueOptions],
+  ['r28', 'Lo Rune', '(r28 OR r28s)', runeValueOptions],
+  ['r31', 'Jah Rune', '(r31 OR r31s)', runeValueOptions],
+  ['r32', 'Cham Rune', '(r32 OR r32s)', runeValueOptions],
+  ['r33', 'Zod Rune', '(r33 OR r33s)', runeValueOptions],
 ];
 
 const dynamicCurrencyItems = [
@@ -153,7 +153,8 @@ function lineForValueDisplay(displayCode, values, updatedAt, stack24hValue, stac
 
 function lineForStaticRune(baseCode, runeName, value, updatedAt) {
   const values = valueWindows.map(([label]) => `${label} %WHITE%${formatHr(value)} HR`).join(' %PURPLE%');
-  return lineForValueDisplay(`${baseCode}s`, [values], updatedAt, value, 'Rune Stack Value');
+  // Season 14 runes stack under their plain code; the old stacks (r30s) still exist until Season 13 ends.
+  return lineForValueDisplay(`(${baseCode} OR ${baseCode}s)`, [values], updatedAt, value, 'Rune Stack Value');
 }
 
 function normalizePriceValue(value) {

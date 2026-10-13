@@ -2183,16 +2183,19 @@ ItemDisplay[GEMTYPE=6 GEM>3]: %NAME% %ORANGE%[%YELLOW%O%ORANGE%]{%NAME%}%CONTINU
 ItemDisplay[GEMTYPE=7 GEM<4 !(skl OR skz)]: %NAME% %ORANGE%[%GRAY%*%ORANGE%]{%NAME%}%CONTINUE%
 ItemDisplay[GEMTYPE=7 GEM>3]: %NAME% %ORANGE%[%GRAY%O%ORANGE%]{%NAME%}%CONTINUE%
 // hiding low ones
+ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) (GEM<3 FILTLVL>0 (DIFF>0 OR FILTLVL>5) !(gzv OR gpv OR glw OR gpw OR glg OR gpg OR glr OR gpr OR glb OR gpb OR gly OR gpy OR skl OR skz)) (gcb OR gcg OR gcr OR gcv OR gcw OR gcy OR gfb OR gfg OR gfr OR gfv OR gfw OR gfy OR skc OR skf)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[GEM<3 FILTLVL>0 (DIFF>0 OR FILTLVL>5) !(gzv OR gpv OR glw OR gpw OR glg OR gpg OR glr OR gpr OR glb OR gpb OR gly OR gpy OR skl OR skz)]:{%NAME%}%CONTINUE%
+ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) (GEM<4 FILTLVL>0 (DIFF>1 OR FILTLVL>5) !(gzv OR gpv OR glw OR gpw OR glg OR gpg OR glr OR gpr OR glb OR gpb OR gly OR gpy OR skl OR skz)) (gcb OR gcg OR gcr OR gcv OR gcw OR gcy OR gfb OR gfg OR gfr OR gfv OR gfw OR gfy OR gsb OR gsg OR gsr OR gsv OR gsw OR gsy OR skc OR skf OR sku)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[GEM<4 FILTLVL>0 (DIFF>1 OR FILTLVL>5) !(gzv OR gpv OR glw OR gpw OR glg OR gpg OR glr OR gpr OR glb OR gpb OR gly OR gpy OR skl OR skz)]:{%NAME%}%CONTINUE%
 // ping for flawlesses and perfects
-ItemDisplay[(skls)]: %DOT-70%%TIER-3%%NAME%{%NAME%}%CONTINUE%
-ItemDisplay[(gzvs OR glys OR glbs OR glgs OR glrs OR glws) FILTLVL<8]: %DOT-70%%TIER-3%%NAME%{%NAME%}%CONTINUE%
+ItemDisplay[(skl OR skls)]: %DOT-70%%TIER-3%%NAME%{%NAME%}%CONTINUE%
+ItemDisplay[(gzv OR gzvs OR gly OR glys OR glb OR glbs OR glg OR glgs OR glr OR glrs OR glw OR glws) FILTLVL<8]: %DOT-70%%TIER-3%%NAME%{%NAME%}%CONTINUE%
 ItemDisplay[(glr OR glrs) FILTLVL>7]: %DOT-70%%TIER-3%%NAME%{%NAME%}%CONTINUE%
-ItemDisplay[(gpvs OR gpys OR gpbs OR gpgs OR gprs OR gpws OR skzs)]: %DOT-70%%NAME%{%NAME%}%CONTINUE%
+ItemDisplay[(gpv OR gpvs OR gpy OR gpys OR gpb OR gpbs OR gpg OR gpgs OR gpr OR gprs OR gpw OR gpws OR skz OR skzs)]: %DOT-70%%NAME%{%NAME%}%CONTINUE%
 
 // Hide Flawlesses on Max Strict Level
-ItemDisplay[(GEM<4 OR (gzvs OR glys OR glbs OR glgs OR glws)) FILTLVL>7]:{%NAME%}%CONTINUE%
+ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) ((GEM<4 OR (gzv OR gzvs OR gly OR glys OR glb OR glbs OR glg OR glgs OR glw OR glws)) FILTLVL>7) (gcb OR gcg OR gcr OR gcv OR gcw OR gcy OR gfb OR gfg OR gfr OR gfv OR gfw OR gfy OR glb OR glbs OR glg OR glgs OR glw OR glws OR gly OR glys OR gsb OR gsg OR gsr OR gsv OR gsw OR gsy OR gzv OR gzvs OR skc OR skf OR sku)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
+ItemDisplay[(GEM<4 OR (gzv OR gzvs OR gly OR glys OR glb OR glbs OR glg OR glgs OR glw OR glws)) FILTLVL>7]: {%NAME%}%CONTINUE%
 
 // Rune appearance
 ItemDisplay[RUNE<18]: %ORANGE%%RUNENAME% %GRAY%[%TAN%%RUNENUM%%GRAY%]{%NAME%}%CONTINUE%
@@ -5159,7 +5162,7 @@ ItemDisplay[zvb UNI ID FILTLVL=8]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%Pierce %
 // Tooltip description rules end here
 
 // Add quantity to stackable items
-ItemDisplay[!(ARMOR OR WEAPON OR tbk OR ibk OR QUIVER OR (MAPTIER>0 !NMAG)) QTY>0]: %NAME% %TAN%x %WHITE%%QTY%{%NAME%}%CONTINUE%
+ItemDisplay[!(ARMOR OR WEAPON OR tbk OR ibk OR QUIVER OR (MAPTIER>0 !NMAG)) QTY>0 !(GEM<3 FILTLVL>0 (DIFF>0 OR FILTLVL>5) !(gzv OR gpv OR glw OR gpw OR glg OR gpg OR glr OR gpr OR glb OR gpb OR gly OR gpy OR skl OR skz)) !(GEM<4 FILTLVL>0 (DIFF>1 OR FILTLVL>5) !(gzv OR gpv OR glw OR gpw OR glg OR gpg OR glr OR gpr OR glb OR gpb OR gly OR gpy OR skl OR skz)) !((GEM<4 OR (gzv OR gzvs OR gly OR glys OR glb OR glbs OR glg OR glgs OR glw OR glws)) FILTLVL>7)]: %NAME% %TAN%x %WHITE%%QTY%{%NAME%}%CONTINUE%
 
 // Vendor color cleanup, part 1
 ItemDisplay[UNI OR RW]: %NAME%%GOLD%{%NAME%}%CONTINUE%
@@ -5425,7 +5428,7 @@ ItemDisplay[(72h OR 7fb OR 7gd OR 7gs OR 7ls) ETH NMAG !RW !INF !SOCK~1-2 FILTLV
 ItemDisplay[(7fb OR 7gd OR 7ls) NMAG !RW !INF !ETH !SOCK~1-2 ED>14]: %DOT-D6%%NAME%{%NAME%}
 ItemDisplay[(7fb OR 7gd OR 7ls) NMAG !RW !INF !ETH !SOCK~1-2 ED>9]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[(7fb OR 7gd OR 7ls) NMAG !RW !INF !ETH !SOCK~1-2 ED>4 FILTLVL<6]: %DOT-D6%%TIER-3%%NAME%{%NAME%}
-//ItemDisplay[(7fb OR 7gd OR 7ls) NMAG !RW !INF !ETH !SOCK~1-2 (BARARIAN OR FILTLVL<2) FILTLVL<6]: %NAME%{%NAME%} // Filter Forge: never matched (BARARIAN)
+ItemDisplay[(7fb OR 7gd OR 7ls) NMAG !RW !INF !ETH !SOCK~1-2 (BARBARIAN OR FILTLVL<2) FILTLVL<6]: %NAME%{%NAME%}
 // Maces
 ItemDisplay[fla NMAG !RW !INF (SOCK=0 OR SOCK>2) FILTLVL<6]: %NAME%{%NAME%}
 ItemDisplay[fla NMAG !RW !INF SOCK>3 FILTLVL<8]: %NAME%{%NAME%}
@@ -5464,7 +5467,7 @@ ItemDisplay[(7ja OR 7pi OR 7s7 OR 7gl OR 7ts OR 7ta) NMAG !RW !INF ETH !SOCK=1 E
 ItemDisplay[(7ja OR 7pi OR 7s7 OR 7gl OR 7ts OR 7ta) NMAG !RW !INF ETH !SOCK=1 ED>9]: %DOT-D6%%TIER-7%%NAME%{%NAME%}
 ItemDisplay[(7ja OR 7pi OR 7s7 OR 7gl OR 7ts OR 7ta) NMAG !RW !INF ETH !SOCK=1 ED>4 FILTLVL<6]: %DOT-D6%%TIER-3%%NAME%{%NAME%}
 ItemDisplay[(7ja OR 7pi OR 7s7 OR 7gl OR 7ts OR 7ta) (BARBARIAN OR FILTLVL<2) NMAG ETH (ALVL>74 OR CRAFTALVL>74) SOCK=0 FILTLVL<6]: %DOT-D6%%TIER-3%%NAME%{%NAME%} //imbue base
-//ItemDisplay[(7ja OR 7pi OR 7s7 OR 7gl OR 7ts OR 7ta) NMAG !RW !INF ETH !SOCK=1 (BARARIAN OR FILTLVL<2) FILTLVL<6]: %NAME%{%NAME%} // Filter Forge: never matched (BARARIAN)
+ItemDisplay[(7ja OR 7pi OR 7s7 OR 7gl OR 7ts OR 7ta) NMAG !RW !INF ETH !SOCK=1 (BARBARIAN OR FILTLVL<2) FILTLVL<6]: %NAME%{%NAME%}
 ItemDisplay[(am5 OR ama OR amf) (AMAZON OR FILTLVL<2) NMAG ETH (ALVL>59 OR CRAFTALVL>59) SOCK=0 FILTLVL<6]: %DOT-D6%%TIER-3%%NAME%{%NAME%} //imbue base
 // Sorc Orbs
 // Any High +Staffmods bases
@@ -6081,19 +6084,19 @@ ItemDisplay[box]: %NAME%{%NAME%%CL%%RED%Jah: %PURPLE%24H %WHITE%2.15  %PURPLE%48
 ItemDisplay[box]: %NAME%{%NAME%%CL%%RED%Cham: %PURPLE%24H %WHITE%?  %PURPLE%48H %WHITE%?  %PURPLE%72H %WHITE%?  %PURPLE%1W %WHITE%? HR                 }%CONTINUE%
 ItemDisplay[box]: %NAME%{%NAME%%CL%%RED%Zod: %PURPLE%24H %WHITE%5.1  %PURPLE%48H %WHITE%5.1  %PURPLE%72H %WHITE%5.1  %PURPLE%1W %WHITE%5.1 HR       }%CONTINUE%
 ItemDisplay[box]: %NAME%{%NAME%%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-10-13 00:03:34 UTC%CL%%BLACK%|%CL%}
-ItemDisplay[r21s]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Rune Stack Value: %WHITE%$f(round(QTY*0.03*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%0.03 HR %PURPLE%48H %WHITE%0.03 HR %PURPLE%72H %WHITE%0.03 HR %PURPLE%1W %WHITE%0.03 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-10-13 00:03:34 UTC%CL%%BLACK%|%CL%}
-ItemDisplay[r22s]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Rune Stack Value: %WHITE%$f(round(QTY*0.05*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%0.05 HR %PURPLE%48H %WHITE%0.05 HR %PURPLE%72H %WHITE%0.05 HR %PURPLE%1W %WHITE%0.05 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-10-13 00:03:34 UTC%CL%%BLACK%|%CL%}
-ItemDisplay[r23s]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Rune Stack Value: %WHITE%$f(round(QTY*0.1*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%0.1 HR %PURPLE%48H %WHITE%0.1 HR %PURPLE%72H %WHITE%0.1 HR %PURPLE%1W %WHITE%0.1 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-10-13 00:03:34 UTC%CL%%BLACK%|%CL%}
-ItemDisplay[r24s]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Rune Stack Value: %WHITE%$f(round(QTY*0.15*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%0.15 HR %PURPLE%48H %WHITE%0.15 HR %PURPLE%72H %WHITE%0.15 HR %PURPLE%1W %WHITE%0.15 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-10-13 00:03:34 UTC%CL%%BLACK%|%CL%}
-ItemDisplay[r25s]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Rune Stack Value: %WHITE%$f(round(QTY*0.25*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%0.25 HR %PURPLE%48H %WHITE%0.25 HR %PURPLE%72H %WHITE%0.25 HR %PURPLE%1W %WHITE%0.25 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-10-13 00:03:34 UTC%CL%%BLACK%|%CL%}
-ItemDisplay[r26s]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Rune Stack Value: %WHITE%$f(round(QTY*0.5*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%0.5 HR %PURPLE%48H %WHITE%0.5 HR %PURPLE%72H %WHITE%0.5 HR %PURPLE%1W %WHITE%0.5 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-10-13 00:03:34 UTC%CL%%BLACK%|%CL%}
+ItemDisplay[(r21 OR r21s)]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Rune Stack Value: %WHITE%$f(round(QTY*0.03*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%0.03 HR %PURPLE%48H %WHITE%0.03 HR %PURPLE%72H %WHITE%0.03 HR %PURPLE%1W %WHITE%0.03 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-10-13 00:03:34 UTC%CL%%BLACK%|%CL%}
+ItemDisplay[(r22 OR r22s)]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Rune Stack Value: %WHITE%$f(round(QTY*0.05*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%0.05 HR %PURPLE%48H %WHITE%0.05 HR %PURPLE%72H %WHITE%0.05 HR %PURPLE%1W %WHITE%0.05 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-10-13 00:03:34 UTC%CL%%BLACK%|%CL%}
+ItemDisplay[(r23 OR r23s)]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Rune Stack Value: %WHITE%$f(round(QTY*0.1*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%0.1 HR %PURPLE%48H %WHITE%0.1 HR %PURPLE%72H %WHITE%0.1 HR %PURPLE%1W %WHITE%0.1 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-10-13 00:03:34 UTC%CL%%BLACK%|%CL%}
+ItemDisplay[(r24 OR r24s)]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Rune Stack Value: %WHITE%$f(round(QTY*0.15*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%0.15 HR %PURPLE%48H %WHITE%0.15 HR %PURPLE%72H %WHITE%0.15 HR %PURPLE%1W %WHITE%0.15 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-10-13 00:03:34 UTC%CL%%BLACK%|%CL%}
+ItemDisplay[(r25 OR r25s)]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Rune Stack Value: %WHITE%$f(round(QTY*0.25*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%0.25 HR %PURPLE%48H %WHITE%0.25 HR %PURPLE%72H %WHITE%0.25 HR %PURPLE%1W %WHITE%0.25 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-10-13 00:03:34 UTC%CL%%BLACK%|%CL%}
+ItemDisplay[(r26 OR r26s)]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Rune Stack Value: %WHITE%$f(round(QTY*0.5*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%0.5 HR %PURPLE%48H %WHITE%0.5 HR %PURPLE%72H %WHITE%0.5 HR %PURPLE%1W %WHITE%0.5 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-10-13 00:03:34 UTC%CL%%BLACK%|%CL%}
 // Ohm Rune: no PD2 Trader value returned
 // Lo Rune: no PD2 Trader value returned
-ItemDisplay[r29s]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Rune Stack Value: %WHITE%$f(round(QTY*1.5*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%1.5 HR %PURPLE%48H %WHITE%1.5 HR %PURPLE%72H %WHITE%1.5 HR %PURPLE%1W %WHITE%1.5 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-10-13 00:03:34 UTC%CL%%BLACK%|%CL%}
-ItemDisplay[r30s]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Rune Stack Value: %WHITE%$f(round(QTY*3*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%3 HR %PURPLE%48H %WHITE%3 HR %PURPLE%72H %WHITE%3 HR %PURPLE%1W %WHITE%3 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-10-13 00:03:34 UTC%CL%%BLACK%|%CL%}
-ItemDisplay[r31s]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Rune Stack Value: %WHITE%$f(round(QTY*2.15*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%2.15 HR %PURPLE%48H %WHITE%2.15 HR %PURPLE%72H %WHITE%2.15 HR %PURPLE%1W %WHITE%2.15 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-10-13 00:03:34 UTC%CL%%BLACK%|%CL%}
+ItemDisplay[(r29 OR r29s)]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Rune Stack Value: %WHITE%$f(round(QTY*1.5*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%1.5 HR %PURPLE%48H %WHITE%1.5 HR %PURPLE%72H %WHITE%1.5 HR %PURPLE%1W %WHITE%1.5 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-10-13 00:03:34 UTC%CL%%BLACK%|%CL%}
+ItemDisplay[(r30 OR r30s)]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Rune Stack Value: %WHITE%$f(round(QTY*3*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%3 HR %PURPLE%48H %WHITE%3 HR %PURPLE%72H %WHITE%3 HR %PURPLE%1W %WHITE%3 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-10-13 00:03:34 UTC%CL%%BLACK%|%CL%}
+ItemDisplay[(r31 OR r31s)]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Rune Stack Value: %WHITE%$f(round(QTY*2.15*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%2.15 HR %PURPLE%48H %WHITE%2.15 HR %PURPLE%72H %WHITE%2.15 HR %PURPLE%1W %WHITE%2.15 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-10-13 00:03:34 UTC%CL%%BLACK%|%CL%}
 // Cham Rune: no PD2 Trader value returned
-ItemDisplay[r33s]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Rune Stack Value: %WHITE%$f(round(QTY*5.1*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%5.1 HR %PURPLE%48H %WHITE%5.1 HR %PURPLE%72H %WHITE%5.1 HR %PURPLE%1W %WHITE%5.1 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-10-13 00:03:34 UTC%CL%%BLACK%|%CL%}
+ItemDisplay[(r33 OR r33s)]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Rune Stack Value: %WHITE%$f(round(QTY*5.1*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%5.1 HR %PURPLE%48H %WHITE%5.1 HR %PURPLE%72H %WHITE%5.1 HR %PURPLE%1W %WHITE%5.1 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-10-13 00:03:34 UTC%CL%%BLACK%|%CL%}
 // Key of Destruction: no PD2 Trader value returned
 ItemDisplay[pk2]: %NAME%{%NAME%%CL%%BLACK%|%CL%%RED%Stack Value: %WHITE%$f(round(QTY*0.05*100)/100) HR %PURPLE%at 24H Prices%CL%%PURPLE%24H %WHITE%0.05 HR %PURPLE%48H %WHITE%0.05 HR %PURPLE%72H %WHITE%0.05 HR %PURPLE%1W %WHITE%0.03 HR%CL%%PURPLE%Current Values:%CL%%BLACK%|%CL%%GOLD%Updated: 2026-10-13 00:03:34 UTC%CL%%BLACK%|%CL%}
 // Key of Terror: no PD2 Trader value returned
