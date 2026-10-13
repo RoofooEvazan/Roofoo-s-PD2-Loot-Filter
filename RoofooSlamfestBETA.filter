@@ -9222,69 +9222,69 @@ ItemDisplay[(NOTICEME09)]: %NAME%{%DARK_GREEN%Life Tap Charges%CL%%NAME%}%CONTIN
 // Amulet BIS lines are currently commented out while I tune corruption + desecration handling
 // Value ranges use the true lowest and highest parsed listing prices; WSS prices are converted at 0.01 HR each
 // Slam names come from canonical corruption codes so native item stats do not pollute the label
-// Items without enough priced corruption samples are marked as not worth slamming
+// Items without enough priced corruption samples would be marked as not worth slamming; those lines are commented out until 2026-10-30 (first week of the season)
 // Shows even after corruption on FL8/9 because rules intentionally do not require STAT360=0
 // Generated lines: 542; BIS lines: 338; not worth lines: 204; ambiguous item-code groups skipped: 9
-ItemDisplay[2ax SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[2ax SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[6cs SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%4os %GRAY%[0.04-0.3 HR]}%CONTINUE%
 ItemDisplay[7fb SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED, IAS %GRAY%[0.15-3 HR]}%CONTINUE%
 ItemDisplay[7gd SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%6os %GRAY%[0.15-1 HR]}%CONTINUE%
-ItemDisplay[7ls SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[7ls SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[7m7 SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%6os %GRAY%[0-6 HR]}%CONTINUE%
 ItemDisplay[7ma SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.1-0.15 HR]}%CONTINUE%
 ItemDisplay[7qr SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED, DS %GRAY%[0.01-0.25 HR]}%CONTINUE%
 ItemDisplay[7ws SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%IAS %GRAY%[2.75-5 HR]}%CONTINUE%
 ItemDisplay[9mt SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[2 HR]}%CONTINUE%
-ItemDisplay[9vo SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[aar SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9vo SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[aar SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[amc SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED %GRAY%[0.05-0.5 HR]}%CONTINUE%
 ItemDisplay[ba5 SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%CBF %GRAY%[0.25-0.5 HR]}%CONTINUE%
-ItemDisplay[bhm SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[brs SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[bsd SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[bst SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[buc SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[bwn SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[chn SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[ci0 SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[bhm SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[brs SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[bsd SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[bst SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[buc SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[bwn SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[chn SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[ci0 SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[ci3 SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.05-1 HR]}%CONTINUE%
-ItemDisplay[dgr SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[dgr SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[dr8 SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[3.5-6.5 HR]}%CONTINUE%
-ItemDisplay[fhl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[ful SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[ghm SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[gsc SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[gth SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[gts SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[hbl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[hbt SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[hgl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[hlm SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[kit SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[lbb SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[lbl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[fhl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[ful SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[ghm SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[gsc SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[gth SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[gts SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[hbl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[hbt SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[hgl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[hlm SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[kit SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[lbb SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[lbl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[lbt SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%MAEK %GRAY%[0.25-0.5 HR]}%CONTINUE%
-ItemDisplay[lea SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[lea SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[lgl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED %GRAY%[0.5-0.6 HR]}%CONTINUE%
-ItemDisplay[lrg SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[lsd SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[ltp SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[mbt SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[mgl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[mpi SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[msk SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[lrg SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[lsd SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[ltp SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[mbt SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[mgl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[mpi SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[msk SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[ne9 SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[2.5-12 HR]}%CONTINUE%
 ItemDisplay[oba SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%FCR, L Skill Dmg %GRAY%[0.03-0.25 HR]}%CONTINUE%
 ItemDisplay[paf SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[1-2.5 HR]}%CONTINUE%
-ItemDisplay[qui SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[rng SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[sbr SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[skp SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[sml SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[spl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[stu SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[swb SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[tbt SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[qui SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[rng SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[sbr SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[skp SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[sml SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[spl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[stu SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[swb SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[tbt SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[tow SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[1-2 HR]}%CONTINUE%
 ItemDisplay[uar SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.05-3.5 HR]}%CONTINUE%
 ItemDisplay[ucl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.75-10 HR]}%CONTINUE%
@@ -9293,32 +9293,32 @@ ItemDisplay[uhm SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills 
 ItemDisplay[uld SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.15-0.5 HR]}%CONTINUE%
 ItemDisplay[ulg SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED %GRAY%[0.05-1.75 HR]}%CONTINUE%
 ItemDisplay[ult SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%Max Life %GRAY%[0.05-0.1 HR]}%CONTINUE%
-ItemDisplay[umc SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[upl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[umc SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[upl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[urn SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.5-1 HR]}%CONTINUE%
 ItemDisplay[utc SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%Max All Res %GRAY%[0.5-1 HR]}%CONTINUE%
 ItemDisplay[uth SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.25-10 HR]}%CONTINUE%
 ItemDisplay[uts SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.5-1 HR]}%CONTINUE%
-ItemDisplay[uui SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[uui SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[uul SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.75-1 HR]}%CONTINUE%
-ItemDisplay[vbl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[vbl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[vgl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED %GRAY%[0.08-0.25 HR]}%CONTINUE%
-ItemDisplay[wsd SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[wsp SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[wst SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[wsd SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[wsp SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[wst SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[xap SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%2os %GRAY%[0.04-0.1 HR]}%CONTINUE%
 ItemDisplay[xar SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%Max F Res %GRAY%[0.02-0.5 HR]}%CONTINUE%
-ItemDisplay[xcl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[xcl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[xh9 SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[2-25 HR]}%CONTINUE%
 ItemDisplay[xhb SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%LAEK %GRAY%[0.05-3 HR]}%CONTINUE%
 ItemDisplay[xhg SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%AR %GRAY%[0.2-0.25 HR]}%CONTINUE%
-ItemDisplay[xhl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[xhl SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[xhm SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%CBF %GRAY%[0.15-15 HR]}%CONTINUE%
 ItemDisplay[xlb SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%LAEK %GRAY%[0.05-0.2 HR]}%CONTINUE%
 ItemDisplay[xmb SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%Max F Res %GRAY%[0.5-5 HR]}%CONTINUE%
 ItemDisplay[xmg SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%FCR %GRAY%[1-3.5 HR]}%CONTINUE%
-ItemDisplay[xml SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[xrn SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[xml SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[xrn SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[xrs SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.04-0.25 HR]}%CONTINUE%
 ItemDisplay[xsk SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.05-25 HR]}%CONTINUE%
 ItemDisplay[xtb SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%Max L Res %GRAY%[0.1-1 HR]}%CONTINUE%
@@ -9327,10 +9327,10 @@ ItemDisplay[xul SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills 
 ItemDisplay[xvg SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%Pierce %GRAY%[0.1-3 HR]}%CONTINUE%
 ItemDisplay[zhb SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%C Res %GRAY%[0.03-0.5 HR]}%CONTINUE%
 ItemDisplay[zmb SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%MF %GRAY%[0.05-1.5 HR]}%CONTINUE%
-ItemDisplay[ztb SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[ztb SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[zvb SET ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%FHR %GRAY%[0.03-0.25 HR]}%CONTINUE%
-ItemDisplay[2ax UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[2hs UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[2ax UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[2hs UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[6bs UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%FCR, F Skill Dmg %GRAY%[0.1-0.5 HR]}%CONTINUE%
 ItemDisplay[6cs UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[10-20 HR]}%CONTINUE%
 ItemDisplay[6hb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%CB, IAS %GRAY%[0.03-1 HR]}%CONTINUE%
@@ -9347,10 +9347,10 @@ ItemDisplay[7ba UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%5os %GRA
 ItemDisplay[7bk UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%CB, IAS %GRAY%[0.25-0.3 HR]}%CONTINUE%
 ItemDisplay[7bl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%-Enemy F Res %GRAY%[0.05-1.5 HR]}%CONTINUE%
 ItemDisplay[7br UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED, IAS %GRAY%[1-2 HR]}%CONTINUE%
-ItemDisplay[7bs UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[7bs UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[7bt UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED, IAS %GRAY%[0.09-4 HR]}%CONTINUE%
 ItemDisplay[7bw UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[1-1.5 HR]}%CONTINUE%
-ItemDisplay[7cl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[7cl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[7cm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED, IAS %GRAY%[0.05-0.5 HR]}%CONTINUE%
 ItemDisplay[7cr UNI ID FILTLVL>7 MULTI151,110=6]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%4os %GRAY%[0.4-4 HR]}%CONTINUE%
 ItemDisplay[7cr UNI ID FILTLVL>7 !(MULTI151,110=6)]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%4os %GRAY%[8-12 HR]}%CONTINUE%
@@ -9378,14 +9378,14 @@ ItemDisplay[7mt UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRA
 ItemDisplay[7o7 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED, DS %GRAY%[0.15-2 HR]}%CONTINUE%
 ItemDisplay[7p7 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%6os %GRAY%[2-25 HR]}%CONTINUE%
 ItemDisplay[7pa UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%IAS %GRAY%[1-25 HR]}%CONTINUE%
-ItemDisplay[7qr UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[7qr UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[7qs UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%CB, IAS %GRAY%[0.3-0.75 HR]}%CONTINUE%
 ItemDisplay[7s7 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%2os %GRAY%[0.03-0.15 HR]}%CONTINUE%
 ItemDisplay[7s8 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED, IAS %GRAY%[0.5-15 HR]}%CONTINUE%
-ItemDisplay[7sb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[7sc UNI ID FILTLVL>7 STAT136>32]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[7sb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[7sc UNI ID FILTLVL>7 STAT136>32]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[7sc UNI ID FILTLVL>7 STAT116>30]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED %GRAY%[0.25-1 HR]}%CONTINUE%
-ItemDisplay[7sm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[7sm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[7sp UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.03-0.1 HR]}%CONTINUE%
 ItemDisplay[7sr UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%6os %GRAY%[0.05-75 HR]}%CONTINUE%
 ItemDisplay[7st UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%6os %GRAY%[0.1-1 HR]}%CONTINUE%
@@ -9403,38 +9403,38 @@ ItemDisplay[7xf UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills 
 ItemDisplay[8bs UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%4os %GRAY%[0.03-0.1 HR]}%CONTINUE%
 ItemDisplay[8cb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%CB, IAS %GRAY%[0.03-1 HR]}%CONTINUE%
 ItemDisplay[8cs UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%4os %GRAY%[0.01-0.25 HR]}%CONTINUE%
-ItemDisplay[8hb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[8hb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[8hx UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED, ITD %GRAY%[1.5-3 HR]}%CONTINUE%
 ItemDisplay[8l8 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%6os %GRAY%[0.25-0.5 HR]}%CONTINUE%
 ItemDisplay[8lb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%4os %GRAY%[0.03-0.05 HR]}%CONTINUE%
 ItemDisplay[8ls UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED, ITD %GRAY%[0.5-4 HR]}%CONTINUE%
 ItemDisplay[8lw UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%6os %GRAY%[0.1-0.5 HR]}%CONTINUE%
-ItemDisplay[8lx UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[8lx UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[8mx UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[1-2 HR]}%CONTINUE%
 ItemDisplay[8rx UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED, IAS %GRAY%[0.15-3.5 HR]}%CONTINUE%
-ItemDisplay[8s8 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[8s8 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[8sb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%CB %GRAY%[0.05-0.1 HR]}%CONTINUE%
-ItemDisplay[8ss UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[8ss UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[8sw UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.15-1 HR]}%CONTINUE%
 ItemDisplay[8ws UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%6os %GRAY%[0.5-4 HR]}%CONTINUE%
-ItemDisplay[92a UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[92a UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[92h UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.1-0.15 HR]}%CONTINUE%
 ItemDisplay[9ar UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.03-2 HR]}%CONTINUE%
-ItemDisplay[9ax UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9b7 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9ax UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9b7 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9b8 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%AR %GRAY%[0.03-0.05 HR]}%CONTINUE%
 ItemDisplay[9b9 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%4os %GRAY%[0.02-0.1 HR]}%CONTINUE%
 ItemDisplay[9ba UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[1-1.5 HR]}%CONTINUE%
 ItemDisplay[9bl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%2os %GRAY%[0.1 HR]}%CONTINUE%
-ItemDisplay[9br UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9br UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9bs UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%4os %GRAY%[0.5-1 HR]}%CONTINUE%
-ItemDisplay[9bt UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9bt UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9bw UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.25-0.75 HR]}%CONTINUE%
 ItemDisplay[9cl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.1-0.25 HR]}%CONTINUE%
-ItemDisplay[9cm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9cr UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9dg UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9di UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9cm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9cr UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9dg UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9di UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9fb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%4os %GRAY%[0.15-1 HR]}%CONTINUE%
 ItemDisplay[9fc UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[1-2 HR]}%CONTINUE%
 ItemDisplay[9fl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%4os %GRAY%[0.05-0.1 HR]}%CONTINUE%
@@ -9444,40 +9444,40 @@ ItemDisplay[9gi UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%5os %GRA
 ItemDisplay[9gm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED, DS %GRAY%[0.15-25 HR]}%CONTINUE%
 ItemDisplay[9gs UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%IAS %GRAY%[2 HR]}%CONTINUE%
 ItemDisplay[9gw UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%LAEK %GRAY%[0.05-0.25 HR]}%CONTINUE%
-ItemDisplay[9h9 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9ha UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9h9 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9ha UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9kr UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.1-0.25 HR]}%CONTINUE%
 ItemDisplay[9la UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%5os %GRAY%[0.05-1 HR]}%CONTINUE%
 ItemDisplay[9ls UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%4os %GRAY%[0.1-0.5 HR]}%CONTINUE%
 ItemDisplay[9m9 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED, ITD %GRAY%[0.3-3 HR]}%CONTINUE%
 ItemDisplay[9ma UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%IAS %GRAY%[0.03 HR]}%CONTINUE%
-ItemDisplay[9mp UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9mt UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9mp UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9mt UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9p9 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%6os %GRAY%[1 HR]}%CONTINUE%
 ItemDisplay[9pa UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%4os %GRAY%[0.25-0.5 HR]}%CONTINUE%
 ItemDisplay[9qs UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.02-0.15 HR]}%CONTINUE%
 ItemDisplay[9s8 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[3 HR]}%CONTINUE%
-ItemDisplay[9sb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9sc UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9sm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9sp UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9sb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9sc UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9sm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9sp UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9sr UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED %GRAY%[0.03-0.05 HR]}%CONTINUE%
-ItemDisplay[9ss UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9st UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9ss UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9st UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9ta UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%2os %GRAY%[0.03-0.8 HR]}%CONTINUE%
-ItemDisplay[9tk UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9tr UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9tk UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9tr UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9tw UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%CB, IAS %GRAY%[0.05-0.4 HR]}%CONTINUE%
-ItemDisplay[9vo UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[9wa UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9vo UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9wa UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9wc UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%FCR %GRAY%[0.12-2 HR]}%CONTINUE%
-ItemDisplay[9wd UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9wd UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9wh UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.03-1 HR]}%CONTINUE%
-ItemDisplay[9wn UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9wn UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[9ws UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%FCR %GRAY%[0.5-3 HR]}%CONTINUE%
-ItemDisplay[9yw UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[9yw UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[aar UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.15-25 HR]}%CONTINUE%
-ItemDisplay[am5 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[am5 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[am7 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%5os %GRAY%[0.13-0.5 HR]}%CONTINUE%
 ItemDisplay[am9 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%6os %GRAY%[0.15-2.5 HR]}%CONTINUE%
 ItemDisplay[ama UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED, AR %GRAY%[0.1-1 HR]}%CONTINUE%
@@ -9498,13 +9498,13 @@ ItemDisplay[amf UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%IAS %GRA
 // ItemDisplay[amu UNI ID FILTLVL>7 MULTI201,4876=10]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED + +Skills %GRAY%[15 HR]}%CONTINUE%
 // ItemDisplay[amu UNI ID FILTLVL>7 STAT121>49]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills + +Skills %GRAY%[15 HR]}%CONTINUE%
 // ItemDisplay[amu UNI ID FILTLVL>7 SK90>24]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%Max All Res + ED %GRAY%[8-10 HR]}%CONTINUE%
-ItemDisplay[aqv UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[aqv UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[aqv2 UNI ID FILTLVL>7 CRES>49]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%IAS %GRAY%[0.03-0.2 HR]}%CONTINUE%
 ItemDisplay[aqv2 UNI ID FILTLVL>7 !(CRES>49)]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.3-1 HR]}%CONTINUE%
 ItemDisplay[aqv3 UNI ID FILTLVL>7 MULTI201,2728=35]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%Pierce %GRAY%[0.15-0.5 HR]}%CONTINUE%
 ItemDisplay[aqv3 UNI ID FILTLVL>7 CLSK0=2]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%-Enemy F Res %GRAY%[0.5-1.5 HR]}%CONTINUE%
 ItemDisplay[aqv3 UNI ID FILTLVL>7 TABSK1=2]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED %GRAY%[4-12 HR]}%CONTINUE%
-ItemDisplay[axe UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[axe UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[ba6 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.5-0.75 HR]}%CONTINUE%
 ItemDisplay[ba7 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[2.5-4 HR]}%CONTINUE%
 ItemDisplay[baa UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%Max P Res %GRAY%[1-1.25 HR]}%CONTINUE%
@@ -9512,37 +9512,37 @@ ItemDisplay[bac UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills 
 ItemDisplay[bad UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.75-4.5 HR]}%CONTINUE%
 ItemDisplay[bae UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[1.5-20 HR]}%CONTINUE%
 ItemDisplay[baf UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.5-5 HR]}%CONTINUE%
-ItemDisplay[bar UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[bax UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[bhm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[bar UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[bax UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[bhm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[bld UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%2os %GRAY%[0.05 HR]}%CONTINUE%
-ItemDisplay[brn UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[brn UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[brs UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.25-1 HR]}%CONTINUE%
-ItemDisplay[bsd UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[bsh UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[bsd UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[bsh UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[bst UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.1-0.2 HR]}%CONTINUE%
-ItemDisplay[bsw UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[btx UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[buc UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[bwn UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[cap UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[cbw UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[chn UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[bsw UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[btx UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[buc UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[bwn UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[cap UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[cbw UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[chn UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[ci2 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.5-10 HR]}%CONTINUE%
 ItemDisplay[ci3 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[2-30 HR]}%CONTINUE%
-ItemDisplay[clb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[clm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[cqv UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[clb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[clm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[cqv UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[cqv2 UNI ID FILTLVL>7 MULTI201,4255=10]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[1-2 HR]}%CONTINUE%
 ItemDisplay[cqv2 UNI ID FILTLVL>7 TABSK0=2]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.25-0.5 HR]}%CONTINUE%
 ItemDisplay[cqv3 UNI ID FILTLVL>7 IAS<0]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.25-1 HR]}%CONTINUE%
 ItemDisplay[cqv3 UNI ID FILTLVL>7 FCR>19]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[1-3.5 HR]}%CONTINUE%
 ItemDisplay[cqv3 UNI ID FILTLVL>7 MULTI126,4=3]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.5-7 HR]}%CONTINUE%
 ItemDisplay[crn UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%F Res %GRAY%[0.25-5 HR]}%CONTINUE%
-ItemDisplay[crs UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[crs UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[cst UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%4os %GRAY%[0.1-0.5 HR]}%CONTINUE%
-ItemDisplay[dgr UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[dir UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[dgr UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[dir UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[dr2 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.05-3 HR]}%CONTINUE%
 ItemDisplay[dr6 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.04-3 HR]}%CONTINUE%
 ItemDisplay[dra UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%Max F Res %GRAY%[0.03-1 HR]}%CONTINUE%
@@ -9551,58 +9551,58 @@ ItemDisplay[drc UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills 
 ItemDisplay[drd UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.5-6 HR]}%CONTINUE%
 ItemDisplay[dre UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.11-4 HR]}%CONTINUE%
 ItemDisplay[drf UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.5-3 HR]}%CONTINUE%
-ItemDisplay[fhl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[fla UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[flb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[flc UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[fhl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[fla UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[flb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[flc UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[fld UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%PDR% %GRAY%[0.25-45 HR]}%CONTINUE%
-ItemDisplay[ful UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[ful UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[gax UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%5os %GRAY%[0.5-1 HR]}%CONTINUE%
-ItemDisplay[ghm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[gis UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[ghm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[gis UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[gix UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%6os %GRAY%[0.1-15 HR]}%CONTINUE%
 ItemDisplay[gma UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED, DS %GRAY%[0.2 HR]}%CONTINUE%
-ItemDisplay[gsc UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[gsc UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[gsd UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%6os %GRAY%[1.75-2 HR]}%CONTINUE%
 ItemDisplay[gth UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%CBF %GRAY%[0.4-5 HR]}%CONTINUE%
-ItemDisplay[gts UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[gwn UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[hal UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[hax UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[hbl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[gts UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[gwn UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[hal UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[hax UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[hbl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[hbt UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%Max F Res %GRAY%[0.1 HR]}%CONTINUE%
-ItemDisplay[hbw UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[hfh UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[hbw UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[hfh UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[hgl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%FCR %GRAY%[0.2-1 HR]}%CONTINUE%
-ItemDisplay[hla UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[hlm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[hst UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[hla UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[hlm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[hst UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[hxb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%6os %GRAY%[0.05-0.25 HR]}%CONTINUE%
 ItemDisplay[kit UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%FBR %GRAY%[0.5 HR]}%CONTINUE%
 ItemDisplay[kri UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.2-0.5 HR]}%CONTINUE%
-ItemDisplay[lax UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[lax UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[lbb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%6os %GRAY%[0.1-1 HR]}%CONTINUE%
 ItemDisplay[lbl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%Max All Res %GRAY%[0.25 HR]}%CONTINUE%
-ItemDisplay[lbt UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[lbw UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[lea UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[lbt UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[lbw UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[lea UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[lgl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%ED %GRAY%[0.25-0.5 HR]}%CONTINUE%
-ItemDisplay[lrg UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[lsd UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[lst UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[lrg UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[lsd UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[lst UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[ltp UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.5-1.5 HR]}%CONTINUE%
-ItemDisplay[lwb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[lxb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[mac UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[lwb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[lxb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[mac UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[mau UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%6os %GRAY%[0.15-1.5 HR]}%CONTINUE%
-ItemDisplay[mbl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[mbl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[mbt UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%FRW %GRAY%[0.5-1 HR]}%CONTINUE%
 ItemDisplay[mgl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%GF %GRAY%[0.4-1 HR]}%CONTINUE%
-ItemDisplay[mpi UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[msf UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[msk UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[mst UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[mxb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[mpi UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[msf UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[msk UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[mst UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[mxb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[ne6 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%MDR %GRAY%[0.02-0.05 HR]}%CONTINUE%
 ItemDisplay[nea UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.5-0.75 HR]}%CONTINUE%
 ItemDisplay[ned UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[2-2.75 HR]}%CONTINUE%
@@ -9620,15 +9620,15 @@ ItemDisplay[pa9 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRA
 ItemDisplay[pac UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[2.5-5.5 HR]}%CONTINUE%
 ItemDisplay[pae UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[1-4 HR]}%CONTINUE%
 ItemDisplay[paf UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[1-22 HR]}%CONTINUE%
-ItemDisplay[pax UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[pik UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[plt UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[qf1 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[qf2 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[qui UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[ram UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[rar UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[rbe UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[pax UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[pik UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[plt UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[qf1 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[qf2 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[qui UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[ram UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[rar UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[rbe UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[rin UNI ID FILTLVL>7 STAT35=3]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%MF %GRAY%[0.1-1 HR]}%CONTINUE%
 ItemDisplay[rin UNI ID FILTLVL>7 LIFE=20]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%MDR %GRAY%[0.03-0.05 HR]}%CONTINUE%
 ItemDisplay[rin UNI ID FILTLVL>7 (STAT23=1 STAT24=120)]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%FCR %GRAY%[15-24 HR]}%CONTINUE%
@@ -9639,37 +9639,37 @@ ItemDisplay[rin UNI ID FILTLVL>7 STAT153>0]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHIT
 ItemDisplay[rin UNI ID FILTLVL>7 STAT117>0]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%All Res %GRAY%[0.07-1.5 HR]}%CONTINUE%
 ItemDisplay[rin UNI ID FILTLVL>7 MULTI204,15106>0]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%FCR %GRAY%[15-20 HR]}%CONTINUE%
 ItemDisplay[rin UNI ID FILTLVL>7 MULTI198,15390=8]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%FRW %GRAY%[1-1.25 HR]}%CONTINUE%
-ItemDisplay[rng UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[rng UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[rxb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%5os %GRAY%[0.4-0.5 HR]}%CONTINUE%
-ItemDisplay[sbb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[sbr UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[sbw UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[sbb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[sbr UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[sbw UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[scl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.75-1.5 HR]}%CONTINUE%
-ItemDisplay[scm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[scp UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[scy UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[scm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[scp UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[scy UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[skp UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%2os %GRAY%[0.03-0.1 HR]}%CONTINUE%
-ItemDisplay[sml UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[spc UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[spk UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[sml UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[spc UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[spk UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[spl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%2os %GRAY%[0.03-0.5 HR]}%CONTINUE%
-ItemDisplay[spr UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[spt UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[ssd UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[sst UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[spr UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[spt UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[ssd UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[sst UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[stu UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%2os %GRAY%[0.08-0.1 HR]}%CONTINUE%
-ItemDisplay[swb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[t51 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[t52 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[t53 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[t54 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[t55 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[t56 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[swb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[t51 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[t52 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[t53 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[t54 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[t55 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[t56 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[tbl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%GF %GRAY%[0.75-1.5 HR]}%CONTINUE%
 ItemDisplay[tbt UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%FRW %GRAY%[0.15-1 HR]}%CONTINUE%
 ItemDisplay[tgl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%FCR %GRAY%[0.75-3 HR]}%CONTINUE%
-ItemDisplay[tow UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[tri UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[tow UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[tri UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[uap UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[1.25-9 HR]}%CONTINUE%
 ItemDisplay[uar UNI ID FILTLVL>7 FRW>44]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[15-65 HR]}%CONTINUE%
 ItemDisplay[uar UNI ID FILTLVL>7 FHR>19]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[3-15 HR]}%CONTINUE%
@@ -9677,7 +9677,7 @@ ItemDisplay[uh9 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRA
 ItemDisplay[uhb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%indestruct, E-Def %GRAY%[0.04-5 HR]}%CONTINUE%
 ItemDisplay[uhc UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%FCR %GRAY%[3-10 HR]}%CONTINUE%
 ItemDisplay[uhg UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%manarecoverybonus %GRAY%[0.25-5 HR]}%CONTINUE%
-ItemDisplay[uhl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[uhl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[uhm UNI ID FILTLVL>7 STAT31=140]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[4-10 HR]}%CONTINUE%
 ItemDisplay[uhm UNI ID FILTLVL>7 STAT118>0]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.5-16 HR]}%CONTINUE%
 ItemDisplay[uit UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.5-12 HR]}%CONTINUE%
@@ -9697,9 +9697,9 @@ ItemDisplay[urg UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%Max Life
 ItemDisplay[urn UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%CBF %GRAY%[1.5-4 HR]}%CONTINUE%
 ItemDisplay[ush UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%CBF %GRAY%[1.5-3 HR]}%CONTINUE%
 ItemDisplay[usk UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[1.5-8 HR]}%CONTINUE%
-ItemDisplay[utb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[utb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[utg UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%FCR %GRAY%[1.5-4.5 HR]}%CONTINUE%
-ItemDisplay[uth UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[uth UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[utp UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%FCR %GRAY%[1.75-2.5 HR]}%CONTINUE%
 ItemDisplay[uts UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%All Res %GRAY%[0.05-6 HR]}%CONTINUE%
 ItemDisplay[utu UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.25-15 HR]}%CONTINUE%
@@ -9711,36 +9711,36 @@ ItemDisplay[uvg UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%IAS %GRA
 ItemDisplay[vbl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%Max All Res %GRAY%[5-8 HR]}%CONTINUE%
 ItemDisplay[vbt UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%GF %GRAY%[0.05-0.2 HR]}%CONTINUE%
 ItemDisplay[vgl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%IAS %GRAY%[0.05-1 HR]}%CONTINUE%
-ItemDisplay[vip UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[vou UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[wax UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[whm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[wnd UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[wsc UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[wsd UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
-ItemDisplay[wsp UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[vip UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[vou UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[wax UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[whm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[wnd UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[wsc UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[wsd UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[wsp UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[wst UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%6os %GRAY%[0.75-1.5 HR]}%CONTINUE%
-ItemDisplay[xap UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[xap UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[xar UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%Max P Res %GRAY%[0.03-15 HR]}%CONTINUE%
 ItemDisplay[xcl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.15-0.75 HR]}%CONTINUE%
 ItemDisplay[xea UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[1-2 HR]}%CONTINUE%
 ItemDisplay[xh9 UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%Max F Res %GRAY%[0.5-8 HR]}%CONTINUE%
 ItemDisplay[xhb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%Max L Res %GRAY%[2-7 HR]}%CONTINUE%
 ItemDisplay[xhg UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%IAS %GRAY%[0.25-1.5 HR]}%CONTINUE%
-ItemDisplay[xhl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[xhl UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[xhm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[3 HR]}%CONTINUE%
 ItemDisplay[xhn UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.5-15 HR]}%CONTINUE%
 ItemDisplay[xit UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.2-1 HR]}%CONTINUE%
 ItemDisplay[xkp UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%1os %GRAY%[0.03-0.1 HR]}%CONTINUE%
-ItemDisplay[xla UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[xla UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[xlb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%Max F Res %GRAY%[0.5-2 HR]}%CONTINUE%
 ItemDisplay[xld UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.1-0.5 HR]}%CONTINUE%
 ItemDisplay[xlg UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%DS %GRAY%[0.75-1.5 HR]}%CONTINUE%
-ItemDisplay[xlm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[xlm UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[xlt UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.5-22 HR]}%CONTINUE%
 ItemDisplay[xmb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%LAEK %GRAY%[0.75-3 HR]}%CONTINUE%
 ItemDisplay[xmg UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%DS %GRAY%[1-2 HR]}%CONTINUE%
-ItemDisplay[xml UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[xml UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[xng UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%P Res %GRAY%[0.01-0.25 HR]}%CONTINUE%
 ItemDisplay[xow UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[1.5-5 HR]}%CONTINUE%
 ItemDisplay[xpk UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[1.5-2.5 HR]}%CONTINUE%
@@ -9756,12 +9756,12 @@ ItemDisplay[xth UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills 
 ItemDisplay[xtp UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.25-6 HR]}%CONTINUE%
 ItemDisplay[xts UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%3os %GRAY%[0.05-0.5 HR]}%CONTINUE%
 ItemDisplay[xtu UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%2os %GRAY%[0.1-0.2 HR]}%CONTINUE%
-ItemDisplay[xuc UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[xuc UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[xui UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%MF %GRAY%[0.03-0.15 HR]}%CONTINUE%
 ItemDisplay[xul UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%+Skills %GRAY%[0.2-8 HR]}%CONTINUE%
 ItemDisplay[xvb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%Max F Res %GRAY%[1-5 HR]}%CONTINUE%
 ItemDisplay[xvg UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%DS %GRAY%[1-2 HR]}%CONTINUE%
-ItemDisplay[ywn UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
+// ItemDisplay[ywn UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%
 ItemDisplay[zhb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%Max All Res %GRAY%[1.25-4 HR]}%CONTINUE%
 ItemDisplay[zlb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%Max All Res %GRAY%[0.75-10 HR]}%CONTINUE%
 ItemDisplay[zmb UNI ID FILTLVL>7]: %NAME%{%NAME%%CL%%PURPLE%BIS: %WHITE%FCR %GRAY%[1.5-3 HR]}%CONTINUE%

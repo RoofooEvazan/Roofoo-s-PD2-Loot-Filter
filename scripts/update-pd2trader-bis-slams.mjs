@@ -14,6 +14,10 @@ const minMedianPrice = Number(process.env.PD2TRADER_BIS_MIN_MEDIAN || 0);
 const concurrency = Number(process.env.PD2TRADER_BIS_CONCURRENCY || 8);
 const marketPageLimit = Number(process.env.PD2TRADER_BIS_MARKET_PAGE_LIMIT || 200);
 const maxMarketListingsPerItem = Number(process.env.PD2TRADER_BIS_MAX_LISTINGS || 800);
+// "Not worth slamming" lines stay commented out until this date (YYYY-MM-DD, UTC): early in a season
+// there aren't enough priced slams yet, so most items would be wrongly marked.
+const notWorthFrom = process.env.PD2TRADER_NOT_WORTH_FROM || '';
+const notWorthPaused = /^\d{4}-\d{2}-\d{2}$/.test(notWorthFrom) && Date.now() < Date.parse(`${notWorthFrom}T00:00:00Z`);
 const excludedUniqueSlamBaseCodes = new Set(['cm1', 'cm2', 'cm3', 'cm1p', 'cm2p', 'cm3p', 'jew']);
 const cosmeticCorruptionCodes = new Set(['transform_dye']);
 const resistanceCodes = new Set(['coldresist', 'fireresist', 'lightresist', 'poisonresist']);
@@ -841,7 +845,8 @@ function lineForBisSlam(item, best) {
 }
 
 function lineForNotWorthSlamming(item) {
-  return `ItemDisplay[${itemFilterCondition(item)}]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%`;
+  const line = `ItemDisplay[${itemFilterCondition(item)}]: %NAME%{%NAME%%CL%%RED%Not worth slamming}%CONTINUE%`;
+  return notWorthPaused ? `// ${line}` : line;
 }
 
 function pauseAmuletBisLine(item, line) {
@@ -856,7 +861,9 @@ function buildBlock(lines, stats) {
     '// Amulet BIS lines are currently commented out while I tune corruption + desecration handling',
     '// Value ranges use the true lowest and highest parsed listing prices; WSS prices are converted at 0.01 HR each',
     '// Slam names come from canonical corruption codes so native item stats do not pollute the label',
-    '// Items without enough priced corruption samples are marked as not worth slamming',
+    notWorthPaused
+      ? `// Items without enough priced corruption samples would be marked as not worth slamming; those lines are commented out until ${notWorthFrom} (first week of the season)`
+      : '// Items without enough priced corruption samples are marked as not worth slamming',
     '// Shows even after corruption on FL8 because rules intentionally do not require STAT360=0',
     `// Generated lines: ${stats.generated}; BIS lines: ${stats.bis}; not worth lines: ${stats.notWorth}; ambiguous item-code groups skipped: ${stats.skippedAmbiguous}`,
     ...lines,
