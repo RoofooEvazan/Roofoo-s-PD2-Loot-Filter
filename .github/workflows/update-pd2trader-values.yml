@@ -81,27 +81,6 @@ jobs:
           # "Not worth slamming" turns on after the first week of Season 14 (starts Oct 23)
           PD2TRADER_NOT_WORTH_FROM: '2026-10-30'
 
-      - name: Update Rainbow Facet values - main
-        run: node scripts/update-pd2trader-facets.mjs
-        env:
-          FILTER_FILE: Roofoo.filter
-          PD2TRADER_LADDER: 'true'
-          PD2TRADER_HARDCORE: 'false'
-
-      - name: Update Rainbow Facet values - mystery
-        run: node scripts/update-pd2trader-facets.mjs
-        env:
-          FILTER_FILE: RoofooMystery.filter
-          PD2TRADER_LADDER: 'true'
-          PD2TRADER_HARDCORE: 'false'
-
-      - name: Update Rainbow Facet values - mystery beta
-        run: node scripts/update-pd2trader-facets.mjs
-        env:
-          FILTER_FILE: RoofooMysteryBETA.filter
-          PD2TRADER_LADDER: 'true'
-          PD2TRADER_HARDCORE: 'false'
-
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
