@@ -41,13 +41,6 @@ jobs:
           PD2TRADER_LADDER: 'true'
           PD2TRADER_HARDCORE: 'false'
 
-      - name: Update rune and currency values - mystery beta
-        run: node scripts/update-pd2trader-runes.mjs
-        env:
-          FILTER_FILE: RoofooMysteryBETA.filter
-          PD2TRADER_LADDER: 'true'
-          PD2TRADER_HARDCORE: 'false'
-
       - name: Update BIS slam values - main
         run: node scripts/update-pd2trader-bis-slams.mjs
         env:
@@ -70,26 +63,15 @@ jobs:
           # "Not worth slamming" turns on after the first week of Season 14 (starts Oct 23)
           PD2TRADER_NOT_WORTH_FROM: '2026-10-30'
 
-      - name: Update BIS slam values - mystery beta
-        run: node scripts/update-pd2trader-bis-slams.mjs
-        env:
-          FILTER_FILE: RoofooMysteryBETA.filter
-          PD2TRADER_LADDER: 'true'
-          PD2TRADER_HARDCORE: 'false'
-          PD2TRADER_HOURS: '48'
-          PD2TRADER_BIS_MIN_SAMPLES: '2'
-          # "Not worth slamming" turns on after the first week of Season 14 (starts Oct 23)
-          PD2TRADER_NOT_WORTH_FROM: '2026-10-30'
-
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- Roofoo.filter RoofooMystery.filter RoofooMysteryBETA.filter; then
+          if git diff --quiet -- Roofoo.filter RoofooMystery.filter; then
             echo "No PD2 Trader value changes to commit."
             exit 0
           fi
-          git add Roofoo.filter RoofooMystery.filter RoofooMysteryBETA.filter
+          git add Roofoo.filter RoofooMystery.filter
           git commit -m "Update PD2 Trader values"
           git pull --rebase origin main
           git push origin HEAD:main
