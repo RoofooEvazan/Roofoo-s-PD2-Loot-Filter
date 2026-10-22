@@ -6,7 +6,7 @@ A customized fork of **[Kryszard](https://twitch.tv/Kryszard)’s Project Diablo
 
 **Current version:** 13.0.8 (May 15, 2026)
 
-🎨 [Filter Builder](https://roofooevazan.github.io/Roofoo-s-PD2-Loot-Filter/) · ⭐ [Tier list spreadsheet](https://docs.google.com/spreadsheets/d/1AS-dQqCeaY0zxShYd6qVlFXGqRtlsRKtRBPwFgL5Sws/edit?usp=sharing) · 🐞 [Report a problem](https://github.com/RoofooEvazan/Roofoo-s-PD2-Loot-Filter/issues)
+🎨 [Filter Builder](https://roofooevazan.github.io/Roofoo-s-PD2-Loot-Filter/) · ⭐ [Star tiers](https://roofooevazan.github.io/Roofoo-s-PD2-Loot-Filter/tiers/) · 🐞 [Report a problem](https://github.com/RoofooEvazan/Roofoo-s-PD2-Loot-Filter/issues)
 
 ---
 

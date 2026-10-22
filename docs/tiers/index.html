@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roofoo Star Tiers</title>
+  <meta name="description" content="Which uniques and set items get stars in Roofoo's PD2 loot filter, and which white and grey skill weapons it highlights.">
+  <link rel="icon" href="https://roofooevazan.github.io/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;1,400&family=Cinzel:wght@500;700&family=Spectral:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/app.css?v=2026-09-28a">
+  <link rel="stylesheet" href="https://roofooevazan.github.io/assets/tristram.css">
+  <link rel="stylesheet" href="../css/tristram.css?v=2026-09-28a">
+  <style>
+    /* Layout: header and edit help, then tabs; each tab is a toolbar plus one scrolling table. */
+    main.wrap { padding-bottom: 40px; }
+    .intro { display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr) minmax(0, 380px); align-items: start; padding: 16px 0 6px; }
+    @media (max-width: 860px) { .intro { grid-template-columns: minmax(0, 1fr); } }
+    .intro p { margin: 0 0 8px; color: var(--muted); max-width: 70ch; }
+    .legend { display: grid; gap: 6px; margin: 12px 0 0; padding: 0; list-style: none; font-size: 14px; color: var(--muted); }
+    .legend li { display: flex; flex-wrap: wrap; gap: 2px 10px; align-items: baseline; }
+    @media (min-width: 600px) { .legend .t { min-width: 150px; } }
+    .edit { padding: 14px 16px; display: grid; gap: 10px; }
+    .edit h2 { margin: 0; font-size: 15px; }
+    .edit p, .edit ol { margin: 0; color: var(--muted); font-size: 14px; }
+    .edit ol { padding-left: 18px; display: grid; gap: 4px; }
+    .edit .row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .edit code { font-size: 13px; color: var(--text); }
+    .tools { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; padding: 12px 0; }
+    .seg { display: inline-flex; border: 1px solid var(--line-2); }
+    .seg button { border: 0; background: none; color: var(--muted); padding: 6px 12px; cursor: pointer; }
+    .seg button[aria-pressed="true"] { background: var(--panel-2); color: var(--gold-2); }
+    .tools input, .tools select { background: var(--panel); border: 1px solid var(--line-2); color: var(--text); padding: 7px 10px; min-width: 0; }
+    .tools input { flex: 1 1 220px; max-width: 340px; }
+    .tools .count { color: var(--faint); font-size: 14px; margin-left: auto; }
+    .scroll { overflow-x: auto; border: 1px solid var(--line); background: var(--panel); }
+    table { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 14px; }
+    th { position: sticky; top: 0; background: var(--panel-2); text-align: left; font-weight: 500; color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--line-2); white-space: nowrap; }
+    td { padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: 0; }
+    td.base b { font-weight: 500; }
+    td.base span, td.code { color: var(--faint); }
+    td.code { font-family: ui-monospace, Consolas, monospace; font-size: 13px; }
+    td.items { color: var(--text); }
+    .rar-Unique { color: #c7b377; }
+    .rar-Set { color: #4ade4a; }
+    .t { display: inline-block; white-space: nowrap; font-family: var(--label-font); background: var(--ground); padding: 1px 8px; border: 1px solid var(--line); }
+    .t.none { color: var(--faint); font-family: inherit; background: none; border-color: transparent; padding-left: 0; }
+    .t-NS { color: #d8d8d8; }
+    .t .marks { font-size: 16px; line-height: 1; letter-spacing: .04em; }
+    .s-g { color: #4ade4a; } .s-p { color: #b45cff; } .s-r { color: #ff5d5d; } .s-y { color: #ffe066; }
+    .s-sage { color: #a8c49a; } .s-dg { color: #2f8f3a; } .s-gray { color: #9a9a9a; }
+    .pending { display: inline-block; margin-left: 6px; font-size: 12px; color: #1d1509; background: var(--gold); padding: 0 6px; vertical-align: 1px; }
+    .note { color: var(--muted); }
+    td.skills div + div { margin-top: 2px; }
+    .off td { opacity: .5; }
+    .status { color: var(--muted); padding: 20px 0; }
+    .cls-h td { background: var(--bg-2); color: var(--gold-2); font-family: var(--tri-display, Cinzel), serif; letter-spacing: .06em; text-transform: uppercase; font-size: 13px; }
+  </style>
+</head>
+<body class="tri">
+  <script src="https://roofooevazan.github.io/assets/site-nav.js"></script>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">★</span>
+        <div>
+          <div class="brand-title"><h1>Roofoo Star Tiers</h1></div>
+          <p class="tagline">What Roofoo's filter stars, and the skill weapons it highlights.</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <a class="btn ghost" href="../">Filter Builder</a>
+      </div>
+    </div>
+    <nav class="wrap tabs" id="tabs" role="tablist" aria-label="Item groups">
+      <button role="tab" data-tab="armor" aria-selected="true">Armor <span class="count" data-count="armor"></span></button>
+      <button role="tab" data-tab="weapon" aria-selected="false">Weapons <span class="count" data-count="weapon"></span></button>
+      <button role="tab" data-tab="misc" aria-selected="false">Jewelry &amp; charms <span class="count" data-count="misc"></span></button>
+      <button role="tab" data-tab="staff" aria-selected="false">Staff mod bases <span class="count" data-count="staff"></span></button>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="intro">
+      <div>
+        <p>Unidentified uniques and set items get a star tier by the base they drop on. The filter can't tell which unique a base is until it's identified, so every item on a base shares that base's tier. Ethereal copies have their own tier.</p>
+        <p>These lists are the same in Roofoo, Roofoo Mystery and Roofoo Mystery (BETA). The staff mod bases are in the BETA filter.</p>
+        <ul class="legend" id="legend"></ul>
+      </div>
+      <div class="card edit">
+        <h2>Changing a tier</h2>
+        <ol>
+          <li>Open the sheet on GitHub and click the pencil to edit.</li>
+          <li>Change <b>Normal</b> or <b>Ethereal</b> to <code>3 Star Pick-up</code>, <code>3 Star</code>, <code>1 Star</code>, <code>No Star</code> or <code>Default</code>. For a staff mod, set <b>Show</b> to <code>No</code> to turn it off, or edit its <b>Note</b> (<code>|</code> starts a new line).</li>
+          <li>Commit the change. Rows not in the filter yet are marked <span class="pending">pending</span> here until the filter is rebuilt.</li>
+        </ol>
+        <div class="row">
+          <a class="btn small primary" href="https://github.com/RoofooEvazan/Roofoo-s-PD2-Loot-Filter/edit/main/docs/tiers/items.csv">Edit item tiers</a>
+          <a class="btn small" href="https://github.com/RoofooEvazan/Roofoo-s-PD2-Loot-Filter/edit/main/docs/tiers/staff-mods.csv">Edit staff mods</a>
+        </div>
+        <p>Without edit access, GitHub saves your change as a suggestion (a pull request) for Roofoo to approve.</p>
+      </div>
+    </section>
+
+    <div id="panel-items">
+      <div class="tools">
+        <div class="seg" role="group" aria-label="Rarity">
+          <button data-rar="" aria-pressed="true">All</button><button data-rar="Unique" aria-pressed="false">Uniques</button><button data-rar="Set" aria-pressed="false">Sets</button>
+        </div>
+        <select id="tier-filter" aria-label="Star tier">
+          <option value="">Any tier</option>
+        </select>
+        <input id="q" type="search" placeholder="Search items, bases, codes…" aria-label="Search">
+        <span class="count" id="shown"></span>
+      </div>
+      <div class="scroll"><table>
+        <thead><tr><th>Base</th><th>Code</th><th>Rarity</th><th>Items</th><th>Normal</th><th>Ethereal</th><th>Notes</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table></div>
+    </div>
+
+    <div id="panel-staff" hidden>
+      <div class="tools">
+        <select id="cls-filter" aria-label="Class"><option value="">Every class</option></select>
+        <input id="q2" type="search" placeholder="Search skills, bases, notes…" aria-label="Search staff mods">
+        <span class="count" id="shown2"></span>
+      </div>
+      <p class="note" style="margin:0 0 12px">White and grey items only (normal or superior, not a runeword), shown with a minimap dot and text alert on every filter level. Skill numbers are minimums: “+3 Blaze” means +3 or more. When an item matches several rows, the first one wins.</p>
+      <div class="scroll"><table>
+        <thead><tr><th>Bases</th><th>Needs (at least)</th><th>Sockets and other</th><th>Note</th></tr></thead>
+        <tbody id="srows"></tbody>
+      </table></div>
+    </div>
+    <p class="status" id="status">Loading the sheets…</p>
+  </main>
+
+<script>
+const TIERS = [
+  ['3 Star Pick-up', '<span class="s-g">pick</span> <span class="s-p">*</span><span class="s-r">*</span><span class="s-y">*</span><span class="s-g">*</span>', 'Shows with a big border and a sound; the filter tells you to pick it up.'],
+  ['3 Star', '<span class="s-sage">*</span><span class="s-dg">*</span><span class="s-gray">*</span>', 'Shows with a map marker and a sound.'],
+  ['1 Star', '<span class="s-sage">*</span>', 'Shows with a map marker.'],
+  ['No Star', 'name only', 'Shows with a small map pixel.'],
+  ['Default', '', "Not on a star list; the filter's other rules decide, and it may hide."],
+];
+const TIER = Object.fromEntries(TIERS.map(t => [t[0], t]));
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+
+function parseCsv(text) {
+  const rows = []; let row = [], cur = '', q = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (q) { if (ch === '"' && text[i + 1] === '"') { cur += '"'; i++; } else if (ch === '"') q = false; else cur += ch; }
+    else if (ch === '"') q = true;
+    else if (ch === ',') { row.push(cur); cur = ''; }
+    else if (ch === '\n' || ch === '\r') { if (ch === '\r' && text[i + 1] === '\n') i++; row.push(cur); cur = ''; if (row.some(x => x.trim())) rows.push(row); row = []; }
+    else cur += ch;
+  }
+  row.push(cur); if (row.some(x => x.trim())) rows.push(row);
+  const [head, ...body] = rows;
+  return body.map(r => Object.fromEntries(head.map((h, i) => [h.trim(), (r[i] ?? '').trim()])));
+}
+
+function chip(v) {
+  if (!v || v === '—') return '<span class="t none">—</span>';
+  if (v === 'Default') return '<span class="t none">Default</span>';
+  const t = TIER[v];
+  if (!t) return `<span class="t none">${esc(v)}?</span>`;
+  return v === 'No Star' ? '<span class="t t-NS" title="No Star">No Star</span>' : `<span class="t" title="${esc(t[2])}"><span class="marks">${t[1]}</span> ${esc(v)}</span>`;
+}
+
+let items = [], staff = [], applied = null;
+const S = { tab: 'armor', rar: '', tier: '', q: '', cls: '', q2: '' };
+const CAT = { armor: 'Armor', weapon: 'Weapon', misc: 'Jewelry & charms' };
+
+function renderItems() {
+  const q = S.q.toLowerCase();
+  const list = items.filter(r => r.Category === CAT[S.tab] && (!S.rar || r.Rarity === S.rar) && (!S.tier || r.Normal === S.tier || r.Ethereal === S.tier)
+    && (!q || [r.Base, r.Items, r.Code, r.Type, r.Notes].join(' ').toLowerCase().includes(q)));
+  document.getElementById('rows').innerHTML = list.map(r => {
+    const was = applied?.items?.[`${r.Rarity}|${r.Code}`];
+    const pend = applied && (!was || was[0] !== r.Normal || was[1] !== r.Ethereal) ? '<span class="pending" title="Changed in the sheet, not in the filter yet">pending</span>' : '';
+    return `<tr><td class="base"><b>${esc(r.Base)}</b><br><span>${esc([r.Type, r.Grade].filter(Boolean).join(' · '))}</span></td><td class="code">${esc(r.Code)}</td><td class="rar-${esc(r.Rarity)}">${esc(r.Rarity)}</td><td class="items">${esc(r.Items).replace(/ \/ /g, '<br>')}</td><td>${chip(r.Normal)}${pend}</td><td>${chip(r.Ethereal)}</td><td class="note">${esc(r.Notes)}</td></tr>`;
+  }).join('');
+  document.getElementById('shown').textContent = `${list.length} of ${items.filter(r => r.Category === CAT[S.tab]).length} bases`;
+}
+
+function renderStaff() {
+  const q = S.q2.toLowerCase();
+  const list = staff.filter(r => (!S.cls || r.Class === S.cls) && (!q || [r.Class, r.Group, r.Bases, r.Needs, r['Sockets and other'], r.Note].join(' ').toLowerCase().includes(q)));
+  let html = '', last = '';
+  for (const r of list) {
+    const head = `${r.Class} · ${r.Group}`;
+    if (head !== last) { html += `<tr class="cls-h"><td colspan="4">${esc(head)}</td></tr>`; last = head; }
+    const off = /^no$/i.test(r.Show);
+    const was = applied?.staff?.find(s => s[1] === r.Condition);
+    const pend = applied && (!was || was[0] !== r.Show || was[2] !== r.Note) ? '<span class="pending">pending</span>' : '';
+    html += `<tr class="${off ? 'off' : ''}"><td>${esc(r.Bases) || '<span class="note">see Condition in the sheet</span>'}${off ? ' <span class="note">(off)</span>' : ''}${pend}</td><td class="skills">${r.Needs.split('; ').filter(Boolean).map(s => `<div>${esc(s)}</div>`).join('')}</td><td>${esc(r['Sockets and other']) || '—'}</td><td class="note">${esc(r.Note).replace(/ \| /g, '<br>') || '—'}</td></tr>`;
+  }
+  document.getElementById('srows').innerHTML = html;
+  document.getElementById('shown2').textContent = `${list.filter(r => !/^no$/i.test(r.Show)).length} rules shown`;
+}
+
+function render() {
+  const staffTab = S.tab === 'staff';
+  document.getElementById('panel-items').hidden = staffTab;
+  document.getElementById('panel-staff').hidden = !staffTab;
+  for (const b of document.querySelectorAll('#tabs button')) b.setAttribute('aria-selected', String(b.dataset.tab === S.tab));
+  staffTab ? renderStaff() : renderItems();
+}
+
+document.getElementById('tabs').addEventListener('click', e => {
+  const b = e.target.closest('button[data-tab]'); if (!b) return;
+  S.tab = b.dataset.tab; try { localStorage.setItem('tiers-tab', S.tab); } catch {}
+  render();
+});
+document.querySelector('.seg').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  S.rar = b.dataset.rar;
+  for (const x of document.querySelectorAll('.seg button')) x.setAttribute('aria-pressed', String(x === b));
+  renderItems();
+});
+document.getElementById('tier-filter').addEventListener('change', e => { S.tier = e.target.value; renderItems(); });
+document.getElementById('q').addEventListener('input', e => { S.q = e.target.value.trim(); renderItems(); });
+document.getElementById('cls-filter').addEventListener('change', e => { S.cls = e.target.value; renderStaff(); });
+document.getElementById('q2').addEventListener('input', e => { S.q2 = e.target.value.trim(); renderStaff(); });
+
+document.getElementById('legend').innerHTML = TIERS.map(t => `<li>${chip(t[0])} <span>${esc(t[2])}</span></li>`).join('');
+document.getElementById('tier-filter').insertAdjacentHTML('beforeend', TIERS.map(t => `<option>${esc(t[0])}</option>`).join(''));
+
+(async () => {
+  const bust = `?t=${Date.now()}`;
+  try {
+    const [a, b] = await Promise.all(['items.csv', 'staff-mods.csv'].map(f => fetch(f + bust).then(r => { if (!r.ok) throw new Error(f); return r.text(); })));
+    items = parseCsv(a); staff = parseCsv(b);
+    applied = await fetch('applied.json' + bust).then(r => r.ok ? r.json() : null).catch(() => null);
+  } catch (err) {
+    document.getElementById('status').textContent = "Couldn't load the sheets. Try reloading the page.";
+    return;
+  }
+  document.getElementById('status').hidden = true;
+  for (const k of Object.keys(CAT)) document.querySelector(`[data-count="${k}"]`).textContent = items.filter(r => r.Category === CAT[k]).length;
+  document.querySelector('[data-count="staff"]').textContent = staff.filter(r => !/^no$/i.test(r.Show)).length;
+  const classes = [...new Set(staff.map(r => r.Class))];
+  document.getElementById('cls-filter').insertAdjacentHTML('beforeend', classes.map(c => `<option>${esc(c)}</option>`).join(''));
+  try { const t = localStorage.getItem('tiers-tab'); if (t && document.querySelector(`[data-tab="${t}"]`)) S.tab = t; } catch {}
+  render();
+})();
+</script>
+</body>
+</html>
