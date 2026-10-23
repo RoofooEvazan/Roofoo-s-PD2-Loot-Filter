@@ -1,23 +1,24 @@
 # Roofoo’s PD2 Loot Filter
 
-A customized fork of **[Kryszard](https://twitch.tv/Kryszard)’s Project Diablo 2 loot filter**, tuned for late-game farming and mapping: stricter FL7+/FL8+ filtering, less ground clutter, and clearer bases, qualities and item info. It keeps Kryszard’s structure and philosophy. 👉 **Full credit to Kryszard** for the base filter.
+A loot filter for **Project Diablo 2**, built for late-game farming and mapping: strict levels that cut ground clutter, clear star tiers for uniques and sets, and useful item info right on the label. It started as a fork of **[Kryszard](https://twitch.tv/Kryszard)’s filter** and keeps its structure and philosophy. 👉 **Full credit to Kryszard** for the base filter.
 
 **Maintained by** [RoofooEvazan](https://twitch.tv/RoofooEvazan) and [Enpherno](https://twitch.tv/Enpherno)
 
-**Current version:** 13.0.8 (May 15, 2026)
+**Current version:** Season 14 (October 2026)
 
-🎨 [Filter Builder](https://roofooevazan.github.io/Roofoo-s-PD2-Loot-Filter/) · ⭐ [Tier list spreadsheet](https://docs.google.com/spreadsheets/d/1AS-dQqCeaY0zxShYd6qVlFXGqRtlsRKtRBPwFgL5Sws/edit?usp=sharing) · 🐞 [Report a problem](https://github.com/RoofooEvazan/Roofoo-s-PD2-Loot-Filter/issues)
+🎨 [Filter Builder](https://roofooevazan.github.io/Roofoo-s-PD2-Loot-Filter/) · 🐞 [Report a problem](https://github.com/RoofooEvazan/Roofoo-s-PD2-Loot-Filter/issues)
 
 ---
 
 ## Contents
 
+- [What's new in Season 14](#-whats-new-in-season-14)
 - [Getting the filter](#-getting-the-filter)
 - [Filter levels](#%EF%B8%8F-filter-levels)
-- [Make it yours: Filter Builder](#-make-it-yours-filter-builder)
 - [Unique & set tiers](#-unique--set-tiers)
+- [Holy grail](#-holy-grail)
 - [Mystery drops](#-mystery-drops)
-- [Resistance summaries](#-resistance-summaries)
+- [Make it yours: Filter Builder](#-make-it-yours-filter-builder)
 - [Maps](#%EF%B8%8F-maps)
 - [Live market prices](#-live-market-prices)
 - [Item info & quality of life](#-item-info--quality-of-life)
@@ -25,13 +26,27 @@ A customized fork of **[Kryszard](https://twitch.tv/Kryszard)’s Project Diablo
 
 ---
 
+## ✨ What's new in Season 14
+
+- **Holy grail tracking.** Uniques and sets you haven't found yet are tagged so you notice them. Ones you've already found step aside outside town.
+- **Nothing gets lost in town.** Every item shows in town. If your filter level would hide it outside, it tells you so.
+- **Identified uniques and sets always show,** on every filter level.
+- **Uniques never vanish on the strict levels.** Lower-value uniques now show quietly instead of being hidden.
+- **New staff mod bases.** A fresh list of white and grey skill weapons worth keeping, highlighted on every filter level.
+- **Season 14 items.** New uniques, sets, maps and items are covered, along with the new rune and gem stacks.
+- **Quest items always show,** in and out of town, and they stay out of the grail.
+- **A cleaner, faster filter.** Leftover rules were tidied up, typos fixed, and junk gems follow the same rules on every level.
+- **Smarter slam prices.** The "not worth slamming" hint comes back once the first week of the season has given the market enough data.
+
+---
+
 ## 📥 Getting the filter
 
-**From the PD2 launcher (recommended).** Open the loot filter settings, pick **Roofoo's Filter** from the online list, then choose one of the files below. This version updates on its own and includes the live market prices.
+**From the PD2 launcher (recommended).** Open the loot filter settings, pick **Roofoo's Filter** from the online list, then choose a file below. The launcher version updates on its own and includes the live market prices.
 
 | File | What it is |
 | --- | --- |
-| `Roofoo.filter` | The main filter, with Season 14 holy grail tags, staff mod weapon bases on every level, and every item shown in town with a warning when it's hidden outside. |
+| `Roofoo.filter` | The main filter. |
 | `RoofooMystery.filter` | The main filter plus [Mystery drops](#-mystery-drops): big drops hide their name outside town. |
 | `RoofooSlamfestBETA.filter` | Beta. The main filter plus a town "slamfest" mode on FL9 that shows the best corruptions and their prices for identified uniques and sets. |
 
@@ -56,36 +71,21 @@ Pick the level in game. The Horadric Cube's tooltip shows which one is active.
 | FL8 | Max-Strictness Filter - Ultra Strict End Game |
 | FL9 | Max-Strictness Filter - No Large Charms |
 
-**FL8 and FL9 (strict mode)** aggressively hide low-value clutter, but only outside town. In town, in shops, in your inventory, cube and stash everything stays visible, so you never lose an item.
+**Everything shows in town.** On every level, items in town, in shops, your inventory, cube and stash stay visible. Anything your level would hide outside town says so on its label.
 
-- Uniques, sets and runewords always pass the strict checks. Unidentified uniques and sets that aren't in a [star tier](#-unique--set-tiers) are hidden outside town. Unique maps and uber drops are always handled.
-- White bases, magic and rare gear only show when they're worth a look: selected bases with good sockets or enhanced defense/damage, and selected magic/rare bases (e.g. barbarian helms, war/rune/archon staves).
+**FL8 and FL9 (strict mode)** hide low-value clutter outside town:
+
+- Uniques, sets and runewords always pass. Lower-value uniques show quietly instead of with stars.
+- White bases, magic and rare gear only show when they're worth a look, such as good sockets or enhanced defense/damage, staff mod bases, and selected magic and rare bases.
 - Set amulets are hidden.
 
-**FL9** is FL8 plus it also hides magic Large Charms, set rings and antidote potions outside town.
-
----
-
-## 🎨 Make it yours: Filter Builder
-
-**[Open the Filter Builder](https://roofooevazan.github.io/Roofoo-s-PD2-Loot-Filter/)**: no filter code needed.
-
-- **Colors & sounds:** pick a color theme (Classic, Ember, Frost, Venom, Royal, High Contrast) or restyle any single highlight, and choose drop sounds with previews in your browser.
-- **Items:** every unique, set, rare, magic, base, rune, gem and potion in collapsible sections. Change star tiers, turn Mystery drops on or off, and show or hide anything per filter level, narrowed by ethereal, sockets, superior, item level or character level.
-- **Test an item** and **Overview & review:** see how any item looks on every filter level, or everything your filter shows and hides, with in-game style item cards on hover.
-- **Save & install:** download your `.filter`, share your setup as a link, or load it back later.
-
-The builder always starts from the newest version of this filter, so come back after an update and download again. Your choices are saved in your browser.
-
-Custom versions leave out the [live market prices](#-live-market-prices), which only stay current in the launcher version, and always show items newer than the filter, marked `[Missing]`.
-
-[![Filter Builder: Items](screenshots/BuilderItems.png)](screenshots/BuilderItems.png)
+**FL9** is FL8 plus it hides magic Large Charms, set rings and antidote potions outside town.
 
 ---
 
 ## ⭐ Unique & set tiers
 
-Every unique and set item is sorted into a tier by its base item. The tier decides its look, minimap marker and sound. The full list is in the [tier list spreadsheet](https://docs.google.com/spreadsheets/d/1AS-dQqCeaY0zxShYd6qVlFXGqRtlsRKtRBPwFgL5Sws/edit?usp=sharing).
+Every unique and set item gets a tier by the base it drops on. The tier decides its look, minimap marker and sound, and it can differ between the season-start levels (FL1–FL7) and the strict levels (FL8–FL9).
 
 | Tier | Meaning | Look | Sound |
 | --- | --- | --- | --- |
@@ -94,13 +94,24 @@ Every unique and set item is sorted into a tier by its base item. The tier decid
 | 3 star | Good items | Decorated name and minimap marker | Notification |
 | 3 star pickup | Always worth grabbing | Big border, "pick … up" label | Strong alert |
 
-Less noise, more signal: only 3-star items and up make a sound.
+Less noise, more signal: only 3-star items and up make a sound. Tiers are reviewed at the start of each season against the market.
 
 **Special drops**
 
 - **HOLY MOLY:** uber boss uniques (e.g. The Third Eye, Cage of the Unsullied, Band of Skulls, Overlord's Helm) get their own label and sound.
 - Uber and DClone materials are handled with map-specific logic.
 - Enpherno's Bastard Sword meme highlight lives on.
+
+---
+
+## 🏆 Holy grail
+
+New in Season 14. The filter knows which uniques and sets you've already found:
+
+- **Not found yet:** the item is tagged **[GRAIL]** with its own border and sound, on top of its normal tier.
+- **Already found:** it steps aside outside town while it's unidentified, unless its tier says it's worth showing anyway. In town, and once identified, it always shows.
+- Items that could be one of several uniques count as new until you've found all of them.
+- Quest items are never part of the grail.
 
 ---
 
@@ -124,16 +135,20 @@ In `RoofooMystery.filter`, selected high-value drops hide their real name while 
 
 ---
 
-## 👢 Resistance summaries
+## 🎨 Make it yours: Filter Builder
 
-Boots (rare, crafted, set and unique), and rare and crafted gear where it matters, show their **total resistances right on the ground label**, with a smart label and a color:
+**[Open the Filter Builder](https://roofooevazan.github.io/Roofoo-s-PD2-Loot-Filter/)**: no filter code needed.
 
-- **Dual Res**, **Tri Res** or **Quad Res**
-- 🔴 Low (under 70) · 🟠 Medium (70–90) · 🟢 High (90+)
+- **Colors & sounds:** pick a color theme (Classic, Ember, Frost, Venom, Royal, High Contrast) or restyle any single highlight, and choose drop sounds with previews in your browser.
+- **Items:** every unique, set, rare, magic, base, rune, gem and potion in collapsible sections. Change star tiers, turn Mystery drops on or off, and show or hide anything per filter level, narrowed by ethereal, sockets, superior, item level or character level.
+- **Test an item** and **Overview & review:** see how any item looks on every filter level, or everything your filter shows and hides, with in-game style item cards on hover.
+- **Save & install:** download your `.filter`, share your setup as a link, or load it back later.
 
-| Dual res | Tri res | Quad res |
-| --- | --- | --- |
-| [![Dual res example](screenshots/BootDualResExample.jpg)](screenshots/BootDualResExample.jpg) | [![Tri res example](screenshots/BootTriResExample.jpg)](screenshots/BootTriResExample.jpg) | [![Quad res example](screenshots/BootQuadResExample.jpg)](screenshots/BootQuadResExample.jpg) |
+The builder always starts from the newest version of this filter, so come back after an update and download again. Your choices are saved in your browser.
+
+Custom versions leave out the [live market prices](#-live-market-prices), which only stay current in the launcher version, and always show items newer than the filter, marked `[Missing]`.
+
+[![Filter Builder: Items](screenshots/BuilderItems.png)](screenshots/BuilderItems.png)
 
 ---
 
@@ -158,7 +173,7 @@ Maps tell you what matters before you enter.
 
 ## 💹 Live market prices
 
-*Beta.* Market values from PD2's own market listings and [PD2 Trader](https://pd2trader.com), refreshed in this repository every 6 hours:
+Market values from PD2's own market listings and [PD2 Trader](https://pd2trader.com), refreshed in this repository every 6 hours:
 
 - **Rune prices:** median values over the last 24 hours, 48 hours, 72 hours and 1 week on rune stacks, with the current high-rune values on the Horadric Cube.
 - **Best-in-slot slams:** on FL8, identified uniques and sets show their most valuable corruption and its price range, based on the last 48 hours of listings.
@@ -175,24 +190,41 @@ These only work in the **launcher version**, which gets the updates automaticall
 
 ## 🧹 Item info & quality of life
 
+- **Resistance summaries:** boots, and rare and crafted gear where it matters, show their total resistances on the ground label (Dual, Tri or Quad Res), colored low, medium or high.
 - **Short sell values:** vendor prices show as `$35K` instead of long numbers.
 - **Base notes:** white bases show their maximum sockets, which runewords fit, and cube upgrade recipes with the requirements after upgrading.
+- **Staff mod bases:** white and grey skill weapons worth keeping get a note saying what they're good for.
 - **Runes and gems:** runes list the runewords that use them; gems show their cube recipes.
 - **Charm tags:** grand, large and small charms are tagged by their useful stats (life, FHR, resistances, skills and more).
 - **Crafting infusions** show what each craft gives.
-- **Shop hunting:** vendor items worth buying are highlighted, from high-skill staffmods to Fire Golem items.
+- **Shop hunting:** vendor items worth buying are highlighted, from high-skill staff mods to Fire Golem items.
+
+| Dual res | Tri res | Quad res |
+| --- | --- | --- |
+| [![Dual res example](screenshots/BootDualResExample.jpg)](screenshots/BootDualResExample.jpg) | [![Tri res example](screenshots/BootTriResExample.jpg)](screenshots/BootTriResExample.jpg) | [![Quad res example](screenshots/BootQuadResExample.jpg)](screenshots/BootQuadResExample.jpg) |
 
 ---
 
 ## 📸 Screenshots
 
+### In game
+
+**Drop notifications**
+[![Notification examples](screenshots/DropNotifications.png)](screenshots/DropNotifications.png)
+
+**Charms & jewels**
+[![Charm and jewel examples](screenshots/Jewel&Charms.png)](screenshots/Jewel&Charms.png)
+
+**Fire Golem shop highlight**
+[![Fire Golem shop highlight](screenshots/FGShop.png)](screenshots/FGShop.png)
+
+**Enpherno's Bastard Sword meme drop**
+[![Meme Bastard Sword example](screenshots/MemeBastardSword.png)](screenshots/MemeBastardSword.png)
+
 ### Filter Builder
 
 **Colors & sounds:** color themes, drop sounds and every highlight style
 [![Filter Builder: Colors & sounds](screenshots/BuilderColorsSounds.png)](screenshots/BuilderColorsSounds.png)
-
-**Items:** star tiers, show / hide per filter level and options, with an in-game style item card
-[![Filter Builder: Items](screenshots/BuilderItems.png)](screenshots/BuilderItems.png)
 
 **Test an item:** how one item looks on every filter level
 [![Filter Builder: Test an item](screenshots/BuilderTestItem.png)](screenshots/BuilderTestItem.png)
@@ -202,17 +234,3 @@ These only work in the **launcher version**, which gets the updates automaticall
 
 **Save & install:** download, install steps and the new-item safety net
 [![Filter Builder: Save & install](screenshots/BuilderSaveInstall.png)](screenshots/BuilderSaveInstall.png)
-
-### In game
-
-**Charms & jewels**
-[![Charm and jewel examples](screenshots/Jewel&Charms.png)](screenshots/Jewel&Charms.png)
-
-**Drop notifications**
-[![Notification examples](screenshots/DropNotifications.png)](screenshots/DropNotifications.png)
-
-**Fire Golem shop highlight**
-[![Fire Golem shop highlight](screenshots/FGShop.png)](screenshots/FGShop.png)
-
-**Enpherno's Bastard Sword meme drop**
-[![Meme Bastard Sword example](screenshots/MemeBastardSword.png)](screenshots/MemeBastardSword.png)
