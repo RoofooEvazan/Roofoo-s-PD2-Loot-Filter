@@ -1145,7 +1145,7 @@ const WEAPON_GROUPS = {
   swor: 'Swords', '2hcs': 'Swords', axe: 'Axes', club: 'Maces, clubs & hammers', mace: 'Maces, clubs & hammers',
   hamm: 'Maces, clubs & hammers', knif: 'Daggers', tkni: 'Throwing weapons', taxe: 'Throwing weapons', jave: 'Javelins',
   spea: 'Spears', pole: 'Polearms', bow: 'Bows', xbow: 'Crossbows', staf: 'Staves', wand: 'Wands', scep: 'Scepters',
-  sc9: 'Scepters', h2h: 'Assassin claws', h2h2: 'Assassin claws', orb: 'Sorceress orbs', abow: 'Amazon weapons',
+  sc9: 'Polearms', h2h: 'Assassin claws', h2h2: 'Assassin claws', orb: 'Sorceress orbs', abow: 'Amazon weapons',
   aspe: 'Amazon weapons', ajav: 'Amazon weapons', tpot: 'Throwing potions',
 };
 const MISC_GROUPS = { Rune: 'Runes', Gem: 'Gems', Potion: 'Potions', Charm: 'Charms', Jewel: 'Jewels', Jewelry: 'Rings & amulets', Map: 'Maps', 'Other item': 'Other items' };
