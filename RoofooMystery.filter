@@ -130,7 +130,7 @@ ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (qui OR lea OR hla OR stu OR rng OR scl OR ch
 
 // Non-Pally Shields: SHOW (uit OR uow) with ED>10, NON-ETH, (SOCK=0 OR SOCK=4)
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (uit OR uow) (NMAG OR SUP) ED>10 !ETH (SOCK=0 OR SOCK=4) !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
-ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (uit OR uow) (NMAG OR SUP) !(ED>10 !ETH (SOCK=0 OR SOCK=4)) !FL8_EXEMPT]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (uit OR uow) (NMAG OR SUP) !(ED>10 !ETH (SOCK=0 OR SOCK=4)) !(uit SOCK=4) !FL8_EXEMPT]:
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (sml OR lrg OR spk OR kit OR tow OR gts OR xuc OR xml OR xrg OR xpk OR xit OR xsh OR xow OR xts OR uuc OR uml OR urg OR upk OR ush OR uts) (NMAG OR SUP OR INF) !FL8_EXEMPT]:
 
 // Pally Shields: SHOW (pad OR pae OR paf) with ED>10 and (SOCK=0 OR SOCK=3 OR SOCK=4) and (ED>60 OR RES>25)
@@ -5631,9 +5631,9 @@ ItemDisplay[(aqv2 OR cqv2) NMAG !INF SOCK=2 ((CLVL<61 AND DIFF<2) FILTLVL<6)]: %
 ItemDisplay[(aqv3 OR cqv3) NMAG !INF SOCK=1 ((CLVL<61 AND DIFF<2) FILTLVL<6)]: %NAME%{%NAME%}
 ItemDisplay[(aqv3 OR cqv3) NMAG !INF !SOCK=1 (CLVL<61 FILTLVL<6)]: %NAME%{%NAME%}
 ItemDisplay[(ARMOR OR WEAPON OR QUIVER) TOWN FILTLVL>0]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%}
-ItemDisplay[(ARMOR OR WEAPON OR QUIVER) !TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED FILTLVL>0 !(msf OR hst OR hfh OR qf1 OR qf2 OR vip OR g33 OR d33 OR hdm OR leg OR box OR tr1 OR ice OR std OR bks OR bkd OR j34 OR g34 OR bbb OR mss OR ass OR qey OR qhr OR qbr OR tr2 OR xyz)]: {%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%}%CONTINUE%
+ItemDisplay[(ARMOR OR WEAPON OR QUIVER) !TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED FILTLVL>0 !(uit SOCK=4 NMAG !RW) !(msf OR hst OR hfh OR qf1 OR qf2 OR vip OR g33 OR d33 OR hdm OR leg OR box OR tr1 OR ice OR std OR bks OR bkd OR j34 OR g34 OR bbb OR mss OR ass OR qey OR qhr OR qbr OR tr2 OR xyz)]: {%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%}%CONTINUE%
 ItemDisplay[(ARMOR OR WEAPON OR QUIVER) !TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED INF FILTLVL>0]: {%NAME%}
-ItemDisplay[(ARMOR OR WEAPON OR QUIVER) !TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED !THROWPOTS ((CLVL>30 FILTLVL>0) OR FILTLVL>5) !(msf OR hst OR hfh OR qf1 OR qf2 OR vip OR g33 OR d33 OR hdm OR leg OR box OR tr1 OR ice OR std OR bks OR bkd OR j34 OR g34 OR bbb OR mss OR ass OR qey OR qhr OR qbr OR tr2 OR xyz)]: {%NAME%}%CONTINUE%
+ItemDisplay[(ARMOR OR WEAPON OR QUIVER) !TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED !THROWPOTS ((CLVL>30 FILTLVL>0) OR FILTLVL>5) !(uit SOCK=4 NMAG !RW) !(msf OR hst OR hfh OR qf1 OR qf2 OR vip OR g33 OR d33 OR hdm OR leg OR box OR tr1 OR ice OR std OR bks OR bkd OR j34 OR g34 OR bbb OR mss OR ass OR qey OR qhr OR qbr OR tr2 OR xyz)]: {%NAME%}%CONTINUE%
 
 // Size reference: BORDER > MAP > DOT > PX
 // %TIER-X% - just minimap pin w/o chat notify when tier is higher
