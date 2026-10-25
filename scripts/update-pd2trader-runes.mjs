@@ -386,8 +386,30 @@ function escapeRegex(text) {
   return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+// Drops negated parts ("!box", "!(msf OR box)") so a rule that excludes an item isn't treated as one about it.
+function withoutNegations(condition) {
+  let out = '';
+  for (let i = 0; i < condition.length; i++) {
+    if (condition[i] !== '!') {
+      out += condition[i];
+      continue;
+    }
+    if (condition[i + 1] === '(') {
+      let depth = 0;
+      for (i++; i < condition.length; i++) {
+        if (condition[i] === '(') depth++;
+        else if (condition[i] === ')' && --depth === 0) break;
+      }
+    } else {
+      while (i + 1 < condition.length && /[A-Za-z0-9_<>=]/.test(condition[i + 1])) i++;
+    }
+    out += ' ';
+  }
+  return out;
+}
+
 function conditionHasDisplayCode(condition, displayCode) {
-  return new RegExp(`(^|[^A-Za-z0-9])${escapeRegex(displayCode)}([^A-Za-z0-9]|$)`).test(condition);
+  return new RegExp(`(^|[^A-Za-z0-9])${escapeRegex(displayCode)}([^A-Za-z0-9]|$)`).test(withoutNegations(condition));
 }
 
 function ensureCurrencyPresentationRulesContinue(filterText) {
@@ -421,7 +443,12 @@ function ensureCurrencyPresentationRulesContinue(filterText) {
         return line;
       }
 
-      const [, condition] = match;
+      const [, condition, output] = match;
+      // A rule whose name part is empty hides the item; making it continue would stop it hiding anything.
+      const namePart = output.replace(/\/\/.*$/, '').split('{')[0];
+      if (!namePart.includes('%NAME%') && !namePart.replace(/%[A-Z_]+(?:-[0-9A-Fa-f]+)?%/g, '').trim()) {
+        return line;
+      }
       const shouldContinue = currencyDisplayCodes.some((displayCode) => conditionHasDisplayCode(condition, displayCode));
 
       return shouldContinue ? `${line}%CONTINUE%` : line;
