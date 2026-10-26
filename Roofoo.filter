@@ -21,12 +21,16 @@ ItemDisplayFilterName[]: Max-Strictness Filter - No Large Charms
 
 //=================== HOLY GRAIL ===================
 // Made in PD2 Filter Forge (Season 14): tags uniques and sets you haven't found yet, and hides the ones you have. Does nothing on older game versions.
-//@ffg options {"uniques":true,"sets":true,"mark":true,"markText":" [GRAIL]","markColor":"PURPLE","unid":"any","hide":"always","keepExtra":[],"hideAnyway":[],"icon":{"size":"border","hex":"9B"},"sound":4715,"outsideTownOnly":true,"unidOnly":true}
-ItemDisplay[UNI !(msf OR hst OR hfh OR qf1 OR qf2 OR vip OR g33 OR d33 OR hdm OR leg OR box OR tr1 OR ice OR std OR bks OR bkd OR j34 OR g34 OR bbb OR mss OR ass OR qey OR qhr OR qbr OR tr2 OR xyz) !((7qs OR 9bw OR ba6 OR jew) !ID) !ALLDISCOVERED]: %NAME%%PURPLE% [GRAIL]%BORDER-9B%%SOUNDID-4715%%CONTINUE% //@ffg uni new
-ItemDisplay[UNI !(msf OR hst OR hfh OR qf1 OR qf2 OR vip OR g33 OR d33 OR hdm OR leg OR box OR tr1 OR ice OR std OR bks OR bkd OR j34 OR g34 OR bbb OR mss OR ass OR qey OR qhr OR qbr OR tr2 OR xyz) (7qs OR 9bw OR ba6 OR jew) !ID !ANYDISCOVERED]: %NAME%%PURPLE% [GRAIL]%BORDER-9B%%SOUNDID-4715%%CONTINUE% //@ffg uni new variants
+//@ffg options {"uniques":true,"sets":true,"mark":true,"markText":" [GRAIL]","markColor":"PURPLE","unid":"any","hide":"always","keepExtra":["uni.t51","uni.t52","uni.t53","uni.t54","uni.t55","uni.t56","uni.t57","uni.t58"],"hideAnyway":[],"icon":{"size":"border","hex":"9B"},"sound":4715,"outsideTownOnly":true,"unidOnly":true,"markExcept":"(amu SET !ID FILTLVL>7 !TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED) OR (rin SET !ID FILTLVL=9 !TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED)"}
+ItemDisplay[UNI !(msf OR hst OR hfh OR qf1 OR qf2 OR vip OR g33 OR d33 OR hdm OR leg OR box OR tr1 OR ice OR std OR bks OR bkd OR j34 OR g34 OR bbb OR mss OR ass OR qey OR qhr OR qbr OR tr2 OR xyz) !((amu SET !ID FILTLVL>7 !TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED) OR (rin SET !ID FILTLVL=9 !TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED)) !((7qs OR 9bw OR ba6 OR jew) !ID) !ALLDISCOVERED]: %NAME%%PURPLE% [GRAIL]%BORDER-9B%%SOUNDID-4715%%CONTINUE% //@ffg uni new
+ItemDisplay[UNI !(msf OR hst OR hfh OR qf1 OR qf2 OR vip OR g33 OR d33 OR hdm OR leg OR box OR tr1 OR ice OR std OR bks OR bkd OR j34 OR g34 OR bbb OR mss OR ass OR qey OR qhr OR qbr OR tr2 OR xyz) !((amu SET !ID FILTLVL>7 !TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED) OR (rin SET !ID FILTLVL=9 !TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED)) (7qs OR 9bw OR ba6 OR jew) !ID !ANYDISCOVERED]: %NAME%%PURPLE% [GRAIL]%BORDER-9B%%SOUNDID-4715%%CONTINUE% //@ffg uni new variants
+ItemDisplay[UNI !(msf OR hst OR hfh OR qf1 OR qf2 OR vip OR g33 OR d33 OR hdm OR leg OR box OR tr1 OR ice OR std OR bks OR bkd OR j34 OR g34 OR bbb OR mss OR ass OR qey OR qhr OR qbr OR tr2 OR xyz) !(!ALLDISCOVERED) !(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) !ID !(2ax OR 2hs OR 6bs OR 6cs OR 6hb OR 6hx OR 6l7 OR 6lw OR 6rx OR 6sw OR 6ws OR 72a OR 7b7 OR 7b8 OR 7ba OR 7bk OR 7bl OR 7br OR 7bs OR 7bt OR 7bw OR 7cl OR 7cm OR 7cr OR 7cs OR 7dg OR 7di OR 7fb OR 7fl OR 7ga OR 7gd OR 7gi OR 7gl OR 7gm OR 7gs OR 7gw OR 7ha OR 7kr OR 7ls OR 7lw OR 7m7 OR 7mp OR 7mt OR 7o7 OR 7p7 OR 7pa OR 7qr OR 7qs OR 7s7 OR 7s8 OR 7sb OR 7sc OR 7sm OR 7sp OR 7sr OR 7st OR 7ta OR 7ts OR 7tw OR 7vo OR 7wa OR 7wb OR 7wc OR 7wh OR 7ws OR 7xf OR 7yw OR 8bs OR 8cb OR 8cs OR 8hb OR 8hx OR 8l8 OR 8lb OR 8ls OR 8lw OR 8lx OR 8mx OR 8rx OR 8s8 OR 8sb OR 8ss OR 8sw OR 8ws OR 92a OR 92h OR 9ar OR 9ax OR 9b7 OR 9b8 OR 9b9 OR 9ba OR 9bl OR 9br OR 9bs OR 9bt OR 9bw OR 9cl OR 9cm OR 9cr OR 9dg OR 9di OR 9fb OR 9fc OR 9fl OR 9ga OR 9gd OR 9gi OR 9gm OR 9gs OR 9gw OR 9h9 OR 9ha OR 9kr OR 9la OR 9ls OR 9m9 OR 9ma OR 9mp OR 9mt OR 9p9 OR 9pa OR 9qs OR 9s8 OR 9sb OR 9sc OR 9sm OR 9sp OR 9sr OR 9ss OR 9st OR 9ta OR 9tk OR 9tr OR 9tw OR 9vo OR 9wa OR 9wc OR 9wd OR 9wh OR 9wn OR 9ws OR 9yw OR aar OR am5 OR am7 OR am9 OR ama OR amb OR amc OR amd OR ame OR amf OR amu OR aqv OR aqv2 OR aqv3 OR axe OR ba6 OR ba7 OR baa OR bac OR bad OR bae OR baf OR bar OR bax OR bhm OR bld OR brn OR brs OR bsd OR bsh OR bst OR bsw OR btx OR buc OR bwn OR cap OR cbw OR chn OR ci2 OR ci3 OR clb OR clm OR cm1 OR cm2 OR cm3 OR cqv OR cqv2 OR cqv3 OR crn OR cst OR dgr OR dir OR dr2 OR dr6 OR dra OR drb OR drc OR drd OR dre OR drf OR fhl OR fla OR flb OR flc OR fld OR ful OR gax OR ghm OR gis OR gix OR gma OR gsc OR gsd OR gth OR gts OR gwn OR hal OR hax OR hbl OR hbt OR hbw OR hgl OR hla OR hlm OR hxb OR jew OR kit OR kri OR lax OR lbb OR lbl OR lbt OR lbw OR lea OR lgl OR lrg OR lsd OR lst OR ltp OR lwb OR lxb OR mac OR mau OR mbl OR mbt OR mgl OR mpi OR msk OR mst OR mxb OR ne6 OR nea OR ned OR nee OR nef OR neg OR ob6 OR ob7 OR oba OR obc OR obd OR obe OR obf OR pa3 OR pa9 OR pab OR pac OR pae OR paf OR pax OR pik OR plt OR qui OR ram OR rar OR rbe OR rin OR rng OR rxb OR sbb OR sbr OR sbw OR scl OR scm OR scp OR scy OR skp OR sml OR spc OR spk OR spl OR spr OR spt OR ssd OR sst OR stu OR swb OR t51 OR t52 OR t53 OR t54 OR t55 OR t56 OR t57 OR t58 OR tbl OR tbt OR tgl OR tow OR tri OR uap OR uar OR uh9 OR uhb OR uhc OR uhg OR uhl OR uhm OR uit OR ulb OR ulc OR uld OR ulg OR ulm OR umb OR umc OR umg OR uml OR ung OR uow OR upk OR upl OR urg OR urn OR urs OR ush OR usk OR utb OR utg OR uth OR utp OR uts OR utu OR uuc OR uui OR uul OR uvb OR uvc OR uvg OR vbl OR vbt OR vgl OR vou OR wax OR whm OR wnd OR wsc OR wsd OR wsp OR wst OR xap OR xar OR xcl OR xea OR xh9 OR xhb OR xhg OR xhl OR xhm OR xhn OR xit OR xkp OR xla OR xlb OR xld OR xlg OR xlm OR xlt OR xmb OR xmg OR xml OR xng OR xow OR xpk OR xpl OR xrg OR xrn OR xrs OR xsh OR xsk OR xtb OR xtg OR xth OR xtp OR xts OR xtu OR xuc OR xui OR xul OR xvb OR xvg OR ywn OR zhb OR zlb OR zmb OR ztb OR zvb)]: //@ffg uni found
+ItemDisplay[UNI !(msf OR hst OR hfh OR qf1 OR qf2 OR vip OR g33 OR d33 OR hdm OR leg OR box OR tr1 OR ice OR std OR bks OR bkd OR j34 OR g34 OR bbb OR mss OR ass OR qey OR qhr OR qbr OR tr2 OR xyz) !(!ANYDISCOVERED) (7qs OR 9bw OR ba6 OR jew) !(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) !ID !(2ax OR 2hs OR 6bs OR 6cs OR 6hb OR 6hx OR 6l7 OR 6lw OR 6rx OR 6sw OR 6ws OR 72a OR 7b7 OR 7b8 OR 7ba OR 7bk OR 7bl OR 7br OR 7bs OR 7bt OR 7bw OR 7cl OR 7cm OR 7cr OR 7cs OR 7dg OR 7di OR 7fb OR 7fl OR 7ga OR 7gd OR 7gi OR 7gl OR 7gm OR 7gs OR 7gw OR 7ha OR 7kr OR 7ls OR 7lw OR 7m7 OR 7mp OR 7mt OR 7o7 OR 7p7 OR 7pa OR 7qr OR 7qs OR 7s7 OR 7s8 OR 7sb OR 7sc OR 7sm OR 7sp OR 7sr OR 7st OR 7ta OR 7ts OR 7tw OR 7vo OR 7wa OR 7wb OR 7wc OR 7wh OR 7ws OR 7xf OR 7yw OR 8bs OR 8cb OR 8cs OR 8hb OR 8hx OR 8l8 OR 8lb OR 8ls OR 8lw OR 8lx OR 8mx OR 8rx OR 8s8 OR 8sb OR 8ss OR 8sw OR 8ws OR 92a OR 92h OR 9ar OR 9ax OR 9b7 OR 9b8 OR 9b9 OR 9ba OR 9bl OR 9br OR 9bs OR 9bt OR 9bw OR 9cl OR 9cm OR 9cr OR 9dg OR 9di OR 9fb OR 9fc OR 9fl OR 9ga OR 9gd OR 9gi OR 9gm OR 9gs OR 9gw OR 9h9 OR 9ha OR 9kr OR 9la OR 9ls OR 9m9 OR 9ma OR 9mp OR 9mt OR 9p9 OR 9pa OR 9qs OR 9s8 OR 9sb OR 9sc OR 9sm OR 9sp OR 9sr OR 9ss OR 9st OR 9ta OR 9tk OR 9tr OR 9tw OR 9vo OR 9wa OR 9wc OR 9wd OR 9wh OR 9wn OR 9ws OR 9yw OR aar OR am5 OR am7 OR am9 OR ama OR amb OR amc OR amd OR ame OR amf OR amu OR aqv OR aqv2 OR aqv3 OR axe OR ba6 OR ba7 OR baa OR bac OR bad OR bae OR baf OR bar OR bax OR bhm OR bld OR brn OR brs OR bsd OR bsh OR bst OR bsw OR btx OR buc OR bwn OR cap OR cbw OR chn OR ci2 OR ci3 OR clb OR clm OR cm1 OR cm2 OR cm3 OR cqv OR cqv2 OR cqv3 OR crn OR cst OR dgr OR dir OR dr2 OR dr6 OR dra OR drb OR drc OR drd OR dre OR drf OR fhl OR fla OR flb OR flc OR fld OR ful OR gax OR ghm OR gis OR gix OR gma OR gsc OR gsd OR gth OR gts OR gwn OR hal OR hax OR hbl OR hbt OR hbw OR hgl OR hla OR hlm OR hxb OR jew OR kit OR kri OR lax OR lbb OR lbl OR lbt OR lbw OR lea OR lgl OR lrg OR lsd OR lst OR ltp OR lwb OR lxb OR mac OR mau OR mbl OR mbt OR mgl OR mpi OR msk OR mst OR mxb OR ne6 OR nea OR ned OR nee OR nef OR neg OR ob6 OR ob7 OR oba OR obc OR obd OR obe OR obf OR pa3 OR pa9 OR pab OR pac OR pae OR paf OR pax OR pik OR plt OR qui OR ram OR rar OR rbe OR rin OR rng OR rxb OR sbb OR sbr OR sbw OR scl OR scm OR scp OR scy OR skp OR sml OR spc OR spk OR spl OR spr OR spt OR ssd OR sst OR stu OR swb OR t51 OR t52 OR t53 OR t54 OR t55 OR t56 OR t57 OR t58 OR tbl OR tbt OR tgl OR tow OR tri OR uap OR uar OR uh9 OR uhb OR uhc OR uhg OR uhl OR uhm OR uit OR ulb OR ulc OR uld OR ulg OR ulm OR umb OR umc OR umg OR uml OR ung OR uow OR upk OR upl OR urg OR urn OR urs OR ush OR usk OR utb OR utg OR uth OR utp OR uts OR utu OR uuc OR uui OR uul OR uvb OR uvc OR uvg OR vbl OR vbt OR vgl OR vou OR wax OR whm OR wnd OR wsc OR wsd OR wsp OR wst OR xap OR xar OR xcl OR xea OR xh9 OR xhb OR xhg OR xhl OR xhm OR xhn OR xit OR xkp OR xla OR xlb OR xld OR xlg OR xlm OR xlt OR xmb OR xmg OR xml OR xng OR xow OR xpk OR xpl OR xrg OR xrn OR xrs OR xsh OR xsk OR xtb OR xtg OR xth OR xtp OR xts OR xtu OR xuc OR xui OR xul OR xvb OR xvg OR ywn OR zhb OR zlb OR zmb OR ztb OR zvb)]: //@ffg uni variants
+ItemDisplay[SET !((amu SET !ID FILTLVL>7 !TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED) OR (rin SET !ID FILTLVL=9 !TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED)) !ALLDISCOVERED]: %NAME%%PURPLE% [GRAIL]%BORDER-9B%%SOUNDID-4715%%CONTINUE% //@ffg set new
+ItemDisplay[SET !(!ALLDISCOVERED) !(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) !ID !(7m7 OR 7qr OR 7ws OR amu OR dr8 OR lbt OR ne9 OR rin OR uar OR ucl OR uh9 OR utc OR uth OR xar OR xh9 OR xhm OR xmg OR xul)]: //@ffg set found
+
 // (off: found grail items follow the filter level) ItemDisplay[UNI !(msf OR hst OR hfh OR qf1 OR qf2 OR vip OR g33 OR d33 OR hdm OR leg OR box OR tr1 OR ice OR std OR bks OR bkd OR j34 OR g34 OR bbb OR mss OR ass OR qey OR qhr OR qbr OR tr2 OR xyz) !(!ALLDISCOVERED) !(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) !ID !(2ax OR 2hs OR 6bs OR 6cs OR 6hb OR 6hx OR 6l7 OR 6lw OR 6rx OR 6sw OR 6ws OR 72a OR 7b7 OR 7b8 OR 7ba OR 7bk OR 7bl OR 7br OR 7bs OR 7bt OR 7bw OR 7cl OR 7cm OR 7cr OR 7cs OR 7dg OR 7di OR 7fb OR 7fl OR 7ga OR 7gd OR 7gi OR 7gl OR 7gm OR 7gs OR 7gw OR 7ha OR 7kr OR 7ls OR 7lw OR 7m7 OR 7mp OR 7mt OR 7o7 OR 7p7 OR 7pa OR 7qr OR 7qs OR 7s7 OR 7s8 OR 7sb OR 7sc OR 7sm OR 7sp OR 7sr OR 7st OR 7ta OR 7ts OR 7tw OR 7vo OR 7wa OR 7wb OR 7wc OR 7wh OR 7ws OR 7xf OR 7yw OR 8bs OR 8cb OR 8cs OR 8hb OR 8hx OR 8l8 OR 8lb OR 8ls OR 8lw OR 8lx OR 8mx OR 8rx OR 8s8 OR 8sb OR 8ss OR 8sw OR 8ws OR 92a OR 92h OR 9ar OR 9ax OR 9b7 OR 9b8 OR 9b9 OR 9ba OR 9bl OR 9br OR 9bs OR 9bt OR 9bw OR 9cl OR 9cm OR 9cr OR 9dg OR 9di OR 9fb OR 9fc OR 9fl OR 9ga OR 9gd OR 9gi OR 9gm OR 9gs OR 9gw OR 9h9 OR 9ha OR 9kr OR 9la OR 9ls OR 9m9 OR 9ma OR 9mp OR 9mt OR 9p9 OR 9pa OR 9qs OR 9s8 OR 9sb OR 9sc OR 9sm OR 9sp OR 9sr OR 9ss OR 9st OR 9ta OR 9tk OR 9tr OR 9tw OR 9vo OR 9wa OR 9wc OR 9wd OR 9wh OR 9wn OR 9ws OR 9yw OR aar OR am5 OR am7 OR am9 OR ama OR amb OR amc OR amd OR ame OR amf OR amu OR aqv OR aqv2 OR aqv3 OR axe OR ba6 OR ba7 OR baa OR bac OR bad OR bae OR baf OR bar OR bax OR bhm OR bld OR brn OR brs OR bsd OR bsh OR bst OR bsw OR btx OR buc OR bwn OR cap OR cbw OR chn OR ci2 OR ci3 OR clb OR clm OR cm1 OR cm2 OR cm3 OR cqv OR cqv2 OR cqv3 OR crn OR cst OR dgr OR dir OR dr2 OR dr6 OR dra OR drb OR drc OR drd OR dre OR drf OR fhl OR fla OR flb OR flc OR fld OR ful OR gax OR ghm OR gis OR gix OR gma OR gsc OR gsd OR gth OR gts OR gwn OR hal OR hax OR hbl OR hbt OR hbw OR hgl OR hla OR hlm OR hxb OR jew OR kit OR kri OR lax OR lbb OR lbl OR lbt OR lbw OR lea OR lgl OR lrg OR lsd OR lst OR ltp OR lwb OR lxb OR mac OR mau OR mbl OR mbt OR mgl OR mpi OR msk OR mst OR mxb OR ne6 OR nea OR ned OR nee OR nef OR neg OR ob6 OR ob7 OR oba OR obc OR obd OR obe OR obf OR pa3 OR pa9 OR pab OR pac OR pae OR paf OR pax OR pik OR plt OR qui OR ram OR rar OR rbe OR rin OR rng OR rxb OR sbb OR sbr OR sbw OR scl OR scm OR scp OR scy OR skp OR sml OR spc OR spk OR spl OR spr OR spt OR ssd OR sst OR stu OR swb OR tbl OR tbt OR tgl OR tow OR tri OR uap OR uar OR uh9 OR uhb OR uhc OR uhg OR uhl OR uhm OR uit OR ulb OR ulc OR uld OR ulg OR ulm OR umb OR umc OR umg OR uml OR ung OR uow OR upk OR upl OR urg OR urn OR urs OR ush OR usk OR utb OR utg OR uth OR utp OR uts OR utu OR uuc OR uui OR uul OR uvb OR uvc OR uvg OR vbl OR vbt OR vgl OR vou OR wax OR whm OR wnd OR wsc OR wsd OR wsp OR wst OR xap OR xar OR xcl OR xea OR xh9 OR xhb OR xhg OR xhl OR xhm OR xhn OR xit OR xkp OR xla OR xlb OR xld OR xlg OR xlm OR xlt OR xmb OR xmg OR xml OR xng OR xow OR xpk OR xpl OR xrg OR xrn OR xrs OR xsh OR xsk OR xtb OR xtg OR xth OR xtp OR xts OR xtu OR xuc OR xui OR xul OR xvb OR xvg OR ywn OR zhb OR zlb OR zmb OR ztb OR zvb)]: //@ffg uni found
 // (off: found grail items follow the filter level) ItemDisplay[UNI !(msf OR hst OR hfh OR qf1 OR qf2 OR vip OR g33 OR d33 OR hdm OR leg OR box OR tr1 OR ice OR std OR bks OR bkd OR j34 OR g34 OR bbb OR mss OR ass OR qey OR qhr OR qbr OR tr2 OR xyz) !(!ANYDISCOVERED) (7qs OR 9bw OR ba6 OR jew) !(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) !ID !(2ax OR 2hs OR 6bs OR 6cs OR 6hb OR 6hx OR 6l7 OR 6lw OR 6rx OR 6sw OR 6ws OR 72a OR 7b7 OR 7b8 OR 7ba OR 7bk OR 7bl OR 7br OR 7bs OR 7bt OR 7bw OR 7cl OR 7cm OR 7cr OR 7cs OR 7dg OR 7di OR 7fb OR 7fl OR 7ga OR 7gd OR 7gi OR 7gl OR 7gm OR 7gs OR 7gw OR 7ha OR 7kr OR 7ls OR 7lw OR 7m7 OR 7mp OR 7mt OR 7o7 OR 7p7 OR 7pa OR 7qr OR 7qs OR 7s7 OR 7s8 OR 7sb OR 7sc OR 7sm OR 7sp OR 7sr OR 7st OR 7ta OR 7ts OR 7tw OR 7vo OR 7wa OR 7wb OR 7wc OR 7wh OR 7ws OR 7xf OR 7yw OR 8bs OR 8cb OR 8cs OR 8hb OR 8hx OR 8l8 OR 8lb OR 8ls OR 8lw OR 8lx OR 8mx OR 8rx OR 8s8 OR 8sb OR 8ss OR 8sw OR 8ws OR 92a OR 92h OR 9ar OR 9ax OR 9b7 OR 9b8 OR 9b9 OR 9ba OR 9bl OR 9br OR 9bs OR 9bt OR 9bw OR 9cl OR 9cm OR 9cr OR 9dg OR 9di OR 9fb OR 9fc OR 9fl OR 9ga OR 9gd OR 9gi OR 9gm OR 9gs OR 9gw OR 9h9 OR 9ha OR 9kr OR 9la OR 9ls OR 9m9 OR 9ma OR 9mp OR 9mt OR 9p9 OR 9pa OR 9qs OR 9s8 OR 9sb OR 9sc OR 9sm OR 9sp OR 9sr OR 9ss OR 9st OR 9ta OR 9tk OR 9tr OR 9tw OR 9vo OR 9wa OR 9wc OR 9wd OR 9wh OR 9wn OR 9ws OR 9yw OR aar OR am5 OR am7 OR am9 OR ama OR amb OR amc OR amd OR ame OR amf OR amu OR aqv OR aqv2 OR aqv3 OR axe OR ba6 OR ba7 OR baa OR bac OR bad OR bae OR baf OR bar OR bax OR bhm OR bld OR brn OR brs OR bsd OR bsh OR bst OR bsw OR btx OR buc OR bwn OR cap OR cbw OR chn OR ci2 OR ci3 OR clb OR clm OR cm1 OR cm2 OR cm3 OR cqv OR cqv2 OR cqv3 OR crn OR cst OR dgr OR dir OR dr2 OR dr6 OR dra OR drb OR drc OR drd OR dre OR drf OR fhl OR fla OR flb OR flc OR fld OR ful OR gax OR ghm OR gis OR gix OR gma OR gsc OR gsd OR gth OR gts OR gwn OR hal OR hax OR hbl OR hbt OR hbw OR hgl OR hla OR hlm OR hxb OR jew OR kit OR kri OR lax OR lbb OR lbl OR lbt OR lbw OR lea OR lgl OR lrg OR lsd OR lst OR ltp OR lwb OR lxb OR mac OR mau OR mbl OR mbt OR mgl OR mpi OR msk OR mst OR mxb OR ne6 OR nea OR ned OR nee OR nef OR neg OR ob6 OR ob7 OR oba OR obc OR obd OR obe OR obf OR pa3 OR pa9 OR pab OR pac OR pae OR paf OR pax OR pik OR plt OR qui OR ram OR rar OR rbe OR rin OR rng OR rxb OR sbb OR sbr OR sbw OR scl OR scm OR scp OR scy OR skp OR sml OR spc OR spk OR spl OR spr OR spt OR ssd OR sst OR stu OR swb OR tbl OR tbt OR tgl OR tow OR tri OR uap OR uar OR uh9 OR uhb OR uhc OR uhg OR uhl OR uhm OR uit OR ulb OR ulc OR uld OR ulg OR ulm OR umb OR umc OR umg OR uml OR ung OR uow OR upk OR upl OR urg OR urn OR urs OR ush OR usk OR utb OR utg OR uth OR utp OR uts OR utu OR uuc OR uui OR uul OR uvb OR uvc OR uvg OR vbl OR vbt OR vgl OR vou OR wax OR whm OR wnd OR wsc OR wsd OR wsp OR wst OR xap OR xar OR xcl OR xea OR xh9 OR xhb OR xhg OR xhl OR xhm OR xhn OR xit OR xkp OR xla OR xlb OR xld OR xlg OR xlm OR xlt OR xmb OR xmg OR xml OR xng OR xow OR xpk OR xpl OR xrg OR xrn OR xrs OR xsh OR xsk OR xtb OR xtg OR xth OR xtp OR xts OR xtu OR xuc OR xui OR xul OR xvb OR xvg OR ywn OR zhb OR zlb OR zmb OR ztb OR zvb)]: //@ffg uni variants
-ItemDisplay[SET !ALLDISCOVERED]: %NAME%%PURPLE% [GRAIL]%BORDER-9B%%SOUNDID-4715%%CONTINUE% //@ffg set new
 // Grail items not found yet always show, whatever the filter level; found ones follow the filter level like any other item
 Alias[GRAIL_NEW]: ((UNI !(msf OR hst OR hfh OR qf1 OR qf2 OR vip OR g33 OR d33 OR hdm OR leg OR box OR tr1 OR ice OR std OR bks OR bkd OR j34 OR g34 OR bbb OR mss OR ass OR qey OR qhr OR qbr OR tr2 OR xyz) !((7qs OR 9bw OR ba6 OR jew) !ID) !ALLDISCOVERED) OR (UNI !(msf OR hst OR hfh OR qf1 OR qf2 OR vip OR g33 OR d33 OR hdm OR leg OR box OR tr1 OR ice OR std OR bks OR bkd OR j34 OR g34 OR bbb OR mss OR ass OR qey OR qhr OR qbr OR tr2 OR xyz) (7qs OR 9bw OR ba6 OR jew) !ID !ANYDISCOVERED) OR (SET !ALLDISCOVERED))
 // (off: found grail items follow the filter level) ItemDisplay[SET !(!ALLDISCOVERED) !(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) !ID !(7m7 OR 7qr OR 7ws OR amu OR dr8 OR lbt OR ne9 OR rin OR uar OR ucl OR uh9 OR utc OR uth OR xar OR xh9 OR xhm OR xmg OR xul)]: //@ffg set found
@@ -2588,10 +2592,10 @@ ItemDisplay[wst NMAG SOCK=0 ILVL>25]: %NAME%{%NAME%%CL%%WHITE%Maximum Sockets: %
 // Notes about possible Runewords
 // Chest, Head, Shield, Quiver
 ItemDisplay[CHEST SOCK=2 NMAG !RW]: %NAME%{%GRAY%Prudence, Smoke, Stealth%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
-ItemDisplay[CHEST SOCK=3 NMAG !RW]: %NAME%{%GRAY%Principle, Rain, Treachery, Wealth%CL%Gloom, Hustle, Lionheart, Myth, Peace,%CL%Dragon, Duress, Enigma, Enlightenment,%CL%%TAN%Note%WHITE%: Possible Runewords: %GRAY%Bone, }%CONTINUE%
+ItemDisplay[CHEST SOCK=3 NMAG !RW]: %NAME%{%GRAY%Treachery, Wealth%CL%Lionheart, Myth, Peace, Principle, Rain,%CL%Enlightenment, Finesse, Gloom, Hustle,%CL%Bone, Dragon, Duress, Enigma,%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
 ItemDisplay[CHEST SOCK=4 NMAG !RW]: %NAME%{%GRAY%Fortitude, Innocence, Stone%CL%Bramble, Chains of Honor, %CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
 ItemDisplay[(HELM OR CIRC) SOCK=2 NMAG !RW]: %NAME%{%GRAY%Lore, Nadir%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
-ItemDisplay[(HELM OR CIRC) SOCK=3 NMAG !RW]: %NAME%{%GRAY%Flickering Flame, Radiance, Wisdom%CL%Dream, Delirium, Ferocity,%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
+ItemDisplay[(HELM OR CIRC) SOCK=3 NMAG !RW]: %NAME%{%GRAY%Flickering Flame, Radiance, Wisdom%CL%Deception, Delirium, Dream, Ferocity,%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
 ItemDisplay[SHIELD SOCK=2 NMAG !RW]: %NAME%{%GRAY%Rhyme, Splendor%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
 ItemDisplay[SHIELD SOCK=3 NMAG !RW]: %NAME%{%GRAY%Pledge, Dragon, Dream, Sanctuary%CL%%TAN%Note%WHITE%: Possible Runewords: %GRAY%Ancient's}%CONTINUE%
 ItemDisplay[SHIELD SOCK=4 NMAG !RW]: %NAME%{%GRAY%Epiphany, Exile, Phoenix, Spirit%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
@@ -2622,16 +2626,17 @@ ItemDisplay[SCEPTER SOCK=3 NMAG !RW]: %NAME%{%GRAY%Lawbringer, Malice, Plague, V
 ItemDisplay[(clb OR spc OR mac OR mst OR fla OR 9cl OR 9sp OR 9ma OR 9mt OR 9fl OR 7cl OR 7sp OR 7ma OR 7mt OR 7fl) SOCK=3 NMAG !RW]: %NAME%{%GRAY%Fury, Malice, Plague, Venom%CL%%TAN%Note%WHITE%: Possible Runewords: %GRAY%Black,}%CONTINUE%
 ItemDisplay[(whm OR mau OR gma OR 9wh OR 9m9 OR 9gm OR 7wh OR 7m7 OR 7gm) SOCK=3 NMAG !RW]: %NAME%{%GRAY%Malice, Plague, Venom%CL%Black, Fury, Lawbringer,%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
 ItemDisplay[THROWING SOCK=3 NMAG !RW]: %NAME%{%GRAY%Lawbringer, Malice, Plague, Venom%CL%Crescent Moon, Fury, King's Grace,%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
+ItemDisplay[(am5 OR ama OR amf) SOCK=3 NMAG !RW]: %NAME%{%GRAY%Venom%CL%King's Grace, Lawbringer, Malice, Plague,%CL%Crescent Moon, Fury, Jealousy,%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
 // Weapons 4soc
-ItemDisplay[WEAPON SOCK=4 NMAG !RW]: %NAME%{%GRAY%Hand of Justice, Passion, Phoenix%CL%%TAN%Note%WHITE%: Possible Runewords: %GRAY%Fortitude,}%CONTINUE%
-ItemDisplay[(BOW OR XBOW) SOCK=4 NMAG !RW]: %NAME%{%GRAY%Phoenix, Voice of Reason, Wrath%CL%Hand of Justice, Harmony, Passion,%CL%Brand, Faith, Fortitude, Ice,%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
-ItemDisplay[(fla OR 9fl OR 7fl) SOCK=4 NMAG !RW]: %NAME%{%GRAY%Oath, Passion, Phoenix, Voice of Reason%CL%Hand of Justice, Heart of the Oak,%CL%%TAN%Note%WHITE%: Possible Runewords: %GRAY%Fortitude,}%CONTINUE%
-ItemDisplay[SWORD SOCK=4 NMAG !RW]: %NAME%{%GRAY%Phoenix, Rift, Spirit, Voice of Reason%CL%Justice, Kingslayer, Oath, Passion,%CL%Famine, Fortitude, Hand of%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
-ItemDisplay[(POLEARM OR SPEAR OR JAV) !THROWING SOCK=4 NMAG !RW]: %NAME%{%GRAY%Passion, Phoenix, Pride, Rampage, Rift%CL%Hand of Justice, Infinity, Insight,%CL%%TAN%Note%WHITE%: Possible Runewords: %GRAY%Fortitude,}%CONTINUE%
-ItemDisplay[SCEPTER SOCK=4 NMAG !RW]: %NAME%{%GRAY%Passion, Phoenix, Rift, Voice of Reason%CL%Holy Thunder, Hand of Justice,%CL%%TAN%Note%WHITE%: Possible Runewords: %GRAY%Fortitude,}%CONTINUE%
-ItemDisplay[AXE SOCK=4 NMAG !RW]: %NAME%{%GRAY%Oath, Passion, Phoenix%CL%Fortitude, Hand of Justice, Kingslayer,%CL%%TAN%Note%WHITE%: Possible Runewords: %GRAY%Famine,}%CONTINUE%
-ItemDisplay[STAFF SOCK=4 NMAG !RW]: %NAME%{%GRAY%Phoenix, Pride, Rampage, Spirit%CL%Infinity, Insight, Memory, Passion,%CL%Hand of Justice, Heart of the Oak,%CL%%TAN%Note%WHITE%: Possible Runewords: %GRAY%Fortitude,}%CONTINUE%
-ItemDisplay[(whm OR mau OR gma OR 9wh OR 9m9 OR 9gm OR 7wh OR 7m7 OR 7gm) SOCK=4 NMAG !RW]: %NAME%{%GRAY%Justice, Passion, Phoenix%CL%Famine, Fortitude, Hand of%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
+ItemDisplay[WEAPON SOCK=4 NMAG !RW]: %NAME%{%GRAY%Passion, Phoenix%CL%Fortitude, Hand of Justice, Madness,%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
+ItemDisplay[(BOW OR XBOW) SOCK=4 NMAG !RW]: %NAME%{%GRAY%Voice of Reason, Wrath%CL%Harmony, Ice, Madness, Passion, Phoenix,%CL%Brand, Faith, Fortitude, Hand of Justice,%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
+ItemDisplay[(fla OR 9fl OR 7fl) SOCK=4 NMAG !RW]: %NAME%{%GRAY%Phoenix, Voice of Reason%CL%Heart of the Oak, Madness, Oath, Passion,%CL%Fortitude, Hand of Justice,%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
+ItemDisplay[SWORD SOCK=4 NMAG !RW]: %NAME%{%GRAY%Phoenix, Rift, Spirit, Voice of Reason%CL%Kingslayer, Madness, Oath, Passion,%CL%Famine, Fortitude, Hand of Justice,%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
+ItemDisplay[(POLEARM OR SPEAR OR JAV) !THROWING SOCK=4 NMAG !RW]: %NAME%{%GRAY%Pride, Rampage, Rift%CL%Insight, Madness, Passion, Phoenix,%CL%Fortitude, Hand of Justice, Infinity,%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
+ItemDisplay[SCEPTER SOCK=4 NMAG !RW]: %NAME%{%GRAY%Voice of Reason%CL%Madness, Passion, Phoenix, Rift,%CL%Fortitude, Hand of Justice, Holy Thunder,%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
+ItemDisplay[AXE SOCK=4 NMAG !RW]: %NAME%{%GRAY%Phoenix%CL%Kingslayer, Madness, Oath, Passion,%CL%Famine, Fortitude, Hand of Justice,%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
+ItemDisplay[STAFF SOCK=4 NMAG !RW]: %NAME%{%GRAY%Rampage, Spirit%CL%Madness, Memory, Passion, Phoenix, Pride,%CL%Heart of the Oak, Infinity, Insight,%CL%Fortitude, Hand of Justice,%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
+ItemDisplay[(whm OR mau OR gma OR 9wh OR 9m9 OR 9gm OR 7wh OR 7m7 OR 7gm) SOCK=4 NMAG !RW]: %NAME%{%GRAY%Madness, Passion, Phoenix%CL%Famine, Fortitude, Hand of Justice,%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
 // Weapons 5soc
 ItemDisplay[WEAPON SOCK=5 NMAG !RW]: %NAME%{%GRAY%Call to Arms%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
 ItemDisplay[(BOW OR XBOW) SOCK=5 NMAG !RW]: %NAME%{%GRAY%Call to Arms, Mist, Zenith%CL%%TAN%Note%WHITE%: Possible Runewords:}%CONTINUE%
@@ -5569,6 +5574,10 @@ ItemDisplay[t69]: %NAME%{%WHITE%Boss Damage: %GRAY%Missing Data %BLACK%| %WHITE%
 ItemDisplay[t69]: %NAME%{%RED%F%WHITE%:75 %BLACK%| %BLUE%C%WHITE%:75 %BLACK%| %YELLOW%L%WHITE%:75 %BLACK%| %GREEN%P%WHITE%:%CORAL%120 %BLACK%| %ORANGE%M%WHITE%:%CORAL%105 %BLACK%| %GOLD%P%WHITE%:60%CL%%NAME%}%CONTINUE%
 ItemDisplay[t18]: %NAME%{%WHITE%Boss Damage: %GRAY%Missing Data %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
 ItemDisplay[t18]: %NAME%{%RED%F%WHITE%:75 %BLACK%| %BLUE%C%WHITE%:75 %BLACK%| %YELLOW%L%WHITE%:75 %BLACK%| %GREEN%P%WHITE%:75 %BLACK%| %ORANGE%M%WHITE%:55 %BLACK%| %GOLD%P%WHITE%:60%CL%%NAME%}%CONTINUE%
+ItemDisplay[t29]: %NAME%{%WHITE%Boss Damage: %GRAY%Missing Data %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t29]: %NAME%{%RED%F%WHITE%:75 %BLACK%| %BLUE%C%WHITE%:75 %BLACK%| %YELLOW%L%WHITE%:75 %BLACK%| %GREEN%P%WHITE%:75 %BLACK%| %ORANGE%M%WHITE%:45 %BLACK%| %GOLD%P%WHITE%:50%CL%%NAME%}%CONTINUE%
+ItemDisplay[t2a]: %NAME%{%WHITE%Boss Damage: %GRAY%Missing Data %BLACK%| %WHITE%Monsters Highest Res:%CL%%NAME%}%CONTINUE%
+ItemDisplay[t2a]: %NAME%{%RED%F%WHITE%:75 %BLACK%| %BLUE%C%WHITE%:75 %BLACK%| %YELLOW%L%WHITE%:75 %BLACK%| %GREEN%P%WHITE%:75 %BLACK%| %ORANGE%M%WHITE%:55 %BLACK%| %GOLD%P%WHITE%:60%CL%%NAME%}%CONTINUE%
 
 // Map debuff notifications
 ItemDisplay[MAPTIER>0 STAT412<0 STAT411<0 AMAZON $f(count((CHARSTAT99+STAT411)>=6,(CHARSTAT99+STAT411)>=13,(CHARSTAT99+STAT411)>=20,(CHARSTAT99+STAT411)>=32,(CHARSTAT99+STAT411)>=52,(CHARSTAT99+STAT411)>=86,(CHARSTAT99+STAT411)>=174,(CHARSTAT99+STAT411)>=600)-count(CHARSTAT99>=6,CHARSTAT99>=13,CHARSTAT99>=20,CHARSTAT99>=32,CHARSTAT99>=52,CHARSTAT99>=86,CHARSTAT99>=174,CHARSTAT99>=600))<0]: %NAME%{%PURPLE%Debuff: %WHITE%Block %RED%$f(floor(max(0,min(75,((CHARSTAT20+25)*(CHARSTAT2-15)/(CLVL*2))+STAT412)))) %BLACK%| %WHITE%FHR %RED%$f(max(0,CHARSTAT99+STAT411)) %GRAY%[%RED%$f(count((CHARSTAT99+STAT411)>=6,(CHARSTAT99+STAT411)>=13,(CHARSTAT99+STAT411)>=20,(CHARSTAT99+STAT411)>=32,(CHARSTAT99+STAT411)>=52,(CHARSTAT99+STAT411)>=86,(CHARSTAT99+STAT411)>=174,(CHARSTAT99+STAT411)>=600)-count(CHARSTAT99>=6,CHARSTAT99>=13,CHARSTAT99>=20,CHARSTAT99>=32,CHARSTAT99>=52,CHARSTAT99>=86,CHARSTAT99>=174,CHARSTAT99>=600)) FR%GRAY%]%CL%%NAME%}%CONTINUE%
@@ -5647,8 +5656,8 @@ ItemDisplay[(r03 OR r03s)]: %NAME%{Honor, Insight, Leaf, Loyalty, Nadir, Neophyt
 ItemDisplay[(r03 OR r03s)]: %NAME%{Pattern, Prudence, Silence, Steel, Strength,%NL%%NAME%}%CONTINUE%
 ItemDisplay[(r03 OR r03s)]: %NAME%{%GRAY%Wealth%NL%%NAME%}%CONTINUE%
 //
-ItemDisplay[(r04 OR r04s)]: %NAME%{Black, Flickering Flame, Melody, Myth, Nadir,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(r04 OR r04s)]: %NAME%{%GRAY%Obsession, Radiance, Smoke%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r04 OR r04s)]: %NAME%{Black, Finesse, Flickering Flame, Melody, Myth,%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r04 OR r04s)]: %NAME%{%GRAY%Nadir, Obsession, Radiance, Smoke%NL%%NAME%}%CONTINUE%
 //
 ItemDisplay[(r05 OR r05s)]: %NAME%{Bramble, Breath of the Dying, Fury, Grief,%NL%%NAME%}%CONTINUE%
 ItemDisplay[(r05 OR r05s)]: %NAME%{Holy Thunder, Malice, Memory, Obedience, Purity,%NL%%NAME%}%CONTINUE%
@@ -5662,36 +5671,36 @@ ItemDisplay[(r07 OR r07s)]: %NAME%{Holy Thunder, Insight, Pattern, Spirit, Steal
 ItemDisplay[(r07 OR r07s)]: %NAME%{%GRAY%Venom%NL%%NAME%}%CONTINUE%
 //
 ItemDisplay[(r08 OR r08s)]: %NAME%{Ancient's Foresigh, Ancient's Pledge, Bramble,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(r08 OR r08s)]: %NAME%{Call to Arms, Enlightenment, Grief, Holy Thunder,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(r08 OR r08s)]: %NAME%{Insight, King's Grace, Leaf, Principle, Rapture,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(r08 OR r08s)]: %NAME%{%GRAY%Shattered Wall, Zenith%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r08 OR r08s)]: %NAME%{Call to Arms, Enlightenment, Finesse, Grief,%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r08 OR r08s)]: %NAME%{Holy Thunder, Insight, King's Grace, Leaf,%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r08 OR r08s)]: %NAME%{%GRAY%Principle, Rapture, Shattered Wall, Zenith%NL%%NAME%}%CONTINUE%
 //
 ItemDisplay[(r09 OR r09s)]: %NAME%{Ancient's Pledge, Ancient's Scripture, Death,%NL%%NAME%}%CONTINUE%
 ItemDisplay[(r09 OR r09s)]: %NAME%{Famine, Holy Thunder, Lore, Passion, Pattern,%NL%%NAME%}%CONTINUE%
 ItemDisplay[(r09 OR r09s)]: %NAME%{%GRAY%Rain, Spirit, Zenith, Zephyr%NL%%NAME%}%CONTINUE%
 //
 ItemDisplay[(r10 OR r10s)]: %NAME%{Ancient's Foresigh, Black, Duress,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(r10 OR r10s)]: %NAME%{Heart of the Oak, King's Grace, Mist, Neophyte,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(r10 OR r10s)]: %NAME%{Obedience, Peace, Purity, Spirit, Treachery,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(r10 OR r10s)]: %NAME%{%GRAY%Zenith%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r10 OR r10s)]: %NAME%{Heart of the Oak, Jealousy, King's Grace, Mist,%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r10 OR r10s)]: %NAME%{Neophyte, Obedience, Peace, Purity, Spirit,%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r10 OR r10s)]: %NAME%{%GRAY%Treachery, Zenith%NL%%NAME%}%CONTINUE%
 //
-ItemDisplay[(r11 OR r11s)]: %NAME%{Call to Arms, Edge, Eternity, Hand of Justice,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(r11 OR r11s)]: %NAME%{Honor, Ice, King's Grace, Lawbringer, Myth,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(r11 OR r11s)]: %NAME%{%GRAY%Peace, Purity, Spirit, Strength%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r11 OR r11s)]: %NAME%{Call to Arms, Deception, Edge, Eternity,%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r11 OR r11s)]: %NAME%{Hand of Justice, Honor, Ice, King's Grace,%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r11 OR r11s)]: %NAME%{%GRAY%Lawbringer, Myth, Peace, Purity, Spirit, Strength%NL%%NAME%}%CONTINUE%
 //
 ItemDisplay[(r12 OR r12s)]: %NAME%{Bone, Dragon, Echo, Enlightenment, Eternity,%NL%%NAME%}%CONTINUE%
 ItemDisplay[(r12 OR r12s)]: %NAME%{Fortitude, Harmony, Honor, Insight, Lore, Memory,%NL%%NAME%}%CONTINUE%
 ItemDisplay[(r12 OR r12s)]: %NAME%{%GRAY%Radiance%NL%%NAME%}%CONTINUE%
 //
 ItemDisplay[(r13 OR r13s)]: %NAME%{Crescent Moon, Duress, Ferocity, Hustle, Ice,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(r13 OR r13s)]: %NAME%{Melody, Mist, Oath, Peace, Rampage, Rhyme, Stone,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(r13 OR r13s)]: %NAME%{%GRAY%Treachery%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r13 OR r13s)]: %NAME%{Madness, Melody, Mist, Oath, Peace, Rampage, Rhyme,%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r13 OR r13s)]: %NAME%{%GRAY%Stone, Treachery%NL%%NAME%}%CONTINUE%
 //
-ItemDisplay[(r14 OR r14s)]: %NAME%{Asylum, Chains of Honor, Echo, Exile, Fortitude,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(r14 OR r14s)]: %NAME%{%GRAY%Loyalty, Passion, Silence, Venom, White%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r14 OR r14s)]: %NAME%{Asylum, Chains of Honor, Echo, Exile, Finesse,%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r14 OR r14s)]: %NAME%{%GRAY%Fortitude, Loyalty, Passion, Silence, Venom, White%NL%%NAME%}%CONTINUE%
 //
-ItemDisplay[(r15 OR r15s)]: %NAME%{Asylum, Breath of the Dying, Death, Doom,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(r15 OR r15s)]: %NAME%{Innocence, Lionheart, Myth, Obedience, Rift,%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r15 OR r15s)]: %NAME%{Asylum, Breath of the Dying, Death, Deception,%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r15 OR r15s)]: %NAME%{Doom, Innocence, Lionheart, Myth, Obedience, Rift,%NL%%NAME%}%CONTINUE%
 ItemDisplay[(r15 OR r15s)]: %NAME%{%GRAY%Silence, Unbending Will%NL%%NAME%}%CONTINUE%
 //
 ItemDisplay[(r16 OR r16s)]: %NAME%{Black, Delirium, Dream, Memory, Obsession, Pride,%NL%%NAME%}%CONTINUE%
@@ -5704,8 +5713,8 @@ ItemDisplay[(r18 OR r18s)]: %NAME%{Destruction, Harmony, Heart of the Oak, Hustl
 ItemDisplay[(r18 OR r18s)]: %NAME%{Lawbringer, Melody, Obedience, Rapture, Rift,%NL%%NAME%}%CONTINUE%
 ItemDisplay[(r18 OR r18s)]: %NAME%{%GRAY%Sanctuary, Voice of Reason, Wealth%NL%%NAME%}%CONTINUE%
 //
-ItemDisplay[(r19 OR r19s)]: %NAME%{Chaos, Famine, Gloom, Kingslayer, Lionheart,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(r19 OR r19s)]: %NAME%{%GRAY%Obedience, Plague, Unbending Will%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r19 OR r19s)]: %NAME%{Chaos, Deception, Famine, Gloom, Kingslayer,%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r19 OR r19s)]: %NAME%{%GRAY%Lionheart, Obedience, Plague, Unbending Will%NL%%NAME%}%CONTINUE%
 //
 ItemDisplay[(r20 OR r20s)]: %NAME%{Delirium, Faith, Innocence, Lawbringer,%NL%%NAME%}%CONTINUE%
 ItemDisplay[(r20 OR r20s)]: %NAME%{Obsession, Passion, Rift, Treachery,%NL%%NAME%}%CONTINUE%
@@ -5720,29 +5729,29 @@ ItemDisplay[(r22 OR r22s)]: %NAME%{Crescent Moon, Doom, Duress, Gloom, Kingslaye
 ItemDisplay[(r22 OR r22s)]: %NAME%{%GRAY%Plague, Stone%NL%%NAME%}%CONTINUE%
 //
 ItemDisplay[(r23 OR r23s)]: %NAME%{Beast, Brand, Call to Arms, Grief, Infinity,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(r23 OR r23s)]: %NAME%{Kingslayer, Last Wish, Oath, Prudence, Rain,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(r23 OR r23s)]: %NAME%{%GRAY%Rapture, Sanctuary, Venom, Wrath%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r23 OR r23s)]: %NAME%{Kingslayer, Last Wish, Madness, Oath, Prudence,%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r23 OR r23s)]: %NAME%{%GRAY%Rain, Rapture, Sanctuary, Venom, Wrath%NL%%NAME%}%CONTINUE%
 //
 ItemDisplay[(r24 OR r24s)]: %NAME%{Call to Arms, Chains of Honor, Delirium,%NL%%NAME%}%CONTINUE%
 ItemDisplay[(r24 OR r24s)]: %NAME%{Epiphany, Eternity, Exile, Infinity, Obsession,%NL%%NAME%}%CONTINUE%
 ItemDisplay[(r24 OR r24s)]: %NAME%{%GRAY%Silence%NL%%NAME%}%CONTINUE%
 //
-ItemDisplay[(r25 OR r25s)]: %NAME%{Asylum, Brand, Death, Fury, Innocence,%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r25 OR r25s)]: %NAME%{Asylum, Brand, Death, Fury, Innocence, Jealousy,%NL%%NAME%}%CONTINUE%
 ItemDisplay[(r25 OR r25s)]: %NAME%{%GRAY%Kingslayer, Mist, Principle, Rift%NL%%NAME%}%CONTINUE%
 //
 ItemDisplay[(r26 OR r26s)]: %NAME%{Breath of the Dying, Death, Destruction, Exile,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(r26 OR r26s)]: %NAME%{Flickering Flame, Heart of the Oak, Phoenix,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(r26 OR r26s)]: %NAME%{%GRAY%Rapture, Silence%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r26 OR r26s)]: %NAME%{Flickering Flame, Heart of the Oak, Madness,%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r26 OR r26s)]: %NAME%{%GRAY%Phoenix, Rapture, Silence%NL%%NAME%}%CONTINUE%
 //
 ItemDisplay[(r27 OR r27s)]: %NAME%{Bramble, Call to Arms, Chaos, Dominion, Doom,%NL%%NAME%}%CONTINUE%
 ItemDisplay[(r27 OR r27s)]: %NAME%{%GRAY%Exile, Faith, Famine%NL%%NAME%}%CONTINUE%
 //
 ItemDisplay[(r28 OR r28s)]: %NAME%{Brand, Destruction, Doom, Dragon, Epiphany,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(r28 OR r28s)]: %NAME%{Fortitude, Grief, Hand of Justice, Ice, Phoenix,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(r28 OR r28s)]: %NAME%{%GRAY%Pride, Rapture%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r28 OR r28s)]: %NAME%{Fortitude, Grief, Hand of Justice, Ice, Jealousy,%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r28 OR r28s)]: %NAME%{%GRAY%Phoenix, Pride, Rapture%NL%%NAME%}%CONTINUE%
 //
 ItemDisplay[(r29 OR r29s)]: %NAME%{Bramble, Dragon, Eternity, Hand of Justice,%NL%%NAME%}%CONTINUE%
-ItemDisplay[(r29 OR r29s)]: %NAME%{%GRAY%Last Wish, Pride, Wind%NL%%NAME%}%CONTINUE%
+ItemDisplay[(r29 OR r29s)]: %NAME%{%GRAY%Last Wish, Madness, Pride, Wind%NL%%NAME%}%CONTINUE%
 //
 ItemDisplay[(r30 OR r30s)]: %NAME%{Beast, Chains of Honor, Destruction, Enigma,%NL%%NAME%}%CONTINUE%
 ItemDisplay[(r30 OR r30s)]: %NAME%{%GRAY%Eternity, Infinity, Last Wish, Wrath%NL%%NAME%}%CONTINUE%
