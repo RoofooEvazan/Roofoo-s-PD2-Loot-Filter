@@ -354,7 +354,7 @@ Alias[ENPHBASTARD]: ((bsw) UNI !ID)
 
 // 0 = no star display tier
 Alias[NSUNI1]: ((72a OR 7b8 OR 7bk OR 7bt OR 7gs OR 7sp OR 7sr OR 7st OR 7vo OR 9gm OR 9gw OR 9kr OR 9s8 OR 9wc OR ama OR amc OR gix) UNI !ETH !ID)
-Alias[NSUNI2]: (((hbt OR ltp OR mbt OR obd OR ulb OR umb OR upk OR urg OR ush OR uvb OR xar OR xtp OR xul) UNI !ETH !ID) OR ((2ax OR 2hs OR 6hb OR 6l7 OR 6rx OR 7ba OR 7br OR 7bs OR 7cl OR 7cm OR 7cs OR 7dg OR 7di OR 7fb OR 7gl OR 7ha OR 7kr OR 7mp OR 7mt OR 7o7 OR 7qr OR 7s7 OR 7sb OR 7sm OR 7ta OR 7tw OR 8bs OR 8cs OR 8hb OR 8l8 OR 8lb OR 8ls OR 8lw OR 8lx OR 8s8 OR 8sb OR 8ss OR 8sw OR 92a OR 92h OR 9ar OR 9ax OR 9b7 OR 9b8 OR 9b9 OR 9ba OR 9bl OR 9br OR 9bs OR 9bt OR 9cl OR 9cm OR 9cr OR 9dg OR 9di OR 9fb OR 9fc OR 9fl OR 9ga OR 9gd OR 9gi OR 9gs OR 9h9 OR 9ha OR 9la OR 9ls OR 9ma OR 9mp OR 9mt OR 9p9 OR 9pa OR 9qs OR 9sb OR 9sc OR 9sm OR 9sp OR 9sr OR 9ss OR 9st OR 9ta OR 9tk OR 9tr OR 9tw OR 9vo OR 9wa OR 9wd OR 9wh OR 9wn OR 9ws OR 9yw OR am5 OR am7 OR am9 OR ame OR aqv OR axe OR ba6 OR ba7 OR baa OR bac OR bad OR bar OR bax OR bhm OR bld OR brn OR brs OR bsd OR bsh OR bst OR btx OR buc OR bwn OR cap OR cbw OR chn OR clb OR clm OR cqv OR crn OR cst OR dgr OR dir OR dr2 OR fhl OR fla OR flb OR flc OR fld OR ful OR gax OR ghm OR gis OR gma OR gsc OR gsd OR gth OR gts OR gwn OR hal OR hax OR hbl OR hbw OR hgl OR hla OR hlm OR hxb OR kit OR kri OR lax OR lbb OR lbl OR lbt OR lbw OR lea OR lgl OR lrg OR lsd OR lst OR lwb OR lxb OR mac OR mbl OR mgl OR mpi OR msk OR mst OR mxb OR ne6 OR nea OR neg OR ob6 OR ob7 OR oba OR pa3 OR pax OR pik OR plt OR qui OR rng OR rxb OR sbb OR sbr OR sbw OR scl OR scm OR scp OR scy OR skp OR sml OR spc OR spk OR spl OR spr OR spt OR ssd OR sst OR stu OR swb OR tbl OR tbt OR tow OR tri OR ulg OR uml OR urs OR utb OR uth OR uuc OR vbt OR vgl OR vou OR wax OR whm OR wnd OR wsc OR wsd OR wsp OR wst OR xap OR xcl OR xhl OR xit OR xkp OR xla OR xlb OR xld OR xlm OR xml OR xng OR xpk OR xrg OR xrn OR xrs OR xsk OR xts OR xtu OR xuc OR xui OR ywn OR zmb) UNI !ETH !ID FILTLVL>7))
+Alias[NSUNI2]: (((hbt OR ltp OR mbt OR obd OR ulb OR umb OR upk OR urg OR ush OR uvb OR xar OR xtp OR xul) UNI !ETH !ID) OR ((2ax OR 2hs OR 6hb OR 6l7 OR 6rx OR 7ba OR 7br OR 7bs OR 7cl OR 7cm OR 7cs OR 7dg OR 7di OR 7fb OR 7gl OR 7ha OR 7kr OR 7mp OR 7mt OR 7o7 OR 7qr OR 7s7 OR 7sb OR 7sm OR 7ta OR 7tw OR 8bs OR 8cs OR 8hb OR 8l8 OR 8lb OR 8ls OR 8lw OR 8lx OR 8s8 OR 8sb OR 8ss OR 8sw OR 92a OR 92h OR 9ar OR 9ax OR 9b7 OR 9b8 OR 9b9 OR 9ba OR 9bl OR 9br OR 9bs OR 9bt OR 9cl OR 9cm OR 9cr OR 9dg OR 9di OR 9fb OR 9fc OR 9fl OR 9ga OR 9gd OR 9gi OR 9gs OR 9h9 OR 9ha OR 9la OR 9ls OR 9ma OR 9mp OR 9mt OR 9p9 OR 9pa OR 9qs OR 9sb OR 9sc OR 9sm OR 9sp OR 9sr OR 9ss OR 9st OR 9ta OR 9tk OR 9tr OR 9tw OR 9vo OR 9wa OR 9wd OR 9wh OR 9wn OR 9ws OR 9yw OR am5 OR am7 OR am9 OR ame OR aqv OR axe OR ba6 OR ba7 OR baa OR bac OR bad OR bar OR bax OR bhm OR bld OR brn OR brs OR bsd OR bsh OR bst OR btx OR buc OR bwn OR cap OR cbw OR chn OR clb OR clm OR cqv OR crn OR cst OR dgr OR dir OR dr2 OR fhl OR fla OR flb OR flc OR fld OR ful OR gax OR ghm OR gis OR gma OR gsc OR gsd OR gth OR gts OR gwn OR hal OR hax OR hbl OR hbw OR hgl OR hla OR hlm OR hxb OR kit OR kri OR lax OR lbb OR lbl OR lbt OR lbw OR lea OR lgl OR lrg OR lsd OR lst OR lwb OR lxb OR mac OR mbl OR mgl OR mpi OR msk OR mst OR mxb OR ne6 OR nea OR neg OR ob6 OR ob7 OR oba OR pa3 OR pax OR pik OR plt OR qui OR rng OR rxb OR sbb OR sbr OR sbw OR scl OR scm OR scp OR scy OR skp OR sml OR spc OR spk OR spl OR spr OR spt OR ssd OR sst OR stu OR swb OR tbl OR tbt OR tow OR tri OR ulg OR uml OR urs OR utb OR uth OR uuc OR vbt OR vgl OR vou OR wax OR whm OR wnd OR wsc OR wsd OR wsp OR wst OR xap OR xcl OR xhl OR xit OR xkp OR xla OR xlb OR xld OR xlm OR xml OR xng OR xrg OR xrn OR xrs OR xsk OR xts OR xtu OR xuc OR xui OR ywn OR zmb) UNI !ETH !ID FILTLVL>7))
 Alias[NSUNIETH1]: ((7gs OR 7sp OR 9gw OR 9kr OR 9wc OR aar OR ltp OR mbt OR obd OR obe OR ulb OR umb OR ung OR upk) UNI ETH !ID)
 Alias[NSUNIETH2]: (((urg OR ush OR uvb OR vbl OR xar OR xhg OR xhm OR xlg OR xmg OR xow OR xtg OR xth OR xtp OR xul OR xvg OR zvb) UNI ETH !ID) OR ((2ax OR 2hs OR 6hb OR 6hx OR 6l7 OR 6lw OR 6rx OR 6sw OR 7ba OR 7br OR 7bs OR 7cl OR 7cm OR 7cs OR 7dg OR 7di OR 7fb OR 7gl OR 7ha OR 7kr OR 7mp OR 7mt OR 7o7 OR 7qr OR 7s7 OR 7sb OR 7sm OR 7ta OR 7tw OR 8bs OR 8cb OR 8cs OR 8hb OR 8hx OR 8l8 OR 8lb OR 8ls OR 8lw OR 8lx OR 8mx OR 8rx OR 8s8 OR 8sb OR 8ss OR 8sw OR 92a OR 92h OR 9ar OR 9ax OR 9b7 OR 9b8 OR 9b9 OR 9ba OR 9bl OR 9br OR 9bs OR 9bt OR 9cl OR 9cm OR 9cr OR 9dg OR 9di OR 9fb OR 9fc OR 9fl OR 9ga OR 9gd OR 9gi OR 9gs OR 9h9 OR 9ha OR 9la OR 9ls OR 9ma OR 9mp OR 9mt OR 9p9 OR 9pa OR 9qs OR 9sb OR 9sc OR 9sm OR 9sp OR 9sr OR 9ss OR 9st OR 9ta OR 9tk OR 9tr OR 9tw OR 9vo OR 9wa OR 9wd OR 9wh OR 9wn OR 9ws OR 9yw OR am5 OR am7 OR am9 OR amb OR amc OR ame OR axe OR ba6 OR ba7 OR baa OR bac OR bad OR bar OR bax OR bhm OR bld OR brn OR brs OR bsd OR bsh OR bst OR btx OR buc OR bwn OR cap OR cbw OR chn OR clb OR clm OR crn OR cst OR dgr OR dir OR dr2 OR fhl OR fla OR flb OR flc OR fld OR ful OR gax OR ghm OR gis OR gma OR gsc OR gsd OR gth OR gts OR gwn OR hal OR hax OR hbl OR hbw OR hgl OR hla OR hlm OR hxb OR kit OR kri OR lax OR lbb OR lbl OR lbt OR lbw OR lea OR lgl OR lrg OR lsd OR lst OR lwb OR lxb OR mac OR mbl OR mgl OR mpi OR msk OR mst OR mxb OR ne6 OR nea OR neg OR ob6 OR ob7 OR oba OR pa3 OR pax OR pik OR plt OR qui OR rng OR rxb OR sbb OR sbr OR sbw OR scl OR scm OR scp OR scy OR skp OR sml OR spc OR spk OR spl OR spr OR spt OR ssd OR sst OR stu OR swb OR tbl OR tbt OR tow OR tri OR uhc OR ulg OR uml OR urs OR utb OR uth OR uuc OR vbt OR vgl OR vou OR wax OR whm OR wnd OR wsc OR wsd OR wsp OR wst OR xap OR xcl OR xhl OR xit OR xkp OR xla OR xlb OR xld OR xlm OR xml OR xng OR xpk OR xrg OR xrn OR xrs OR xsk OR xts OR xtu OR xuc OR xui OR ywn OR zmb) UNI ETH !ID FILTLVL>7))
 Alias[NSSET1]: ((7m7 OR 7qr OR uar OR uh9 OR uth OR xh9 OR xhm) SET !ETH !ID)
@@ -364,10 +364,10 @@ Alias[NOSTARSET]: (NSSET1)
 
 // 1 = one star display tier
 Alias[OSUNI1]: ((6bs OR 6cs OR 6hx OR 6lw OR 6sw OR 7b7 OR 7bl OR 7bw OR 7ga OR 7gd OR 7gi OR 7gm OR 7ls OR 7lw OR 7m7 OR 7p7 OR 7pa OR 7qs OR 7s8) UNI !ETH !ID)
-Alias[OSUNI2]: ((7sc OR 7ts OR 7wa OR 7wb OR 7wc OR 7ws OR 7xf OR 7yw OR 8cb OR 8hx OR 8mx OR 8rx OR 8ws OR 9bw OR 9m9 OR aar OR amb OR amd OR amf) UNI !ETH !ID)
+Alias[OSUNI2]: ((7sc OR 7ts OR 7wa OR 7wb OR 7wc OR 7ws OR 7xf OR 7yw OR 8cb OR 8hx OR 8mx OR 8rx OR 9bw OR 9m9 OR aar OR amb OR amd OR amf) UNI !ETH !ID)
 Alias[OSUNI3]: ((aqv2 OR aqv3 OR baf OR cqv2 OR cqv3 OR dr6 OR dra OR drb OR drc OR drf OR ned OR nef OR mau OR obc OR obe OR pae OR tgl OR uhl OR uit) UNI !ETH !ID)
-Alias[OSUNI4]: ((uhb OR uld OR umc OR uow OR utp OR utu OR uvc OR vbl OR xea OR xhg OR xhm OR xlg OR xmg OR xow OR xpl OR xsh OR xtg OR xvg OR zhb OR uap OR ung OR xth) UNI !ETH !ID)
-Alias[OSUNIETH1]: ((6bs OR 6cs OR 72a OR 7bl OR 7bt OR 7bw OR 7cr OR 7ls OR 7lw OR 7qs OR 7wb OR 7ws OR 7xf OR 7yw OR 8ws OR 9bw OR baf) UNI ETH !ID)
+Alias[OSUNI4]: ((uhb OR uld OR umc OR uow OR utp OR utu OR uvc OR vbl OR xea OR xhg OR xhm OR xlg OR xmg OR xow OR xpl OR xsh OR xtg OR xvg OR zhb OR uap OR ung OR xth OR xpk) UNI !ETH !ID)
+Alias[OSUNIETH1]: ((6bs OR 6cs OR 72a OR 7bl OR 7bt OR 7bw OR 7cr OR 7ls OR 7lw OR 7qs OR 7wb OR 7ws OR 7xf OR 7yw OR 9bw OR baf) UNI ETH !ID)
 Alias[OSUNIETH2]: ((ci2 OR dr6 OR dra OR drb OR drc OR drd OR dre OR drf OR hbt OR ned OR nee OR nef OR obc OR obe OR pac OR pae OR paf) UNI ETH !ID)
 Alias[OSUNIETH3]: ((tgl OR uap OR uit OR ulc OR uld OR umc OR uow OR upl OR uts OR utu OR uui OR uvc OR xea OR xmb OR xpl OR xsh OR xvb OR zhb OR ztb) UNI ETH !ID)
 Alias[OSSET1]: (((7ws OR dr8 OR lbt OR ne9 OR ucl OR utc OR xar OR xmg OR xul) SET !ETH !ID) OR (rin SET !ID FL9_MARKER_OK) OR (amu SET !ID FL8_MARKER_OK))
@@ -377,9 +377,9 @@ Alias[ONESTARSET]: (OSSET1)
 
 // 2 = three star display tier
 Alias[TSUNI1]: ((7fl OR 7gw OR 7wh OR bae OR drd OR dre OR nee OR obf OR pa9 OR pab OR pac OR paf OR uh9 OR uhc OR uhg OR umg) UNI !ETH !ID)
-Alias[TSUNI2]: (((ulc OR ulm OR usk OR utg OR uts OR uui OR uul OR uvg OR xh9 OR xhb OR xhn OR xlt OR xmb OR xtb OR xvb OR zlb OR ztb) UNI !ETH !ID) OR ((7cr OR zvb) UNI !ETH !ID))
+Alias[TSUNI2]: (((ulc OR ulm OR usk OR utg OR uts OR uui OR uul OR uvg OR xh9 OR xhb OR xhn OR xlt OR xmb OR xtb OR xvb OR zlb OR ztb OR 8ws) UNI !ETH !ID) OR ((7cr OR zvb) UNI !ETH !ID))
 Alias[TSUNIETH1]: ((7b8 OR 7bk OR 7fl OR 7gw OR 7m7 OR 7sc OR 7sr OR 7st OR 7ts OR 7vo OR 7wa OR 9gm OR 9s8 OR ama OR bae OR ci3 OR gix) UNI ETH !ID)
-Alias[TSUNIETH2]: ((mau OR obf OR pa9 OR pab OR uh9 OR uhg OR uhl OR ulm OR umg OR usk OR utg OR uvg OR xh9 OR xhb OR xhn OR xlt OR xtb OR zlb) UNI ETH !ID)
+Alias[TSUNIETH2]: ((mau OR obf OR pa9 OR pab OR uh9 OR uhg OR uhl OR ulm OR umg OR usk OR utg OR uvg OR xh9 OR xhb OR xhn OR xlt OR xtb OR zlb OR 8ws) UNI ETH !ID)
 Alias[TSSET1]: (CLVL>999)
 Alias[TSSETETH1]: (CLVL>999)
 Alias[THREESTARUNIQUE]: (TSUNI1 OR TSUNI2)
@@ -5034,11 +5034,11 @@ ItemDisplay[(6ls OR 6cs OR 6bs OR 6ws) (SK48>2 OR SK38>2 OR SK53>2) (SK63>0 OR S
 ItemDisplay[(6ls OR 6cs OR 6bs OR 6ws) (SK48>2 OR SK38>2 OR SK53>2) (SK63>0 OR SK54>0) NMAG !RW SOCK=0]: %BORDER-9B%%DOT-0E%%SOUNDID-4719% %NAME% %PURPLE%[Infinity]%TIER-7%{%GREEN%Hit 4 sockets for Infinity base%CL%%NAME%}
 ItemDisplay[(wst OR 8ws OR 6ws) SK58>0 (SK50>0 OR SK60>0) SK57>0 !INF NMAG !RW SOCK=0]: %BORDER-9B%%DOT-0E%%SOUNDID-4719%%NAME% %SAGE%*%DARK_GREEN%*%GRAY%* %PURPLE%[Memory/CTA]{%GREEN%Roll 5 open sockets for CTA Base%CL%%GREEN%Roll 4 open sockets for Memory Base%CL%%NAME%}
 ItemDisplay[(wst OR 8ws OR 6ws) SK58>0 (SK50>0 OR SK60>0) SK57>0 !INF NMAG !RW SOCK=5]: %BORDER-9B%%DOT-0E%%SOUNDID-4719% %NAME% %PURPLE%[CTA]{%NAME%}
-ItemDisplay[(wst OR 8ws OR 6ws) (SK58>0 OR SK57>0) SK50>0 SK60>0 !INF NMAG !RW SOCK=0]: %DOT-0B%%NAME% %SAGE%*%DARK_GREEN%* %GREEN%[Memory/CTA]{%GREEN%Roll 5 open sockets for CTA Base%CL%%GREEN%Roll 4 open sockets for Memory Base%CL%%NAME%}
-ItemDisplay[(wst OR 8ws OR 6ws) (SK58>0 OR SK57>0) SK50>0 SK60>0 !INF NMAG !RW SOCK=5]: %BORDER-9B%%DOT-0E%%SOUNDID-4719% %NAME% %PURPLE%[CTA]{%NAME%}
-ItemDisplay[(wst OR 8ws OR 6ws) SK50>0 SK60>0 !INF NMAG !RW SOCK=0]: %DOT-0B%%NAME% %SAGE%*%DARK_GREEN%* %GREEN%[Memory/CTA]{%GREEN%Roll 5 open sockets for CTA Base%CL%%GREEN%Roll 4 open sockets for Memory Base%CL%%NAME%}
-ItemDisplay[(wst OR 8ws OR 6ws) SK50>0 SK60>0 !INF NMAG !RW SOCK=5]: %NAME% %DOT-0B%%ORANGE%[CTA]{%NAME%}
-ItemDisplay[(wst OR 8ws OR 6ws) (SK50>2 OR SK60>2) !INF NMAG !RW SOCK=0]: %DOT-0B%%NAME% %SAGE%*%DARK_GREEN%* %GREEN%[Memory/CTA]{%GREEN%Roll 5 open sockets for CTA Base%CL%%GREEN%Roll 4 open sockets for Memory Base%CL%%NAME%}
+ItemDisplay[(wst OR 8ws OR 6ws) (SK58>0 OR SK57>0) SK50>0 SK60>0 !INF NMAG !RW SOCK=0 FILTLVL<8]: %DOT-0B%%NAME% %SAGE%*%DARK_GREEN%* %GREEN%[Memory/CTA]{%GREEN%Roll 5 open sockets for CTA Base%CL%%GREEN%Roll 4 open sockets for Memory Base%CL%%NAME%}
+ItemDisplay[(wst OR 8ws OR 6ws) (SK58>0 OR SK57>0) SK50>0 SK60>0 !INF NMAG !RW SOCK=5 FILTLVL<8]: %BORDER-9B%%DOT-0E%%SOUNDID-4719% %NAME% %PURPLE%[CTA]{%NAME%}
+ItemDisplay[(wst OR 8ws OR 6ws) SK50>0 SK60>0 !INF NMAG !RW SOCK=0 FILTLVL<8]: %DOT-0B%%NAME% %SAGE%*%DARK_GREEN%* %GREEN%[Memory/CTA]{%GREEN%Roll 5 open sockets for CTA Base%CL%%GREEN%Roll 4 open sockets for Memory Base%CL%%NAME%}
+ItemDisplay[(wst OR 8ws OR 6ws) SK50>0 SK60>0 !INF NMAG !RW SOCK=5 FILTLVL<8]: %NAME% %DOT-0B%%ORANGE%[CTA]{%NAME%}
+ItemDisplay[(wst OR 8ws OR 6ws) (SK50>2 OR SK60>2) !INF NMAG !RW SOCK=0 FILTLVL<8]: %DOT-0B%%NAME% %SAGE%*%DARK_GREEN%* %GREEN%[Memory/CTA]{%GREEN%Roll 5 open sockets for CTA Base%CL%%GREEN%Roll 4 open sockets for Memory Base%CL%%NAME%}
 ItemDisplay[(wst OR 8ws OR 6ws) (SK50>2 OR SK60>2) !INF NMAG !RW SOCK=5]: %NAME% %DOT-0B%%ORANGE%[CTA]{%NAME%}
 ItemDisplay[(amd OR ame) TABSK2>2 !ETH !INF NMAG !RW (SOCK=0 OR SOCK=4) FILTLVL<8]: %NAME%{%NAME%}
 ItemDisplay[!RW NMAG !INF (wsp OR 9ws OR 7ws) SOCK=0 SK118>2 SK99>2]: %NAME% %DOT-76%%DARK_GREEN%[Merc]{%NAME%%CL%%GREEN% 3os for Plague Base%CL%%GREEN% 5os for Beast Base}
@@ -5050,32 +5050,32 @@ ItemDisplay[STAFF SK57>2 SK63>2 (SK50>0 OR SK60>0) !INF NMAG !RW SOCK=4]: %BORDE
 ItemDisplay[STAFF !(sst OR 8ss OR 6ss OR lst OR 8ls) SK57>2 SK63>2 (SK50>0 OR SK60>0) !INF NMAG !RW SOCK=0]: %BORDER-9B%%DOT-0E%%SOUNDID-4719% %NAME% %PURPLE%[MEMORY]{%GREEN%Roll 4 open sockets for Memory Base%CL%%NAME%}
 ItemDisplay[STAFF SK40>2 SK52>2 !INF NMAG !RW SOCK=4]: %NAME% %DOT-0B%%ORANGE%[MEMORY]{%NAME%}
 ItemDisplay[STAFF !(sst OR 8ss OR 6ss OR lst OR 8ls) SK40>2 SK52>2 !INF NMAG !RW SOCK=0]: %DOT-0B%%NAME% %SAGE%*%DARK_GREEN%* %GREEN%[Memory]{%GREEN%Roll 4 open sockets for Memory Base%CL%%NAME%}
-ItemDisplay[STAFF !(sst OR 8ss OR 6ss OR lst OR 8ls) SK57>2 !INF NMAG !RW SOCK=0]: %DOT-0B%%NAME% %SAGE%*%DARK_GREEN%* %GREEN%[Memory]{%GREEN%Roll 4 open sockets for Memory Base%CL%%NAME%}
-ItemDisplay[STAFF !(sst OR 8ss OR 6ss OR lst OR 8ls) SK57>0 (SK50>0 OR SK60>0 OR SK63>0) !INF NMAG !RW SOCK=0]: %DOT-0B%%NAME% %SAGE%*%DARK_GREEN%* %GREEN%[Memory]{%GREEN%Roll 4 open sockets for Memory Base%CL%%NAME%}
+ItemDisplay[STAFF !(sst OR 8ss OR 6ss OR lst OR 8ls) SK57>2 !INF NMAG !RW SOCK=0 FILTLVL<8]: %DOT-0B%%NAME% %SAGE%*%DARK_GREEN%* %GREEN%[Memory]{%GREEN%Roll 4 open sockets for Memory Base%CL%%NAME%}
+ItemDisplay[STAFF !(sst OR 8ss OR 6ss OR lst OR 8ls) SK57>0 (SK50>0 OR SK60>0 OR SK63>0) !INF NMAG !RW SOCK=0 FILTLVL<8]: %DOT-0B%%NAME% %SAGE%*%DARK_GREEN%* %GREEN%[Memory]{%GREEN%Roll 4 open sockets for Memory Base%CL%%NAME%}
 ItemDisplay[(ob5 OR oba OR obf) SK40>2 SK52>2 !INF NMAG !RW SOCK=0]: %NAME% %DOT-0B%%ORANGE%[PLAGUE]{%NAME%}
 ItemDisplay[amf TABSK2=3 ETH !RW ETH (SOCK=0 OR SOCK=2 OR SOCK=3) NMAG FILTLVL<8]: %NAME%{%NAME%}
-ItemDisplay[7ws (SK123>2 OR SK96>2) NMAG !INF !ETH SOCK=4 !RW EDAM>4]: %NAME% %DOT-76%%DARK_GREEN%[HOJ]{%NAME%}
-ItemDisplay[7ws (SK123>2 OR SK96>2) NMAG !INF !ETH SOCK=0 !RW EDAM>4]: %NAME% %DOT-76%%DARK_GREEN%[HOJ]{%GREEN%Must roll 4 open sockets for HOJ%CL%%NAME%}
+ItemDisplay[7ws (SK123>2 OR SK96>2) NMAG !INF !ETH SOCK=4 !RW EDAM>4 FILTLVL<8]: %NAME% %DOT-76%%DARK_GREEN%[HOJ]{%NAME%}
+ItemDisplay[7ws (SK123>2 OR SK96>2) NMAG !INF !ETH SOCK=0 !RW EDAM>4 FILTLVL<8]: %NAME% %DOT-76%%DARK_GREEN%[HOJ]{%GREEN%Must roll 4 open sockets for HOJ%CL%%NAME%}
 ItemDisplay[(wsp OR 9ws OR 7ws) SK117>2 NMAG !INF (SOCK=0 OR SOCK=5) !RW]: %NAME% %DOT-76%%DARK_GREEN%[CTA]{%NAME%}
 ItemDisplay[(amc OR amb) NMAG EDAM>14 !RW TABSK0>2 (SOCK=0 OR SOCK=4 OR SOCK=3 OR SOCK=5) FILTLVL<8]: %NAME%{%NAME%}
 ItemDisplay[6ws (SK56>2 OR SK62>2) SK61>2 NMAG !RW SOCK=6 ILVL>25]: %BORDER-9B%%DOT-0E%%SOUNDID-4719% %NAME% %PURPLE%[Obsession]{%NAME%%CL%%GREEN%Good Obsession base}
 ItemDisplay[6ws (SK56>2 OR SK62>2) SK61>2 NMAG !RW SOCK=0 ILVL>25]: %BORDER-9B%%DOT-0E%%SOUNDID-4719% %NAME% %PURPLE%[Obsession]{%GREEN%Hit 6 sockets for Good Obsession base%CL%%NAME%}
-ItemDisplay[(wst OR 8ws OR 6ws) (SK58>0 OR SK57>0) (SK50>0 OR SK60>0) !INF NMAG !RW SOCK=0]: %DOT-0B%%NAME% %SAGE%*%DARK_GREEN%* %GREEN%[Memory/CTA]{%GREEN%Roll 5 open sockets for CTA Base%CL%%GREEN%Roll 4 open sockets for Memory Base%CL%%NAME%}
-ItemDisplay[(wst OR 8ws OR 6ws) (SK58>0 OR SK57>0) (SK50>0 OR SK60>0) !INF NMAG !RW SOCK=5]: %NAME% %DOT-0B%%ORANGE%[CTA]{%NAME%}
+ItemDisplay[(wst OR 8ws OR 6ws) (SK58>0 OR SK57>0) (SK50>0 OR SK60>0) !INF NMAG !RW SOCK=0 FILTLVL<8]: %DOT-0B%%NAME% %SAGE%*%DARK_GREEN%* %GREEN%[Memory/CTA]{%GREEN%Roll 5 open sockets for CTA Base%CL%%GREEN%Roll 4 open sockets for Memory Base%CL%%NAME%}
+ItemDisplay[(wst OR 8ws OR 6ws) (SK58>0 OR SK57>0) (SK50>0 OR SK60>0) !INF NMAG !RW SOCK=5 FILTLVL<8]: %NAME% %DOT-0B%%ORANGE%[CTA]{%NAME%}
 ItemDisplay[STAFF SK57>2 SK63>2 !INF NMAG !RW SOCK=4]: %BORDER-9B%%DOT-0E%%SOUNDID-4719% %NAME% %PURPLE%[MEMORY]{%NAME%}
 ItemDisplay[STAFF !(sst OR 8ss OR 6ss OR lst OR 8ls) SK57>2 SK63>2 !INF NMAG !RW SOCK=0]: %BORDER-9B%%DOT-0E%%SOUNDID-4719% %NAME% %PURPLE%[MEMORY]{%GREEN%Roll 4 open sockets for Memory Base%CL%%NAME%}
 ItemDisplay[(wsp OR 9ws) !INF !ETH NMAG !RW (SOCK=5 OR SOCK=0) SK378>0 (SK118>2 OR SK102>2 OR SK114>2)]: %NAME% %DOT-0B%%ORANGE%[LLD]{%NAME%}
 ItemDisplay[(cst OR 8cs OR bst OR 8bs OR wst OR 8ws) SK46>2 (SK60>2 OR SK50>2) !INF !ETH NMAG !RW SOCK=0]: %NAME% %DOT-0B%%ORANGE%[LLD]{%PURPLE%Must roll 4 open sockets for LLD%CL%%NAME%}
-ItemDisplay[7ws SK102>2 NMAG !INF SOCK=4 !ETH !RW]: %NAME% %DOT-76%%DARK_GREEN%[HOJ]{%NAME%}
-ItemDisplay[7ws SK102>2 NMAG !INF SOCK=0 !ETH !RW]: %NAME% %DOT-76%%DARK_GREEN%[HOJ]{%GREEN%Must roll 4 open sockets for HOJ%CL%%NAME%}
-ItemDisplay[7xf !RW (SK275>0 OR SK252>0 OR SK263>0) ETH !INF SOCK=3 NMAG]: %NAME% %DOT-76%%DARK_GREEN%[Chaos]{%NAME%%CL%%PURPLE%Chaos base}
-ItemDisplay[7xf !RW (SK275>0 OR SK252>0 OR SK263>0) ETH !INF SOCK=0 NMAG]: %NAME% %DOT-76%%DARK_GREEN%[Chaos]{%NAME%%CL%%PURPLE%Larzuk for 3 sockets for Chaos base}
-ItemDisplay[!RW NMAG !INF (9cl OR 9sp OR 7cl OR 7sp) (SK229>2 OR SK234>2 OR SK244>2) (SOCK=0 OR SOCK=3)]: %NAME% %DOT-76%%DARK_GREEN%[Plague]{%NAME%%CL%%GREEN% Plague Base}
+ItemDisplay[7ws SK102>2 NMAG !INF SOCK=4 !ETH !RW FILTLVL<8]: %NAME% %DOT-76%%DARK_GREEN%[HOJ]{%NAME%}
+ItemDisplay[7ws SK102>2 NMAG !INF SOCK=0 !ETH !RW FILTLVL<8]: %NAME% %DOT-76%%DARK_GREEN%[HOJ]{%GREEN%Must roll 4 open sockets for HOJ%CL%%NAME%}
+ItemDisplay[7xf !RW (SK275>0 OR SK252>0 OR SK263>0) ETH !INF SOCK=3 NMAG FILTLVL<8]: %NAME% %DOT-76%%DARK_GREEN%[Chaos]{%NAME%%CL%%PURPLE%Chaos base}
+ItemDisplay[7xf !RW (SK275>0 OR SK252>0 OR SK263>0) ETH !INF SOCK=0 NMAG FILTLVL<8]: %NAME% %DOT-76%%DARK_GREEN%[Chaos]{%NAME%%CL%%PURPLE%Larzuk for 3 sockets for Chaos base}
+ItemDisplay[!RW NMAG !INF (9cl OR 9sp OR 7cl OR 7sp) (SK229>2 OR SK234>2 OR SK244>2) (SOCK=0 OR SOCK=3) FILTLVL<8]: %NAME% %DOT-76%%DARK_GREEN%[Plague]{%NAME%%CL%%GREEN% Plague Base}
 ItemDisplay[!RW SK222>2 NMAG (9cl OR 9sp OR 7cl OR 7sp) (SK226>0 OR SK224>0) (9cl OR 9sp OR 7cl OR 7sp) (SOCK=0 OR SOCK=3)]: %NAME% %DOT-76%%DARK_GREEN%[Plague]{%NAME%%CL%%GREEN% Plague Base}
-ItemDisplay[!RW NMAG !INF (wsp OR 9ws OR 7ws) SOCK=0 (SK118>2 OR SK99>2)]: %NAME% %DOT-76%%DARK_GREEN%[Merc]{%NAME%%CL%%GREEN% 3os for Plague Base%CL%%GREEN% 5os for Beast Base}
-ItemDisplay[!RW NMAG !INF SCEPTER !scp SOCK=0 (SK118>2 OR SK99>2)]: %NAME% %DOT-76%%DARK_GREEN%[Merc]{%NAME%%CL%%GREEN% 3os for Plague Base}
-ItemDisplay[!RW NMAG !INF SCEPTER SOCK=3 (SK118>2 OR SK99>2)]: %NAME% %DOT-76%%DARK_GREEN%[Plague]{%NAME%%CL%%GREEN% Plague Base}
-ItemDisplay[!RW NMAG !INF SCEPTER SOCK=5 (SK118>2 OR SK99>2)]: %NAME% %DOT-76%%DARK_GREEN%[Beast]{%NAME%%CL%%GREEN% Beast Base}
+ItemDisplay[!RW NMAG !INF (wsp OR 9ws OR 7ws) SOCK=0 (SK118>2 OR SK99>2) FILTLVL<8]: %NAME% %DOT-76%%DARK_GREEN%[Merc]{%NAME%%CL%%GREEN% 3os for Plague Base%CL%%GREEN% 5os for Beast Base}
+ItemDisplay[!RW NMAG !INF SCEPTER !scp SOCK=0 (SK118>2 OR SK99>2) FILTLVL<8]: %NAME% %DOT-76%%DARK_GREEN%[Merc]{%NAME%%CL%%GREEN% 3os for Plague Base}
+ItemDisplay[!RW NMAG !INF SCEPTER SOCK=3 (SK118>2 OR SK99>2) FILTLVL<8]: %NAME% %DOT-76%%DARK_GREEN%[Plague]{%NAME%%CL%%GREEN% Plague Base}
+ItemDisplay[!RW NMAG !INF SCEPTER SOCK=5 (SK118>2 OR SK99>2) FILTLVL<8]: %NAME% %DOT-76%%DARK_GREEN%[Beast]{%NAME%%CL%%GREEN% Beast Base}
 ItemDisplay[!RW SK222>2 (SK226>0 OR SK224>0) (9cl OR 9sp OR 7cl OR 7sp) SOCK=0 NMAG]: %NAME% %DOT-76%%DARK_GREEN%[Plague]{%NAME%%CL%%GREEN%3os for Plague Base}
 ItemDisplay[!RW SK222>2 (SK226>0 OR SK224>0) (9cl OR 9sp OR 7cl OR 7sp) SOCK=3 NMAG]: %NAME% %DOT-76%%DARK_GREEN%[Plague]{%NAME%%CL%%GREEN%Plague base}
 ItemDisplay[(7kr OR 9kr OR kri) (SOCK=0 OR SOCK=3) !ETH NMAG SK73>2 FILTLVL<8]: %NAME%{%NAME%}
@@ -5083,25 +5083,25 @@ ItemDisplay[WAND !(wnd OR ywn OR 9wn) (SK94>2 OR SK85>2) !SOCK=1 NMAG !RW FILTLV
 ItemDisplay[WAND !(wnd OR ywn OR 9wn) SK91>2 (SK68>0 OR SK95>0 OR SK367>2) !SOCK=1 NMAG !RW]: %DOT-7D%%NAME% %SAGE%* %ORANGE%[Dominion]{%NAME%%NL%%GREEN%Dominion Base}
 ItemDisplay[WAND !(wnd OR ywn OR 9wn) SK91>0 SK68>0 (SK95>0 OR SK367>2) !SOCK=1 NMAG !RW FILTLVL<8]: %NAME%{%NAME%%NL%%GREEN%Dominion Base}
 ItemDisplay[WAND !(wnd OR ywn OR 9wn) SK91>0 SK95>0 SK367>2 !SOCK=1 NMAG !RW FILTLVL<8]: %NAME%{%NAME%%NL%%GREEN%Dominion Base}
-ItemDisplay[(6ls OR 6cs OR 6bs OR 6ws) (SK48>2 OR SK38>2 OR SK53>2) NMAG !RW SOCK=4]: %NAME% %DOT-0B%%ORANGE%[Infinity]%TIER-4%{%NAME%%CL%%GREEN%Good Infinity base}
-ItemDisplay[(6ls OR 6cs OR 6bs OR 6ws) (SK48>2 OR SK38>2 OR SK53>2) NMAG !RW SOCK=0]: %NAME% %DOT-0B%%ORANGE%[Infinity]%TIER-4%{%GREEN%Hit 4 sockets for Infinity base%CL%%NAME%}
+ItemDisplay[(6ls OR 6cs OR 6bs OR 6ws) (SK48>2 OR SK38>2 OR SK53>2) NMAG !RW SOCK=4 FILTLVL<8]: %NAME% %DOT-0B%%ORANGE%[Infinity]%TIER-4%{%NAME%%CL%%GREEN%Good Infinity base}
+ItemDisplay[(6ls OR 6cs OR 6bs OR 6ws) (SK48>2 OR SK38>2 OR SK53>2) NMAG !RW SOCK=0 FILTLVL<8]: %NAME% %DOT-0B%%ORANGE%[Infinity]%TIER-4%{%GREEN%Hit 4 sockets for Infinity base%CL%%NAME%}
 ItemDisplay[6ws (SK59>2 OR SK39>2) (SK65>2 OR SK46>0) NMAG !RW SOCK=6 ILVL>25]: %NAME% %DOT-0B%%ORANGE%[Obsession]{%NAME%%CL%%GREEN%Good Obsession base}
 ItemDisplay[6ws (SK59>2 OR SK39>2) (SK65>2 OR SK46>0) NMAG !RW SOCK=0 ILVL>25]: %NAME% %DOT-0B%%ORANGE%[Obsession]{%GREEN%Hit 6 sockets for Good Obsession base%CL%%NAME%}
-ItemDisplay[6ws SK59>2 SK39>2 NMAG !RW SOCK=6 ILVL>25]: %NAME% %DOT-0B%%ORANGE%[Obsession]{%NAME%%CL%%GREEN%Good Obsession base}
-ItemDisplay[6ws SK59>2 SK39>2 NMAG !RW SOCK=0 ILVL>25]: %NAME% %DOT-0B%%ORANGE%[Obsession]{%GREEN%Hit 6 sockets for Good Obsession base%CL%%NAME%}
+ItemDisplay[6ws SK59>2 SK39>2 NMAG !RW SOCK=6 ILVL>25 FILTLVL<8]: %DOT-7D%%NAME% %SAGE%* %ORANGE%[Obsession]{%NAME%%CL%%GREEN%Good Obsession base}
+ItemDisplay[6ws SK59>2 SK39>2 NMAG !RW SOCK=0 ILVL>25 FILTLVL<8]: %DOT-7D%%NAME% %SAGE%* %ORANGE%[Obsession]{%GREEN%Hit 6 sockets for Good Obsession base%CL%%NAME%}
 ItemDisplay[6ws (SK56>2 OR SK62>2) (SK61>2 OR SK60>0) NMAG !RW SOCK=6 ILVL>25]: %NAME% %DOT-0B%%ORANGE%[Obsession]{%NAME%%CL%%GREEN%Good Obsession base}
 ItemDisplay[6ws (SK56>2 OR SK62>2) (SK61>2 OR SK60>0) NMAG !RW SOCK=0 ILVL>25]: %NAME% %DOT-0B%%ORANGE%[Obsession]{%GREEN%Hit 6 sockets for Good Obsession base%CL%%NAME%}
-ItemDisplay[(wst OR 8ws OR 6ws) (SK58>0 OR SK50>0 OR SK60>0) !INF NMAG !RW SOCK=0]: %DOT-0B%%NAME% %SAGE%*%DARK_GREEN%* %GREEN%[Memory/CTA]{%GREEN%Roll 5 open sockets for CTA Base%CL%%GREEN%Roll 4 open sockets for Memory Base%CL%%NAME%}
-ItemDisplay[(wst OR 8ws OR 6ws) (SK58>0 OR SK50>0 OR SK60>0) !INF NMAG !RW SOCK=5]: %NAME% %DOT-0B%%ORANGE%[CTA]{%NAME%}
+ItemDisplay[(wst OR 8ws OR 6ws) (SK58>0 OR SK50>0 OR SK60>0) !INF NMAG !RW SOCK=0 FILTLVL<8]: %DOT-0B%%NAME% %SAGE%*%DARK_GREEN%* %GREEN%[Memory/CTA]{%GREEN%Roll 5 open sockets for CTA Base%CL%%GREEN%Roll 4 open sockets for Memory Base%CL%%NAME%}
+ItemDisplay[(wst OR 8ws OR 6ws) (SK58>0 OR SK50>0 OR SK60>0) !INF NMAG !RW SOCK=5 FILTLVL<8]: %NAME% %DOT-0B%%ORANGE%[CTA]{%NAME%}
 ItemDisplay[STAFF SK58>2 (SK50>0 OR SK60>0) SK57>0 !INF NMAG !RW SOCK=4]: %NAME% %DOT-0B%%ORANGE%[MEMORY]{%NAME%}
 ItemDisplay[(6ls OR 6cs OR 6bs OR 6ws) (SK47>2 OR SK376>2 OR SK61>2) NMAG !RW !SOCK=1 FILTLVL<8]: %NAME%{%NAME%}
 ItemDisplay[(6ls OR 6cs OR 6bs OR 6ws) (SK44>2 OR SK64>2 OR SK65>2) NMAG !RW (SOCK=0 OR SOCK=5) FILTLVL<8]: %NAME%{%NAME%}
-ItemDisplay[(cst OR bst OR 8cs OR 8bs OR 6cs OR 6bs OR wst OR 8ws OR 6ws) SK58>2 NMAG !RW (SOCK=0 OR SOCK=4 OR SOCK=5)]: %DOT-0B%%NAME% %SAGE%*%DARK_GREEN%* %GREEN%[Memory/CTA]{%NAME%}
+ItemDisplay[(cst OR bst OR 8cs OR 8bs OR 6cs OR 6bs OR wst OR 8ws OR 6ws) SK58>2 NMAG !RW (SOCK=0 OR SOCK=4 OR SOCK=5) FILTLVL<8]: %DOT-0B%%NAME% %SAGE%*%DARK_GREEN%* %GREEN%[Memory/CTA]{%NAME%}
 ItemDisplay[SIN !(ktr OR wrb OR axf OR ces) SK278>2 (SK258>2 OR SK267>2 OR SK277>2) !INF NMAG !RW (SOCK=0 OR SOCK=3)]: %DOT-7D%%NAME% %SAGE%* %ORANGE%[Venom]{%NAME%%CL%%GREEN%Venom Pre-buff}
-ItemDisplay[SIN !(ktr OR wrb OR axf OR ces) SK278>2 (SK258>0 OR SK267>0 OR SK277>0) !INF NMAG !RW (SOCK=0 OR SOCK=3)]: %DOT-7D%%NAME% %SAGE%* %ORANGE%[Venom]{%NAME%%CL%%GREEN%Venom Pre-buff}
-ItemDisplay[SIN !(ktr OR wrb OR axf OR ces) SK278>2 !INF NMAG !RW (SOCK=0 OR SOCK=3)]: %DOT-7D%%NAME% %SAGE%* %ORANGE%[Venom]{%NAME%%CL%%GREEN%Venom Pre-buff}
+ItemDisplay[SIN !(ktr OR wrb OR axf OR ces) SK278>2 (SK258>0 OR SK267>0 OR SK277>0) !INF NMAG !RW (SOCK=0 OR SOCK=3) FILTLVL<8]: %DOT-7D%%NAME% %SAGE%* %ORANGE%[Venom]{%NAME%%CL%%GREEN%Venom Pre-buff}
+ItemDisplay[SIN !(ktr OR wrb OR axf OR ces) SK278>2 !INF NMAG !RW (SOCK=0 OR SOCK=3) FILTLVL<8]: %DOT-7D%%NAME% %SAGE%* %ORANGE%[Venom]{%NAME%%CL%%GREEN%Venom Pre-buff}
 ItemDisplay[(9tw OR btl OR 7tw) SK252>2 SK263>2 !INF NMAG !RW (SOCK=0 OR SOCK=3)]: %DOT-7D%%NAME% %SAGE%* %ORANGE%[Venom]{%NAME%%CL%%GREEN%Venom RW}
-ItemDisplay[(9tw OR btl OR 7tw) (SK252>2 OR SK263>2) !INF NMAG !RW (SOCK=0 OR SOCK=3)]: %DOT-7D%%NAME% %SAGE%* %ORANGE%[Venom]{%NAME%%CL%%GREEN%Venom RW}
+ItemDisplay[(9tw OR btl OR 7tw) (SK252>2 OR SK263>2) !INF NMAG !RW (SOCK=0 OR SOCK=3) FILTLVL<8]: %DOT-7D%%NAME% %SAGE%* %ORANGE%[Venom]{%NAME%%CL%%GREEN%Venom RW}
 ItemDisplay[(9tw OR btl OR 7tw) SK257>2 SK263>2 SK275>2 !INF NMAG !RW (SOCK=0 OR SOCK=3)]: %DOT-7D%%NAME% %SAGE%* %ORANGE%[Venom]{%NAME%%CL%%GREEN%Venom RW}
 ItemDisplay[(9tw OR btl OR 7tw) SK257>2 (SK252>2 OR SK263>2 OR SK275>2) !INF NMAG !RW (SOCK=0 OR SOCK=3)]: %DOT-7D%%NAME% %SAGE%* %ORANGE%[Venom]{%NAME%%CL%%GREEN%Venom RW}
 ItemDisplay[SIN !(ktr OR wrb OR axf OR ces) (SK262>2 OR SK271>2 OR SK276>2 OR SK366>2) !INF (SOCK=0 OR SOCK=3) !RW NMAG FILTLVL<8]: %NAME%{%NAME%}
@@ -5109,27 +5109,27 @@ ItemDisplay[9tw (SK259>2 OR SK262>2 OR SK271>2 OR SK274>2 OR SK269>2 OR SK366>2 
 ItemDisplay[7xf ETH SK257>2 SK252>2 SK263>2 !INF NMAG !RW (SOCK=0 OR SOCK=3) FILTLVL<8]: %NAME%{%NAME%}
 ItemDisplay[7xf ETH SK257>2 (SK252>2 OR SK263>2) !INF NMAG !RW (SOCK=0 OR SOCK=3) FILTLVL<8]: %NAME%{%NAME%}
 ItemDisplay[(amc OR amb) NMAG EDAM>0 !RW TABSK0>2 (SOCK=0 OR SOCK=4 OR SOCK=3 OR SOCK=5) FILTLVL<8]: %NAME%{%NAME%}
-ItemDisplay[(cst OR 8cs OR bst OR 8bs OR wst OR 8ws) (SK46>2 OR SK60>2 OR SK50>2) !INF !ETH NMAG !RW SOCK=4]: %NAME% [LLD]{%GREEN%LLD Insight Base%CL%%NAME%}
-ItemDisplay[(8cs OR 8bs OR wst OR 8ws) (SK46>2 OR SK60>2 OR SK50>2) !INF !ETH NMAG !RW SOCK=0]: %NAME% [LLD]{%GREEN%Must roll 4 open sockets for LLD%CL%%NAME%}
-ItemDisplay[(wsp OR 9ws OR 7ws) SK119>2 NMAG !INF (SOCK=0 OR SOCK=5) !RW]: %NAME% %DOT-76%%DARK_GREEN%[CTA]{%NAME%}
+ItemDisplay[(cst OR 8cs OR bst OR 8bs OR wst OR 8ws) (SK46>2 OR SK60>2 OR SK50>2) !INF !ETH NMAG !RW SOCK=4 FILTLVL<8]: %NAME% [LLD]{%GREEN%LLD Insight Base%CL%%NAME%}
+ItemDisplay[(8cs OR 8bs OR wst OR 8ws) (SK46>2 OR SK60>2 OR SK50>2) !INF !ETH NMAG !RW SOCK=0 FILTLVL<8]: %NAME% [LLD]{%GREEN%Must roll 4 open sockets for LLD%CL%%NAME%}
+ItemDisplay[(wsp OR 9ws OR 7ws) SK119>2 NMAG !INF (SOCK=0 OR SOCK=5) !RW FILTLVL<8]: %NAME% %DOT-76%%DARK_GREEN%[CTA]{%NAME%}
 ItemDisplay[(7ar OR 7tw OR 7qr OR 9tw) (SK275>0 OR SK252>0) ETH !INF (SOCK=0 OR SOCK=3) NMAG FILTLVL<8]: %NAME%{%NAME%}
 ItemDisplay[(7ar OR 7tw OR 7qr OR 9tw) (SK275>0 OR SK252>0) ETH (SOCK=0 OR SOCK=3) SUP NMAG FILTLVL<8]: %NAME%{%NAME%}
-ItemDisplay[!RW NMAG !INF SCEPTER !scp (SK101>2 OR SK112>2 OR SK121>2) (SOCK=0 OR SOCK=3)]: %NAME% %DOT-76%%DARK_GREEN%[Plague]{%NAME%%CL%%GREEN% Plague Base}
+ItemDisplay[!RW NMAG !INF SCEPTER !scp (SK101>2 OR SK112>2 OR SK121>2) (SOCK=0 OR SOCK=3) FILTLVL<8]: %NAME% %DOT-76%%DARK_GREEN%[Plague]{%NAME%%CL%%GREEN% Plague Base}
 ItemDisplay[(ob5 OR oba OR obf) (SK40>2 OR SK52>2) !INF (SOCK=0 OR SOCK=3) NMAG FILTLVL<8]: %NAME%{%NAME%}
 ItemDisplay[(amc OR amb) NMAG !INF !RW TABSK0>2 (SOCK=0 OR SOCK=4) FILTLVL<8]: %NAME%{%NAME%}
 ItemDisplay[(amc OR amb) NMAG !INF !RW TABSK0>2 (SOCK=3 OR SOCK=5) FILTLVL<8]: %NAME%{%NAME%}
 ItemDisplay[WAND !(wnd OR ywn OR 9wn) SK91>0 (SK68>0 OR SK367>2 OR SK95>0) !SOCK=1 NMAG !RW FILTLVL<8]: %NAME%{%NAME%%NL%%GREEN%Dominion Base}
 ItemDisplay[WAND !(wnd OR ywn OR 9wn) SK95>0 (SK68>0 OR SK367>2) !SOCK=1 NMAG !RW FILTLVL<8]: %NAME%{%NAME%%NL%%GREEN%Dominion Base}
 ItemDisplay[WAND !(wnd OR ywn OR 9wn) SK68>0 SK367>2 !SOCK=1 NMAG !RW FILTLVL<8]: %NAME%{%NAME%%NL%%GREEN%Dominion Base}
-ItemDisplay[6ws (SK59>2 OR SK39>2) NMAG !RW SOCK=6 ILVL>25]: %NAME% %DOT-0B%%ORANGE%[Obsession]{%NAME%%CL%%GREEN%Obsession base}
-ItemDisplay[6ws (SK59>2 OR SK39>2) NMAG !RW SOCK=0 ILVL>25]: %NAME% %DOT-0B%%ORANGE%[Obsession]{%GREEN%Hit 6 sockets for Obsession base%CL%%NAME%}
-ItemDisplay[6ws (SK56>2 OR SK62>2 OR SK39>2 OR SK59>2 OR SK53>2 OR SK38>2) NMAG !RW SOCK=6 ILVL>25]: %NAME% %DOT-0B%%ORANGE%[Obsession]{%NAME%%CL%%GREEN%Obsession base}
-ItemDisplay[6ws (SK56>2 OR SK62>2 OR SK39>2 OR SK59>2 OR SK53>2 OR SK38>2) NMAG !RW SOCK=0 ILVL>25]: %NAME% %DOT-0B%%ORANGE%[Obsession]{%GREEN%Hit 6 sockets for Obsession base%CL%%NAME%}
-ItemDisplay[STAFF SK58>0 (SK50>0 OR SK60>0) !INF NMAG !RW SOCK=4]: %NAME% %DOT-0B%%ORANGE%[MEMORY]{%NAME%}
-ItemDisplay[STAFF SK57>0 (SK50>0 OR SK60>0 OR SK63>2) !INF NMAG !RW SOCK=4]: %NAME% %DOT-0B%%ORANGE%[MEMORY]{%NAME%}
-ItemDisplay[STAFF SK57>2 !INF NMAG !RW SOCK=4]: %NAME% %DOT-0B%%ORANGE%[MEMORY]{%NAME%}
-ItemDisplay[(cst OR bst OR 8cs OR 8bs OR 6cs OR 6bs OR wst OR 8ws OR 6ws) SK50>0 SK58>0 NMAG !RW (SOCK=0 OR SOCK=4 OR SOCK=5)]: %DOT-0B%%NAME% %SAGE%*%DARK_GREEN%* %GREEN%[Memory/CTA]{%NAME%}
-ItemDisplay[(9tw OR btl OR 7tw) SK252>0 SK263>0 !INF NMAG !RW (SOCK=0 OR SOCK=3)]: %DOT-7D%%NAME% %SAGE%* %ORANGE%[Venom]{%NAME%%CL%%GREEN%Venom RW}
+ItemDisplay[6ws (SK59>2 OR SK39>2) NMAG !RW SOCK=6 ILVL>25 FILTLVL<8]: %NAME% %DOT-0B%%ORANGE%[Obsession]{%NAME%%CL%%GREEN%Obsession base}
+ItemDisplay[6ws (SK59>2 OR SK39>2) NMAG !RW SOCK=0 ILVL>25 FILTLVL<8]: %NAME% %DOT-0B%%ORANGE%[Obsession]{%GREEN%Hit 6 sockets for Obsession base%CL%%NAME%}
+ItemDisplay[6ws (SK56>2 OR SK62>2 OR SK39>2 OR SK59>2 OR SK53>2 OR SK38>2) NMAG !RW SOCK=6 ILVL>25 FILTLVL<8]: %NAME% %DOT-0B%%ORANGE%[Obsession]{%NAME%%CL%%GREEN%Obsession base}
+ItemDisplay[6ws (SK56>2 OR SK62>2 OR SK39>2 OR SK59>2 OR SK53>2 OR SK38>2) NMAG !RW SOCK=0 ILVL>25 FILTLVL<8]: %NAME% %DOT-0B%%ORANGE%[Obsession]{%GREEN%Hit 6 sockets for Obsession base%CL%%NAME%}
+ItemDisplay[STAFF SK58>0 (SK50>0 OR SK60>0) !INF NMAG !RW SOCK=4 FILTLVL<8]: %NAME% %DOT-0B%%ORANGE%[MEMORY]{%NAME%}
+ItemDisplay[STAFF SK57>0 (SK50>0 OR SK60>0 OR SK63>2) !INF NMAG !RW SOCK=4 FILTLVL<8]: %NAME% %DOT-0B%%ORANGE%[MEMORY]{%NAME%}
+ItemDisplay[STAFF SK57>2 !INF NMAG !RW SOCK=4 FILTLVL<8]: %NAME% %DOT-0B%%ORANGE%[MEMORY]{%NAME%}
+ItemDisplay[(cst OR bst OR 8cs OR 8bs OR 6cs OR 6bs OR wst OR 8ws OR 6ws) SK50>0 SK58>0 NMAG !RW (SOCK=0 OR SOCK=4 OR SOCK=5) FILTLVL<8]: %DOT-0B%%NAME% %SAGE%*%DARK_GREEN%* %GREEN%[Memory/CTA]{%NAME%}
+ItemDisplay[(9tw OR btl OR 7tw) SK252>0 SK263>0 !INF NMAG !RW (SOCK=0 OR SOCK=3) FILTLVL<8]: %DOT-7D%%NAME% %SAGE%* %ORANGE%[Venom]{%NAME%%CL%%GREEN%Venom RW}
 ItemDisplay[(9tw OR btl OR 7tw) SK257>2 SK263>0 SK275>0 !INF NMAG !RW (SOCK=0 OR SOCK=3)]: %DOT-7D%%NAME% %SAGE%* %ORANGE%[Venom]{%NAME%%CL%%GREEN%Venom RW}
 ItemDisplay[(9tw OR btl OR 7tw) (SK259>2 OR SK262>2 OR SK271>2 OR SK274>2 OR SK269>2 OR SK366>2 OR SK280>2) !INF NMAG !RW (SOCK=0 OR SOCK=3) FILTLVL<8]: %NAME%{%NAME%}
 ItemDisplay[WAND !(wnd OR ywn OR 9wn) (SK67>2 OR SK74>2 OR SK84>2 OR SK83>2 OR SK92>2) !INF NMAG !RW !SOCK=1 FILTLVL<8]: %NAME%{%NAME%}
