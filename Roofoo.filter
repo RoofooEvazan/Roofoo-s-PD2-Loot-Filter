@@ -18,6 +18,7 @@ ItemDisplayFilterName[]: Strict Filter
 ItemDisplayFilterName[]: Strict Filter - w/o Potions
 ItemDisplayFilterName[]: Max-Strictness Filter - Ultra Strict End Game
 ItemDisplayFilterName[]: Max-Strictness Filter - No Large Charms
+ItemDisplayFilterName[]: Crafting Bases
 
 //=================== HOLY GRAIL ===================
 // Made in PD2 Filter Forge (Season 14): tags uniques and sets you haven't found yet, and hides the ones you have. Does nothing on older game versions.
@@ -50,6 +51,7 @@ ItemDisplay[box FILTLVL=6]: %NAME%{%NAME%%NL%FL6 - %ORANGE%Strict Filter}%CONTIN
 ItemDisplay[box FILTLVL=7]: %NAME%{%NAME%%NL%FL7 - %ORANGE%Strict Filter %WHITE%- %RED%w/o Potions}%CONTINUE%
 ItemDisplay[box FILTLVL=8]: %NAME%{%NAME%%NL%FL8 - %RED%Max Strict}%CONTINUE%
 ItemDisplay[box FILTLVL=9]: %NAME%{%NAME%%NL%FL9 - %RED%No Large Charms}%CONTINUE%
+ItemDisplay[box FILTLVL=10]: %NAME%{%NAME%%NL%FL10 - %RED%Crafting Bases}%CONTINUE%
 
 // ===============================
 // FILTER LEVEL 8/9 STRICT HIDES
@@ -60,17 +62,19 @@ ItemDisplay[box FILTLVL=9]: %NAME%{%NAME%%NL%FL9 - %RED%No Large Charms}%CONTINU
 //  - Town/shop keeps unid gear visible so I can browse and compare.
 //  - Outside town, unid items use the strict hide/show lists below.
 //  - Filter level 9 also hides magic Large Charms at every item level.
+//  - Filter level 10 (Crafting Bases) is filter level 8 plus every magic weapon and armor.
 //  - Show rules continue into the normal formatting sections.
 //  - Hide rules blank the item name.
 // Each strict rule stays on one line for parser safety.
 
 // FL8/9 guard aliases
 Alias[FL8_ACTIVE]: (FILTLVL>7)
-Alias[FL8_EXEMPT]: (UNI OR SET OR RW OR NMAG_SKILL_WEAPON)
+Alias[FL8_EXEMPT]: (UNI OR SET OR RW OR NMAG_SKILL_WEAPON OR FL10_CRAFT_BASE)
+Alias[FL10_CRAFT_BASE]: (FILTLVL=10 MAG (WEAPON OR ARMOR))
 Alias[FL8_INTOWN]: (TOWN OR SHOP OR INVENTORY OR CUBE OR STASH OR EQUIPPED)
 Alias[FL8_OUTSIDE]: (!TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED)
 Alias[FL8_MARKER_OK]: (FILTLVL<8 OR TOWN OR SHOP OR INVENTORY OR CUBE OR STASH OR EQUIPPED)
-Alias[FL9_MARKER_OK]: (FILTLVL<9 OR TOWN OR SHOP OR INVENTORY OR CUBE OR STASH OR EQUIPPED)
+Alias[FL9_MARKER_OK]: (FILTLVL<9 OR FILTLVL=10 OR TOWN OR SHOP OR INVENTORY OR CUBE OR STASH OR EQUIPPED)
 Alias[FL8_UNID]: (!ID)
 Alias[FL8_ID_MR]: (ID (MAG OR RARE))
 
@@ -208,7 +212,7 @@ ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (lbl OR vbl OR mbl OR tbl OR hbl OR 
 // Barbarian Helms: show selected non-eth magic and rare bases; hide the rest
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (ba4 OR ba5 OR ba9 OR baa OR bae OR baf) MAG !ETH]: %BLUE%%NAME%
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (ba4 OR ba5 OR ba9 OR baa OR bae OR baf) RARE !ETH]: %YELLOW%%NAME%
-ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (ba1 OR ba2 OR ba3 OR ba6 OR ba7 OR ba8 OR bab OR bac OR bad) (MAG OR RARE) !ETH]:
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (ba1 OR ba2 OR ba3 OR ba6 OR ba7 OR ba8 OR bab OR bac OR bad) (MAG OR RARE) !ETH !FL10_CRAFT_BASE]:
 
 // Druid Pelts (MAG/RARE): hide all
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (dr1 OR dr2 OR dr3 OR dr4 OR dr5 OR dr6 OR dr7 OR dr8 OR dr9 OR dra OR drb OR drc OR drd OR dre OR drf) (MAG OR RARE) !FL8_EXEMPT]:
@@ -2187,7 +2191,7 @@ ItemDisplay[(cm1 OR cm2 OR cm3) MAG !ID (ILVL<90) (FILTLVL>7)]: {%NAME%}
 
 // 2) Filter level 8+: special display for ilvl 90+ unid magic GCs
 ItemDisplay[(cm1) MAG !ID (ILVL>89) (FILTLVL>7)]: %DOT-9B%%BLUE%*%BLUE%*%BLUE%*    %TEAL%Small Charm   %BLUE%*%BLUE%*%BLUE%*
-ItemDisplay[(cm2) MAG !ID (ILVL>89) (FILTLVL=8)]: %BLUE%*%BLUE%*%BLUE%*    %TEAL%Large Charm    %BLUE%*%BLUE%*%BLUE%*
+ItemDisplay[(cm2) MAG !ID (ILVL>89) (FILTLVL=8 OR FILTLVL=10)]: %BLUE%*%BLUE%*%BLUE%*    %TEAL%Large Charm    %BLUE%*%BLUE%*%BLUE%*
 ItemDisplay[(cm3) MAG !ID (ILVL>89) (FILTLVL>7)]: %DOT-9B%%BLUE%*%BLUE%*%BLUE%*    %TEAL%Grand Charm    %BLUE%*%BLUE%*%BLUE%*
 
 // Filter levels below 8: show sub-90 unid magic GCs with a basic name
@@ -2487,7 +2491,7 @@ ItemDisplay[(rin OR amu) MAG !ID FILTLVL>7]: {%NAME%}
 
 // Circlet fallback displays
 ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) (CIRC MAG !ID FILTLVL>7)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
-ItemDisplay[CIRC MAG !ID FILTLVL>7]: {%NAME%}
+ItemDisplay[CIRC MAG !ID FILTLVL>7 !FL10_CRAFT_BASE]: {%NAME%}
 ItemDisplay[CIRC (MAG OR RARE) !ID]: %NAME%
 
 // Rare glove, belt, and boot fallback displays
@@ -6184,6 +6188,8 @@ ItemDisplay[(aqv2 OR cqv2) NMAG !INF !SOCK=2 ((CLVL<41 AND DIFF<1) FILTLVL<6)]: 
 ItemDisplay[(aqv2 OR cqv2) NMAG !INF SOCK=2 ((CLVL<61 AND DIFF<2) FILTLVL<6)]: %NAME%{%NAME%}
 ItemDisplay[(aqv3 OR cqv3) NMAG !INF SOCK=1 ((CLVL<61 AND DIFF<2) FILTLVL<6)]: %NAME%{%NAME%}
 ItemDisplay[(aqv3 OR cqv3) NMAG !INF !SOCK=1 (CLVL<61 FILTLVL<6)]: %NAME%{%NAME%}
+// FL10 Crafting Bases: every magic weapon and armor shows
+ItemDisplay[FL10_CRAFT_BASE]: %NAME%{%NAME%}
 ItemDisplay[(ARMOR OR WEAPON OR QUIVER) TOWN FILTLVL>0]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%}
 ItemDisplay[(ARMOR OR WEAPON OR QUIVER) !TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED FILTLVL>0 !(uit SOCK=4 NMAG !RW FILTLVL<7) !(msf OR hst OR hfh OR qf1 OR qf2 OR vip OR g33 OR d33 OR hdm OR leg OR box OR tr1 OR ice OR std OR bks OR bkd OR j34 OR g34 OR bbb OR mss OR ass OR qey OR qhr OR qbr OR tr2 OR xyz)]: {%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%}
 ItemDisplay[(ARMOR OR WEAPON OR QUIVER) !TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED INF FILTLVL>0]: {%NAME%}
