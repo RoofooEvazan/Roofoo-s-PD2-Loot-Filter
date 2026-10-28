@@ -18,7 +18,7 @@ ItemDisplayFilterName[]: Strict Filter
 ItemDisplayFilterName[]: Strict Filter - w/o Potions
 ItemDisplayFilterName[]: Max-Strictness Filter - Ultra Strict End Game
 ItemDisplayFilterName[]: Max-Strictness Filter - No Large Charms
-ItemDisplayFilterName[]: Crafting Bases
+ItemDisplayFilterName[]: Endgame - Crafting Bases Inc
 
 // Mystery drops play their own sound, before the grail tag's (the first rule with a sound decides it)
 ItemDisplay[BASTARD_LUCKY_UNIQUE BASTARD_OUTSIDE_TOWN]: %NAME%%DOT-0D%%MAP-21%%SOUNDID-418%%CONTINUE%
@@ -57,7 +57,7 @@ ItemDisplay[box FILTLVL=6]: %NAME%{%NAME%%NL%FL6 - %ORANGE%Strict Filter}%CONTIN
 ItemDisplay[box FILTLVL=7]: %NAME%{%NAME%%NL%FL7 - %ORANGE%Strict Filter %WHITE%- %RED%w/o Potions}%CONTINUE%
 ItemDisplay[box FILTLVL=8]: %NAME%{%NAME%%NL%FL8 - %RED%Max Strict}%CONTINUE%
 ItemDisplay[box FILTLVL=9]: %NAME%{%NAME%%NL%FL9 - %RED%No Large Charms}%CONTINUE%
-ItemDisplay[box FILTLVL=10]: %NAME%{%NAME%%NL%FL10 - %RED%Crafting Bases}%CONTINUE%
+ItemDisplay[box FILTLVL=10]: %NAME%{%NAME%%NL%FL10 - %RED%Endgame - Crafting Bases Inc}%CONTINUE%
 
 // ===============================
 // LITTLE/BIG BASTARD MYSTERY DROPS
@@ -96,7 +96,7 @@ ItemDisplay[UNI !ID ETH BASTARD_3_STAR_ETH_UNIQUE BASTARD_OUTSIDE_TOWN]: %DOT-0D
 //  - Town/shop keeps unid gear visible so I can browse and compare.
 //  - Outside town, unid items use the strict hide/show lists below.
 //  - Filter level 9 also hides magic Large Charms at every item level.
-//  - Filter level 10 (Crafting Bases) is filter level 8 plus every magic weapon and armor.
+//  - Filter level 10 (Endgame - Crafting Bases Inc) is filter level 8 plus every magic weapon and armor.
 //  - Show rules continue into the normal formatting sections.
 //  - Hide rules blank the item name.
 // Each strict rule stays on one line for parser safety.
@@ -5971,7 +5971,7 @@ ItemDisplay[(aqv2 OR cqv2) NMAG !INF !SOCK=2 ((CLVL<41 AND DIFF<1) FILTLVL<6)]: 
 ItemDisplay[(aqv2 OR cqv2) NMAG !INF SOCK=2 ((CLVL<61 AND DIFF<2) FILTLVL<6)]: %NAME%{%NAME%}
 ItemDisplay[(aqv3 OR cqv3) NMAG !INF SOCK=1 ((CLVL<61 AND DIFF<2) FILTLVL<6)]: %NAME%{%NAME%}
 ItemDisplay[(aqv3 OR cqv3) NMAG !INF !SOCK=1 (CLVL<61 FILTLVL<6)]: %NAME%{%NAME%}
-// FL10 Crafting Bases: every magic weapon and armor shows
+// FL10 Endgame - Crafting Bases Inc: every magic weapon and armor shows
 ItemDisplay[FL10_CRAFT_BASE]: %NAME%{%NAME%}
 ItemDisplay[(ARMOR OR WEAPON OR QUIVER) TOWN FILTLVL>0]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%}
 ItemDisplay[(ARMOR OR WEAPON OR QUIVER) !TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED FILTLVL>0 !(uit SOCK=4 NMAG !RW FILTLVL<7) !(msf OR hst OR hfh OR qf1 OR qf2 OR vip OR g33 OR d33 OR hdm OR leg OR box OR tr1 OR ice OR std OR bks OR bkd OR j34 OR g34 OR bbb OR mss OR ass OR qey OR qhr OR qbr OR tr2 OR xyz)]: {%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%}
