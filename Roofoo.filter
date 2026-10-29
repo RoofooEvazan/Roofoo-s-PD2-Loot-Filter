@@ -2185,8 +2185,8 @@ ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109) ((GEM<4 
 ItemDisplay[(GEM<4 OR (gzv OR gzvs OR gly OR glys OR glb OR glbs OR glg OR glgs OR glw OR glws)) FILTLVL>7]: {%NAME%}%CONTINUE%
 
 // Rune appearance
-ItemDisplay[RUNE<18]: %ORANGE%%RUNENAME% %GRAY%[%TAN%%RUNENUM%%GRAY%]{%NAME%}%CONTINUE%
-ItemDisplay[RUNE~18-19]: %ORANGE%%RUNENAME% Rune %GRAY%[%TAN%%RUNENUM%%GRAY%]{%NAME%}%CONTINUE%
+ItemDisplay[(RUNE<18 OR r19 OR r19s)]: %ORANGE%%RUNENAME% %GRAY%[%TAN%%RUNENUM%%GRAY%]{%NAME%}%CONTINUE%
+ItemDisplay[(r18 OR r18s)]: %ORANGE%%RUNENAME% Rune %GRAY%[%TAN%%RUNENUM%%GRAY%]{%NAME%}%CONTINUE%
 ItemDisplay[RUNE~20-25]: %ORANGE%%RUNENAME% Rune %GRAY%[%RED%%RUNENUM%%GRAY%]{%NAME%}%CONTINUE%
 ItemDisplay[RUNE>25]: %ORANGE%%RUNENAME% Rune %GRAY%[%GREEN%%RUNENUM%%GRAY%]{%NAME%}%CONTINUE%
 
@@ -5914,11 +5914,11 @@ ItemDisplay[pk3]: %DOT-9D%%ORANGE%%NAME%%ORANGE%{%TAN%Key %WHITE%from: %PURPLE%N
 ItemDisplay[(mbr OR bey OR dhn)]: %PX-9D%%NAME%{%WHITE%to get %RED%Pandemonium Talisman%NL%%TAN%Note%WHITE%: Cube %ORANGE%One of each %WHITE%of the three Organs}
 
 // Rune pings and notifications
-ItemDisplay[(RUNE<18)]: %PX-62%%TIER-3%%NAME%{%NAME%}%CONTINUE%
-ItemDisplay[(RUNE<18) (CLVL<80 AND FILTLVL<6)]: %PX-62%%NAME%{%NAME%}%CONTINUE%
+ItemDisplay[(RUNE<18 OR r19 OR r19s)]: %PX-62%%TIER-3%%NAME%{%NAME%}%CONTINUE%
+ItemDisplay[(RUNE<18 OR r19 OR r19s) (CLVL<80 AND FILTLVL<6)]: %PX-62%%NAME%{%NAME%}%CONTINUE%
 ItemDisplay[(r11 OR r11s)]: %PX-68%%TIER-7%%NAME%{%NAME%}%CONTINUE%
-ItemDisplay[(r03 OR r03s OR r08 OR r08s OR r09 OR r09s OR r12 OR r12s OR r15 OR r15s)]: %MAP-68%%SAGE%*   %NAME%%SAGE%   *{%NAME%}%CONTINUE%
-ItemDisplay[(RUNE~18-19)]: %PX-62%%TIER-5%%TAN%*  %NAME%%TAN%  *{%NAME%}%CONTINUE%
+ItemDisplay[(r03 OR r03s OR r08 OR r08s OR r09 OR r09s OR r12 OR r12s OR r15 OR r15s OR r19 OR r19s)]: %MAP-68%%SAGE%*   %NAME%%SAGE%   *{%NAME%}%CONTINUE%
+ItemDisplay[(r18 OR r18s)]: %PX-62%%TIER-5%%TAN%*  %NAME%%TAN%  *{%NAME%}%CONTINUE%
 ItemDisplay[(r17 OR r17s)]: %MAP-68%%SAGE%*   %NAME%%SAGE%   *{%NAME%}%CONTINUE%
 ItemDisplay[RUNE>19 AND RUNE<26]: %DOT-62%%RED%*     %NAME%%RED%     *{%NAME%}%CONTINUE%
 ItemDisplay[RUNE>25]: %BORDER-62%%GREEN%*%PURPLE%*%RED%*          %NAME%%RED%          *%PURPLE%*%GREEN%*{%NAME%}%CONTINUE%
