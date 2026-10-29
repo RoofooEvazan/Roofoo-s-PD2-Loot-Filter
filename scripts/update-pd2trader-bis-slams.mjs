@@ -837,7 +837,7 @@ async function mapWithConcurrency(items, mapper) {
 }
 
 function itemFilterCondition(item, extraConditions = []) {
-  return [item.base_code, item.quality, 'ID', 'FILTLVL=8', item.filter_condition, ...extraConditions].filter(Boolean).join(' ');
+  return [item.base_code, item.quality, 'ID', '(FILTLVL=8 OR FILTLVL=11)', item.filter_condition, ...extraConditions].filter(Boolean).join(' ');
 }
 
 function lineForBisSlam(item, best) {
