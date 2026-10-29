@@ -119,6 +119,8 @@ ItemDisplay[FILTLVL=9 FL8_OUTSIDE rin SET !ID !GRAIL_NEW]:
 ItemDisplay[FILTLVL=9 FL8_OUTSIDE yps]:
 
 // FL8/9 quick-pass rules
+// Magic weapons and armor only show on the Crafting Bases level
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE MAG (WEAPON OR ARMOR) !FL8_EXEMPT]:
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE amu SET !ID !GRAIL_NEW]:
 ItemDisplay[FL8_ACTIVE FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
 ItemDisplay[FL8_ACTIVE FL8_ID_MR !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
