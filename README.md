@@ -19,22 +19,22 @@ Every Roofoo filter now has **7 levels** instead of 11: one for leveling, one fo
 | FL0 | Show All Items | Everything. |
 | FL1 | Leveling - Hide Just Trash | Everything except junk. Made for leveling a new character. |
 | FL2 | Mid Game - Runes and Gems Alert | Hides low-value white, magic and rare gear, and alerts you to low runes (El to Ko), flawless gems and selected ethereal elite weapon bases. |
-| FL3 | Strict - No Potions | The strict step: hides much more gear outside town than FL2 (most magic and rare weapons, magic armor, plain elite armor bases), drops FL2's gem and ethereal base alerts, and hides healing and mana potions (rejuvenation potions still show). |
-| FL4 | Endgame - Standard | The strict endgame level. Outside town, gear only shows when it's worth a look. Identified uniques and sets show their best slam and its price. |
+| FL3 | Strict - No Potions | The strict step: hides much more gear outside town than FL2 (most magic and rare weapons, magic armor, plain elite armor bases), drops FL2's flawless gem alerts, most of its ethereal base alerts and most low rune alerts, and hides healing and mana potions (rejuvenation potions still show). |
+| FL4 | Endgame - Standard | The strict endgame level. Outside town, gear only shows when it's worth a look. |
 | FL5 | Endgame - No Large Charms | Like FL4, and it also hides unidentified magic Large Charms, set rings you've already found and antidote potions outside town. |
 | FL6 | Endgame - Crafting Bases | Like FL4, and it also shows every magic weapon and armor piece, for crafting. |
 | FL7 | Endgame - All Flawless Gems | Like FL4, and it also shows every flawless gem. |
 
-**Everything shows in town.** On every level, items in town, in shops, your inventory, cube and stash stay visible. Anything your level would hide outside town says so on its label.
+**Almost everything shows in town.** On every level, items in town, the Guild Hall, shops, your inventory, cube and stash stay visible, apart from small gold piles and rare bolts. Most items your level would hide outside town warn you in their tooltip.
 
 **On the endgame levels (FL4–FL7),** outside town:
 
-- Uniques, sets and runewords pass, except unidentified ones already in your [holy grail](#-holy-grail). Lower-value uniques show quietly instead of with stars.
+- Uniques and runewords pass, and so do sets, except unidentified sets already in your [holy grail](#-holy-grail). Lower-value uniques show quietly instead of with stars.
 - White bases and rare gear only show when they're worth a look, such as good sockets or enhanced defense/damage, staff mod bases, and selected rare bases. Magic weapons and armor only show on FL6.
-- Low-level magic charms (small, large and grand), unidentified magic rings and amulets, and set amulets are hidden.
-- Best-slam prices show on FL4 and FL7.
+- Low-level magic charms (small, large and grand), unidentified magic rings and amulets, and unidentified set amulets you've already found are hidden.
+- In the [+ BIS versions](#-getting-the-filter), identified uniques and sets show their best slam and its price on FL4 and FL7.
 
-**Coming from the old levels?** The closest new level: old FL1 → FL1 · FL2–FL5 → FL2 · FL6–FL7 → FL3 · FL8 → FL4 · FL9 → FL5 · FL10 → FL6 · FL11 → FL7. Slamfest adds an eighth level, **Slamfest Mode**.
+**Coming from the old levels?** The closest new level: old FL1 → FL1 · FL2–FL5 → FL2 · FL6–FL7 → FL3 · FL8 → FL4 · FL9 → FL5 · FL10 → FL6 · FL11 → FL7. Slamfest adds an eighth level, **Slamfest Mode** (it was FL9 on the old Slamfest).
 
 ---
 
@@ -58,15 +58,16 @@ Every Roofoo filter now has **7 levels** instead of 11: one for leveling, one fo
 
 - **New filter levels.** Seven clearer levels from leveling to endgame, with color-coded names. See [New filter levels](#-new-filter-levels).
 - **Health Bar and Loading Bar versions.** The same filter with a bar instead of stars, for Roofoo and Roofoo Mystery. See [Getting the filter](#-getting-the-filter).
-- **Holy grail tracking.** Uniques and sets you haven't found yet are tagged so you notice them. Ones you've already found step aside outside town.
-- **Nothing gets lost in town.** Every item shows in town. If your filter level would hide it outside, it tells you so.
+- **+ BIS versions.** The BIS checker now has its own **+ BIS** version of each filter, and the standard versions leave it out. Slamfest has it built in. See [Getting the filter](#-getting-the-filter).
+- **Holy grail tracking.** Uniques and sets you haven't found yet are tagged so you notice them. Sets you've already found step aside outside town while they're unidentified.
+- **Nothing gets lost in town.** Items your filter level hides outside still show in town and the Guild Hall, and most warn you in their tooltip.
 - **Identified uniques and sets always show,** on every filter level.
 - **Uniques never vanish on the strict levels.** Lower-value uniques now show quietly instead of being hidden.
 - **New staff mod bases.** A fresh list of white and grey skill weapons worth keeping, highlighted on every filter level.
 - **Season 14 items.** New uniques, sets, maps and items are covered, along with the new rune and gem stacks.
 - **Quest items always show,** in and out of town, and they stay out of the grail.
 - **A cleaner, faster filter.** Leftover rules were tidied up, typos fixed, and junk gems follow the same rules on every level.
-- **Smarter slam prices.** The "not worth slamming" hint comes back once the first week of the season has given the market enough data.
+- **Smarter slam prices.** In the + BIS versions and Slamfest, the "not worth slamming" hint comes back once the first week of the season has given the market enough data.
 
 ---
 
@@ -78,11 +79,17 @@ Every Roofoo filter now has **7 levels** instead of 11: one for leveling, one fo
 | --- | --- | --- |
 | Roofoo | `Roofoo.filter` | The main filter, with star tiers. |
 | Roofoo Mystery | `RoofooMystery.filter` | The main filter plus [Mystery drops](#-mystery-drops): big drops hide their name outside town. |
+| Roofoo + BIS | `RoofooBIS.filter` | Roofoo plus the [BIS checker](#-live-market-prices). |
+| Roofoo Mystery + BIS | `RoofooMysteryBIS.filter` | Roofoo Mystery plus the BIS checker. |
 | Roofoo - Health Bar | `RoofooHealthBar.filter` | The main filter with a health bar instead of stars. |
-| Roofoo Mystery - Health Bar | `RoofooMysteryHealthBar.filter` | Roofoo Mystery with a health bar instead of stars. |
+| Mystery - Health Bar | `RoofooMysteryHealthBar.filter` | Roofoo Mystery with a health bar instead of stars. |
+| Roofoo - Health Bar + BIS | `RoofooHealthBarBIS.filter` | Roofoo - Health Bar plus the BIS checker. |
+| Mystery - Health Bar + BIS | `RoofooMysteryHealthBarBIS.filter` | Mystery - Health Bar plus the BIS checker. |
 | Roofoo - Loading Bar | `RoofooLoadingBar.filter` | The main filter with a loading bar instead of stars. |
-| Roofoo Mystery - Loading Bar | `RoofooMysteryLoadingBar.filter` | Roofoo Mystery with a loading bar instead of stars. |
-| Roofoo Slamfest (BETA) | `RoofooSlamfestBETA.filter` | The main filter plus **Slamfest Mode** (FL8), a town level that shows the best corruptions and their prices for identified uniques and sets. |
+| Mystery - Loading Bar | `RoofooMysteryLoadingBar.filter` | Roofoo Mystery with a loading bar instead of stars. |
+| Roofoo - Loading Bar + BIS | `RoofooLoadingBarBIS.filter` | Roofoo - Loading Bar plus the BIS checker. |
+| Mystery - Loading Bar + BIS | `RoofooMysteryLoadingBarBIS.filter` | Mystery - Loading Bar plus the BIS checker. |
+| Roofoo Slamfest (BETA) | `RoofooSlamfestBETA.filter` | The main filter plus **Slamfest Mode** (FL8), a town level that shows the best corruptions and their prices for identified uniques and sets. Includes the BIS checker. |
 
 **Health Bar and Loading Bar** show a unique's, set's or staff mod base's tier as a bar after its name instead of stars. The fuller the bar, the better the item:
 
@@ -126,7 +133,7 @@ Less noise, more signal: only 3-star items and up make a sound. Tiers are review
 New in Season 14. The filter knows which uniques and sets you've already found:
 
 - **Not found yet:** the item is tagged **[GRAIL]** with its own border and sound, on top of its normal tier.
-- **Already found:** it steps aside outside town while it's unidentified, unless its tier says it's worth showing anyway. In town, and once identified, it always shows.
+- **Already found:** uniques lose the tag and keep showing. Sets step aside outside town while they're unidentified, unless their tier says they're worth showing anyway. In town, and once identified, they always show.
 - Items that could be one of several uniques count as new until you've found all of them.
 - Quest items are never part of the grail.
 
@@ -134,7 +141,7 @@ New in Season 14. The filter knows which uniques and sets you've already found:
 
 ## 🩸 Mystery drops
 
-In the Mystery versions (Roofoo Mystery and its Health Bar and Loading Bar versions), selected high-value drops hide their real name while they're unidentified outside town. You see a mystery label and hear a custom sound instead, and find out what it is back in town.
+In the Mystery versions (every version with Mystery in its name), selected high-value drops hide their real name while they're unidentified outside town. You see a mystery label and hear a custom sound instead, and find out what it is back in town.
 
 | Label | Applies to | Drops |
 | --- | --- | --- |
@@ -194,9 +201,11 @@ Maps tell you what matters before you enter.
 
 Market values from PD2's own market listings and [PD2 Trader](https://pd2trader.com), refreshed in this repository every 6 hours:
 
-- **Rune prices:** median values over the last 24 hours, 48 hours, 72 hours and 1 week on rune stacks, with the current high-rune values on the Horadric Cube.
-- **Best-in-slot slams:** on FL4 and FL7, identified uniques and sets show their most valuable corruption and its price range, based on the last 48 hours of listings.
-- **Rainbow Facet values** by type and roll, plus key and boss material values.
+- **Rune prices:** Ohm, Lo, Jah, Cham and Zod show median values over the last 24 hours, 48 hours, 72 hours and 1 week on rune stacks, with their current values on the Horadric Cube. Pul, Um, Mal, Ist, Gul, Vex, Sur and Ber show a fixed value set by hand.
+- **Best-in-slot slams (the BIS checker):** in the + BIS versions and Slamfest, identified uniques and sets show their most valuable corruption and its price range on FL4 and FL7, based on the last 48 hours of listings.
+- **Key and boss material values.**
+
+Rainbow Facet values by type and roll are also shown, but they're no longer refreshed and stay at their last update.
 
 These only work in the **launcher version**, which gets the updates automatically. Custom versions made with the Filter Builder leave them out instead of letting them go stale.
 

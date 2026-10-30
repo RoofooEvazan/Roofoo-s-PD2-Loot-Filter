@@ -27,18 +27,19 @@ jobs:
         with:
           node-version: 22
 
-      # Every Roofoo filter on the launcher list gets the same price blocks; the market is read once per run.
+      # Every Roofoo filter on the launcher list gets the same rune prices; the market is read once per run.
       - name: Update rune and currency values
         run: node scripts/update-pd2trader-runes.mjs
         env:
-          FILTER_FILE: Roofoo.filter,RoofooMystery.filter,RoofooHealthBar.filter,RoofooMysteryHealthBar.filter,RoofooLoadingBar.filter,RoofooMysteryLoadingBar.filter,RoofooSlamfestBETA.filter
+          FILTER_FILE: Roofoo.filter,RoofooMystery.filter,RoofooBIS.filter,RoofooMysteryBIS.filter,RoofooHealthBar.filter,RoofooMysteryHealthBar.filter,RoofooHealthBarBIS.filter,RoofooMysteryHealthBarBIS.filter,RoofooLoadingBar.filter,RoofooMysteryLoadingBar.filter,RoofooLoadingBarBIS.filter,RoofooMysteryLoadingBarBIS.filter,RoofooSlamfestBETA.filter
           PD2TRADER_LADDER: 'true'
           PD2TRADER_HARDCORE: 'false'
 
+      # The BIS checker only lives in the + BIS files and Slamfest. The script stops if a file here has no BIS block.
       - name: Update BIS slam values
         run: node scripts/update-pd2trader-bis-slams.mjs
         env:
-          FILTER_FILE: Roofoo.filter,RoofooMystery.filter,RoofooHealthBar.filter,RoofooMysteryHealthBar.filter,RoofooLoadingBar.filter,RoofooMysteryLoadingBar.filter,RoofooSlamfestBETA.filter
+          FILTER_FILE: RoofooBIS.filter,RoofooMysteryBIS.filter,RoofooHealthBarBIS.filter,RoofooMysteryHealthBarBIS.filter,RoofooLoadingBarBIS.filter,RoofooMysteryLoadingBarBIS.filter,RoofooSlamfestBETA.filter
           PD2TRADER_LADDER: 'true'
           PD2TRADER_HARDCORE: 'false'
           PD2TRADER_HOURS: '48'
@@ -52,11 +53,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- Roofoo.filter RoofooMystery.filter RoofooHealthBar.filter RoofooMysteryHealthBar.filter RoofooLoadingBar.filter RoofooMysteryLoadingBar.filter RoofooSlamfestBETA.filter; then
+          if git diff --quiet -- Roofoo.filter RoofooMystery.filter RoofooBIS.filter RoofooMysteryBIS.filter RoofooHealthBar.filter RoofooMysteryHealthBar.filter RoofooHealthBarBIS.filter RoofooMysteryHealthBarBIS.filter RoofooLoadingBar.filter RoofooMysteryLoadingBar.filter RoofooLoadingBarBIS.filter RoofooMysteryLoadingBarBIS.filter RoofooSlamfestBETA.filter; then
             echo "No PD2 Trader value changes to commit."
             exit 0
           fi
-          git add Roofoo.filter RoofooMystery.filter RoofooHealthBar.filter RoofooMysteryHealthBar.filter RoofooLoadingBar.filter RoofooMysteryLoadingBar.filter RoofooSlamfestBETA.filter
+          git add Roofoo.filter RoofooMystery.filter RoofooBIS.filter RoofooMysteryBIS.filter RoofooHealthBar.filter RoofooMysteryHealthBar.filter RoofooHealthBarBIS.filter RoofooMysteryHealthBarBIS.filter RoofooLoadingBar.filter RoofooMysteryLoadingBar.filter RoofooLoadingBarBIS.filter RoofooMysteryLoadingBarBIS.filter RoofooSlamfestBETA.filter
           git commit -m "Update PD2 Trader values"
           git pull --rebase origin main
           git push origin HEAD:main

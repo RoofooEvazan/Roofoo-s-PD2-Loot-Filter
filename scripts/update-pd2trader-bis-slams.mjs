@@ -5,7 +5,7 @@ const MARKET_API_URL = 'https://api.projectdiablo2.com/market/listing';
 const START_MARKER = '// BEGIN AUTO PD2TRADER BIS SLAMS';
 const END_MARKER = '// END AUTO PD2TRADER BIS SLAMS';
 
-const filterFile = process.env.FILTER_FILE || 'Roofoo.filter';
+const filterFile = process.env.FILTER_FILE || 'RoofooBIS.filter';
 const isLadder = process.env.PD2TRADER_LADDER !== 'false';
 const isHardcore = process.env.PD2TRADER_HARDCORE === 'true';
 const hours = Number(process.env.PD2TRADER_BIS_HOURS || process.env.PD2TRADER_HOURS || 48);
@@ -933,6 +933,8 @@ const block = buildBlock(slamLines, {
 // FILTER_FILE can list several filters (comma-separated): the market is read once and every filter gets the same block.
 for (const file of filterFile.split(',').map((name) => name.trim()).filter(Boolean)) {
   const currentFilter = await readFile(file, 'utf8');
+  // The standard filters leave the BIS checker out on purpose, so a file without the block must never get one.
+  if (!currentFilter.includes(START_MARKER)) throw new Error(`${file} has no BIS block: FILTER_FILE should only list the + BIS filters and Slamfest`);
   const nextFilter = replaceOrInsertBlock(currentFilter, block);
 
   if (nextFilter === currentFilter) {

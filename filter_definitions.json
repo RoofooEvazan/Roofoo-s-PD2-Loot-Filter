@@ -10,15 +10,35 @@
       "description": "The main filter plus Mystery drops: big drops hide their name outside town.",
       "file_name": "RoofooMystery.filter"
     },
+    "8": {
+      "display_name": "Roofoo + BIS",
+      "description": "Roofoo plus the BIS checker: identified uniques and sets show their best slam and its price on FL4 and FL7.",
+      "file_name": "RoofooBIS.filter"
+    },
+    "9": {
+      "display_name": "Roofoo Mystery + BIS",
+      "description": "Roofoo Mystery plus the BIS checker.",
+      "file_name": "RoofooMysteryBIS.filter"
+    },
     "3": {
       "display_name": "Roofoo - Health Bar",
       "description": "The main filter with a 10-cell health bar instead of stars: the fuller the bar, the better the item.",
       "file_name": "RoofooHealthBar.filter"
     },
     "4": {
-      "display_name": "Roofoo Mystery - Health Bar",
+      "display_name": "Mystery - Health Bar",
       "description": "Roofoo Mystery with the health bar instead of stars.",
       "file_name": "RoofooMysteryHealthBar.filter"
+    },
+    "10": {
+      "display_name": "Roofoo - Health Bar + BIS",
+      "description": "Roofoo - Health Bar plus the BIS checker.",
+      "file_name": "RoofooHealthBarBIS.filter"
+    },
+    "11": {
+      "display_name": "Mystery - Health Bar + BIS",
+      "description": "Mystery - Health Bar plus the BIS checker.",
+      "file_name": "RoofooMysteryHealthBarBIS.filter"
     },
     "5": {
       "display_name": "Roofoo - Loading Bar",
@@ -26,13 +46,23 @@
       "file_name": "RoofooLoadingBar.filter"
     },
     "6": {
-      "display_name": "Roofoo Mystery - Loading Bar",
+      "display_name": "Mystery - Loading Bar",
       "description": "Roofoo Mystery with the loading bar instead of stars.",
       "file_name": "RoofooMysteryLoadingBar.filter"
     },
+    "12": {
+      "display_name": "Roofoo - Loading Bar + BIS",
+      "description": "Roofoo - Loading Bar plus the BIS checker.",
+      "file_name": "RoofooLoadingBarBIS.filter"
+    },
+    "13": {
+      "display_name": "Mystery - Loading Bar + BIS",
+      "description": "Mystery - Loading Bar plus the BIS checker.",
+      "file_name": "RoofooMysteryLoadingBarBIS.filter"
+    },
     "7": {
       "display_name": "Roofoo Slamfest (BETA)",
-      "description": "The main filter plus Slamfest Mode (FL8), a town level that shows the best corruptions and their prices for identified uniques and sets.",
+      "description": "The main filter plus Slamfest Mode (FL8), a town level that shows the best corruptions and their prices for identified uniques and sets. Includes the BIS checker.",
       "file_name": "RoofooSlamfestBETA.filter"
     }
   }
