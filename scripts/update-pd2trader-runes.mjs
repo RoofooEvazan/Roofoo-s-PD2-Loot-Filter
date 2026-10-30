@@ -514,12 +514,16 @@ for (const [, windowHours] of valueWindows) {
 }
 
 const block = buildBlock(priceByWindow);
-const currentFilter = ensureCubeFilterLevelRulesContinue(ensureCurrencyPresentationRulesContinue(await readFile(filterFile, 'utf8')));
-const nextFilter = replaceOrInsertBlock(currentFilter, block);
 
-if (nextFilter === currentFilter) {
-  console.log(`No PD2 Trader rune value changes needed in ${filterFile}`);
-} else {
-  await writeFile(filterFile, nextFilter, 'utf8');
-  console.log(`Updated PD2 Trader rune values in ${filterFile}`);
+// FILTER_FILE can list several filters (comma-separated): prices are read once and every filter gets the same block.
+for (const file of filterFile.split(',').map((name) => name.trim()).filter(Boolean)) {
+  const currentFilter = ensureCubeFilterLevelRulesContinue(ensureCurrencyPresentationRulesContinue(await readFile(file, 'utf8')));
+  const nextFilter = replaceOrInsertBlock(currentFilter, block);
+
+  if (nextFilter === currentFilter) {
+    console.log(`No PD2 Trader rune value changes needed in ${file}`);
+  } else {
+    await writeFile(file, nextFilter, 'utf8');
+    console.log(`Updated PD2 Trader rune values in ${file}`);
+  }
 }

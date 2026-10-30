@@ -18,6 +18,11 @@ const maxMarketListingsPerItem = Number(process.env.PD2TRADER_BIS_MAX_LISTINGS |
 // there aren't enough priced slams yet, so most items would be wrongly marked.
 const notWorthFrom = process.env.PD2TRADER_NOT_WORTH_FROM || '';
 const notWorthPaused = /^\d{4}-\d{2}-\d{2}$/.test(notWorthFrom) && Date.now() < Date.parse(`${notWorthFrom}T00:00:00Z`);
+// Filter levels the BIS / not-worth lines show on: Endgame - Standard (FL4) and Endgame - All Flawless Gems (FL7).
+const bisLevels = (process.env.PD2TRADER_BIS_LEVELS || '4,7').split(',').map((level) => level.trim()).filter((level) => /^\d+$/.test(level));
+if (!bisLevels.length) throw new Error(`PD2TRADER_BIS_LEVELS has no filter level numbers: ${process.env.PD2TRADER_BIS_LEVELS}`);
+const bisLevelCondition = bisLevels.length === 1 ? `FILTLVL=${bisLevels[0]}` : `(${bisLevels.map((level) => `FILTLVL=${level}`).join(' OR ')})`;
+const bisLevelLabel = bisLevels.map((level) => `FL${level}`).join('/');
 const excludedUniqueSlamBaseCodes = new Set(['cm1', 'cm2', 'cm3', 'cm1p', 'cm2p', 'cm3p', 'jew']);
 const cosmeticCorruptionCodes = new Set(['transform_dye']);
 const resistanceCodes = new Set(['coldresist', 'fireresist', 'lightresist', 'poisonresist']);
@@ -837,7 +842,7 @@ async function mapWithConcurrency(items, mapper) {
 }
 
 function itemFilterCondition(item, extraConditions = []) {
-  return [item.base_code, item.quality, 'ID', '(FILTLVL=8 OR FILTLVL=11)', item.filter_condition, ...extraConditions].filter(Boolean).join(' ');
+  return [item.base_code, item.quality, 'ID', bisLevelCondition, item.filter_condition, ...extraConditions].filter(Boolean).join(' ');
 }
 
 function lineForBisSlam(item, best) {
@@ -857,14 +862,14 @@ function buildBlock(lines, stats) {
   return [
     START_MARKER,
     `// Source: ProjectD2 market listings (${hours}h, ladder=${isLadder}, hardcore=${isHardcore})`,
-    `// FL8 only: non-amulets show the top corruption with priced samples >= ${minSampleCount}; amulets show the top corruption + desecration combo with no sample minimum`,
+    `// ${bisLevelLabel} only: non-amulets show the top corruption with priced samples >= ${minSampleCount}; amulets show the top corruption + desecration combo with no sample minimum`,
     '// Amulet BIS lines are currently commented out while I tune corruption + desecration handling',
     '// Value ranges use the true lowest and highest parsed listing prices; WSS prices are converted at 0.01 HR each',
     '// Slam names come from canonical corruption codes so native item stats do not pollute the label',
     notWorthPaused
       ? `// Items without enough priced corruption samples would be marked as not worth slamming; those lines are commented out until ${notWorthFrom} (first week of the season)`
       : '// Items without enough priced corruption samples are marked as not worth slamming',
-    '// Shows even after corruption on FL8 because rules intentionally do not require STAT360=0',
+    `// Shows even after corruption on ${bisLevelLabel} because rules intentionally do not require STAT360=0`,
     `// Generated lines: ${stats.generated}; BIS lines: ${stats.bis}; not worth lines: ${stats.notWorth}; ambiguous item-code groups skipped: ${stats.skippedAmbiguous}`,
     ...lines,
     END_MARKER,
@@ -925,13 +930,16 @@ const block = buildBlock(slamLines, {
   notWorth: results.filter((result) => result && !result.best).length,
   skippedAmbiguous: skippedAmbiguous.length,
 });
-const currentFilter = await readFile(filterFile, 'utf8');
-const nextFilter = replaceOrInsertBlock(currentFilter, block);
+// FILTER_FILE can list several filters (comma-separated): the market is read once and every filter gets the same block.
+for (const file of filterFile.split(',').map((name) => name.trim()).filter(Boolean)) {
+  const currentFilter = await readFile(file, 'utf8');
+  const nextFilter = replaceOrInsertBlock(currentFilter, block);
 
-if (nextFilter === currentFilter) {
-  console.log(`No PD2 Trader BIS slam changes needed in ${filterFile}`);
-} else {
-  await writeFile(filterFile, nextFilter, 'utf8');
-  console.log(`Updated ${slamLines.length} PD2 Trader BIS slam lines in ${filterFile}`);
-  console.log(`Skipped ${skippedAmbiguous.length} ambiguous item-code groups`);
+  if (nextFilter === currentFilter) {
+    console.log(`No PD2 Trader BIS slam changes needed in ${file}`);
+  } else {
+    await writeFile(file, nextFilter, 'utf8');
+    console.log(`Updated ${slamLines.length} PD2 Trader BIS slam lines in ${file}`);
+    console.log(`Skipped ${skippedAmbiguous.length} ambiguous item-code groups`);
+  }
 }

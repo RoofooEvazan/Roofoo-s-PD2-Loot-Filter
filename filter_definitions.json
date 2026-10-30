@@ -2,7 +2,7 @@
   "filter_info": {
     "1": {
       "display_name": "Roofoo",
-      "description": "The main filter for Season 14, with holy grail tags.",
+      "description": "The main filter for Season 14: 7 levels from leveling to endgame, star tiers and holy grail tags.",
       "file_name": "Roofoo.filter"
     },
     "2": {
@@ -11,8 +11,28 @@
       "file_name": "RoofooMystery.filter"
     },
     "3": {
+      "display_name": "Roofoo - Health Bar",
+      "description": "The main filter with a 10-cell health bar instead of stars: the fuller the bar, the better the item.",
+      "file_name": "RoofooHealthBar.filter"
+    },
+    "4": {
+      "display_name": "Roofoo Mystery - Health Bar",
+      "description": "Roofoo Mystery with the health bar instead of stars.",
+      "file_name": "RoofooMysteryHealthBar.filter"
+    },
+    "5": {
+      "display_name": "Roofoo - Loading Bar",
+      "description": "The main filter with a 5-segment loading bar instead of stars, and Low/Mid/High tags on runes.",
+      "file_name": "RoofooLoadingBar.filter"
+    },
+    "6": {
+      "display_name": "Roofoo Mystery - Loading Bar",
+      "description": "Roofoo Mystery with the loading bar instead of stars.",
+      "file_name": "RoofooMysteryLoadingBar.filter"
+    },
+    "7": {
       "display_name": "Roofoo Slamfest (BETA)",
-      "description": "The main filter plus a town \"slamfest\" mode on FL9 that shows the best corruptions and their prices for identified uniques and sets.",
+      "description": "The main filter plus Slamfest Mode (FL8), a town level that shows the best corruptions and their prices for identified uniques and sets.",
       "file_name": "RoofooSlamfestBETA.filter"
     }
   }

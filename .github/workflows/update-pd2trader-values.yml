@@ -27,39 +27,24 @@ jobs:
         with:
           node-version: 22
 
-      - name: Update rune and currency values - main
+      # Every Roofoo filter on the launcher list gets the same price blocks; the market is read once per run.
+      - name: Update rune and currency values
         run: node scripts/update-pd2trader-runes.mjs
         env:
-          FILTER_FILE: Roofoo.filter
+          FILTER_FILE: Roofoo.filter,RoofooMystery.filter,RoofooHealthBar.filter,RoofooMysteryHealthBar.filter,RoofooLoadingBar.filter,RoofooMysteryLoadingBar.filter,RoofooSlamfestBETA.filter
           PD2TRADER_LADDER: 'true'
           PD2TRADER_HARDCORE: 'false'
 
-      - name: Update rune and currency values - mystery
-        run: node scripts/update-pd2trader-runes.mjs
-        env:
-          FILTER_FILE: RoofooMystery.filter
-          PD2TRADER_LADDER: 'true'
-          PD2TRADER_HARDCORE: 'false'
-
-      - name: Update BIS slam values - main
+      - name: Update BIS slam values
         run: node scripts/update-pd2trader-bis-slams.mjs
         env:
-          FILTER_FILE: Roofoo.filter
+          FILTER_FILE: Roofoo.filter,RoofooMystery.filter,RoofooHealthBar.filter,RoofooMysteryHealthBar.filter,RoofooLoadingBar.filter,RoofooMysteryLoadingBar.filter,RoofooSlamfestBETA.filter
           PD2TRADER_LADDER: 'true'
           PD2TRADER_HARDCORE: 'false'
           PD2TRADER_HOURS: '48'
           PD2TRADER_BIS_MIN_SAMPLES: '2'
-          # "Not worth slamming" turns on after the first week of Season 14 (starts Oct 23)
-          PD2TRADER_NOT_WORTH_FROM: '2026-10-30'
-
-      - name: Update BIS slam values - mystery
-        run: node scripts/update-pd2trader-bis-slams.mjs
-        env:
-          FILTER_FILE: RoofooMystery.filter
-          PD2TRADER_LADDER: 'true'
-          PD2TRADER_HARDCORE: 'false'
-          PD2TRADER_HOURS: '48'
-          PD2TRADER_BIS_MIN_SAMPLES: '2'
+          # BIS lines show on Endgame - Standard (FL4) and Endgame - All Flawless Gems (FL7)
+          PD2TRADER_BIS_LEVELS: '4,7'
           # "Not worth slamming" turns on after the first week of Season 14 (starts Oct 23)
           PD2TRADER_NOT_WORTH_FROM: '2026-10-30'
 
@@ -67,11 +52,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- Roofoo.filter RoofooMystery.filter; then
+          if git diff --quiet -- Roofoo.filter RoofooMystery.filter RoofooHealthBar.filter RoofooMysteryHealthBar.filter RoofooLoadingBar.filter RoofooMysteryLoadingBar.filter RoofooSlamfestBETA.filter; then
             echo "No PD2 Trader value changes to commit."
             exit 0
           fi
-          git add Roofoo.filter RoofooMystery.filter
+          git add Roofoo.filter RoofooMystery.filter RoofooHealthBar.filter RoofooMysteryHealthBar.filter RoofooLoadingBar.filter RoofooMysteryLoadingBar.filter RoofooSlamfestBETA.filter
           git commit -m "Update PD2 Trader values"
           git pull --rebase origin main
           git push origin HEAD:main
