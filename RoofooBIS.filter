@@ -64,7 +64,24 @@ ItemDisplay[box FILTLVL=7]: %NAME%{%NAME%%NL%FL7 - %PURPLE%Endgame%WHITE% - %WHI
 // FL8/9 guard aliases
 Alias[FL8_ACTIVE]: (FILTLVL>3)
 Alias[FL8_EXEMPT]: (UNI OR SET OR RW OR NMAG_SKILL_WEAPON OR FL10_CRAFT_BASE)
-Alias[FL10_CRAFT_BASE]: (FILTLVL=6 MAG (WEAPON OR ARMOR))
+Alias[FL10_CRAFT_BASE]: (FILTLVL=6 MAG CB_ANY)
+Alias[CB_ANY]: (CB_HEAVY OR CB_ORB OR CB_BOW OR CB_SCEP OR CB_CHEST OR CB_SHIELD OR CB_HELM OR CB_GLOVE OR CB_BOOT OR CB_BELT OR CB_CLASSHELM OR CB_CLASSSHLD OR CB_CLASSWPN OR CB_CLASSCLUB OR CB_CLASSBAR OR CB_CLASSKAT)
+Alias[CB_HEAVY]: (ETH (mau OR 9m9 OR 7m7 OR glv OR 9gl OR 7gl OR pik OR 9p9 OR 7p7 OR gax OR 9ga OR 7ga OR gma OR 9gm OR 7gm OR gsd OR 9gd OR 7gd OR tsp OR 9ts OR 7ts OR gix OR 9gi OR 7gi OR whm OR 9wh OR 7wh OR flb OR 9fb OR 7fb OR wax OR 9wa OR 7wa OR bal OR 9b8 OR 7b8 OR pil OR 9pi OR 7pi OR ssp OR 9s9 OR 7s7 OR wsc OR 9wc OR 7wc OR axf OR 9xf OR 7xf OR am3 OR am8 OR amd OR am4 OR am9 OR ame OR am5 OR ama OR amf OR 9fl OR 7fl OR crs OR 9cr))
+Alias[CB_ORB]: ((ob5 OR oba OR obf) CRAFTALVL>59)
+Alias[CB_BOW]: (!ETH (am2 OR am7 OR amc OR 8lw OR 6lw OR ((am1 OR am6 OR amb) AMAZON)) CRAFTALVL>74)
+Alias[CB_SCEP]: (!ETH (wsp OR 9ws OR 7ws) PALADIN CRAFTALVL>59)
+Alias[CB_CHEST]: (CHEST MAXSOCKETS=4 CRAFTALVL>74)
+Alias[CB_SHIELD]: ((uit OR uow OR uts OR xsh OR ush) CRAFTALVL>74)
+Alias[CB_HELM]: (((uh9 OR xh9) OR (ETH (msk OR xsk OR usk OR bhm OR xh9 OR uh9 OR ghm OR xhm OR uhm OR crn OR xrn OR urn))) CRAFTALVL>70)
+Alias[CB_GLOVE]: (((ulg OR umg OR uvg OR xmg OR xtg OR xhg) OR (ETH GLOVES)) CRAFTALVL>58)
+Alias[CB_BOOT]: ((uvb OR ulb OR umb OR ((xtb OR xhb OR utb OR uhb) ASSASSIN) OR (ETH BOOTS)) CRAFTALVL>64)
+Alias[CB_BELT]: ((ulc OR uvc OR umc OR zmb OR zvb OR zlb OR (ETH BELT)) CRAFTALVL>64)
+Alias[CB_CLASSHELM]: (((DRU DRUID) OR (BAR BARBARIAN)) CRAFTALVL>70)
+Alias[CB_CLASSSHLD]: (((DIN PALADIN) OR (NEC NECROMANCER !ETH)) CRAFTALVL>74)
+Alias[CB_CLASSWPN]: (((SIN ASSASSIN !ETH !(wrb OR 9wb OR 7wb OR ces OR 9cs OR 7cs OR clw OR 9lw OR 7lw OR 7tw)) OR (WAND NECROMANCER)) CRAFTALVL>59)
+Alias[CB_CLASSCLUB]: ((clb OR 9cl OR 7cl OR spc OR 9sp OR 7sp) DRUID CRAFTALVL>70)
+Alias[CB_CLASSBAR]: (ETH BARBARIAN (2ax OR 92a OR 72a OR btx OR 9bt OR 7bt OR gis OR 9gs OR 7gs OR bsw OR 9b9 OR 7b7 OR tax OR 9ta OR 7ta OR jav OR 9ja OR 7ja) (ALVL>75 OR CRAFTALVL>75))
+Alias[CB_CLASSKAT]: (ETH ASSASSIN (ktr OR 9ar OR 7ar OR skr OR 9qr OR 7qr) CRAFTALVL>59)
 Alias[FL8_INTOWN]: (TOWN OR SHOP OR INVENTORY OR CUBE OR STASH OR EQUIPPED)
 Alias[FL8_OUTSIDE]: (!TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED)
 Alias[FL8_MARKER_OK]: (FILTLVL<4 OR TOWN OR SHOP OR INVENTORY OR CUBE OR STASH OR EQUIPPED)
@@ -76,10 +93,10 @@ Alias[FL8_ID_MR]: (ID (MAG OR RARE))
 ItemDisplay[FILTLVL=5 cm2 MAG ID]: %NAME%{%NAME%}%CONTINUE%
 ItemDisplay[FILTLVL=5 FL8_OUTSIDE cm2 MAG !ID]:
 ItemDisplay[FILTLVL=5 FL8_OUTSIDE rin SET !ID !GRAIL_NEW]:
-ItemDisplay[FILTLVL=5 FL8_OUTSIDE yps]:
+ItemDisplay[FILTLVL=5 FL8_OUTSIDE yps !RATHMA_ARENA]:
 
 // FL8/9 quick-pass rules
-// Magic weapons and armor only show on the Crafting Bases level
+// Listed magic weapons and armor only show on the Crafting Bases level
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE MAG (WEAPON OR ARMOR) !FL8_EXEMPT]:
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE amu SET !ID !GRAIL_NEW]:
 ItemDisplay[FL8_ACTIVE FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
@@ -206,7 +223,7 @@ ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (lbl OR vbl OR mbl OR tbl OR hbl OR 
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (lbl OR vbl OR mbl OR tbl OR hbl OR zlb OR zvb OR zmb OR ztb OR zhb OR ulc OR uvc OR umc OR utc OR uhc) MAG !FL8_EXEMPT]:
 
 // Barbarian Helms: show selected non-eth magic and rare bases; hide the rest
-ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (ba4 OR ba5 OR ba9 OR baa OR bae OR baf) MAG !ETH]: %BLUE%%NAME%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (ba4 OR ba5 OR ba9 OR baa OR bae OR baf) MAG !ETH !FL10_CRAFT_BASE]: %BLUE%%NAME%
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (ba4 OR ba5 OR ba9 OR baa OR bae OR baf) RARE !ETH]: %YELLOW%%NAME%
 ItemDisplay[FL8_ACTIVE FL8_OUTSIDE FL8_UNID (ba1 OR ba2 OR ba3 OR ba6 OR ba7 OR ba8 OR bab OR bac OR bad) (MAG OR RARE) !ETH !FL10_CRAFT_BASE]:
 
@@ -302,6 +319,7 @@ Alias[LOWVENGSFX]: (SUFFIX=695 OR SUFFIX=699 OR SUFFIX=703 OR SUFFIX=707 OR SUFF
 // Town aliases
 Alias[TOWN]: (MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109 OR MAPID=202 OR MAPID=203 OR MAPID=204 OR MAPID=205 OR MAPID=206)
 Alias[GUILDHALL]: (MAPID=202 OR MAPID=203 OR MAPID=204 OR MAPID=205 OR MAPID=206)
+Alias[RATHMA_ARENA]: (MAPID=161 OR MAPID=162 OR MAPID=163)
 // Known map aliases
 Alias[KNOWNMAPS]: (t11 OR t12 OR t13 OR t14 OR t15 OR t16 OR t17 OR t21 OR t22 OR t23 OR t24 OR t25 OR t26 OR t27 OR t28 OR t31 OR t32 OR t33 OR t34 OR t35 OR t36 OR t37 OR t38 OR t39 OR t3a OR t3b OR t41 OR t42 OR t43 OR t44 OR t51 OR t52 OR t53 OR t54 OR t55 OR t56 OR t57 OR t58)
 
@@ -317,16 +335,16 @@ Alias[ENPHBASTARD]: ((bsw) UNI !ID)
 
 // 0 = no star display tier
 Alias[NSUNI1]: ((72a OR 7b8 OR 7bk OR 7gs OR 7sp OR 7sr OR 7st OR 7vo OR 9gm OR 9gw OR 9kr OR 9s8 OR 9wc OR ama OR amc OR gix OR 9m9 OR mau) UNI !ETH !ID)
-Alias[NSUNI2]: (((hbt OR ltp OR mbt OR obd OR ulb OR upk OR urg OR ush OR uvb OR xar OR xtp OR xul OR 8cb) UNI !ETH !ID) OR ((2ax OR 2hs OR 6hb OR 6l7 OR 6rx OR 7ba OR 7br OR 7bs OR 7cl OR 7cm OR 7cs OR 7dg OR 7di OR 7fb OR 7gl OR 7ha OR 7kr OR 7mp OR 7mt OR 7o7 OR 7qr OR 7s7 OR 7sb OR 7sm OR 7ta OR 7tw OR 8bs OR 8cs OR 8hb OR 8l8 OR 8lb OR 8ls OR 8lw OR 8lx OR 8s8 OR 8sb OR 8ss OR 8sw OR 92a OR 92h OR 9ar OR 9ax OR 9b7 OR 9b8 OR 9b9 OR 9ba OR 9bl OR 9br OR 9bs OR 9bt OR 9cl OR 9cm OR 9cr OR 9dg OR 9di OR 9fb OR 9fc OR 9fl OR 9ga OR 9gd OR 9gi OR 9gs OR 9h9 OR 9ha OR 9la OR 9ls OR 9ma OR 9mp OR 9mt OR 9p9 OR 9pa OR 9qs OR 9sb OR 9sc OR 9sm OR 9sp OR 9sr OR 9ss OR 9st OR 9ta OR 9tk OR 9tr OR 9tw OR 9vo OR 9wa OR 9wd OR 9wh OR 9wn OR 9ws OR 9yw OR am5 OR am7 OR am9 OR ame OR aqv OR axe OR ba6 OR ba7 OR baa OR bac OR bad OR bar OR bax OR bhm OR bld OR brn OR brs OR bsd OR bsh OR bst OR btx OR buc OR bwn OR cap OR cbw OR chn OR clb OR clm OR cqv OR crn OR cst OR dgr OR dir OR dr2 OR fhl OR fla OR flb OR flc OR fld OR ful OR gax OR ghm OR gis OR gma OR gsc OR gth OR gts OR gwn OR hal OR hax OR hbl OR hbw OR hgl OR hla OR hlm OR hxb OR kit OR kri OR lax OR lbb OR lbl OR lbt OR lbw OR lea OR lgl OR lrg OR lsd OR lst OR lwb OR lxb OR mac OR mbl OR mgl OR mpi OR msk OR mst OR mxb OR ne6 OR nea OR neg OR ob6 OR ob7 OR oba OR pa3 OR pax OR pik OR plt OR qui OR rng OR rxb OR sbb OR sbr OR sbw OR scl OR scm OR scp OR scy OR skp OR sml OR spc OR spk OR spl OR spr OR spt OR ssd OR sst OR stu OR swb OR tbl OR tbt OR tow OR tri OR ulg OR uml OR urs OR utb OR uth OR uuc OR vbt OR vgl OR vou OR wax OR whm OR wnd OR wsc OR wsd OR wsp OR wst OR xap OR xcl OR xhl OR xit OR xkp OR xla OR xlb OR xld OR xlm OR xml OR xng OR xrg OR xrs OR xsk OR xts OR xtu OR xuc OR xui OR ywn OR zmb) UNI !ETH !ID FILTLVL>3))
+Alias[NSUNI2]: (((hbt OR ltp OR mbt OR obd OR ulb OR upk OR urg OR ush OR uvb OR xar OR xtp OR xul OR 8cb) UNI !ETH !ID) OR ((2ax OR 2hs OR 6hb OR 6l7 OR 6rx OR 7ba OR 7br OR 7bs OR 7cl OR 7cm OR 7cs OR 7dg OR 7di OR 7fb OR 7gl OR 7ha OR 7kr OR 7mp OR 7mt OR 7o7 OR 7qr OR 7s7 OR 7sb OR 7sm OR 7ta OR 7tw OR 8bs OR 8cs OR 8hb OR 8l8 OR 8lb OR 8ls OR 8lw OR 8lx OR 8s8 OR 8sb OR 8ss OR 8sw OR 92a OR 92h OR 9ar OR 9ax OR 9b7 OR 9b8 OR 9b9 OR 9ba OR 9bl OR 9br OR 9bs OR 9bt OR 9cl OR 9cm OR 9cr OR 9dg OR 9di OR 9fb OR 9fc OR 9fl OR 9ga OR 9gd OR 9gi OR 9gs OR 9h9 OR 9ha OR 9la OR 9ma OR 9mp OR 9mt OR 9p9 OR 9pa OR 9qs OR 9sb OR 9sc OR 9sm OR 9sp OR 9sr OR 9ss OR 9st OR 9ta OR 9tk OR 9tr OR 9tw OR 9vo OR 9wa OR 9wd OR 9wh OR 9wn OR 9ws OR 9yw OR am5 OR am7 OR am9 OR ame OR aqv OR axe OR ba6 OR ba7 OR baa OR bac OR bad OR bar OR bax OR bhm OR bld OR brn OR brs OR bsd OR bsh OR bst OR btx OR buc OR bwn OR cap OR cbw OR chn OR clb OR clm OR cqv OR crn OR cst OR dgr OR dir OR dr2 OR fhl OR fla OR flb OR flc OR fld OR ful OR gax OR ghm OR gis OR gma OR gsc OR gth OR gts OR gwn OR hal OR hax OR hbl OR hbw OR hgl OR hla OR hlm OR hxb OR kit OR kri OR lax OR lbb OR lbl OR lbt OR lbw OR lea OR lgl OR lrg OR lsd OR lst OR lwb OR lxb OR mac OR mbl OR mgl OR mpi OR msk OR mst OR mxb OR ne6 OR nea OR neg OR ob6 OR ob7 OR oba OR pa3 OR pax OR pik OR plt OR qui OR rng OR rxb OR sbb OR sbr OR sbw OR scl OR scm OR scp OR scy OR skp OR sml OR spc OR spk OR spl OR spr OR spt OR ssd OR sst OR stu OR swb OR tbl OR tbt OR tow OR tri OR ulg OR uml OR urs OR utb OR uth OR uuc OR vbt OR vgl OR vou OR wax OR whm OR wnd OR wsc OR wsd OR wsp OR wst OR xap OR xcl OR xhl OR xit OR xkp OR xla OR xlb OR xld OR xlm OR xml OR xng OR xrg OR xrs OR xsk OR xts OR xtu OR xuc OR xui OR ywn OR zmb) UNI !ETH !ID FILTLVL>3))
 Alias[NSUNIETH1]: ((7gs OR 7sp OR 9gw OR 9kr OR 9wc OR aar OR ltp OR mbt OR obd OR obe OR ulb OR umb OR ung OR upk) UNI ETH !ID)
-Alias[NSUNIETH2]: (((urg OR ush OR uvb OR vbl OR xar OR xhg OR xhm OR xlg OR xmg OR xow OR xtg OR xth OR xtp OR xul OR xvg OR zvb) UNI ETH !ID) OR ((2ax OR 2hs OR 6hb OR 6hx OR 6l7 OR 6lw OR 6rx OR 6sw OR 7ba OR 7br OR 7bs OR 7cl OR 7cm OR 7cs OR 7dg OR 7di OR 7fb OR 7gl OR 7ha OR 7kr OR 7mp OR 7mt OR 7o7 OR 7qr OR 7s7 OR 7sb OR 7sm OR 7ta OR 7tw OR 8bs OR 8cb OR 8cs OR 8hb OR 8hx OR 8l8 OR 8lb OR 8ls OR 8lw OR 8lx OR 8mx OR 8rx OR 8s8 OR 8sb OR 8ss OR 8sw OR 92a OR 92h OR 9ar OR 9ax OR 9b7 OR 9b8 OR 9b9 OR 9ba OR 9bl OR 9br OR 9bs OR 9bt OR 9cl OR 9cm OR 9cr OR 9dg OR 9di OR 9fb OR 9fc OR 9fl OR 9ga OR 9gd OR 9gi OR 9gs OR 9h9 OR 9ha OR 9la OR 9ls OR 9ma OR 9mp OR 9mt OR 9p9 OR 9pa OR 9qs OR 9sb OR 9sc OR 9sm OR 9sp OR 9sr OR 9ss OR 9st OR 9ta OR 9tk OR 9tr OR 9tw OR 9vo OR 9wa OR 9wd OR 9wh OR 9wn OR 9ws OR 9yw OR am5 OR am7 OR am9 OR amb OR amc OR ame OR axe OR ba6 OR ba7 OR baa OR bac OR bad OR bar OR bax OR bhm OR bld OR brn OR brs OR bsd OR bsh OR bst OR btx OR buc OR bwn OR cap OR cbw OR chn OR clb OR clm OR crn OR cst OR dgr OR dir OR dr2 OR fhl OR fla OR flb OR flc OR fld OR ful OR gax OR ghm OR gis OR gma OR gsc OR gth OR gts OR gwn OR hal OR hax OR hbl OR hbw OR hgl OR hla OR hlm OR hxb OR kit OR kri OR lax OR lbb OR lbl OR lbt OR lbw OR lea OR lgl OR lrg OR lsd OR lst OR lwb OR lxb OR mac OR mbl OR mgl OR mpi OR msk OR mst OR mxb OR ne6 OR nea OR neg OR ob6 OR ob7 OR oba OR pa3 OR pax OR pik OR plt OR qui OR rng OR rxb OR sbb OR sbr OR sbw OR scl OR scm OR scp OR scy OR skp OR sml OR spc OR spk OR spl OR spr OR spt OR ssd OR sst OR stu OR swb OR tbl OR tbt OR tow OR tri OR uhc OR ulg OR uml OR urs OR utb OR uth OR uuc OR vbt OR vgl OR vou OR wax OR whm OR wnd OR wsc OR wsd OR wsp OR wst OR xap OR xcl OR xhl OR xit OR xkp OR xla OR xlb OR xld OR xlm OR xml OR xng OR xpk OR xrg OR xrn OR xrs OR xsk OR xts OR xtu OR xuc OR xui OR ywn OR zmb) UNI ETH !ID FILTLVL>3))
+Alias[NSUNIETH2]: (((urg OR ush OR uvb OR vbl OR xar OR xhg OR xhm OR xlg OR xmg OR xow OR xtg OR xth OR xtp OR xul OR xvg OR zvb OR 9ls) UNI ETH !ID) OR ((2ax OR 2hs OR 6hb OR 6hx OR 6l7 OR 6lw OR 6rx OR 6sw OR 7ba OR 7br OR 7bs OR 7cl OR 7cm OR 7cs OR 7dg OR 7di OR 7fb OR 7gl OR 7ha OR 7kr OR 7mp OR 7mt OR 7o7 OR 7qr OR 7s7 OR 7sb OR 7sm OR 7ta OR 7tw OR 8bs OR 8cb OR 8cs OR 8hb OR 8hx OR 8l8 OR 8lb OR 8ls OR 8lw OR 8lx OR 8mx OR 8rx OR 8s8 OR 8sb OR 8ss OR 8sw OR 92a OR 92h OR 9ar OR 9ax OR 9b7 OR 9b8 OR 9b9 OR 9ba OR 9bl OR 9br OR 9bs OR 9bt OR 9cl OR 9cm OR 9cr OR 9dg OR 9di OR 9fb OR 9fc OR 9fl OR 9ga OR 9gd OR 9gi OR 9gs OR 9h9 OR 9ha OR 9la OR 9ma OR 9mp OR 9mt OR 9p9 OR 9pa OR 9qs OR 9sb OR 9sc OR 9sm OR 9sp OR 9sr OR 9ss OR 9st OR 9ta OR 9tk OR 9tr OR 9tw OR 9vo OR 9wa OR 9wd OR 9wh OR 9wn OR 9ws OR 9yw OR am5 OR am7 OR am9 OR amb OR amc OR ame OR axe OR ba6 OR ba7 OR baa OR bac OR bad OR bar OR bax OR bhm OR bld OR brn OR brs OR bsd OR bsh OR bst OR btx OR buc OR bwn OR cap OR cbw OR chn OR clb OR clm OR crn OR cst OR dgr OR dir OR dr2 OR fhl OR fla OR flb OR flc OR fld OR ful OR gax OR ghm OR gis OR gma OR gsc OR gth OR gts OR gwn OR hal OR hax OR hbl OR hbw OR hgl OR hla OR hlm OR hxb OR kit OR kri OR lax OR lbb OR lbl OR lbt OR lbw OR lea OR lgl OR lrg OR lsd OR lst OR lwb OR lxb OR mac OR mbl OR mgl OR mpi OR msk OR mst OR mxb OR ne6 OR nea OR neg OR ob6 OR ob7 OR oba OR pa3 OR pax OR pik OR plt OR qui OR rng OR rxb OR sbb OR sbr OR sbw OR scl OR scm OR scp OR scy OR skp OR sml OR spc OR spk OR spl OR spr OR spt OR ssd OR sst OR stu OR swb OR tbl OR tbt OR tow OR tri OR uhc OR ulg OR uml OR urs OR utb OR uth OR uuc OR vbt OR vgl OR vou OR wax OR whm OR wnd OR wsc OR wsd OR wsp OR wst OR xap OR xcl OR xhl OR xit OR xkp OR xla OR xlb OR xld OR xlm OR xml OR xng OR xpk OR xrg OR xrn OR xrs OR xsk OR xts OR xtu OR xuc OR xui OR ywn OR zmb) UNI ETH !ID FILTLVL>3))
 Alias[NSSET1]: ((7m7 OR 7qr OR uar OR uh9 OR uth OR xh9 OR xhm) SET !ETH !ID)
 Alias[NSSETETH1]: ((7m7 OR 7qr OR 7ws OR uar OR uh9 OR uth OR xh9 OR xhm OR xul) SET ETH !ID)
 Alias[NOSTARUNIQUE]: (NSUNI1 OR NSUNI2)
 Alias[NOSTARSET]: (NSSET1)
 
 // 1 = one star display tier
-Alias[OSUNI1]: ((6bs OR 6cs OR 6hx OR 6lw OR 6sw OR 7b7 OR 7bl OR 7bw OR 7ga OR 7gd OR 7gi OR 7gm OR 7ls OR 7lw OR 7m7 OR 7p7 OR 7pa OR 7qs OR 7s8 OR gsd) UNI !ETH !ID)
+Alias[OSUNI1]: ((6bs OR 6cs OR 6hx OR 6lw OR 6sw OR 7b7 OR 7bl OR 7bw OR 7ga OR 7gd OR 7gi OR 7gm OR 7ls OR 7lw OR 7m7 OR 7p7 OR 7pa OR 7qs OR 7s8 OR gsd OR 9ls) UNI !ETH !ID)
 Alias[OSUNI2]: ((7sc OR 7ts OR 7wa OR 7wb OR 7wc OR 7ws OR 7xf OR 7yw OR 8hx OR 8mx OR 8rx OR 9bw OR aar OR amb OR amd OR amf OR 7bt) UNI !ETH !ID)
 Alias[OSUNI3]: ((aqv2 OR aqv3 OR baf OR cqv2 OR cqv3 OR dr6 OR dra OR drb OR drc OR drf OR ned OR nef OR obc OR obe OR pae OR tgl OR uhl OR uit) UNI !ETH !ID)
 Alias[OSUNI4]: ((uhb OR uld OR umc OR uow OR utp OR utu OR uvc OR vbl OR xea OR xhg OR xhm OR xlg OR xmg OR xow OR xpl OR xsh OR xtg OR xvg OR zhb OR uap OR ung OR xth OR xpk OR umb OR xrn) UNI !ETH !ID)
@@ -2095,7 +2113,7 @@ ItemDisplay[wms]: %GREEN%!%WHITE%thaw{%GREEN%!%WHITE%thaw, Perf %BLUE%O%WHITE%, 
 ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109 OR MAPID=202 OR MAPID=203 OR MAPID=204 OR MAPID=205 OR MAPID=206) ((tsc OR isc OR vps) FILTLVL>0 (CLVL>30 OR FILTLVL>2) !SHOP (isc OR tsc OR vps))]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
 ItemDisplay[(tsc OR isc OR vps) FILTLVL>0 (CLVL>30 OR FILTLVL>2) !SHOP]: {%NAME%}%CONTINUE%
 ItemDisplay[wms FILTLVL>0 (CHARSTAT118>1 OR CHARSTAT153>0) !SHOP]: {%NAME%}%CONTINUE%
-ItemDisplay[yps FL9_MARKER_OK]: %GREEN%!%WHITE%ant{%GREEN%!%WHITE%ant, Perf %GREEN%O%WHITE%, %BLUE%Ring %WHITE%= Psn Res %BLUE%Ring%NL%%GRAY%(time stack)%NL%%WHITE%Gives +25 Psn Res for 30s%NL%%TAN%Note%WHITE%: Instantly cures poison%NL%Antidote Potion}
+ItemDisplay[yps (FL9_MARKER_OK OR RATHMA_ARENA)]: %GREEN%!%WHITE%ant{%GREEN%!%WHITE%ant, Perf %GREEN%O%WHITE%, %BLUE%Ring %WHITE%= Psn Res %BLUE%Ring%NL%%GRAY%(time stack)%NL%%WHITE%Gives +25 Psn Res for 30s%NL%%TAN%Note%WHITE%: Instantly cures poison%NL%Antidote Potion}
 
 // keys
 ItemDisplay[key]: %GRAY%key%CONTINUE%
@@ -2418,6 +2436,15 @@ ItemDisplay[(jew) RARE !ID]: %DOT-A8%%YELLOW%*%YELLOW%*%YELLOW%*%YELLOW%   Jewel
 
 ItemDisplay[(rin OR amu OR CIRC) RARE !ID]: %DOT-A8%%TAN%*%WHITE%*   %NAME%%WHITE%   *%TAN%*%YELLOW%
 
+// FL6 crafting list: [Craft B H], the word Craft, then the recipe letters on unidentified items
+ItemDisplay[FILTLVL=6 MAG !EQUIPPED CB_ANY]: %NAME% %TAN%[%ORANGE%Craft%CONTINUE%
+ItemDisplay[FILTLVL=6 MAG !ID !EQUIPPED (CB_HEAVY OR CB_GLOVE OR CB_CLASSBAR OR CB_CLASSKAT)]: %NAME% %RED%B%CONTINUE%
+ItemDisplay[FILTLVL=6 MAG !ID !EQUIPPED (CB_HEAVY OR CB_SHIELD OR CB_GLOVE OR CB_BELT OR CB_CLASSSHLD OR CB_CLASSBAR OR CB_CLASSKAT)]: %NAME% %BLUE%H%CONTINUE%
+ItemDisplay[FILTLVL=6 MAG !ID !EQUIPPED (CB_ORB OR CB_BOW OR CB_SCEP OR CB_CHEST OR CB_SHIELD OR CB_HELM OR CB_GLOVE OR CB_BELT OR CB_CLASSHELM OR CB_CLASSSHLD OR CB_CLASSWPN OR CB_CLASSCLUB)]: %NAME% %PURPLE%C%CONTINUE%
+ItemDisplay[FILTLVL=6 MAG !ID !EQUIPPED (CB_BOW OR CB_CHEST OR CB_SHIELD OR CB_BOOT OR CB_CLASSSHLD)]: %NAME% %GREEN%S%CONTINUE%
+ItemDisplay[FILTLVL=6 MAG !ID !EQUIPPED (CB_HELM OR CB_GLOVE OR CB_CLASSHELM)]: %NAME% %GRAY%V%CONTINUE%
+ItemDisplay[FILTLVL=6 MAG !ID !EQUIPPED (CB_BOOT)]: %NAME% %YELLOW%Bo%CONTINUE%
+ItemDisplay[FILTLVL=6 MAG !EQUIPPED CB_ANY]: %NAME%%TAN%]%CONTINUE%
 // Class-specific rare and magic highlights
 // Barbarian
 ItemDisplay[(wax OR 9wa OR 7wa OR gix OR 9gi OR 7gi OR btx OR 9bt OR 7bt OR jav OR 9ja OR 7ja OR pil OR 9pi OR 7pi OR ssp OR 9s9 OR 7s7 OR glv OR 9gl OR 7gl OR tsp OR 9ts OR 7ts OR gma OR 9gm OR 7gm OR whm OR 9wh OR 7wh OR mau OR 9m9 OR 7m7 OR pik OR 9p9 OR 7p7 OR gsd OR 9gd OR 7gd OR flb OR 9fb OR 7fb OR bsw OR 9b9 OR 7b7 OR gis OR 9gs OR 7gs OR tax OR 9ta OR 7ta OR 2ax OR 92a OR 72a) BARBARIAN RARE ETH !ID (ALVL>75 OR CRAFTALVL>75)]: %DOT-A8%%NAME%
@@ -2489,7 +2516,7 @@ ItemDisplay[(rin OR amu) MAG !ID FILTLVL>3]: {%NAME%}
 
 // Circlet fallback displays
 ItemDisplay[(MAPID=1 OR MAPID=40 OR MAPID=75 OR MAPID=103 OR MAPID=109 OR MAPID=202 OR MAPID=203 OR MAPID=204 OR MAPID=205 OR MAPID=206) (CIRC MAG !ID FILTLVL>3)]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%} // Filter Forge: shows it in town, with a warning
-ItemDisplay[CIRC MAG !ID FILTLVL>3 !FL10_CRAFT_BASE]: {%NAME%}
+ItemDisplay[CIRC MAG !ID FILTLVL>3 !FILTLVL=6]: {%NAME%}
 ItemDisplay[CIRC (MAG OR RARE) !ID]: %NAME%
 
 // Rare glove, belt, and boot fallback displays
@@ -4577,8 +4604,6 @@ ItemDisplay[(NOTICEME08)]: %NAME%{%DARK_GREEN%Lower Resist Charges%CL%%NAME%}%CO
 // Life Tap Charges
 ItemDisplay[(NOTICEME09)]: %NAME%{%DARK_GREEN%Life Tap Charges%CL%%NAME%}%CONTINUE%
 
-
-
 // BEGIN AUTO PD2TRADER BIS SLAMS
 // Source: ProjectD2 market listings (48h, ladder=true, hardcore=false)
 // FL4/FL7 only: non-amulets show the top corruption with priced samples >= 2; amulets show the top corruption + desecration combo with no sample minimum
@@ -6199,7 +6224,7 @@ ItemDisplay[(aqv2 OR cqv2) NMAG !INF !SOCK=2 ((CLVL<41 AND DIFF<1) FILTLVL<3)]: 
 ItemDisplay[(aqv2 OR cqv2) NMAG !INF SOCK=2 ((CLVL<61 AND DIFF<2) FILTLVL<3)]: %NAME%{%NAME%}
 ItemDisplay[(aqv3 OR cqv3) NMAG !INF SOCK=1 ((CLVL<61 AND DIFF<2) FILTLVL<3)]: %NAME%{%NAME%}
 ItemDisplay[(aqv3 OR cqv3) NMAG !INF !SOCK=1 (CLVL<61 FILTLVL<3)]: %NAME%{%NAME%}
-// FL6 Endgame - Crafting Bases: every magic weapon and armor shows
+// FL6 Endgame - Crafting Bases: listed magic weapons and armor show
 ItemDisplay[FL10_CRAFT_BASE]: %NAME%{%NAME%}
 ItemDisplay[(ARMOR OR WEAPON OR QUIVER) TOWN FILTLVL>0]: %NAME%{%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%}
 ItemDisplay[(ARMOR OR WEAPON OR QUIVER) !TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED FILTLVL>0 !(uit SOCK=4 NMAG !RW FILTLVL<4) !(msf OR hst OR hfh OR qf1 OR qf2 OR vip OR g33 OR d33 OR hdm OR leg OR box OR tr1 OR ice OR std OR bks OR bkd OR j34 OR g34 OR bbb OR mss OR ass OR qey OR qhr OR qbr OR tr2 OR xyz)]: {%PURPLE%Decrease Your Filter Level in Settings to Display It All The Time%NL%%WHITE%Outside the Town/In the Fight Field it is Going to be %RED%HIDDEN%NL%WARNING%WHITE%: At Current Filter LVL this item is shown %RED%ONLY %WHITE%in Town%CL%%NAME%}

@@ -21,8 +21,8 @@ Every Roofoo filter now has **7 levels** instead of 11: one for leveling, one fo
 | FL2 | Mid Game - Runes and Gems Alert | Hides low-value white, magic and rare gear, and alerts you to low runes (El to Ko), flawless gems and selected ethereal elite weapon bases. |
 | FL3 | Strict - No Potions | The strict step: hides much more gear outside town than FL2 (most magic and rare weapons, magic armor, plain elite armor bases), drops FL2's flawless gem alerts, most of its ethereal base alerts and most low rune alerts, and hides healing and mana potions (rejuvenation potions still show). |
 | FL4 | Endgame - Standard | The strict endgame level. Outside town, gear only shows when it's worth a look. |
-| FL5 | Endgame - No Large Charms | Like FL4, and it also hides unidentified magic Large Charms, set rings you've already found and antidote potions outside town. |
-| FL6 | Endgame - Crafting Bases | Like FL4, and it also shows every magic weapon and armor piece, for crafting. |
+| FL5 | Endgame - No Large Charms | Like FL4, and it also hides unidentified magic Large Charms, set rings you've already found and antidote potions outside town. Antidotes still show in the Rathma arenas. |
+| FL6 | Endgame - Crafting Bases | Like FL4, and it also shows a short list of magic crafting bases, tagged with their recipes. |
 | FL7 | Endgame - All Flawless Gems | Like FL4, and it also shows every flawless gem. |
 
 **Almost everything shows in town.** On every level, items in town, the Guild Hall, shops, your inventory, cube and stash stay visible, apart from small gold piles and rare bolts. Most items your level would hide outside town warn you in their tooltip.
@@ -30,7 +30,7 @@ Every Roofoo filter now has **7 levels** instead of 11: one for leveling, one fo
 **On the endgame levels (FL4–FL7),** outside town:
 
 - Uniques and runewords pass, and so do sets, except unidentified sets already in your [holy grail](#-holy-grail). Lower-value uniques show quietly instead of with stars.
-- White bases and rare gear only show when they're worth a look, such as good sockets or enhanced defense/damage, staff mod bases, and selected rare bases. Magic weapons and armor only show on FL6.
+- White bases and rare gear only show when they're worth a look, such as good sockets or enhanced defense/damage, staff mod bases, and selected rare bases. Selected magic weapons and armor only show on FL6.
 - Low-level magic charms (small, large and grand), unidentified magic rings and amulets, and unidentified set amulets you've already found are hidden.
 - In the [+ BIS versions](#-getting-the-filter), identified uniques and sets show their best slam and its price on FL4 and FL7.
 
