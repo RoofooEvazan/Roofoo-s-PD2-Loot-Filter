@@ -106,6 +106,10 @@ ItemDisplay[FL8_ACTIVE FL8_INTOWN !FL8_EXEMPT]: %NAME%{%NAME%}%CONTINUE%
 // FL8 high-affix rare non-eth chest/shield bases with 4os potential
 ItemDisplay[FL8_ACTIVE (CHEST OR SHIELD) RARE !ETH !ID (ALVL>74 OR CRAFTALVL>74) MAXSOCKETS=4]: %DOT-A8%%TIER-3%%NAME%
 
+// FL8 rare druid pelts and clubs that can roll every affix (pelts 81, clubs 77)
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE DRU RARE !ID (ALVL>80 OR CRAFTALVL>80)]: %DOT-A8%%TIER-3%%NAME%
+ItemDisplay[FL8_ACTIVE FL8_OUTSIDE (clb OR 9cl OR 7cl OR spc OR 9sp OR 7sp) RARE !ID (ALVL>76 OR CRAFTALVL>76)]: %DOT-A8%%TIER-3%%NAME%
+
 // ===============================
 // FL8 outside-town unid hide/show rules
 // ===============================
@@ -2436,15 +2440,8 @@ ItemDisplay[(jew) RARE !ID]: %DOT-A8%%YELLOW%*%YELLOW%*%YELLOW%*%YELLOW%   Jewel
 
 ItemDisplay[(rin OR amu OR CIRC) RARE !ID]: %DOT-A8%%TAN%*%WHITE%*   %NAME%%WHITE%   *%TAN%*%YELLOW%
 
-// FL6 crafting list: [Craft B H], the word Craft, then the recipe letters on unidentified items
-ItemDisplay[FILTLVL=6 MAG !EQUIPPED CB_ANY]: %NAME% %TAN%[%ORANGE%Craft%CONTINUE%
-ItemDisplay[FILTLVL=6 MAG !ID !EQUIPPED (CB_HEAVY OR CB_GLOVE OR CB_CLASSBAR OR CB_CLASSKAT)]: %NAME% %RED%B%CONTINUE%
-ItemDisplay[FILTLVL=6 MAG !ID !EQUIPPED (CB_HEAVY OR CB_SHIELD OR CB_GLOVE OR CB_BELT OR CB_CLASSSHLD OR CB_CLASSBAR OR CB_CLASSKAT)]: %NAME% %BLUE%H%CONTINUE%
-ItemDisplay[FILTLVL=6 MAG !ID !EQUIPPED (CB_ORB OR CB_BOW OR CB_SCEP OR CB_CHEST OR CB_SHIELD OR CB_HELM OR CB_GLOVE OR CB_BELT OR CB_CLASSHELM OR CB_CLASSSHLD OR CB_CLASSWPN OR CB_CLASSCLUB)]: %NAME% %PURPLE%C%CONTINUE%
-ItemDisplay[FILTLVL=6 MAG !ID !EQUIPPED (CB_BOW OR CB_CHEST OR CB_SHIELD OR CB_BOOT OR CB_CLASSSHLD)]: %NAME% %GREEN%S%CONTINUE%
-ItemDisplay[FILTLVL=6 MAG !ID !EQUIPPED (CB_HELM OR CB_GLOVE OR CB_CLASSHELM)]: %NAME% %GRAY%V%CONTINUE%
-ItemDisplay[FILTLVL=6 MAG !ID !EQUIPPED (CB_BOOT)]: %NAME% %YELLOW%Bo%CONTINUE%
-ItemDisplay[FILTLVL=6 MAG !EQUIPPED CB_ANY]: %NAME%%TAN%]%CONTINUE%
+// FL6 crafting list: an orange [C] after the name
+ItemDisplay[FILTLVL=6 MAG !EQUIPPED CB_ANY]: %NAME% %ORANGE%[C]%CONTINUE%
 // Class-specific rare and magic highlights
 // Barbarian
 ItemDisplay[(wax OR 9wa OR 7wa OR gix OR 9gi OR 7gi OR btx OR 9bt OR 7bt OR jav OR 9ja OR 7ja OR pil OR 9pi OR 7pi OR ssp OR 9s9 OR 7s7 OR glv OR 9gl OR 7gl OR tsp OR 9ts OR 7ts OR gma OR 9gm OR 7gm OR whm OR 9wh OR 7wh OR mau OR 9m9 OR 7m7 OR pik OR 9p9 OR 7p7 OR gsd OR 9gd OR 7gd OR flb OR 9fb OR 7fb OR bsw OR 9b9 OR 7b7 OR gis OR 9gs OR 7gs OR tax OR 9ta OR 7ta OR 2ax OR 92a OR 72a) BARBARIAN RARE ETH !ID (ALVL>75 OR CRAFTALVL>75)]: %DOT-A8%%NAME%
