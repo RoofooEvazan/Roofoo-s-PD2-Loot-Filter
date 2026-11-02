@@ -216,7 +216,7 @@ export const SOUND_PACKS = [
 ];
 
 export const TIERS = [
-  { id: '', label: 'Plain', short: 'Plain', help: 'Normal item color, no marker. Hidden outside town on the two strictest levels.' },
+  { id: '', label: 'Plain', short: 'Plain', help: 'Normal item color, no marker. Hidden outside town on FL4 and up, unless it is a new grail find.' },
   { id: 'NS', label: 'No star', short: 'No ★', slot: 'ns' },
   { id: 'OS', label: '1 star', short: '1★', slot: 'os' },
   { id: 'TS', label: '3 star', short: '3★', slot: 'ts' },

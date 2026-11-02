@@ -1,8 +1,8 @@
-import * as E from './engine.js?v=2026-09-28a';
+import * as E from './engine.js?v=2026-11-02a';
 import {
   TEXT_SLOTS, MARKER_SLOTS, MYSTERY_SLOT_IDS, PRESETS, SOUND_PACKS, TIERS, TEXT_COLORS, TEXT_COLOR_NAMES, MARKER_COLORS, MARKER_SIZES,
-} from './themes.js?v=2026-09-28a';
-import { blankProfile, normalizeProfile, upgradeSetup, upgradeMessage, categoryOf, SCROLLS } from './setup.js?v=2026-09-28a';
+} from './themes.js?v=2026-11-02a';
+import { blankProfile, normalizeProfile, upgradeSetup, upgradeMessage, categoryOf, SCROLLS } from './setup.js?v=2026-11-02a';
 
 const REPO = 'RoofooEvazan/Roofoo-s-PD2-Loot-Filter';
 const BRANCH = 'main';
@@ -667,7 +667,7 @@ function rowDefaultsDetail(row, r) {
   const out = [];
   // per version: its description and whether it's hidden on each level (for the breakdown table)
   out.versions = variants.map(v => ({ label: describe(v) || 'this item', hidden: [] }));
-  for (let fl = 0; fl < E.FILTER_LEVELS; fl++) {
+  for (let fl = 0; fl < S.base.levelNames.length; fl++) {
     const states = variants.map(v => ({ v, hidden: sim.evaluate(E.makeItem(S.game, { ...v, filtlvl: fl })).hidden }));
     states.forEach((s, i) => out.versions[i].hidden.push(s.hidden));
     const shownV = states.filter(s => !s.hidden).map(s => s.v);
@@ -689,7 +689,7 @@ function rowDefaultsDetail(row, r) {
 }
 
 // One line under the level strip explaining split levels, e.g.
-// "FL8–FL9: only the non-ethereal version shows; the ethereal version is hidden."
+// "FL4–FL7: only the non-ethereal version shows; the ethereal version is hidden."
 function splitNoteHTML(details, r, row) {
   const groups = new Map();
   details.forEach((d, fl) => {
@@ -894,7 +894,7 @@ function itemRowHTML(row) {
         ${row.names ? `<div class="tnames${sec === 'SET' ? ' set' : ''}">${esc(row.names.join(', '))}</div>` : ''}</div></div>
       ${extra ? `<div class="irow-extra">${extra}</div>` : ''}
     </div>
-    <div class="irow-fl"><div class="flstrip mini">${cells}</div>
+    <div class="irow-fl"><div class="flstrip mini" style="--fl-count:${S.base.levelNames.length}">${cells}</div>
       <button class="btn small ${optsOpen ? '' : 'ghost'}" data-act="opts" data-row="${row.key}" aria-expanded="${optsOpen}">Options${nOpts ? ` (${nOpts})` : ''} ${optsOpen ? '▴' : '▾'}</button></div>
     ${splitNoteHTML(details, r, row)}
     ${optsOpen ? optionsHTML(row, r) : ''}
@@ -1025,7 +1025,7 @@ function onItemsEvent(ev) {
   if (act === 'fl-all') {
     const r = ruleOrNew(row);
     r.fl = {};
-    if (t.dataset.v) for (let l = 0; l < E.FILTER_LEVELS; l++) r.fl[l] = t.dataset.v;
+    if (t.dataset.v) for (let l = 0; l < S.base.levelNames.length; l++) r.fl[l] = t.dataset.v;
     pruneRule(row.key);
     changed(false);
     return refreshRow(row.key);
@@ -1113,7 +1113,7 @@ function drawTestResults() {
   const quals = testQualities(t.entry);
   const q = quals.length ? t.quality : 'NMAG';
   const rows = [];
-  for (let fl = 0; fl < E.FILTER_LEVELS; fl++) {
+  for (let fl = 0; fl < names.length; fl++) {
     const item = E.makeItem(S.game, { code: t.entry.codes[0], quality: q, eth: t.eth, identified: t.identified, sockets: +t.sockets, ilvl: +t.ilvl, ed: +t.ed, where: t.where, clvl: +t.clvl, filtlvl: fl, uniqueName: t.entry.uniqueName });
     const r = sim.evaluate(item);
     const line = r.ruleLine !== null ? lines[r.ruleLine] : '';
@@ -1382,9 +1382,10 @@ function chipLabel(row, chip) {
 }
 
 function renderReport() {
-  S.report = S.report || { fl: 8, clvl: 90, diff: 2, mode: 'all', q: '' };
+  S.report = S.report || { fl: 4, clvl: 90, diff: 2, mode: 'all', q: '' };
   const r = S.report;
   const names = S.base.levelNames;
+  if (+r.fl >= names.length) r.fl = 4;
   panel('report').innerHTML = `
     <h2>Overview &amp; review</h2>
     <p class="lead">What your filter shows and hides on the ground on each filter level, in plain words. <b style="color:#ff8a80">Red</b> border = hidden outside town, <b style="color:#8fe39a">green</b> border = shown. The text color is the item's rarity. Hover or tap any item to see it the way the game does. Nothing is ever hidden in town.</p>
@@ -1691,7 +1692,7 @@ function priceNoticeHTML() {
   return `<div class="price-banner" role="note">
     <span class="pb-icon" aria-hidden="true">!</span>
     <div><b class="pb-title">Custom filters don't include the online features</b>
-      <p>Live market prices (<b>rune values</b>, <b>Rainbow Facet values</b> and <b>best-slam suggestions</b>${slam ? ", including Slamfest's whole FL9 slam mode" : ''}) update every 6 hours and only work in the <b>launcher version</b> of Roofoo's filter. They're removed from any filter you download here, so they can't go out of date.</p>
+      <p>Live market prices (<b>rune values</b>, <b>Rainbow Facet values</b> and <b>best-slam suggestions</b>${slam ? ", including Slamfest's whole FL8 slam mode" : ''}) update every 6 hours and only work in the <b>launcher version</b> of Roofoo's filter. They're removed from any filter you download here, so they can't go out of date.</p>
       <p class="pb-alt">Want them? Pick <b>Roofoo's Filter</b> from the PD2 launcher's online filter list instead of a custom one.</p></div>
   </div>`;
 }
@@ -1702,7 +1703,7 @@ function safetyNetHTML() {
   let preview = '';
   if (on) {
     // 'zz9' stands in for an item a future PD2 patch adds: no filter rule or builder data knows it
-    const r = finalSim().evaluate(E.makeItem(S.game, { code: 'zz9', quality: 'NMAG', filtlvl: 8 }));
+    const r = finalSim().evaluate(E.makeItem(S.game, { code: 'zz9', quality: 'NMAG', filtlvl: 4 }));
     r.name = r.name.replace('zz9', 'New Item');
     preview = `<div class="safety-prev"><span class="hint">In game it looks like this, on every filter level:</span>${groundHTML(r, '', true)}</div>`;
   }

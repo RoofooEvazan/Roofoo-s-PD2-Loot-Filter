@@ -1,8 +1,7 @@
 // Filter engine: reads a PD2 loot filter, simulates how items display, and applies a
 // player's customization profile as small targeted edits to the live filter text.
-import { TEXT_SLOTS, MARKER_SLOTS, PRESETS, SOUND_PACKS } from './themes.js?v=2026-09-28a';
+import { TEXT_SLOTS, MARKER_SLOTS, PRESETS, SOUND_PACKS } from './themes.js?v=2026-11-02a';
 
-export const FILTER_LEVELS = 10; // FL0 .. FL9
 const TOKEN_RE = /%([A-Z_]+)(?:-([0-9A-Fa-f]+))?%/g;
 const ICON_SIZES = ['BORDER', 'MAP', 'DOT', 'PX'];
 const OUTSIDE_TOWN = '!TOWN !SHOP !INVENTORY !CUBE !STASH !EQUIPPED';
@@ -155,7 +154,7 @@ export class Simulator {
       const a = /^Alias\[([A-Za-z0-9_]+)\]:\s*(.*)$/.exec(line);
       if (a) aliases.set(a[1], a[2].replace(/\s*\/\/.*$/, ''));
       const n = /^ItemDisplayFilterName\[\]:\s*(.*)$/.exec(line);
-      if (n) this.levelNames.push(n[1].trim());
+      if (n) this.levelNames.push(n[1].trim().replace(/\u00ffc./g, ''));
     }
     const cc = new CondCompiler(aliases);
     this.rules = [];
@@ -717,13 +716,13 @@ export function ruleCondition(rule, game) {
 
 const flExpr = levels => levels.length === 1 ? `FILTLVL=${levels[0]}` : `(${levels.map(l => `FILTLVL=${l}`).join(' OR ')})`;
 
-function overrideLines(profile, game) {
+function overrideLines(profile, game, levels) {
   const top = [], sounds = [];
   for (const rule of profile.rules || []) {
     if (!rule.codes || !rule.codes.length) continue;
     const cond = ruleCondition(rule, game);
     const hide = [], show = [];
-    for (let l = 0; l < FILTER_LEVELS; l++) {
+    for (let l = 0; l < levels; l++) {
       const v = (rule.fl || {})[l];
       if (v === 'hide') hide.push(l);
       if (v === 'show') show.push(l);
@@ -884,7 +883,8 @@ export function buildFilter(baseText, profile, game, meta = {}) {
   }
 
   // 4) insertions (bottom first so indexes stay valid)
-  const ov = overrideLines(profile, game);
+  const levels = lines.filter(l => /^ItemDisplayFilterName\[\]:/.test(l)).length + 1;
+  const ov = overrideLines(profile, game, levels);
   report.rules = (profile.rules || []).filter(r => r.codes && r.codes.length).length;
   const soundLines = [...newSoundLines, ...ov.sounds];
   report.soundLinesAdded = soundLines.length;

@@ -193,7 +193,7 @@ details.customize[open] summary::before { transform: rotate(90deg); }
 .rule .opts { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
 .qchip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 0; border: 1px solid var(--line-2); background: var(--bg-2); cursor: pointer; font-size: 13px; }
 .qchip input { margin: 0; accent-color: var(--gold); }
-.flstrip { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 4px; }
+.flstrip { display: grid; grid-template-columns: repeat(var(--fl-count, 8), minmax(0, 1fr)); gap: 4px; }
 .fl { border: 1px solid var(--line-2); background: var(--bg-2); border-radius: 0; padding: 6px 2px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 0; }
 .fl .num { font-size: 11px; color: var(--faint); }
 .fl .st { font-size: 12px; font-weight: 600; }
@@ -302,7 +302,7 @@ textarea { width: 100%; min-height: 70px; background: var(--bg-2); border: 1px s
   .topbar-actions { width: 100%; }
   .topbar-actions .btn { flex: 1; }
   .slot-grid { grid-template-columns: 1fr; }
-  .flstrip { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .flstrip { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .seg button { padding: 5px 7px; font-size: 12px; }
   .label { font-size: 13px; }
 }
@@ -366,7 +366,7 @@ textarea { width: 100%; min-height: 70px; background: var(--bg-2); border: 1px s
 .sock.on { background: var(--gold); color: #1d1509; border-color: var(--gold); font-weight: 700; }
 @media (max-width: 700px) {
   .irow-fl { flex-direction: column; align-items: stretch; }
-  .flstrip.mini { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .flstrip.mini { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
 .price-note { margin: 4px 0 8px; font-size: 13.5px; }
