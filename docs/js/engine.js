@@ -747,11 +747,11 @@ export const PRICE_NOTE = "Live market prices (rune values, Rainbow Facet values
 
 // Custom filters don't get the 6-hourly PD2 Trader updates, so their market prices would go stale.
 // Remove every "BEGIN AUTO PD2TRADER ... END AUTO PD2TRADER" block and leave a note in its place.
-export function stripPriceBlocks(lines) {
+export function stripPriceBlocks(lines, keepBis = false) {
   const out = [];
   let inBlock = false, blocks = 0;
   for (const line of lines) {
-    if (/^\/\/ BEGIN AUTO PD2TRADER\b/.test(line)) {
+    if (/^\/\/ BEGIN AUTO PD2TRADER\b/.test(line) && !(keepBis && /BIS SLAMS/.test(line))) {
       inBlock = true;
       blocks++;
       out.push(`// ${line.slice(3).replace('BEGIN AUTO', 'REMOVED AUTO')}: ${PRICE_NOTE}`);
@@ -819,7 +819,7 @@ export function buildFilter(baseText, profile, game, meta = {}) {
   let { lines, eol } = splitLines(baseText);
   const report = { tiers: 0, slots: [], missing: [], markers: 0, rules: 0, soundLinesAdded: 0, priceBlocks: 0 };
   if (meta.stripPrices !== false) {
-    const stripped = stripPriceBlocks(lines);
+    const stripped = stripPriceBlocks(lines, meta.keepBis);
     lines = stripped.lines;
     report.priceBlocks = stripped.blocks;
   }

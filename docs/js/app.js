@@ -1,4 +1,4 @@
-import * as E from './engine.js?v=2026-11-02a';
+import * as E from './engine.js?v=2026-11-02b';
 import {
   TEXT_SLOTS, MARKER_SLOTS, MYSTERY_SLOT_IDS, PRESETS, SOUND_PACKS, TIERS, TEXT_COLORS, TEXT_COLOR_NAMES, MARKER_COLORS, MARKER_SIZES,
 } from './themes.js?v=2026-11-02a';
@@ -8,7 +8,17 @@ const REPO = 'RoofooEvazan/Roofoo-s-PD2-Loot-Filter';
 const BRANCH = 'main';
 const BASES = [
   { file: 'Roofoo.filter', label: "Roofoo's filter", out: 'Roofoo-Custom.filter' },
+  { file: 'RoofooBIS.filter', label: "Roofoo's filter + BIS", out: 'RoofooBIS-Custom.filter', bis: true },
   { file: 'RoofooMystery.filter', label: "Roofoo's filter + Mystery drops", out: 'RoofooMystery-Custom.filter', mystery: true },
+  { file: 'RoofooMysteryBIS.filter', label: "Roofoo's filter + Mystery drops + BIS", out: 'RoofooMysteryBIS-Custom.filter', mystery: true, bis: true },
+  { file: 'RoofooHealthBar.filter', label: 'Health Bar', out: 'RoofooHealthBar-Custom.filter', bar: 'health' },
+  { file: 'RoofooHealthBarBIS.filter', label: 'Health Bar + BIS', out: 'RoofooHealthBarBIS-Custom.filter', bar: 'health', bis: true },
+  { file: 'RoofooMysteryHealthBar.filter', label: 'Health Bar + Mystery drops', out: 'RoofooMysteryHealthBar-Custom.filter', bar: 'health', mystery: true },
+  { file: 'RoofooMysteryHealthBarBIS.filter', label: 'Health Bar + Mystery drops + BIS', out: 'RoofooMysteryHealthBarBIS-Custom.filter', bar: 'health', mystery: true, bis: true },
+  { file: 'RoofooLoadingBar.filter', label: 'Loading Bar', out: 'RoofooLoadingBar-Custom.filter', bar: 'loading' },
+  { file: 'RoofooLoadingBarBIS.filter', label: 'Loading Bar + BIS', out: 'RoofooLoadingBarBIS-Custom.filter', bar: 'loading', bis: true },
+  { file: 'RoofooMysteryLoadingBar.filter', label: 'Loading Bar + Mystery drops', out: 'RoofooMysteryLoadingBar-Custom.filter', bar: 'loading', mystery: true },
+  { file: 'RoofooMysteryLoadingBarBIS.filter', label: 'Loading Bar + Mystery drops + BIS', out: 'RoofooMysteryLoadingBarBIS-Custom.filter', bar: 'loading', mystery: true, bis: true },
   { file: 'RoofooSlamfestBETA.filter', label: 'Slamfest (beta)', out: 'RoofooSlamfest-Custom.filter' },
 ];
 const STORE_KEY = 'roofoo-builder-v1';
@@ -178,7 +188,7 @@ function soundLabel(id) {
 function built() {
   const key = JSON.stringify([S.baseFile, S.profile]);
   if (S.memo.builtKey !== key) {
-    const meta = { baseName: S.baseFile, baseDate: S.baseDate, url: location.origin + location.pathname, profileCode: S.memo.code || '' };
+    const meta = { keepBis: isBisBase(), baseName: S.baseFile, baseDate: S.baseDate, url: location.origin + location.pathname, profileCode: S.memo.code || '' };
     S.memo.built = E.buildFilter(S.baseText, S.profile, S.game, meta);
     S.memo.builtKey = key;
     S.memo.finalSim = null;
@@ -196,6 +206,13 @@ function mysteryLines(text) {
   return map;
 }
 const isMysteryBase = () => !!(BASES.find(b => b.file === S.baseFile) || {}).mystery;
+const isBisBase = () => !!(BASES.find(b => b.file === S.baseFile) || {}).bis;
+// The same version with Mystery drops on or off (Slamfest has no Mystery version)
+function mysteryTwin(on) {
+  const b = BASES.find(x => x.file === S.baseFile) || BASES[0];
+  const twin = BASES.find(x => !!x.mystery === on && x.bar === b.bar && !!x.bis === !!b.bis && x.file !== 'RoofooSlamfestBETA.filter');
+  return twin.file;
+}
 
 function finalSim() {
   const b = built();
@@ -206,7 +223,7 @@ function baselineSim() {
   const p = { ...S.profile, rules: [] };
   const key = JSON.stringify([S.baseFile, p]);
   if (S.memo.baseKey !== key) {
-    S.memo.baseSim = new E.Simulator(E.buildFilter(S.baseText, p, S.game).text);
+    S.memo.baseSim = new E.Simulator(E.buildFilter(S.baseText, p, S.game, { keepBis: isBisBase() }).text);
     S.memo.baseKey = key;
   }
   return S.memo.baseSim;
@@ -1689,10 +1706,11 @@ function onReportEvent(ev) {
 // Shown as a highlighted banner at the top of Colors & sounds and Save & install.
 function priceNoticeHTML() {
   const slam = S.baseFile === 'RoofooSlamfestBETA.filter';
+  const bis = isBisBase();
   return `<div class="price-banner" role="note">
     <span class="pb-icon" aria-hidden="true">!</span>
     <div><b class="pb-title">Custom filters don't include the online features</b>
-      <p>Live market prices (<b>rune values</b>, <b>Rainbow Facet values</b> and <b>best-slam suggestions</b>${slam ? ", including Slamfest's whole FL8 slam mode" : ''}) update every 6 hours and only work in the <b>launcher version</b> of Roofoo's filter. They're removed from any filter you download here, so they can't go out of date.</p>
+      <p>Live market prices (<b>rune values</b>${bis ? ' and <b>Rainbow Facet values</b>' : ', <b>Rainbow Facet values</b> and <b>best-slam suggestions</b>'}${slam ? ", including Slamfest's whole FL8 slam mode" : ''}) update every 6 hours and only work in the <b>launcher version</b> of Roofoo's filter. They're removed from any filter you download here, so they can't go out of date.${bis ? ' This + BIS version keeps its best-slam suggestions, but their prices stay as they were on the day you download.' : ''}</p>
       <p class="pb-alt">Want them? Pick <b>Roofoo's Filter</b> from the PD2 launcher's online filter list instead of a custom one.</p></div>
   </div>`;
 }
@@ -2022,7 +2040,7 @@ async function boot() {
   document.addEventListener('click', e => {
     const b = e.target.closest('[data-act="mystery-on"], [data-act="mystery-off"]');
     if (!b) return;
-    loadBase(b.dataset.act === 'mystery-on' ? 'RoofooMystery.filter' : 'Roofoo.filter')
+    loadBase(mysteryTwin(b.dataset.act === 'mystery-on'))
       .then(() => toast(b.dataset.act === 'mystery-on' ? 'Mystery drops are on.' : 'Mystery drops are off.'));
   });
   report.addEventListener('toggle', e => {
